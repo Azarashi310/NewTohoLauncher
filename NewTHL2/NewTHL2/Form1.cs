@@ -569,12 +569,15 @@ namespace NewTHL2
         //ファイルパスの参照
         private void button1_Click(object sender, EventArgs e)
         {
+            string FP = "";
+            StringBuilder hash = new StringBuilder(1024);
+            bool flag;
+            //何も選択してない場合は参照させない形にするのがいいね
             if (select == 999)
             {
                 MessageBox.Show("とりあえず左の一覧からなにか選択してください", "話はそれからだ");
                 return;
             }
-            string FP = "";
             //ファイルダイアログを開き、ファイルパスを取得
             FP = algo.OFDandSFD.FBD_Run();
             if (FP == "")
@@ -584,8 +587,26 @@ namespace NewTHL2
             }
             else
             {
-                //iniファイルに書き込み
-                WritePrivateProfileString("FilePath", Thxx[select].ToString(), FP, settingFilePath);
+                //ハッシュと比較
+                GetPrivateProfileString("HASH", Thxx[select].ToString(), "",hash,Convert.ToUInt32(hash.Capacity),hashFilePath);
+                if(hash.ToString() == "")
+                {
+                    MessageBox.Show("ハッシュファイルエラー" + Environment.NewLine + "メニューからハッシュ値の更新を押してください", "お知らせ");
+                    return;
+                }
+                flag = algo.Hash.compairMD5(FP, hash.ToString());
+                //選択したものが正しいか
+                if(flag == true)
+                {
+                    //iniファイルに書き込み
+                    WritePrivateProfileString("FilePath", Thxx[select].ToString(), FP, settingFilePath);
+                }
+                else
+                {
+                    MessageBox.Show("違うファイルが選択されているか、ハッシュ値表が古いです" + Environment.NewLine +
+                        "ファイルが違う場合は再度参照しなおしてください。" + Environment.NewLine + "ハッシュ値表が古い場合はメニューからハッシュ値の更新を押してください（要ネット環境）", "お知らせ");
+                    return;
+                }
             }
         }
 
