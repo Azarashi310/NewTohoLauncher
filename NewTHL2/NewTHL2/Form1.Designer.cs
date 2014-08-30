@@ -100,17 +100,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rightPainIcon = new System.Windows.Forms.PictureBox();
             this.rightPain_BG = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.バックアップフォルダの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ゲームの設定を開くToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ゲームのフォルダを開くToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ランチャの背景設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.特殊な設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vpatchの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.リプレイのユーザーデータ化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titleName = new System.Windows.Forms.Label();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.バックアップフォルダの設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ゲームの設定を開くToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ゲームのフォルダを開くToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ランチャの背景設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.特殊な設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.vpatchの設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.リプレイのユーザーデータ化ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -153,9 +153,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.th135_I)).BeginInit();
             this.alcostg_P.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alcostg_I)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightPainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPain_BG)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -793,21 +793,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(714, 21);
+            this.button3.MaximumSize = new System.Drawing.Size(70, 70);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(70, 70);
             this.button3.TabIndex = 8;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // pictureBox1
+            // rightPainIcon
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(470, 50);
-            this.pictureBox1.MaximumSize = new System.Drawing.Size(128, 128);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.rightPainIcon.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rightPainIcon.InitialImage = null;
+            this.rightPainIcon.Location = new System.Drawing.Point(470, 50);
+            this.rightPainIcon.MaximumSize = new System.Drawing.Size(128, 128);
+            this.rightPainIcon.Name = "rightPainIcon";
+            this.rightPainIcon.Size = new System.Drawing.Size(128, 128);
+            this.rightPainIcon.TabIndex = 4;
+            this.rightPainIcon.TabStop = false;
             // 
             // rightPain_BG
             // 
@@ -818,64 +820,9 @@
             this.rightPain_BG.TabIndex = 3;
             this.rightPain_BG.TabStop = false;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.バックアップフォルダの設定ToolStripMenuItem,
-            this.ゲームの設定を開くToolStripMenuItem,
-            this.ゲームのフォルダを開くToolStripMenuItem,
-            this.ランチャの背景設定ToolStripMenuItem,
-            this.特殊な設定ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(233, 114);
-            // 
-            // バックアップフォルダの設定ToolStripMenuItem
-            // 
-            this.バックアップフォルダの設定ToolStripMenuItem.Name = "バックアップフォルダの設定ToolStripMenuItem";
-            this.バックアップフォルダの設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.バックアップフォルダの設定ToolStripMenuItem.Text = "バックアップフォルダの設定";
-            // 
-            // ゲームの設定を開くToolStripMenuItem
-            // 
-            this.ゲームの設定を開くToolStripMenuItem.Name = "ゲームの設定を開くToolStripMenuItem";
-            this.ゲームの設定を開くToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.ゲームの設定を開くToolStripMenuItem.Text = "ゲームの設定を開く";
-            // 
-            // ゲームのフォルダを開くToolStripMenuItem
-            // 
-            this.ゲームのフォルダを開くToolStripMenuItem.Name = "ゲームのフォルダを開くToolStripMenuItem";
-            this.ゲームのフォルダを開くToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.ゲームのフォルダを開くToolStripMenuItem.Text = "ゲームのフォルダを開く";
-            // 
-            // ランチャの背景設定ToolStripMenuItem
-            // 
-            this.ランチャの背景設定ToolStripMenuItem.Name = "ランチャの背景設定ToolStripMenuItem";
-            this.ランチャの背景設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.ランチャの背景設定ToolStripMenuItem.Text = "ランチャの背景設定";
-            // 
-            // 特殊な設定ToolStripMenuItem
-            // 
-            this.特殊な設定ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vpatchの設定ToolStripMenuItem,
-            this.リプレイのユーザーデータ化ToolStripMenuItem});
-            this.特殊な設定ToolStripMenuItem.Name = "特殊な設定ToolStripMenuItem";
-            this.特殊な設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.特殊な設定ToolStripMenuItem.Text = "特殊な設定";
-            // 
-            // vpatchの設定ToolStripMenuItem
-            // 
-            this.vpatchの設定ToolStripMenuItem.Name = "vpatchの設定ToolStripMenuItem";
-            this.vpatchの設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.vpatchの設定ToolStripMenuItem.Text = "Vpatchの設定";
-            // 
-            // リプレイのユーザーデータ化ToolStripMenuItem
-            // 
-            this.リプレイのユーザーデータ化ToolStripMenuItem.Name = "リプレイのユーザーデータ化ToolStripMenuItem";
-            this.リプレイのユーザーデータ化ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.リプレイのユーザーデータ化ToolStripMenuItem.Text = "リプレイのユーザーデータ化";
-            // 
             // titleName
             // 
+            this.titleName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.titleName.AutoSize = true;
             this.titleName.Location = new System.Drawing.Point(444, 191);
             this.titleName.Name = "titleName";
@@ -883,6 +830,62 @@
             this.titleName.TabIndex = 9;
             this.titleName.Text = "notext";
             this.titleName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.バックアップフォルダの設定ToolStripMenuItem1,
+            this.ゲームの設定を開くToolStripMenuItem1,
+            this.ゲームのフォルダを開くToolStripMenuItem1,
+            this.ランチャの背景設定ToolStripMenuItem1,
+            this.特殊な設定ToolStripMenuItem1});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 114);
+            // 
+            // バックアップフォルダの設定ToolStripMenuItem1
+            // 
+            this.バックアップフォルダの設定ToolStripMenuItem1.Name = "バックアップフォルダの設定ToolStripMenuItem1";
+            this.バックアップフォルダの設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.バックアップフォルダの設定ToolStripMenuItem1.Text = "バックアップフォルダの設定";
+            // 
+            // ゲームの設定を開くToolStripMenuItem1
+            // 
+            this.ゲームの設定を開くToolStripMenuItem1.Name = "ゲームの設定を開くToolStripMenuItem1";
+            this.ゲームの設定を開くToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.ゲームの設定を開くToolStripMenuItem1.Text = "ゲームの設定を開く";
+            // 
+            // ゲームのフォルダを開くToolStripMenuItem1
+            // 
+            this.ゲームのフォルダを開くToolStripMenuItem1.Name = "ゲームのフォルダを開くToolStripMenuItem1";
+            this.ゲームのフォルダを開くToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.ゲームのフォルダを開くToolStripMenuItem1.Text = "ゲームのフォルダを開く";
+            // 
+            // ランチャの背景設定ToolStripMenuItem1
+            // 
+            this.ランチャの背景設定ToolStripMenuItem1.Name = "ランチャの背景設定ToolStripMenuItem1";
+            this.ランチャの背景設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.ランチャの背景設定ToolStripMenuItem1.Text = "ランチャの背景設定";
+            // 
+            // 特殊な設定ToolStripMenuItem1
+            // 
+            this.特殊な設定ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vpatchの設定ToolStripMenuItem1,
+            this.リプレイのユーザーデータ化ToolStripMenuItem1});
+            this.特殊な設定ToolStripMenuItem1.Name = "特殊な設定ToolStripMenuItem1";
+            this.特殊な設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.特殊な設定ToolStripMenuItem1.Text = "特殊な設定";
+            // 
+            // vpatchの設定ToolStripMenuItem1
+            // 
+            this.vpatchの設定ToolStripMenuItem1.Name = "vpatchの設定ToolStripMenuItem1";
+            this.vpatchの設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.vpatchの設定ToolStripMenuItem1.Text = "Vpatchの設定";
+            // 
+            // リプレイのユーザーデータ化ToolStripMenuItem1
+            // 
+            this.リプレイのユーザーデータ化ToolStripMenuItem1.Name = "リプレイのユーザーデータ化ToolStripMenuItem1";
+            this.リプレイのユーザーデータ化ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.リプレイのユーザーデータ化ToolStripMenuItem1.Text = "リプレイのユーザーデータ化";
             // 
             // Form1
             // 
@@ -894,7 +897,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.rightPainIcon);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.rightPain_BG);
@@ -964,9 +967,9 @@
             this.alcostg_P.ResumeLayout(false);
             this.alcostg_P.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alcostg_I)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightPainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPain_BG)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1023,17 +1026,9 @@
         private System.Windows.Forms.PictureBox rightPain_BG;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox rightPainIcon;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem バックアップフォルダの設定ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ゲームの設定を開くToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ゲームのフォルダを開くToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ランチャの背景設定ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 特殊な設定ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vpatchの設定ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem リプレイのユーザーデータ化ToolStripMenuItem;
         private System.Windows.Forms.Label th06_L;
         private System.Windows.Forms.Label th07_L;
         private System.Windows.Forms.Label th08_L;
@@ -1055,6 +1050,14 @@
         private System.Windows.Forms.PictureBox th135_I;
         private System.Windows.Forms.Label alcostg_L;
         private System.Windows.Forms.Label titleName;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem バックアップフォルダの設定ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ゲームの設定を開くToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ゲームのフォルダを開くToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ランチャの背景設定ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 特殊な設定ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem vpatchの設定ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem リプレイのユーザーデータ化ToolStripMenuItem1;
     }
 }
 

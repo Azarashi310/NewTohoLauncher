@@ -42,7 +42,7 @@ namespace NewTHL2
         //R/W用のエンコード
         private Encoding sjis = Encoding.GetEncoding("Shift-JIS");
         //ファイルパスが通ってるかどうかの記憶
-        private bool[] FP_switch = new bool[18];
+        private string[] FP_switch = new string[18];
         //今選択しているもの
         private int select = 999;
 
@@ -52,8 +52,6 @@ namespace NewTHL2
             InitializeComponent();
             //イベントハンドラの初期化
             eventHandlerInitialize();
-            //パネルの配色の初期化
-            panelColorInitialize();
             //起動時初期化設定
             Initialize();
 
@@ -64,10 +62,10 @@ namespace NewTHL2
             //設定ファイル格納用フォルダと設定ファイルは存在するか？
             if (Directory.Exists(settingFolderPath) & File.Exists(settingFilePath) & File.Exists(hashFilePath))
             {
-                //試験版　ファイルパスが通ってるかどうかの設定です。
+                //ファイルパスが通ってるかどうかの設定です。
                 filePathInitialize();
-                //ファイルパスが通ってる物のパネルの配色を変えます
-
+                //パネルの配色の初期化
+                panelColorInitialize();
             }
             else
             {
@@ -109,19 +107,19 @@ namespace NewTHL2
         //ファイルパス設定の初期化
         private void filePathInitialize()
         {
-            StringBuilder SB = new StringBuilder(1024);
+            StringBuilder FP = new StringBuilder(1024);
             string[] FilePath = new string[18];
             for (int i = 0; i < 18; i++)
             {
-                GetPrivateProfileString("FilePath", Thxx[i].ToString(), "", SB, Convert.ToUInt32(SB.Capacity), settingFilePath);
-                FilePath[i] = SB.ToString();
+                GetPrivateProfileString("FilePath", Thxx[i].ToString(), "", FP, Convert.ToUInt32(FP.Capacity), settingFilePath);
+                FilePath[i] = FP.ToString();
                 if (File.Exists(FilePath[i]))
                 {
-                    FP_switch[i] = true;
+                    FP_switch[i] = FP.ToString();
                 }
                 else
                 {
-                    FP_switch[i] = false;
+                    FP_switch[i] = FP.ToString();
                 }
             }
         }
@@ -202,7 +200,7 @@ namespace NewTHL2
                 {
                     case 0:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 alcostg_P.BackColor = Color.Transparent;
                             }
@@ -214,7 +212,7 @@ namespace NewTHL2
                         }
                     case 1:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th06_P.BackColor = Color.Transparent;
                             }
@@ -226,7 +224,7 @@ namespace NewTHL2
                         }
                     case 2:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th07_P.BackColor = Color.Transparent;
                             }
@@ -238,7 +236,7 @@ namespace NewTHL2
                         }
                     case 3:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th07_P.BackColor = Color.Transparent;
                             }
@@ -250,7 +248,7 @@ namespace NewTHL2
                         }
                     case 4:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th08_P.BackColor = Color.Transparent;
                             }
@@ -262,7 +260,7 @@ namespace NewTHL2
                         }
                     case 5:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th09_P.BackColor = Color.Transparent;
                             }
@@ -274,7 +272,7 @@ namespace NewTHL2
                         }
                     case 6:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th09_P.BackColor = Color.Transparent;
                             }
@@ -286,7 +284,7 @@ namespace NewTHL2
                         }
                     case 7:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th10_P.BackColor = Color.Transparent;
                             }
@@ -298,7 +296,7 @@ namespace NewTHL2
                         }
                     case 8:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th105_P.BackColor = Color.Transparent;
                             }
@@ -310,7 +308,7 @@ namespace NewTHL2
                         }
                     case 9:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th11_P.BackColor = Color.Transparent;
                             }
@@ -322,7 +320,7 @@ namespace NewTHL2
                         }
                     case 10:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th12_P.BackColor = Color.Transparent;
                             }
@@ -334,7 +332,7 @@ namespace NewTHL2
                         }
                     case 11:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th123_P.BackColor = Color.Transparent;
                             }
@@ -346,7 +344,7 @@ namespace NewTHL2
                         }
                     case 12:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th125_P.BackColor = Color.Transparent;
                             }
@@ -358,7 +356,7 @@ namespace NewTHL2
                         }
                     case 13:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th128_P.BackColor = Color.Transparent;
                             }
@@ -370,7 +368,7 @@ namespace NewTHL2
                         }
                     case 14:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th13_P.BackColor = Color.Transparent;
                             }
@@ -382,7 +380,7 @@ namespace NewTHL2
                         }
                     case 15:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th135_P.BackColor = Color.Transparent;
                             }
@@ -394,7 +392,7 @@ namespace NewTHL2
                         }
                     case 16:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th14_P.BackColor = Color.Transparent;
                             }
@@ -406,7 +404,7 @@ namespace NewTHL2
                         }
                     case 17:
                         {
-                            if (FP_switch[i] == true)
+                            if (Directory.Exists(FP_switch[i]))
                             {
                                 th143_P.BackColor = Color.Transparent;
                             }
@@ -431,18 +429,33 @@ namespace NewTHL2
             #region パネル群&ラベル群&イメージ群
             if (sender.Equals(alcostg_P) | sender.Equals(alcostg_L) | sender.Equals(alcostg_I))
             {
+                //rightPainのタイトルを変える
                 titleName.Text = alcostg_L.Text;
+                //パネルの背景色を変える
                 alcostg_P.BackColor = Color.LightPink;
+                //選択しているものを記憶させる
                 select = 0;
             }
             if (sender.Equals(th06_P) | sender.Equals(th06_L) | sender.Equals(th06_I))
             {
+                string EXE;
                 //rightPainのタイトルを変える
                 titleName.Text = th06_L.Text;
                 //パネルの背景色を変える
                 th06_P.BackColor = Color.LightPink;
                 //選択しているものを記憶させる
                 select = 1;
+                //テキストボックスの変更
+                textBox1.Text = FP_switch[select].ToString();
+                //実行ファイルはちゃんと存在するか
+                EXE = thxx_EXE(FP_switch[select].ToString());
+                if(File.Exists(EXE))
+                {
+                    //ピクチャボックスの変更
+                    th06_I.Image = algo.GetIcon.returnPanelIcon(EXE, th06_I.Width, th06_I.Height);
+                    //ライトペインの画像を変更
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th07_P) | sender.Equals(th07_L) | sender.Equals(th07_I))
             {
@@ -542,6 +555,7 @@ namespace NewTHL2
             }
             #endregion
         }
+
         //全パネルの背景をリフレッシュ（つかわない）
         private void panelBG_reflesh()
         {
@@ -614,6 +628,7 @@ namespace NewTHL2
                 {
                     //iniファイルに書き込み
                     WritePrivateProfileString("FilePath", Thxx[select].ToString(), FP, settingFilePath);
+                    textBox1.Text = FP;
                 }
                 else
                 {
@@ -649,7 +664,11 @@ namespace NewTHL2
         {
             tabPage1.Focus();
         }
-
+        //スパナをクリックしたら
+        private void button3_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip2.Show(button3, new Point(button3.Width / 2, button3.Height / 2));
+        }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -684,6 +703,7 @@ namespace NewTHL2
         {
 
         }
+
 
     }
 }
