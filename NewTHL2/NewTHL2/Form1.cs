@@ -28,8 +28,8 @@ namespace NewTHL2
             alocstg, Th06, Th07, Th075, Th08, Th09, Th095, Th10, Th105, Th11, Th12, Th123, Th125, Th128, Th13, Th135, Th14, Th143
         }
         ThXXGames[] Thxx = new ThXXGames[18]
-        {ThXXGames.alocstg,ThXXGames.Th07,ThXXGames.Th075,ThXXGames.Th08,ThXXGames.Th09,ThXXGames.Th095,ThXXGames.Th10,ThXXGames.Th105,ThXXGames.Th11,ThXXGames.Th12,
-         ThXXGames.Th123,ThXXGames.Th125,ThXXGames.Th128,ThXXGames.Th13,ThXXGames.Th135,ThXXGames.Th14,ThXXGames.Th143,ThXXGames.Th06};
+        {ThXXGames.alocstg,ThXXGames.Th06,ThXXGames.Th07,ThXXGames.Th075,ThXXGames.Th08,ThXXGames.Th09,ThXXGames.Th095,ThXXGames.Th10,ThXXGames.Th105,ThXXGames.Th11,ThXXGames.Th12,
+         ThXXGames.Th123,ThXXGames.Th125,ThXXGames.Th128,ThXXGames.Th13,ThXXGames.Th135,ThXXGames.Th14,ThXXGames.Th143};
 
         //選択時変更用画像
         //private Bitmap BMP = NewTHL2.Properties.Resources.PBG;
@@ -62,7 +62,7 @@ namespace NewTHL2
         private void Initialize()
         {
             //設定ファイル格納用フォルダと設定ファイルは存在するか？
-            if (Directory.Exists(settingFolderPath) & File.Exists(settingFilePath))
+            if (Directory.Exists(settingFolderPath) & File.Exists(settingFilePath) & File.Exists(hashFilePath))
             {
                 //試験版　ファイルパスが通ってるかどうかの設定です。
                 filePathInitialize();
@@ -569,8 +569,13 @@ namespace NewTHL2
         //ファイルパスの参照
         private void button1_Click(object sender, EventArgs e)
         {
+            //ファイルパス
             string FP = "";
+            //.exeのパス取得
+            string EXE = "";
+            //ハッシュ取得用
             StringBuilder hash = new StringBuilder(1024);
+            //比較用
             bool flag;
             //何も選択してない場合は参照させない形にするのがいいね
             if (select == 999)
@@ -580,23 +585,32 @@ namespace NewTHL2
             }
             //ファイルダイアログを開き、ファイルパスを取得
             FP = algo.OFDandSFD.FBD_Run();
-            if (FP == "")
+            if (FP == @"C:\Windows")
             {
                 MessageBox.Show("キャンセルされました", "お知らせ");
                 return;
             }
             else
             {
-                //ハッシュと比較
-                GetPrivateProfileString("HASH", Thxx[select].ToString(), "",hash,Convert.ToUInt32(hash.Capacity),hashFilePath);
-                if(hash.ToString() == "")
+                //ハッシュを取得
+                GetPrivateProfileString("HASH", Thxx[select].ToString(), "", hash, Convert.ToUInt32(hash.Capacity), hashFilePath);
+                //何故かハッシュ値が消えている場合の処理
+                if (hash.ToString() == "")
                 {
                     MessageBox.Show("ハッシュファイルエラー" + Environment.NewLine + "メニューからハッシュ値の更新を押してください", "お知らせ");
                     return;
                 }
-                flag = algo.Hash.compairMD5(FP, hash.ToString());
+                //ハッシュを比較
+                EXE = thxx_EXE(FP);
+                //EXEファイルが存在するか
+                if(!File.Exists(EXE))
+                {
+                    MessageBox.Show("そこに東方の実行ファイルはありますか？正しい場所を選択してください", "お知らせ");
+                    return;
+                }
+                flag = algo.Hash.compairMD5(EXE, hash.ToString());
                 //選択したものが正しいか
-                if(flag == true)
+                if (flag == true)
                 {
                     //iniファイルに書き込み
                     WritePrivateProfileString("FilePath", Thxx[select].ToString(), FP, settingFilePath);
@@ -609,7 +623,21 @@ namespace NewTHL2
                 }
             }
         }
-
+        //ゲームの実行ファイル名を返す
+        private string thxx_EXE(string FP)
+        {
+            string EXE;
+            
+            if(select == 1)
+            {
+                EXE = Path.Combine(FP, "東方紅魔郷.exe");
+            }
+            else
+            {
+                EXE = Path.Combine(FP, Thxx[select].ToString());
+            }
+            return EXE;
+        }
         //タブをクリックしたら
         void tabControl1_Click(object sender, EventArgs e)
         {
@@ -656,9 +684,6 @@ namespace NewTHL2
         {
 
         }
-
-
-
 
     }
 }
