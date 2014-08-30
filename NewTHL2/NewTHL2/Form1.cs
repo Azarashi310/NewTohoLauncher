@@ -25,10 +25,10 @@ namespace NewTHL2
         //作品用enum
         enum ThXXGames
         {
-            alocstg, Th06, Th07, Th075, Th08, Th09, Th095, Th10, Th105, Th11, Th12, Th123, Th125, Th128, Th13, Th135, Th14, Th143
+            alcostg, Th06, Th07, Th075, Th08, Th09, Th095, Th10, Th105, Th11, Th12, Th123, Th125, Th128, Th13, Th135, Th14, Th143
         }
         ThXXGames[] Thxx = new ThXXGames[18]
-        {ThXXGames.alocstg,ThXXGames.Th06,ThXXGames.Th07,ThXXGames.Th075,ThXXGames.Th08,ThXXGames.Th09,ThXXGames.Th095,ThXXGames.Th10,ThXXGames.Th105,ThXXGames.Th11,ThXXGames.Th12,
+        {ThXXGames.alcostg,ThXXGames.Th06,ThXXGames.Th07,ThXXGames.Th075,ThXXGames.Th08,ThXXGames.Th09,ThXXGames.Th095,ThXXGames.Th10,ThXXGames.Th105,ThXXGames.Th11,ThXXGames.Th12,
          ThXXGames.Th123,ThXXGames.Th125,ThXXGames.Th128,ThXXGames.Th13,ThXXGames.Th135,ThXXGames.Th14,ThXXGames.Th143};
 
         //選択時変更用画像
@@ -45,6 +45,11 @@ namespace NewTHL2
         private string[] FP_switch = new string[18];
         //今選択しているもの
         private int select = 999;
+
+        //非同期処理用
+        private delegate void SearchAsyncDelegate();
+        private delegate void closeForm();
+        private Search Load;
 
         //コンストラクタ
         public Form1()
@@ -108,7 +113,7 @@ namespace NewTHL2
         //パネルのアイコンの初期化
         private void panelIconInitialize()
         {
-            for(int i = 0; i < 18;  i++)
+            for(int i = 0; i < Thxx.Length;  i++)
             {
                 switch(i)
                 {
@@ -305,7 +310,7 @@ namespace NewTHL2
         {
             StringBuilder FP = new StringBuilder(1024);
             string[] FilePath = new string[18];
-            for (int i = 0; i < 18; i++)
+            for (int i = 0; i < Thxx.Length; i++)
             {
                 GetPrivateProfileString("FilePath", Thxx[i].ToString(), "", FP, Convert.ToUInt32(FP.Capacity), settingFilePath);
                 FilePath[i] = FP.ToString();
@@ -618,11 +623,11 @@ namespace NewTHL2
         void gamePanel_Click(object sender, EventArgs e)
         {
             tabPage1.Focus();
-            panelBG_reflesh();
             //配色を戻す
             panelColorInitialize();
             //一度パネルを初期化させる
             rightPainIcon.Image = null;
+
             #region パネル群&ラベル群&イメージ群
             if (sender.Equals(alcostg_P) | sender.Equals(alcostg_L) | sender.Equals(alcostg_I))
             {
@@ -869,31 +874,6 @@ namespace NewTHL2
             }
             #endregion
         }
-
-        //全パネルの背景をリフレッシュ（つかわない）
-        private void panelBG_reflesh()
-        {
-            /* ファイルパスが通ってるかどうかで色変えたいので先にそっちの実装 */
-            //th07_P.BackgroundImage = null;
-            //th06_P.BackgroundImage = null;
-            //th10_P.BackgroundImage = null;
-            //th095_P.BackgroundImage = null;
-            //th09_P.BackgroundImage = null;
-            //th08_P.BackgroundImage = null;
-            //th11_P.BackgroundImage = null;
-            //th12_P.BackgroundImage = null;
-            //th125_P.BackgroundImage = null;
-            //th128_P.BackgroundImage = null;
-            //th13_P.BackgroundImage = null;
-            //th14_P.BackgroundImage = null;
-            //th143_P.BackgroundImage = null;
-            //th075_P.BackgroundImage = null;
-            //th105_P.BackgroundImage = null;
-            //th123_P.BackgroundImage = null;
-            //th135_P.BackgroundImage = null;
-            //alcostg_P.BackgroundImage = null;
-
-        }
         //ファイルパスの参照
         private void button1_Click(object sender, EventArgs e)
         {
@@ -963,9 +943,95 @@ namespace NewTHL2
             }
             else
             {
-                EXE = Path.Combine(FP, Thxx[value].ToString());
+                EXE = Path.Combine(FP, Thxx[value].ToString() + ".exe");
             }
             return EXE;
+        }
+        //ファイル一括登録
+        private void 一括登録ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ファイルパス
+            string FP = "";
+            //エラー回避用ドライブレター
+            string DL;
+            MessageBox.Show("東方が全部（一部でも可）入っているであろうフォルダを選択してください。" + Environment.NewLine + "時間がそこそこかかります。", "お知らせ");
+            //ファイルパスの取得
+            FP = algo.OFDandSFD.FBD_Run();
+            DL = Path.GetPathRoot(FP);
+            //キャンセル処理
+            if(FP == @"C:\Windows")
+            {
+                MessageBox.Show("キャンセルされました","お知らせ");
+                return;
+            }
+            //ルートドライブを指定されてしまった場合
+            if(FP == DL)
+            {
+                MessageBox.Show("ドライブレターを直接は指定しないでね", "お知らせ");
+                return;
+            }
+            //非同期処理の作成
+            SearchAsyncDelegate dlgt = new SearchAsyncDelegate(search);
+            //終了処理
+            IAsyncResult AR = dlgt.BeginInvoke(new AsyncCallback(CallBackMethod), dlgt);
+            //プログレスバー
+            Load = new Search();
+            //プログレスバーの表示
+            Load.Show();
+            
+        }
+        //検索部分
+        private void search()
+        {
+            //ここで検索しつつ登録
+            for (int i = 0; i < Thxx.Length; i++)
+            {
+                //プログレスバーの値を変動させる
+                Load.progressBar1.Value = i;
+                //EXEファイルの名前を取得する
+                string EXEName = thxx_EXE("", i);
+                //検索してヒットしたものを格納する配列
+                string[] THEXE = Directory.GetFiles(FP, EXEName, SearchOption.AllDirectories);
+                //比較するべきハッシュ値
+                StringBuilder hash = new StringBuilder(1024);
+                //正否用のbool
+                bool flag;
+                //ハッシュ値の取得
+                GetPrivateProfileString("HASH", Thxx[i].ToString(), "", hash, Convert.ToUInt32(hash.Capacity), hashFilePath);
+                foreach (string temp in THEXE)
+                {
+                    flag = algo.Hash.compairMD5(temp, hash.ToString());
+                    if (flag)
+                    {
+                        //検索した結果のファイル（実行ファイルの場所などの）情報を格納
+                        FileInfo Finfo = new FileInfo(temp);
+                        //ファイル情報からディレクトリの情報を抜き取る
+                        DirectoryInfo Dinfo = Finfo.Directory;
+                        WritePrivateProfileString("FilePath", Thxx[i].ToString(), Dinfo.FullName, settingFilePath);
+                    }
+                }
+            }
+            
+        }
+        //非同期終了処理
+        private void CallBackMethod(IAsyncResult AR)
+        {
+            SearchAsyncDelegate dlgt = (SearchAsyncDelegate)AR.AsyncState;
+
+            //BeginInvokeで開始したメソッドが終了するまで待つ
+            dlgt.EndInvoke(AR);
+
+            //パネルの配色の変更
+            panelColorInitialize();
+            //パネルのアイコンの変更
+            panelIconInitialize();
+            MessageBox.Show("完了しました", "おまたせ");
+
+            //処理が終了した時にローディングフォームが出ていたら終了させる
+            if(Load.Visible)
+            {
+                Invoke(new closeForm(Load.Close));
+            }
         }
         //タブをクリックしたら
         void tabControl1_Click(object sender, EventArgs e)
@@ -1017,6 +1083,13 @@ namespace NewTHL2
         {
 
         }
+
+        private void titleName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
 
 
     }

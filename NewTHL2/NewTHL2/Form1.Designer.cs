@@ -111,6 +111,7 @@
             this.特殊な設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatchの設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.リプレイのユーザーデータ化ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -185,6 +186,7 @@
             this.一括登録ToolStripMenuItem.Name = "一括登録ToolStripMenuItem";
             this.一括登録ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.一括登録ToolStripMenuItem.Text = "一括登録";
+            this.一括登録ToolStripMenuItem.Click += new System.EventHandler(this.一括登録ToolStripMenuItem_Click);
             // 
             // 設定ファイルのインポートToolStripMenuItem
             // 
@@ -826,10 +828,10 @@
             this.titleName.AutoSize = true;
             this.titleName.Location = new System.Drawing.Point(451, 191);
             this.titleName.Name = "titleName";
-            this.titleName.Size = new System.Drawing.Size(37, 12);
+            this.titleName.Size = new System.Drawing.Size(0, 12);
             this.titleName.TabIndex = 9;
-            this.titleName.Text = "notext";
             this.titleName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.titleName.Click += new System.EventHandler(this.titleName_Click);
             // 
             // contextMenuStrip2
             // 
@@ -887,11 +889,22 @@
             this.リプレイのユーザーデータ化ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
             this.リプレイのユーザーデータ化ToolStripMenuItem1.Text = "リプレイのユーザーデータ化";
             // 
+            // vpatch_Toggle
+            // 
+            this.vpatch_Toggle.AutoSize = true;
+            this.vpatch_Toggle.Location = new System.Drawing.Point(487, 425);
+            this.vpatch_Toggle.Name = "vpatch_Toggle";
+            this.vpatch_Toggle.Size = new System.Drawing.Size(94, 16);
+            this.vpatch_Toggle.TabIndex = 11;
+            this.vpatch_Toggle.Text = "Vpatchで起動";
+            this.vpatch_Toggle.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.vpatch_Toggle);
             this.Controls.Add(this.titleName);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl1);
@@ -1058,6 +1071,7 @@
         private System.Windows.Forms.ToolStripMenuItem 特殊な設定ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem vpatchの設定ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem リプレイのユーザーデータ化ToolStripMenuItem1;
+        private System.Windows.Forms.CheckBox vpatch_Toggle;
     }
 }
 

@@ -25,3 +25,4 @@ D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.Properties.Resour
 D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.csproj.GenerateResource.Cache
 D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\bin\Debug\NewTHL2.exe
 D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\bin\Debug\NewTHL2.pdb
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.Search.resources
