@@ -16,3 +16,12 @@ D:\My document\GitHub\NewTHL2\NewTHL2\obj\Debug\NewTHL2.csprojResolveAssemblyRef
 D:\My document\GitHub\NewTHL2\NewTHL2\obj\Debug\NewTHL2.Form1.resources
 D:\My document\GitHub\NewTHL2\NewTHL2\obj\Debug\NewTHL2.Properties.Resources.resources
 D:\My document\GitHub\NewTHL2\NewTHL2\obj\Debug\NewTHL2.csproj.GenerateResource.Cache
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\bin\Debug\NewTHL2.exe.config
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.exe
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.pdb
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.csprojResolveAssemblyReference.cache
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.Form1.resources
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.Properties.Resources.resources
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.csproj.GenerateResource.Cache
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\bin\Debug\NewTHL2.exe
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\bin\Debug\NewTHL2.pdb
