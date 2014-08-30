@@ -824,7 +824,7 @@
             // 
             this.titleName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.titleName.AutoSize = true;
-            this.titleName.Location = new System.Drawing.Point(444, 191);
+            this.titleName.Location = new System.Drawing.Point(451, 191);
             this.titleName.Name = "titleName";
             this.titleName.Size = new System.Drawing.Size(37, 12);
             this.titleName.TabIndex = 9;

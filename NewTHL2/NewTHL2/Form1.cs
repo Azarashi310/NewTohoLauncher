@@ -66,6 +66,8 @@ namespace NewTHL2
                 filePathInitialize();
                 //パネルの配色の初期化
                 panelColorInitialize();
+                //パネルのアイコンの初期化
+                panelIconInitialize();
             }
             else
             {
@@ -100,6 +102,200 @@ namespace NewTHL2
                     SW.Write(NewTHL2.Properties.Resources.hash);
                     SW.Close();
                     MessageBox.Show("ハッシュファイルを作成しました。", "お知らせ");
+                }
+            }
+        }
+        //パネルのアイコンの初期化
+        private void panelIconInitialize()
+        {
+            for(int i = 0; i < 18;  i++)
+            {
+                switch(i)
+                {
+                    case 0:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                alcostg_I.Image = algo.GetIcon.returnPanelIcon(EXE, alcostg_I.Width, alcostg_I.Height);
+                            }
+                            break;
+                        }
+                    case 1:
+                        {
+                            string EXE;
+                            //実行ファイルはちゃんと存在するか
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                //ピクチャボックスの変更
+                                th06_I.Image = algo.GetIcon.returnPanelIcon(EXE, th06_I.Width, th06_I.Height);
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th07_I.Image = algo.GetIcon.returnPanelIcon(EXE, th07_I.Width, th07_I.Height);
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th075_I.Image = algo.GetIcon.returnPanelIcon(EXE, th075_I.Width, th075_I.Height);
+                            }
+                            break;
+                        }
+                    case 4:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th08_I.Image = algo.GetIcon.returnPanelIcon(EXE, th08_I.Width, th08_I.Height);
+                            }
+                            break;
+                        }
+                    case 5:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th09_I.Image = algo.GetIcon.returnPanelIcon(EXE, th09_I.Width, th09_I.Height);
+                            }
+                            break;
+                        }
+                    case 6:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th095_I.Image = algo.GetIcon.returnPanelIcon(EXE, th095_I.Width, th095_I.Height);
+                            }
+                            break;
+                        }
+                    case 7:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th10_I.Image = algo.GetIcon.returnPanelIcon(EXE, th10_I.Width, th10_I.Height);
+                            }
+                            break;
+                        }
+                    case 8:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th105_I.Image = algo.GetIcon.returnPanelIcon(EXE, th105_I.Width, th105_I.Height);
+                            }
+                            break;
+                        }
+                    case 9:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th11_I.Image = algo.GetIcon.returnPanelIcon(EXE, th11_I.Width, th11_I.Height);
+                            }
+                            break;
+                        }
+                    case 10:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th12_I.Image = algo.GetIcon.returnPanelIcon(EXE, th12_I.Width, th12_I.Height);
+                            }
+                            break;
+                        }
+                    case 11:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th123_I.Image = algo.GetIcon.returnPanelIcon(EXE, th123_I.Width, th123_I.Height);
+                            }
+                            break;
+                        }
+                    case 12:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th125_I.Image = algo.GetIcon.returnPanelIcon(EXE, th125_I.Width, th125_I.Height);
+                            }
+                            break;
+                        }
+                    case 13:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th128_I.Image = algo.GetIcon.returnPanelIcon(EXE, th128_I.Width, th128_I.Height);
+                            }
+                            break;
+                        }
+                    case 14:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th13_I.Image = algo.GetIcon.returnPanelIcon(EXE, th13_I.Width, th13_I.Height);
+                            }
+                            break;
+                        }
+                    case 15:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th135_I.Image = algo.GetIcon.returnPanelIcon(EXE, th135_I.Width, th135_I.Height);
+                                rightPainIcon.Image = algo.GetIcon.returnPanelIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                            }
+                            break;
+                        }
+                    case 16:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th14_I.Image = algo.GetIcon.returnPanelIcon(EXE, th14_I.Width, th14_I.Height);
+                            }
+                            break;
+                        }
+                    case 17:
+                        {
+                            string EXE;
+                            EXE = thxx_EXE(FP_switch[i].ToString(),i);
+                            if (File.Exists(EXE))
+                            {
+                                th143_I.Image = algo.GetIcon.returnPanelIcon(EXE, th143_I.Width, th143_I.Height);
+                            }
+                            break;
+                        }
+                    
                 }
             }
         }
@@ -425,16 +621,24 @@ namespace NewTHL2
             panelBG_reflesh();
             //配色を戻す
             panelColorInitialize();
-
+            //一度パネルを初期化させる
+            rightPainIcon.Image = null;
             #region パネル群&ラベル群&イメージ群
             if (sender.Equals(alcostg_P) | sender.Equals(alcostg_L) | sender.Equals(alcostg_I))
             {
+                string EXE;
                 //rightPainのタイトルを変える
                 titleName.Text = alcostg_L.Text;
                 //パネルの背景色を変える
                 alcostg_P.BackColor = Color.LightPink;
                 //選択しているものを記憶させる
                 select = 0;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width,rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th06_P) | sender.Equals(th06_L) | sender.Equals(th06_I))
             {
@@ -448,110 +652,220 @@ namespace NewTHL2
                 //テキストボックスの変更
                 textBox1.Text = FP_switch[select].ToString();
                 //実行ファイルはちゃんと存在するか
-                EXE = thxx_EXE(FP_switch[select].ToString());
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
                 if(File.Exists(EXE))
                 {
-                    //ピクチャボックスの変更
-                    th06_I.Image = algo.GetIcon.returnPanelIcon(EXE, th06_I.Width, th06_I.Height);
                     //ライトペインの画像を変更
                     rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
                 }
             }
             if (sender.Equals(th07_P) | sender.Equals(th07_L) | sender.Equals(th07_I))
             {
+                string EXE;
                 titleName.Text = th07_L.Text;
                 th07_P.BackColor = Color.LightPink;
                 select = 2;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th075_P) | sender.Equals(th075_L) | sender.Equals(th075_I))
             {
+                string EXE;
                 titleName.Text = th075_L.Text;
                 th075_P.BackColor = Color.LightPink;
                 select = 3;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th08_P) | sender.Equals(th08_L) | sender.Equals(th08_I))
             {
+                string EXE;
                 titleName.Text = th08_L.Text;
                 th08_P.BackColor = Color.LightPink;
                 select = 4;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th09_P) | sender.Equals(th09_L) | sender.Equals(th09_I))
             {
+                string EXE;
                 titleName.Text = th09_L.Text;
                 th09_P.BackColor = Color.LightPink;
                 select = 5;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th095_P) | sender.Equals(th095_L) | sender.Equals(th095_I))
             {
+                string EXE;
                 titleName.Text = th095_L.Text;
                 th095_P.BackColor = Color.LightPink;
                 select = 6;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th10_P) | sender.Equals(th10_L) | sender.Equals(th10_I))
             {
+                string EXE;
                 titleName.Text = th10_L.Text;
                 th10_P.BackColor = Color.LightPink;
                 select = 7;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th105_P) | sender.Equals(th105_L) | sender.Equals(th105_I))
             {
+                string EXE;
                 titleName.Text = th105_L.Text;
                 th105_P.BackColor = Color.LightPink;
                 select = 8;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th11_P) | sender.Equals(th11_L) | sender.Equals(th11_I))
             {
+                string EXE;
                 titleName.Text = th11_L.Text;
                 th11_P.BackColor = Color.LightPink;
                 select = 9;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnPanelIcon(EXE, th11_I.Width, th11_I.Height);
+                }
             }
             if (sender.Equals(th12_P) | sender.Equals(th12_L) | sender.Equals(th12_I))
             {
+                string EXE;
                 titleName.Text = th12_L.Text;
                 th12_P.BackColor = Color.LightPink;
                 select = 10;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th123_P) | sender.Equals(th123_L) | sender.Equals(th123_I))
             {
+                string EXE;
                 titleName.Text = th123_L.Text;
                 th123_P.BackColor = Color.LightPink;
                 select = 11;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, th123_I.Width, th123_I.Height);
+                }
             }
             if (sender.Equals(th125_P) | sender.Equals(th125_L) | sender.Equals(th125_I))
             {
+                string EXE;
                 titleName.Text = th125_L.Text;
                 th125_P.BackColor = Color.LightPink;
                 select = 12;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {                    
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th128_P) | sender.Equals(th128_L) | sender.Equals(th128_I))
             {
+                string EXE;
                 titleName.Text = th128_L.Text;
                 th128_P.BackColor = Color.LightPink;
                 select = 13;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width,rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th13_P) | sender.Equals(th13_L) | sender.Equals(th13_I))
             {
+                string EXE;
                 titleName.Text = th13_L.Text;
                 th13_P.BackColor = Color.LightPink;
                 select = 14;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th135_P) | sender.Equals(th135_L) | sender.Equals(th135_I))
             {
+                string EXE;
                 titleName.Text = th135_L.Text;
                 th135_P.BackColor = Color.LightPink;
                 select = 15;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnPanelIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th14_P) | sender.Equals(th14_L) | sender.Equals(th14_I))
             {
+                string EXE;
                 titleName.Text = th14_L.Text;
                 th14_P.BackColor = Color.LightPink;
                 select = 16;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             if (sender.Equals(th143_P) | sender.Equals(th143_L) | sender.Equals(th143_I))
             {
+                string EXE;
                 titleName.Text = th143_L.Text;
                 th143_P.BackColor = Color.LightPink;
                 select = 17;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
             }
             #endregion
         }
@@ -615,7 +929,7 @@ namespace NewTHL2
                     return;
                 }
                 //ハッシュを比較
-                EXE = thxx_EXE(FP);
+                EXE = thxx_EXE(FP,select);
                 //EXEファイルが存在するか
                 if(!File.Exists(EXE))
                 {
@@ -639,17 +953,17 @@ namespace NewTHL2
             }
         }
         //ゲームの実行ファイル名を返す
-        private string thxx_EXE(string FP)
+        private string thxx_EXE(string FP,int value)
         {
             string EXE;
             
-            if(select == 1)
+            if(value == 1)
             {
                 EXE = Path.Combine(FP, "東方紅魔郷.exe");
             }
             else
             {
-                EXE = Path.Combine(FP, Thxx[select].ToString());
+                EXE = Path.Combine(FP, Thxx[value].ToString());
             }
             return EXE;
         }
