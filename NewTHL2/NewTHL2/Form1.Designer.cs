@@ -223,7 +223,7 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 21);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(290, 543);
+            this.tabControl1.Size = new System.Drawing.Size(286, 543);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -233,7 +233,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(282, 517);
+            this.tabPage1.Size = new System.Drawing.Size(278, 517);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "東方原作";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -256,16 +256,16 @@
             this.flowLayoutPanel1.Controls.Add(this.th14_P);
             this.flowLayoutPanel1.Controls.Add(this.th143_P);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(-1, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(-3, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(267, 1147);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(262, 1147);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // th06_P
             // 
             this.th06_P.Controls.Add(this.th06_L);
             this.th06_P.Controls.Add(this.th06_I);
-            this.th06_P.Location = new System.Drawing.Point(4, 3);
+            this.th06_P.Location = new System.Drawing.Point(3, 3);
             this.th06_P.Name = "th06_P";
             this.th06_P.Size = new System.Drawing.Size(260, 80);
             this.th06_P.TabIndex = 1;
@@ -293,7 +293,7 @@
             // 
             this.th07_P.Controls.Add(this.th07_L);
             this.th07_P.Controls.Add(this.th07_I);
-            this.th07_P.Location = new System.Drawing.Point(4, 89);
+            this.th07_P.Location = new System.Drawing.Point(3, 89);
             this.th07_P.Name = "th07_P";
             this.th07_P.Size = new System.Drawing.Size(260, 80);
             this.th07_P.TabIndex = 2;
@@ -320,7 +320,7 @@
             // 
             this.th08_P.Controls.Add(this.th08_L);
             this.th08_P.Controls.Add(this.th08_I);
-            this.th08_P.Location = new System.Drawing.Point(4, 175);
+            this.th08_P.Location = new System.Drawing.Point(3, 175);
             this.th08_P.Name = "th08_P";
             this.th08_P.Size = new System.Drawing.Size(260, 80);
             this.th08_P.TabIndex = 2;
@@ -346,7 +346,7 @@
             // 
             this.th09_P.Controls.Add(this.th09_L);
             this.th09_P.Controls.Add(this.th09_I);
-            this.th09_P.Location = new System.Drawing.Point(4, 261);
+            this.th09_P.Location = new System.Drawing.Point(3, 261);
             this.th09_P.Name = "th09_P";
             this.th09_P.Size = new System.Drawing.Size(260, 80);
             this.th09_P.TabIndex = 2;
@@ -372,7 +372,7 @@
             // 
             this.th095_P.Controls.Add(this.th095_L);
             this.th095_P.Controls.Add(this.th095_I);
-            this.th095_P.Location = new System.Drawing.Point(4, 347);
+            this.th095_P.Location = new System.Drawing.Point(3, 347);
             this.th095_P.Name = "th095_P";
             this.th095_P.Size = new System.Drawing.Size(260, 80);
             this.th095_P.TabIndex = 2;
@@ -398,7 +398,7 @@
             // 
             this.th10_P.Controls.Add(this.th10_L);
             this.th10_P.Controls.Add(this.th10_I);
-            this.th10_P.Location = new System.Drawing.Point(4, 433);
+            this.th10_P.Location = new System.Drawing.Point(3, 433);
             this.th10_P.Name = "th10_P";
             this.th10_P.Size = new System.Drawing.Size(260, 80);
             this.th10_P.TabIndex = 2;
@@ -424,7 +424,7 @@
             // 
             this.th11_P.Controls.Add(this.th11_L);
             this.th11_P.Controls.Add(this.th11_I);
-            this.th11_P.Location = new System.Drawing.Point(4, 519);
+            this.th11_P.Location = new System.Drawing.Point(3, 519);
             this.th11_P.Name = "th11_P";
             this.th11_P.Size = new System.Drawing.Size(260, 80);
             this.th11_P.TabIndex = 3;
@@ -450,7 +450,7 @@
             // 
             this.th12_P.Controls.Add(this.th12_L);
             this.th12_P.Controls.Add(this.th12_I);
-            this.th12_P.Location = new System.Drawing.Point(4, 605);
+            this.th12_P.Location = new System.Drawing.Point(3, 605);
             this.th12_P.Name = "th12_P";
             this.th12_P.Size = new System.Drawing.Size(260, 80);
             this.th12_P.TabIndex = 3;
@@ -476,7 +476,7 @@
             // 
             this.th125_P.Controls.Add(this.th125_L);
             this.th125_P.Controls.Add(this.th125_I);
-            this.th125_P.Location = new System.Drawing.Point(4, 691);
+            this.th125_P.Location = new System.Drawing.Point(3, 691);
             this.th125_P.Name = "th125_P";
             this.th125_P.Size = new System.Drawing.Size(260, 80);
             this.th125_P.TabIndex = 4;
@@ -502,7 +502,7 @@
             // 
             this.th128_P.Controls.Add(this.th128_L);
             this.th128_P.Controls.Add(this.th128_I);
-            this.th128_P.Location = new System.Drawing.Point(4, 777);
+            this.th128_P.Location = new System.Drawing.Point(3, 777);
             this.th128_P.Name = "th128_P";
             this.th128_P.Size = new System.Drawing.Size(260, 80);
             this.th128_P.TabIndex = 5;
@@ -528,7 +528,7 @@
             // 
             this.th13_P.Controls.Add(this.th13_L);
             this.th13_P.Controls.Add(this.th13_I);
-            this.th13_P.Location = new System.Drawing.Point(4, 863);
+            this.th13_P.Location = new System.Drawing.Point(3, 863);
             this.th13_P.Name = "th13_P";
             this.th13_P.Size = new System.Drawing.Size(260, 80);
             this.th13_P.TabIndex = 6;
@@ -554,7 +554,7 @@
             // 
             this.th14_P.Controls.Add(this.th14_L);
             this.th14_P.Controls.Add(this.th14_I);
-            this.th14_P.Location = new System.Drawing.Point(4, 949);
+            this.th14_P.Location = new System.Drawing.Point(3, 949);
             this.th14_P.Name = "th14_P";
             this.th14_P.Size = new System.Drawing.Size(260, 80);
             this.th14_P.TabIndex = 7;
@@ -580,7 +580,7 @@
             // 
             this.th143_P.Controls.Add(this.th143_L);
             this.th143_P.Controls.Add(this.th143_I);
-            this.th143_P.Location = new System.Drawing.Point(4, 1035);
+            this.th143_P.Location = new System.Drawing.Point(3, 1035);
             this.th143_P.Name = "th143_P";
             this.th143_P.Size = new System.Drawing.Size(260, 80);
             this.th143_P.TabIndex = 8;
@@ -620,7 +620,7 @@
             this.flowLayoutPanel2.Controls.Add(this.th123_P);
             this.flowLayoutPanel2.Controls.Add(this.th135_P);
             this.flowLayoutPanel2.Controls.Add(this.alcostg_P);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(-3, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 515);
             this.flowLayoutPanel2.TabIndex = 0;
@@ -816,9 +816,9 @@
             // rightPain_BG
             // 
             this.rightPain_BG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.rightPain_BG.Location = new System.Drawing.Point(293, 21);
+            this.rightPain_BG.Location = new System.Drawing.Point(289, 21);
             this.rightPain_BG.Name = "rightPain_BG";
-            this.rightPain_BG.Size = new System.Drawing.Size(493, 545);
+            this.rightPain_BG.Size = new System.Drawing.Size(497, 545);
             this.rightPain_BG.TabIndex = 3;
             this.rightPain_BG.TabStop = false;
             // 
@@ -891,6 +891,7 @@
             // 
             // vpatch_Toggle
             // 
+            this.vpatch_Toggle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.vpatch_Toggle.AutoSize = true;
             this.vpatch_Toggle.Location = new System.Drawing.Point(487, 425);
             this.vpatch_Toggle.Name = "vpatch_Toggle";

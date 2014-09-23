@@ -1,6 +1,6 @@
 ﻿namespace NewTHL2
 {
-    partial class Search
+    partial class WalkUp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,41 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(0, 69);
-            this.progressBar1.Maximum = 17;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(584, 43);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 0;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox1.Location = new System.Drawing.Point(11, 12);
+            this.textBox1.Location = new System.Drawing.Point(70, 30);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(563, 12);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "コーヒーでも飲んでお待ちください。飲めない人は水でも飲んでて";
+            this.textBox1.Size = new System.Drawing.Size(150, 12);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "起動中です";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // Search
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(15, 70);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(250, 30);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 1;
+            // 
+            // WalkUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 112);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(284, 112);
             this.Controls.Add(this.progressBar1);
-            this.Name = "Search";
-            this.Text = "一括登録中";
+            this.Controls.Add(this.textBox1);
+            this.Name = "WalkUp";
+            this.Text = "WalkUp";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -71,6 +70,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

@@ -46,20 +46,19 @@ namespace NewTHL2
         //今選択しているもの
         private int select = 999;
 
-        //非同期処理用
-        private delegate void SearchAsyncDelegate();
-        private delegate void closeForm();
-        private Search Load;
-
         //コンストラクタ
         public Form1()
         {
             InitializeComponent();
+            //起動時の読み込みダイアログを出す
+            NewTHL2.WalkUp WU = new WalkUp();
+            WU.Show();
             //イベントハンドラの初期化
             eventHandlerInitialize();
             //起動時初期化設定
             Initialize();
-
+            //ここで起動時ダイアログを殺す
+            WU.Dispose();
         }
         //設定初期化
         private void Initialize()
@@ -276,7 +275,6 @@ namespace NewTHL2
                             if (File.Exists(EXE))
                             {
                                 th135_I.Image = algo.GetIcon.returnPanelIcon(EXE, th135_I.Width, th135_I.Height);
-                                rightPainIcon.Image = algo.GetIcon.returnPanelIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
                             }
                             break;
                         }
@@ -439,7 +437,7 @@ namespace NewTHL2
                         {
                             if (Directory.Exists(FP_switch[i]))
                             {
-                                th07_P.BackColor = Color.Transparent;
+                                th075_P.BackColor = Color.Transparent;
                             }
                             else
                             {
@@ -475,7 +473,7 @@ namespace NewTHL2
                         {
                             if (Directory.Exists(FP_switch[i]))
                             {
-                                th09_P.BackColor = Color.Transparent;
+                                th095_P.BackColor = Color.Transparent;
                             }
                             else
                             {
@@ -791,7 +789,7 @@ namespace NewTHL2
                 EXE = thxx_EXE(FP_switch[select].ToString(),select);
                 if(File.Exists(EXE))
                 {
-                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, th123_I.Width, th123_I.Height);
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
                 }
             }
             if (sender.Equals(th125_P) | sender.Equals(th125_L) | sender.Equals(th125_I))
@@ -843,7 +841,7 @@ namespace NewTHL2
                 EXE = thxx_EXE(FP_switch[select].ToString(),select);
                 if(File.Exists(EXE))
                 {
-                    rightPainIcon.Image = algo.GetIcon.returnPanelIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
                 }
             }
             if (sender.Equals(th14_P) | sender.Equals(th14_L) | sender.Equals(th14_I))
@@ -970,37 +968,54 @@ namespace NewTHL2
                 MessageBox.Show("ドライブレターを直接は指定しないでね", "お知らせ");
                 return;
             }
-            //非同期処理の作成
-            SearchAsyncDelegate dlgt = new SearchAsyncDelegate(search);
-            //終了処理
-            IAsyncResult AR = dlgt.BeginInvoke(new AsyncCallback(CallBackMethod), dlgt);
-            //プログレスバー
-            Load = new Search();
-            //プログレスバーの表示
-            Load.Show();
             
-        }
-        //検索部分
-        private void search()
-        {
+            NewTHL2.Search SC = new Search();
+            SC.Show(this);
             //ここで検索しつつ登録
             for (int i = 0; i < Thxx.Length; i++)
             {
                 //プログレスバーの値を変動させる
-                Load.progressBar1.Value = i;
+                SC.progressBar1.Value = i;
                 //EXEファイルの名前を取得する
                 string EXEName = thxx_EXE("", i);
                 //検索してヒットしたものを格納する配列
                 string[] THEXE = Directory.GetFiles(FP, EXEName, SearchOption.AllDirectories);
-                //比較するべきハッシュ値
+                //比較するべきハッシュ値を格納するもの
                 StringBuilder hash = new StringBuilder(1024);
                 //正否用のbool
-                bool flag;
+                bool flag = true;
                 //ハッシュ値の取得
                 GetPrivateProfileString("HASH", Thxx[i].ToString(), "", hash, Convert.ToUInt32(hash.Capacity), hashFilePath);
                 foreach (string temp in THEXE)
                 {
-                    flag = algo.Hash.compairMD5(temp, hash.ToString());
+                    //東方花映塚　～ Phantasmagoria of Flower View.の場合
+                    if (Thxx[i].ToString() == "Th09")
+                    {
+                        //2種のハッシュ格納用
+                        string[] hashArray = new string[2];
+                        //分割すべき位置を取得
+                        int separated = hash.ToString().IndexOf("_");
+                        //花映塚Ver1.00の方の格納
+                        hashArray[0] = hash.ToString().Substring(0, separated);
+                        //花映塚Ver1.50の方の格納
+                        hashArray[1] = hash.ToString().Substring(separated + 1);
+                        for(int _i = 0; _i < 2; _i++)
+                        {
+                            //MD5の比較
+                            flag = algo.Hash.compairMD5(temp, hashArray[_i]);
+                            //一発目から正しければさっさと抜けたほうが効率いいので。
+                            if(flag)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        flag = algo.Hash.compairMD5(temp, hash.ToString());
+                    }
+
+                    //フラグが正しければ設定に格納
                     if (flag)
                     {
                         //検索した結果のファイル（実行ファイルの場所などの）情報を格納
@@ -1011,27 +1026,11 @@ namespace NewTHL2
                     }
                 }
             }
-            
-        }
-        //非同期終了処理
-        private void CallBackMethod(IAsyncResult AR)
-        {
-            SearchAsyncDelegate dlgt = (SearchAsyncDelegate)AR.AsyncState;
-
-            //BeginInvokeで開始したメソッドが終了するまで待つ
-            dlgt.EndInvoke(AR);
-
-            //パネルの配色の変更
-            panelColorInitialize();
-            //パネルのアイコンの変更
-            panelIconInitialize();
-            MessageBox.Show("完了しました", "おまたせ");
-
-            //処理が終了した時にローディングフォームが出ていたら終了させる
-            if(Load.Visible)
-            {
-                Invoke(new closeForm(Load.Close));
-            }
+            MessageBox.Show("アプリケーションを再起動させます", "終了しました");
+            //検索ダイアログを閉める
+            SC.Close();
+            //アプリケーションの再起動
+            Application.Restart();
         }
         //タブをクリックしたら
         void tabControl1_Click(object sender, EventArgs e)
