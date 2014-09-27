@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search.cs">
@@ -61,14 +67,17 @@
     <Compile Include="Search.Designer.cs">
       <DependentUpon>Search.cs</DependentUpon>
     </Compile>
-    <Compile Include="WalkUp.cs">
+    <Compile Include="WakeUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WalkUp.Designer.cs">
-      <DependentUpon>WalkUp.cs</DependentUpon>
+    <Compile Include="WakeUp.Designer.cs">
+      <DependentUpon>WakeUp.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,8 +92,8 @@
     <EmbeddedResource Include="Search.resx">
       <DependentUpon>Search.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WalkUp.resx">
-      <DependentUpon>WalkUp.cs</DependentUpon>
+    <EmbeddedResource Include="WakeUp.resx">
+      <DependentUpon>WakeUp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -104,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hash.txt" />
+    <None Include="Resources\me.jpg" />
     <Content Include="Resources\setteingTemplate.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

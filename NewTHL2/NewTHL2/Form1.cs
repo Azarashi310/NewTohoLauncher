@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace NewTHL2
 {
@@ -51,7 +52,7 @@ namespace NewTHL2
         {
             InitializeComponent();
             //起動時の読み込みダイアログを出す
-            NewTHL2.WalkUp WU = new WalkUp();
+            NewTHL2.WakeUp WU = new WakeUp();
             WU.Show();
             //イベントハンドラの初期化
             eventHandlerInitialize();
@@ -59,6 +60,12 @@ namespace NewTHL2
             Initialize();
             //ここで起動時ダイアログを殺す
             WU.Dispose();
+        }
+        //フォームが呼び出される度
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.MaximumSize = new System.Drawing.Size(System.Windows.Forms.Screen.GetBounds(this).Width,
+                                                       System.Windows.Forms.Screen.GetBounds(this).Height);
         }
         //設定初期化
         private void Initialize()
@@ -108,6 +115,72 @@ namespace NewTHL2
                     MessageBox.Show("ハッシュファイルを作成しました。", "お知らせ");
                 }
             }
+        }
+        //イベントハンドラ一式の作成
+        private void eventHandlerInitialize()
+        {
+            //スクロール用のイベントハンドラ
+            tabControl1.Click += tabControl1_Click;
+            #region パネルクリックハンドラ
+            th06_P.Click += gamePanel_Click;
+            th07_P.Click += gamePanel_Click;
+            th075_P.Click += gamePanel_Click;
+            th08_P.Click += gamePanel_Click;
+            th09_P.Click += gamePanel_Click;
+            th095_P.Click += gamePanel_Click;
+            th10_P.Click += gamePanel_Click;
+            th105_P.Click += gamePanel_Click;
+            th11_P.Click += gamePanel_Click;
+            th12_P.Click += gamePanel_Click;
+            th123_P.Click += gamePanel_Click;
+            th125_P.Click += gamePanel_Click;
+            th128_P.Click += gamePanel_Click;
+            th13_P.Click += gamePanel_Click;
+            th135_P.Click += gamePanel_Click;
+            th14_P.Click += gamePanel_Click;
+            th143_P.Click += gamePanel_Click;
+            alcostg_P.Click += gamePanel_Click;
+            #endregion
+            #region ラベルクリックハンドラ
+            th06_L.Click += gamePanel_Click;
+            th07_L.Click += gamePanel_Click;
+            th075_L.Click += gamePanel_Click;
+            th08_L.Click += gamePanel_Click;
+            th09_L.Click += gamePanel_Click;
+            th095_L.Click += gamePanel_Click;
+            th10_L.Click += gamePanel_Click;
+            th105_L.Click += gamePanel_Click;
+            th11_L.Click += gamePanel_Click;
+            th12_L.Click += gamePanel_Click;
+            th123_L.Click += gamePanel_Click;
+            th125_L.Click += gamePanel_Click;
+            th128_L.Click += gamePanel_Click;
+            th13_L.Click += gamePanel_Click;
+            th135_L.Click += gamePanel_Click;
+            th14_L.Click += gamePanel_Click;
+            th143_L.Click += gamePanel_Click;
+            alcostg_L.Click += gamePanel_Click;
+            #endregion
+            #region イメージクリックハンドラ
+            th06_I.Click += gamePanel_Click;
+            th07_I.Click += gamePanel_Click;
+            th075_I.Click += gamePanel_Click;
+            th08_I.Click += gamePanel_Click;
+            th09_I.Click += gamePanel_Click;
+            th095_I.Click += gamePanel_Click;
+            th10_I.Click += gamePanel_Click;
+            th105_I.Click += gamePanel_Click;
+            th11_I.Click += gamePanel_Click;
+            th12_I.Click += gamePanel_Click;
+            th123_I.Click += gamePanel_Click;
+            th125_I.Click += gamePanel_Click;
+            th128_I.Click += gamePanel_Click;
+            th13_I.Click += gamePanel_Click;
+            th135_I.Click += gamePanel_Click;
+            th14_I.Click += gamePanel_Click;
+            th143_I.Click += gamePanel_Click;
+            alcostg_I.Click += gamePanel_Click;
+            #endregion
         }
         //パネルのアイコンの初期化
         private void panelIconInitialize()
@@ -323,72 +396,7 @@ namespace NewTHL2
             }
         }
 
-        //イベントハンドラ一式の作成
-        private void eventHandlerInitialize()
-        {
-            //スクロール用のイベントハンドラ
-            tabControl1.Click += tabControl1_Click;
-            #region パネルクリックハンドラ
-            th06_P.Click += gamePanel_Click;
-            th07_P.Click += gamePanel_Click;
-            th075_P.Click += gamePanel_Click;
-            th08_P.Click += gamePanel_Click;
-            th09_P.Click += gamePanel_Click;
-            th095_P.Click += gamePanel_Click;
-            th10_P.Click += gamePanel_Click;
-            th105_P.Click += gamePanel_Click;
-            th11_P.Click += gamePanel_Click;
-            th12_P.Click += gamePanel_Click;
-            th123_P.Click += gamePanel_Click;
-            th125_P.Click += gamePanel_Click;
-            th128_P.Click += gamePanel_Click;
-            th13_P.Click += gamePanel_Click;
-            th135_P.Click += gamePanel_Click;
-            th14_P.Click += gamePanel_Click;
-            th143_P.Click += gamePanel_Click;
-            alcostg_P.Click += gamePanel_Click;
-            #endregion
-            #region ラベルクリックハンドラ
-            th06_L.Click += gamePanel_Click;
-            th07_L.Click += gamePanel_Click;
-            th075_L.Click += gamePanel_Click;
-            th08_L.Click += gamePanel_Click;
-            th09_L.Click += gamePanel_Click;
-            th095_L.Click += gamePanel_Click;
-            th10_L.Click += gamePanel_Click;
-            th105_L.Click += gamePanel_Click;
-            th11_L.Click += gamePanel_Click;
-            th12_L.Click += gamePanel_Click;
-            th123_L.Click += gamePanel_Click;
-            th125_L.Click += gamePanel_Click;
-            th128_L.Click += gamePanel_Click;
-            th13_L.Click += gamePanel_Click;
-            th135_L.Click += gamePanel_Click;
-            th14_L.Click += gamePanel_Click;
-            th143_L.Click += gamePanel_Click;
-            alcostg_L.Click += gamePanel_Click;
-            #endregion
-            #region イメージクリックハンドラ
-            th06_I.Click += gamePanel_Click;
-            th07_I.Click += gamePanel_Click;
-            th075_I.Click += gamePanel_Click;
-            th08_I.Click += gamePanel_Click;
-            th09_I.Click += gamePanel_Click;
-            th095_I.Click += gamePanel_Click;
-            th10_I.Click += gamePanel_Click;
-            th105_I.Click += gamePanel_Click;
-            th11_I.Click += gamePanel_Click;
-            th12_I.Click += gamePanel_Click;
-            th123_I.Click += gamePanel_Click;
-            th125_I.Click += gamePanel_Click;
-            th128_I.Click += gamePanel_Click;
-            th13_I.Click += gamePanel_Click;
-            th135_I.Click += gamePanel_Click;
-            th14_I.Click += gamePanel_Click;
-            th143_I.Click += gamePanel_Click;
-            alcostg_I.Click += gamePanel_Click;
-            #endregion
-        }
+
 
         //パネルの配色の初期化(もっといい方法をみつけること)
         private void panelColorInitialize()
@@ -617,6 +625,7 @@ namespace NewTHL2
                 }
             }
         }
+
         //複数のイベントハンドラを処理する
         void gamePanel_Click(object sender, EventArgs e)
         {
@@ -763,7 +772,7 @@ namespace NewTHL2
                 EXE = thxx_EXE(FP_switch[select].ToString(),select);
                 if(File.Exists(EXE))
                 {
-                    rightPainIcon.Image = algo.GetIcon.returnPanelIcon(EXE, th11_I.Width, th11_I.Height);
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
                 }
             }
             if (sender.Equals(th12_P) | sender.Equals(th12_L) | sender.Equals(th12_I))
@@ -870,8 +879,11 @@ namespace NewTHL2
                     rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
                 }
             }
+            //コンテクストメニューの設定
+            gameSettingSelector();
             #endregion
         }
+
         //ファイルパスの参照
         private void button1_Click(object sender, EventArgs e)
         {
@@ -930,6 +942,7 @@ namespace NewTHL2
                 }
             }
         }
+
         //ゲームの実行ファイル名を返す
         private string thxx_EXE(string FP,int value)
         {
@@ -944,6 +957,48 @@ namespace NewTHL2
                 EXE = Path.Combine(FP, Thxx[value].ToString() + ".exe");
             }
             return EXE;
+        }
+
+        //選択したゲーム毎の設定のDisableとAbleの設定
+        private void gameSettingSelector()
+        {
+            //まず初期化
+            特殊な設定ToolStripMenuItem1.Enabled = true;
+            リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = true;
+            vpatchの設定ToolStripMenuItem1.Enabled = true;
+
+            if((Thxx[select].ToString() == "alcostg")|(Thxx[select].ToString() == "Th075")|(Thxx[select].ToString() == "Th105")|(Thxx[select].ToString() == "Th123")|
+                (Thxx[select].ToString() == "Th135"))
+            {
+                特殊な設定ToolStripMenuItem1.Enabled = false;
+            }
+            else if(Thxx[select].ToString() == "Th10")
+            {
+                リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = false;
+            }
+            else if((Thxx[select].ToString() == "Th13")|(Thxx[select].ToString() == "Th14")|(Thxx[select].ToString() == "Th143"))
+            {
+                vpatchの設定ToolStripMenuItem1.Enabled = false;
+            }
+            
+        }
+
+        //フォルダを開く
+        private void ゲームのフォルダを開くToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //開くべきフォルダ
+            StringBuilder FP = new StringBuilder(1024);
+            //フォルダの取得
+            GetPrivateProfileString("FilePath", Thxx[select].ToString(), "", FP, Convert.ToUInt32(FP.Capacity), settingFilePath);
+            //フォルダが存在すれば開く
+            if(Directory.Exists(FP.ToString()))
+            {
+                Process.Start(FP.ToString());
+            }
+            else
+            {
+                MessageBox.Show("ゲームのフォルダが存在しないようです。" + Environment.NewLine + "設定を再確認してください", "確認して下さい");
+            }
         }
         //ファイル一括登録
         private void 一括登録ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1087,6 +1142,15 @@ namespace NewTHL2
         {
 
         }
+
+        private void 困ったことがあったらToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewTHL2.Help HP = new Help();
+            HP.Show();
+        }
+
+        
+
 
         
 

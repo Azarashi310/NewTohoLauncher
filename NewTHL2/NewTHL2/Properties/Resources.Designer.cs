@@ -62,23 +62,32 @@ namespace NewTHL2.Properties {
         
         /// <summary>
         ///   [HASH]
-        ///th06 = fa3d64768b1bfc50703dedc2db92f7fa
-        ///th07 = 0126afce1e805370d36c3482445e98da
-        ///th075 = 21bcb855a39f2170195811e6ad292f18
-        ///th08 = 77b6785e04a3406e50be68714a193650
-        ///th09_100 = 8bc284d591e247cb62fe62a710ac1689
-        ///th09_150 = cf634df46e05552e104fa97a971aaac0
-        ///th095 = 8de95bc7651419201fc1a4ea49bc0697
-        ///th10 = 7dc488d82c81dd4aee4ba098b8804d83
-        ///th105 = 2ae711a6c92c4addbdbf526bc61d8e59
-        ///th11 = 6af1e3b37f28293f4fc127ee01d2632c
-        ///th12 = 212f187591f4f1fa99eb2845d1b3cf20
-        ///th123 = df35d1fbc7b583317adabe8cd9f53b2e
-        /// [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///Th06 = fa3d64768b1bfc50703dedc2db92f7fa
+        ///Th07 = 0126afce1e805370d36c3482445e98da
+        ///Th075 = 21bcb855a39f2170195811e6ad292f18
+        ///Th08 = 77b6785e04a3406e50be68714a193650
+        ///Th09 = 8bc284d591e247cb62fe62a710ac1689_cf634df46e05552e104fa97a971aaac0
+        ///Th095 = 8de95bc7651419201fc1a4ea49bc0697
+        ///Th10 = 7dc488d82c81dd4aee4ba098b8804d83
+        ///Th105 = 2ae711a6c92c4addbdbf526bc61d8e59
+        ///Th11 = 6af1e3b37f28293f4fc127ee01d2632c
+        ///Th12 = 212f187591f4f1fa99eb2845d1b3cf20
+        ///Th123 = df35d1fbc7b583317adabe8cd9f53b2e
+        ///Th125 = e78dca66 [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string hash {
             get {
                 return ResourceManager.GetString("hash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap me {
+            get {
+                object obj = ResourceManager.GetObject("me", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -96,7 +105,7 @@ namespace NewTHL2.Properties {
         ///   [FilePath]
         ///Th06 =
         ///Th07 =
-        ///Th075 
+        ///Th075 =
         ///Th08 =
         ///Th09 =
         ///Th095 =
@@ -149,7 +158,7 @@ namespace NewTHL2.Properties {
         ///[TH06BU]
         ///Save =
         ///Replay =
-        ///Vpatc [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///Vpat [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string setteingTemplate {
             get {

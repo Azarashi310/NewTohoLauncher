@@ -26,4 +26,5 @@ D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.csproj.GenerateRe
 D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\bin\Debug\NewTHL2.exe
 D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\bin\Debug\NewTHL2.pdb
 D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.Search.resources
-D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.WalkUp.resources
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.Help.resources
+D:\My document\GitHub\NewTHL\NewTHL2\NewTHL2\obj\Debug\NewTHL2.WakeUp.resources

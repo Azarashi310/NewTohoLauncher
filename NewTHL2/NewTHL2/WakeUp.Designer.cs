@@ -1,6 +1,6 @@
 ﻿namespace NewTHL2
 {
-    partial class WalkUp
+    partial class WakeUp
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // textBox1
@@ -45,23 +44,14 @@
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(15, 70);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(250, 30);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 1;
-            // 
-            // WalkUp
+            // WakeUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 112);
-            this.Controls.Add(this.progressBar1);
+            this.ClientSize = new System.Drawing.Size(284, 62);
             this.Controls.Add(this.textBox1);
-            this.Name = "WalkUp";
-            this.Text = "WalkUp";
+            this.Name = "WakeUp";
+            this.Text = "WakeUp";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,6 +60,5 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

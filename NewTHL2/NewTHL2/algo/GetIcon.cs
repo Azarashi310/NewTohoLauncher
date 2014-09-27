@@ -48,6 +48,7 @@ namespace NewTHL2.algo
 
         //アイコン
         private static Bitmap canvas;
+        
         //アイコンを取得し、パネル用のものを返す
         public static Bitmap returnPanelIcon(string FP, int PICBOX_Width,int PICBOX_Height)
         {
@@ -61,9 +62,7 @@ namespace NewTHL2.algo
                 Bitmap bmp = appIcon.ToBitmap();
                 canvas = new Bitmap(PICBOX_Width, PICBOX_Height);
                 Graphics Gra = Graphics.FromImage(canvas);
-                Image img = bmp;
-                Gra.DrawImage(img, 0, 0, img.Width * 2, img.Height * 2);
-                img.Dispose();
+                Gra.DrawImage(bmp, 0, 0, bmp.Width * 2, bmp.Height * 2);
                 Gra.Dispose();
                 ////ピクチャーボックスにアプリケーションアイコンをセット
                 //this.pictureBox1.Image = canvas;
@@ -85,11 +84,20 @@ namespace NewTHL2.algo
                 //画像の拡大　ここから
                 //アイコンのBMP化
                 Bitmap bmp = appIcon.ToBitmap();
+                
+                //描画先のImageオブジェクトを作成する
                 canvas = new Bitmap(PICBOX_Width, PICBOX_Height);
+                
+                //ImageオブジェクトのGraphicsオブジェクトを作成する
                 Graphics Gra = Graphics.FromImage(canvas);
-                Image img = bmp;
-                Gra.DrawImage(img, 0, 0, img.Width * 4, img.Height * 4);
-                img.Dispose();
+                
+                //Bitmapオブジェクトの作成
+                //Bitmap image = new Bitmap(FP);
+                //補間法としてバイキュービック法を使う
+                Gra.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                //画像を拡大
+                Gra.DrawImage(bmp, 0, 0, bmp.Width * 4, bmp.Height * 4);
+
                 Gra.Dispose();
                 ////ピクチャーボックスにアプリケーションアイコンをセット
                 //this.pictureBox1.Image = canvas;

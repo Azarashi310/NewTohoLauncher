@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NewTHL2
 {
-    public partial class WalkUp : Form
+    public partial class WakeUp : Form
     {
-        public WalkUp()
+        public WakeUp()
         {
             InitializeComponent();
         }
