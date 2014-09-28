@@ -112,6 +112,8 @@
             this.vpatchの設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.リプレイのユーザーデータ化ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
+            this.adonisの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casterの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -843,7 +845,7 @@
             this.ランチャの背景設定ToolStripMenuItem1,
             this.特殊な設定ToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 114);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 136);
             // 
             // バックアップフォルダの設定ToolStripMenuItem1
             // 
@@ -856,6 +858,7 @@
             this.ゲームの設定を開くToolStripMenuItem1.Name = "ゲームの設定を開くToolStripMenuItem1";
             this.ゲームの設定を開くToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
             this.ゲームの設定を開くToolStripMenuItem1.Text = "ゲームの設定を開く";
+            this.ゲームの設定を開くToolStripMenuItem1.Click += new System.EventHandler(this.ゲームの設定を開くToolStripMenuItem1_Click);
             // 
             // ゲームのフォルダを開くToolStripMenuItem1
             // 
@@ -874,6 +877,8 @@
             // 
             this.特殊な設定ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vpatchの設定ToolStripMenuItem1,
+            this.casterの設定ToolStripMenuItem,
+            this.adonisの設定ToolStripMenuItem,
             this.リプレイのユーザーデータ化ToolStripMenuItem1});
             this.特殊な設定ToolStripMenuItem1.Name = "特殊な設定ToolStripMenuItem1";
             this.特殊な設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
@@ -884,6 +889,7 @@
             this.vpatchの設定ToolStripMenuItem1.Name = "vpatchの設定ToolStripMenuItem1";
             this.vpatchの設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
             this.vpatchの設定ToolStripMenuItem1.Text = "Vpatchの設定";
+            this.vpatchの設定ToolStripMenuItem1.Click += new System.EventHandler(this.vpatchの設定ToolStripMenuItem1_Click);
             // 
             // リプレイのユーザーデータ化ToolStripMenuItem1
             // 
@@ -901,6 +907,18 @@
             this.vpatch_Toggle.TabIndex = 11;
             this.vpatch_Toggle.Text = "Vpatchで起動";
             this.vpatch_Toggle.UseVisualStyleBackColor = true;
+            // 
+            // adonisの設定ToolStripMenuItem
+            // 
+            this.adonisの設定ToolStripMenuItem.Name = "adonisの設定ToolStripMenuItem";
+            this.adonisの設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.adonisの設定ToolStripMenuItem.Text = "Adonisの設定";
+            // 
+            // casterの設定ToolStripMenuItem
+            // 
+            this.casterの設定ToolStripMenuItem.Name = "casterの設定ToolStripMenuItem";
+            this.casterの設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.casterの設定ToolStripMenuItem.Text = "Casterの設定";
             // 
             // Form1
             // 
@@ -1076,6 +1094,8 @@
         private System.Windows.Forms.ToolStripMenuItem vpatchの設定ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem リプレイのユーザーデータ化ToolStripMenuItem1;
         private System.Windows.Forms.CheckBox vpatch_Toggle;
+        private System.Windows.Forms.ToolStripMenuItem casterの設定ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adonisの設定ToolStripMenuItem;
     }
 }
 

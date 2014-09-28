@@ -67,6 +67,12 @@
     <Compile Include="Search.Designer.cs">
       <DependentUpon>Search.cs</DependentUpon>
     </Compile>
+    <Compile Include="VpatchGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VpatchGUI.Designer.cs">
+      <DependentUpon>VpatchGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="WakeUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </Compile>
     <EmbeddedResource Include="Search.resx">
       <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VpatchGUI.resx">
+      <DependentUpon>VpatchGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WakeUp.resx">
       <DependentUpon>WakeUp.cs</DependentUpon>

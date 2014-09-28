@@ -966,34 +966,78 @@ namespace NewTHL2
             特殊な設定ToolStripMenuItem1.Enabled = true;
             リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = true;
             vpatchの設定ToolStripMenuItem1.Enabled = true;
+            ゲームの設定を開くToolStripMenuItem1.Enabled = true;
 
+            if(FP_switch[select] == "")
+            {
+                バックアップフォルダの設定ToolStripMenuItem1.Enabled = false;
+                ゲームの設定を開くToolStripMenuItem1.Enabled = false;
+                ゲームのフォルダを開くToolStripMenuItem1.Enabled = false;
+                ランチャの背景設定ToolStripMenuItem1.Enabled = false;
+                特殊な設定ToolStripMenuItem1.Enabled = false;
+            }
             if((Thxx[select].ToString() == "alcostg")|(Thxx[select].ToString() == "Th075")|(Thxx[select].ToString() == "Th105")|(Thxx[select].ToString() == "Th123")|
                 (Thxx[select].ToString() == "Th135"))
             {
                 特殊な設定ToolStripMenuItem1.Enabled = false;
             }
-            else if(Thxx[select].ToString() == "Th10")
+            if(Thxx[select].ToString() == "Th10")
             {
                 リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = false;
             }
-            else if((Thxx[select].ToString() == "Th13")|(Thxx[select].ToString() == "Th14")|(Thxx[select].ToString() == "Th143"))
+            if((Thxx[select].ToString() == "Th13")|(Thxx[select].ToString() == "Th14")|(Thxx[select].ToString() == "Th143"))
             {
                 vpatchの設定ToolStripMenuItem1.Enabled = false;
             }
+            if((Thxx[select].ToString() == "Th105")|(Thxx[select].ToString() == "Th123")|(Thxx[select].ToString() == "Th135"))
+            {
+                ゲームの設定を開くToolStripMenuItem1.Enabled = false;
+            }
             
+        }
+
+        //custom.exe及びconfig.exe
+        private void ゲームの設定を開くToolStripMenuItem1_Click(object sender, EventArgs e)
+        {   
+            //config及びcustomが存在するか
+            if(Thxx[select].ToString() == "Th075")
+            {
+                string config = Path.Combine(FP_switch[select], "config.exe");
+                if(File.Exists(config))
+                {
+                    Process P = new Process();
+                    P.StartInfo.FileName = config;
+                    P.StartInfo.WorkingDirectory = FP_switch[select];
+                    P.Start();
+                }
+            }
+            else
+            {
+                string custom = Path.Combine(FP_switch[select], "custom.exe");
+                if(File.Exists(custom))
+                {
+                    Process P = new Process();
+                    P.StartInfo.FileName = custom;
+                    P.StartInfo.WorkingDirectory = FP_switch[select];
+                    P.Start();
+                }
+            }
+        }
+
+        //Vpatchの設定(GUI)
+        private void vpatchの設定ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            VpatchGUI VGUI = new VpatchGUI();
+            VGUI.Show();
         }
 
         //フォルダを開く
         private void ゲームのフォルダを開くToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //開くべきフォルダ
-            StringBuilder FP = new StringBuilder(1024);
-            //フォルダの取得
-            GetPrivateProfileString("FilePath", Thxx[select].ToString(), "", FP, Convert.ToUInt32(FP.Capacity), settingFilePath);
             //フォルダが存在すれば開く
-            if(Directory.Exists(FP.ToString()))
+            if(Directory.Exists(FP_switch[select]))
             {
-                Process.Start(FP.ToString());
+                Process.Start(FP_switch[select]);
             }
             else
             {
@@ -1148,6 +1192,9 @@ namespace NewTHL2
             NewTHL2.Help HP = new Help();
             HP.Show();
         }
+
+        
+
 
         
 
