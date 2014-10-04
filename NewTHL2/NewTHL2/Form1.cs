@@ -17,11 +17,15 @@ namespace NewTHL2
     public partial class Form1 : Form
     {
         #region iniファイルを使いたい
-        // Win32APIの GetPrivateProfileString を使う宣言
-        [DllImport("KERNEL32.DLL")]
+        // iniの読み込み
+        [DllImport("kernel32.DLL")]
         public static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, uint nSize, string lpFileName);
+        // iniの書き込み
         [DllImport("kernel32.dll")]
-        private static extern int WritePrivateProfileString(string lpApplicationName, string lpKeyName, string lpstring, string lpFileName);
+        public static extern uint WritePrivateProfileString(string lpApplicationName, string lpKeyName, string lpstring, string lpFileName);
+        // iniのkey一覧を取得
+        [DllImport("kernel32.DLL",EntryPoint="GetPrivateProfileStringA")]
+        public static extern uint GetPrivateProfileStringByByteArray(string lpAppName, string lpKeyName, string lpDefault, byte[] lpReturnedString, uint nSize, string lpFileName);
         #endregion
         //作品用enum
         enum ThXXGames
@@ -43,9 +47,9 @@ namespace NewTHL2
         //R/W用のエンコード
         private Encoding sjis = Encoding.GetEncoding("Shift-JIS");
         //ファイルパスが通ってるかどうかの記憶
-        private string[] FP_switch = new string[18];
+        public string[] FP_switch = new string[18];
         //今選択しているもの
-        private int select = 999;
+        public int select = 999;
 
         //コンストラクタ
         public Form1()
@@ -1027,8 +1031,31 @@ namespace NewTHL2
         //Vpatchの設定(GUI)
         private void vpatchの設定ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            VpatchGUI VGUI = new VpatchGUI();
-            VGUI.Show();
+            string VpatchIniPath = Path.Combine(FP_switch[select], "vpatch.ini");
+            string VpatchExePath = Path.Combine(FP_switch[select], "vpatch.exe");
+            //vpatch.iniは存在するか？
+            if(File.Exists(VpatchIniPath))
+            {
+                //ここからVpatchの設定を読み取り
+                Dictionary<string,int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
+            }
+            else
+            {
+                if(File.Exists(VpatchExePath))
+                {
+                    DialogResult = MessageBox.Show("vpatch.iniが存在しない為、設定が使えません" + Environment.NewLine + "が vpatch.exeは存在している模様ですので"
+                        + Environment.NewLine + "vpatch.ini　を作成することで利用できますが、作成しますか？（デフォルトの設定での作成になります）", "お知らせ", MessageBoxButtons.YesNo);
+                    if(DialogResult == DialogResult.Yes)
+                    {
+                        //ここで作成
+                    }
+                    else
+                    {
+                        MessageBox.Show("作成をキャンセルしました", "お知らせ");
+                    }
+                }
+                
+            }
         }
 
         //フォルダを開く
