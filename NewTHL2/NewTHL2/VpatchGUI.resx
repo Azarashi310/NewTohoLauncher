@@ -117,4 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="G_3HardWareAssistLv2.ToolTip" xml:space="preserve">
+    <value>ハードウェアの支援を使用して垂直同期を行います。フルスクリーン時のみ有効です。
+　ハードウェアの支援を使用しているため、完璧な垂直同期が可能です。
+　この設定では、ゲームループにwaitを入れずに全力で回すようにします。
+　フレームレートは、ハードウェア側(ドライバ)の実装に依存します。
+　この設定は、Vsyncのすべての設定の中で最もフレームレートが高くなると思われる設定です。
+　ただし同時に、Vsyncのすべての設定の中で最も入力遅延が多い設定です。
+　ウィンドウモード時の場合にこの設定を指定した場合や、
+フルスクリーン時にハードウェアの支援が利用できない場合は、
+　強制的に Vpatch独自の描画形式 の設定で動作します。</value>
+  </data>
+  <data name="G_3HardWareAssistLv1.ToolTip" xml:space="preserve">
+    <value>ハードウェアの支援を使用して垂直同期を行います。フルスクリーン時のみ有効です。
+　ハードウェアの支援を使用しているため、完璧な垂直同期が可能です。
+この設定では、2フレーム以上の遅延が起きないように、タイミングを調節しつつ描画します。
+　そのため、フレームレートが異様に低くなるシーンがあるかもしれませんが
+ハードウェア補助レベル２よりも入力遅延は少ないです。
+ウィンドウモード時の場合にハードウェア補助レベル１を指定した場合や、
+フルスクリーン時にハードウェアの支援が利用できない場合は、
+　強制的に Vpatch独自の描画形式 の設定で動作します。</value>
+  </data>
+  <data name="G_3VpatchOriginalDrawing.ToolTip" xml:space="preserve">
+    <value>独自の方法でソフトウェア的に垂直同期を取り、描画を行います。
+　ハードウェア的に行う垂直同期よりも低入力遅延で操作が可能です。
+　フレームレートは、モニタのリフレッシュレートと同じになります。
+ティアリング(ちらつき)が発生する場合は、
+Vsyncが正常に動作しない場合　にチェックボックスをオンにするのと
+Direct3Dをマルチスレッドで動かす にチェックボックスをオンにするのと
+プロセス優先度 を　高　に設定してみてください。</value>
+  </data>
+  <data name="G1_UnderDrawing.ToolTip" xml:space="preserve">
+    <value>走査線が画面の中央に来たときに描画を行います
+　Gameの速度(fps)は、リフレッシュレートと同じになります
+　必ず画面の中央付近でティアリングが起こるようになりますが、
+　Vsync=1の時と比べて、画面の下半分の領域の描画遅延が8ms程度少なくなります(60Hz時)
+　主に画面下でキャラを操作する人向きです
+　※画面上半分は8ms～16ms程度の描画遅延が起こります
+   ※液晶モニタの場合は、Vsync=0でご使用ください
+　※VGAデバイスが走査線の読み取りをサポートしていない場合は、
+　   Vsync機能は自動的にOFFになります</value>
+  </data>
+  <data name="G1_VsyncFPS.ToolTip" xml:space="preserve">
+    <value>垂直同期を取りつつ、GameFPSに設定されたfpsで描画を行います
+　リフレッシュレートが60Hz以外でも60fps(GameFPS)に近いレートで描画が可能ですが、
+　均等なレートで画面が更新できないため、弾の移動等が滑らかに描画できない可能性があります
+　※CalcFPS=0にしている場合は、fps表示が不安定になることがあります(59fps～61fps辺りをふらつく)
+　※CalcFPS=1の場合でも、多少不安定になることがありますが、四捨五入時には60fpsになると思います</value>
+  </data>
 </root>

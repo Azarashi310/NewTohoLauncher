@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VpatchGUI));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,7 +62,13 @@
             this.G1_MonitorRefreshLate = new System.Windows.Forms.RadioButton();
             this.G1_OriginalDrawing = new System.Windows.Forms.RadioButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.FrameSkipFeelMany = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.入力の暴走を修正します = new System.Windows.Forms.CheckBox();
+            this.星蓮船の聖輦船の影を修正します = new System.Windows.Forms.CheckBox();
+            this.風神録のバグマリを修正します = new System.Windows.Forms.CheckBox();
+            this.妖々夢の桜点バグを修正します = new System.Windows.Forms.CheckBox();
+            this.非アクティブでも描画 = new System.Windows.Forms.CheckBox();
             this.FPS値を独自方法で計算します = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.FPS制御の設定 = new System.Windows.Forms.GroupBox();
@@ -79,30 +87,25 @@
             this.先行描画設定TrackBar = new System.Windows.Forms.TrackBar();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.東方神霊廟のみ = new System.Windows.Forms.GroupBox();
+            this.checksum = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.D3DMultiThredforDubleSpoilerforTenDesire = new System.Windows.Forms.CheckBox();
+            this.ダブルスポイラー以降 = new System.Windows.Forms.GroupBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.D3DMultiThredforDubleSpoiler = new System.Windows.Forms.CheckBox();
+            this.processPrimary = new System.Windows.Forms.GroupBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.processPrimaryText = new System.Windows.Forms.Label();
+            this.processPrimaryTrackBar = new System.Windows.Forms.TrackBar();
+            this.動作させるCPUコア数 = new System.Windows.Forms.GroupBox();
+            this.CPU0_CPU1Work = new System.Windows.Forms.RadioButton();
+            this.CPU1Work = new System.Windows.Forms.RadioButton();
+            this.CPU0Work = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.非アクティブでも描画 = new System.Windows.Forms.CheckBox();
-            this.妖々夢の桜点バグを修正します = new System.Windows.Forms.CheckBox();
-            this.風神録のバグマリを修正します = new System.Windows.Forms.CheckBox();
-            this.星蓮船の聖輦船の影を修正します = new System.Windows.Forms.CheckBox();
-            this.入力の暴走を修正します = new System.Windows.Forms.CheckBox();
-            this.FrameSkipFeelMany = new System.Windows.Forms.CheckBox();
-            this.動作させるCPUコア数 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.CPU0Work = new System.Windows.Forms.RadioButton();
-            this.CPU1Work = new System.Windows.Forms.RadioButton();
-            this.CPU0_CPU1Work = new System.Windows.Forms.RadioButton();
-            this.processPrimary = new System.Windows.Forms.GroupBox();
-            this.processPrimaryTrackBar = new System.Windows.Forms.TrackBar();
-            this.processPrimaryText = new System.Windows.Forms.Label();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.ダブルスポイラー以降 = new System.Windows.Forms.GroupBox();
-            this.東方神霊廟のみ = new System.Windows.Forms.GroupBox();
-            this.D3DMultiThredforDubleSpoiler = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.D3DMultiThredforDubleSpoilerforTenDesire = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checksum = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -119,11 +122,11 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.先行描画設定TrackBar)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.動作させるCPUコア数.SuspendLayout();
+            this.東方神霊廟のみ.SuspendLayout();
+            this.ダブルスポイラー以降.SuspendLayout();
             this.processPrimary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processPrimaryTrackBar)).BeginInit();
-            this.ダブルスポイラー以降.SuspendLayout();
-            this.東方神霊廟のみ.SuspendLayout();
+            this.動作させるCPUコア数.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -324,6 +327,7 @@
             this.G_3HardWareAssistLv2.TabIndex = 3;
             this.G_3HardWareAssistLv2.TabStop = true;
             this.G_3HardWareAssistLv2.Text = "ハードウェア補助レベル２";
+            this.toolTip1.SetToolTip(this.G_3HardWareAssistLv2, resources.GetString("G_3HardWareAssistLv2.ToolTip"));
             this.G_3HardWareAssistLv2.UseVisualStyleBackColor = true;
             // 
             // G_3HardWareAssistLv1
@@ -335,6 +339,7 @@
             this.G_3HardWareAssistLv1.TabIndex = 2;
             this.G_3HardWareAssistLv1.TabStop = true;
             this.G_3HardWareAssistLv1.Text = "ハードウェア補助レベル１";
+            this.toolTip1.SetToolTip(this.G_3HardWareAssistLv1, resources.GetString("G_3HardWareAssistLv1.ToolTip"));
             this.G_3HardWareAssistLv1.UseVisualStyleBackColor = true;
             // 
             // G_3VpatchOriginalDrawing
@@ -346,6 +351,7 @@
             this.G_3VpatchOriginalDrawing.TabIndex = 1;
             this.G_3VpatchOriginalDrawing.TabStop = true;
             this.G_3VpatchOriginalDrawing.Text = "Vpatch独自の描画形式";
+            this.toolTip1.SetToolTip(this.G_3VpatchOriginalDrawing, resources.GetString("G_3VpatchOriginalDrawing.ToolTip"));
             this.G_3VpatchOriginalDrawing.UseVisualStyleBackColor = true;
             // 
             // G3_OriginalDrawing
@@ -357,6 +363,7 @@
             this.G3_OriginalDrawing.TabIndex = 0;
             this.G3_OriginalDrawing.TabStop = true;
             this.G3_OriginalDrawing.Text = "東方本家の描画方法で描画";
+            this.toolTip1.SetToolTip(this.G3_OriginalDrawing, "垂直同期をせずに、描画を行います。");
             this.G3_OriginalDrawing.UseVisualStyleBackColor = true;
             // 
             // 垂直同期設定ダブルスポイラー以降
@@ -380,6 +387,9 @@
             this.G2_VpatchOriginalDrawing.TabIndex = 6;
             this.G2_VpatchOriginalDrawing.TabStop = true;
             this.G2_VpatchOriginalDrawing.Text = "Vpatch独自の描画形式";
+            this.toolTip1.SetToolTip(this.G2_VpatchOriginalDrawing, "独自の方法で垂直同期をとり、描画を行います\r\n　Gameの速度(fps)は、モニタのリフレッシュレートと同じになります\r\n　Vsync=1にしてもティアリング(ち" +
+        "らつき)が発生する場合は、\r\n　LockBackBuffer=1 と D3DMultiThread=1 と ProcessPriority=2 を設定してみてく" +
+        "ださい");
             this.G2_VpatchOriginalDrawing.UseVisualStyleBackColor = true;
             // 
             // G2_NoVsync
@@ -391,6 +401,7 @@
             this.G2_NoVsync.TabIndex = 5;
             this.G2_NoVsync.TabStop = true;
             this.G2_NoVsync.Text = "垂直同期なし（Vpatch制御）";
+            this.toolTip1.SetToolTip(this.G2_NoVsync, "垂直同期をせずに、描画を行います");
             this.G2_NoVsync.UseVisualStyleBackColor = true;
             // 
             // G2_OriginalDrawing
@@ -402,6 +413,7 @@
             this.G2_OriginalDrawing.TabIndex = 4;
             this.G2_OriginalDrawing.TabStop = true;
             this.G2_OriginalDrawing.Text = "東方本家の描画方法で描画";
+            this.toolTip1.SetToolTip(this.G2_OriginalDrawing, "custom.exeで設定した垂直同期(入力のレイテンシ)の設定で動作します\r\n　この場合、フレームレート制御はvpatchでは制御せず、本家の動作のままです");
             this.G2_OriginalDrawing.UseVisualStyleBackColor = true;
             // 
             // 垂直同期設定
@@ -426,6 +438,7 @@
             this.G1_UnderDrawing.TabIndex = 3;
             this.G1_UnderDrawing.TabStop = true;
             this.G1_UnderDrawing.Text = "画面の真ん中より下で操作する人向け";
+            this.toolTip1.SetToolTip(this.G1_UnderDrawing, resources.GetString("G1_UnderDrawing.ToolTip"));
             this.G1_UnderDrawing.UseVisualStyleBackColor = true;
             // 
             // G1_VsyncFPS
@@ -437,6 +450,7 @@
             this.G1_VsyncFPS.TabIndex = 2;
             this.G1_VsyncFPS.TabStop = true;
             this.G1_VsyncFPS.Text = "Vsync側で設定したFPSの値に近づけて描画";
+            this.toolTip1.SetToolTip(this.G1_VsyncFPS, resources.GetString("G1_VsyncFPS.ToolTip"));
             this.G1_VsyncFPS.UseVisualStyleBackColor = true;
             // 
             // G1_MonitorRefreshLate
@@ -448,6 +462,8 @@
             this.G1_MonitorRefreshLate.TabIndex = 1;
             this.G1_MonitorRefreshLate.TabStop = true;
             this.G1_MonitorRefreshLate.Text = "モニターのリフレッシュレートに合わせる";
+            this.toolTip1.SetToolTip(this.G1_MonitorRefreshLate, "独自の方法で垂直同期をとり、描画を行います\r\n　※ちなみにVsync=1の時は、画面上半分は0～8ms程度の描画遅延、画面下半分は8ms～16ms程度の描画遅延が" +
+        "起こります");
             this.G1_MonitorRefreshLate.UseVisualStyleBackColor = true;
             // 
             // G1_OriginalDrawing
@@ -459,6 +475,7 @@
             this.G1_OriginalDrawing.TabIndex = 0;
             this.G1_OriginalDrawing.TabStop = true;
             this.G1_OriginalDrawing.Text = "東方本家の描画方法で描画";
+            this.toolTip1.SetToolTip(this.G1_OriginalDrawing, "垂直同期をせずに、描画を行います\r\n　※Vsync=0の描画遅延は、描画タイミングが不定のため、描画遅延も不定です");
             this.G1_OriginalDrawing.UseVisualStyleBackColor = true;
             // 
             // tabPage3
@@ -474,6 +491,17 @@
             this.tabPage3.Text = "描画設定＆BugFix";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // FrameSkipFeelMany
+            // 
+            this.FrameSkipFeelMany.AutoSize = true;
+            this.FrameSkipFeelMany.Location = new System.Drawing.Point(339, 308);
+            this.FrameSkipFeelMany.Name = "FrameSkipFeelMany";
+            this.FrameSkipFeelMany.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FrameSkipFeelMany.Size = new System.Drawing.Size(243, 16);
+            this.FrameSkipFeelMany.TabIndex = 12;
+            this.FrameSkipFeelMany.Text = "フレームスキップをなるべく感じさせないようにする";
+            this.FrameSkipFeelMany.UseVisualStyleBackColor = true;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.入力の暴走を修正します);
@@ -488,6 +516,62 @@
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "BugFix";
+            // 
+            // 入力の暴走を修正します
+            // 
+            this.入力の暴走を修正します.AutoSize = true;
+            this.入力の暴走を修正します.Location = new System.Drawing.Point(8, 220);
+            this.入力の暴走を修正します.Name = "入力の暴走を修正します";
+            this.入力の暴走を修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.入力の暴走を修正します.Size = new System.Drawing.Size(143, 16);
+            this.入力の暴走を修正します.TabIndex = 5;
+            this.入力の暴走を修正します.Text = "入力の暴走を修正します";
+            this.入力の暴走を修正します.UseVisualStyleBackColor = true;
+            // 
+            // 星蓮船の聖輦船の影を修正します
+            // 
+            this.星蓮船の聖輦船の影を修正します.AutoSize = true;
+            this.星蓮船の聖輦船の影を修正します.Location = new System.Drawing.Point(8, 180);
+            this.星蓮船の聖輦船の影を修正します.Name = "星蓮船の聖輦船の影を修正します";
+            this.星蓮船の聖輦船の影を修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.星蓮船の聖輦船の影を修正します.Size = new System.Drawing.Size(189, 16);
+            this.星蓮船の聖輦船の影を修正します.TabIndex = 4;
+            this.星蓮船の聖輦船の影を修正します.Text = "星蓮船の聖輦船の影を修正します";
+            this.星蓮船の聖輦船の影を修正します.UseVisualStyleBackColor = true;
+            // 
+            // 風神録のバグマリを修正します
+            // 
+            this.風神録のバグマリを修正します.AutoSize = true;
+            this.風神録のバグマリを修正します.Location = new System.Drawing.Point(8, 140);
+            this.風神録のバグマリを修正します.Name = "風神録のバグマリを修正します";
+            this.風神録のバグマリを修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.風神録のバグマリを修正します.Size = new System.Drawing.Size(166, 16);
+            this.風神録のバグマリを修正します.TabIndex = 3;
+            this.風神録のバグマリを修正します.Text = "風神録のバグマリを修正します";
+            this.風神録のバグマリを修正します.UseVisualStyleBackColor = true;
+            // 
+            // 妖々夢の桜点バグを修正します
+            // 
+            this.妖々夢の桜点バグを修正します.AutoSize = true;
+            this.妖々夢の桜点バグを修正します.Location = new System.Drawing.Point(8, 100);
+            this.妖々夢の桜点バグを修正します.Name = "妖々夢の桜点バグを修正します";
+            this.妖々夢の桜点バグを修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.妖々夢の桜点バグを修正します.Size = new System.Drawing.Size(174, 16);
+            this.妖々夢の桜点バグを修正します.TabIndex = 2;
+            this.妖々夢の桜点バグを修正します.Text = "妖々夢の桜点バグを修正します";
+            this.妖々夢の桜点バグを修正します.UseVisualStyleBackColor = true;
+            // 
+            // 非アクティブでも描画
+            // 
+            this.非アクティブでも描画.AutoSize = true;
+            this.非アクティブでも描画.Location = new System.Drawing.Point(8, 59);
+            this.非アクティブでも描画.Name = "非アクティブでも描画";
+            this.非アクティブでも描画.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.非アクティブでも描画.Size = new System.Drawing.Size(121, 16);
+            this.非アクティブでも描画.TabIndex = 1;
+            this.非アクティブでも描画.Text = "非アクティブでも描画";
+            this.非アクティブでも描画.UseVisualStyleBackColor = true;
+            this.非アクティブでも描画.CheckedChanged += new System.EventHandler(this.非アクティブでも描画_CheckedChanged);
             // 
             // FPS値を独自方法で計算します
             // 
@@ -677,6 +761,186 @@
             this.tabPage4.Text = "上級者向け設定";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // 東方神霊廟のみ
+            // 
+            this.東方神霊廟のみ.Controls.Add(this.checksum);
+            this.東方神霊廟のみ.Controls.Add(this.checkBox7);
+            this.東方神霊廟のみ.Controls.Add(this.D3DMultiThredforDubleSpoilerforTenDesire);
+            this.東方神霊廟のみ.Location = new System.Drawing.Point(300, 211);
+            this.東方神霊廟のみ.Name = "東方神霊廟のみ";
+            this.東方神霊廟のみ.Size = new System.Drawing.Size(308, 162);
+            this.東方神霊廟のみ.TabIndex = 3;
+            this.東方神霊廟のみ.TabStop = false;
+            this.東方神霊廟のみ.Text = "東方神霊廟のみ";
+            // 
+            // checksum
+            // 
+            this.checksum.AutoSize = true;
+            this.checksum.Location = new System.Drawing.Point(24, 112);
+            this.checksum.Name = "checksum";
+            this.checksum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checksum.Size = new System.Drawing.Size(188, 16);
+            this.checksum.TabIndex = 4;
+            this.checksum.Text = "th13.exeのチェックサムを有効にする";
+            this.checksum.UseVisualStyleBackColor = true;
+            this.checksum.CheckedChanged += new System.EventHandler(this.checksum_CheckedChanged);
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(24, 72);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox7.Size = new System.Drawing.Size(179, 16);
+            this.checkBox7.TabIndex = 3;
+            this.checkBox7.Text = "バイリニアフィルタリングで拡大する";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
+            // 
+            // D3DMultiThredforDubleSpoilerforTenDesire
+            // 
+            this.D3DMultiThredforDubleSpoilerforTenDesire.AutoSize = true;
+            this.D3DMultiThredforDubleSpoilerforTenDesire.Location = new System.Drawing.Point(24, 30);
+            this.D3DMultiThredforDubleSpoilerforTenDesire.Name = "D3DMultiThredforDubleSpoilerforTenDesire";
+            this.D3DMultiThredforDubleSpoilerforTenDesire.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.D3DMultiThredforDubleSpoilerforTenDesire.Size = new System.Drawing.Size(182, 16);
+            this.D3DMultiThredforDubleSpoilerforTenDesire.TabIndex = 2;
+            this.D3DMultiThredforDubleSpoilerforTenDesire.Text = "Direct3Dをマルチスレッドで動かす";
+            this.D3DMultiThredforDubleSpoilerforTenDesire.UseVisualStyleBackColor = true;
+            this.D3DMultiThredforDubleSpoilerforTenDesire.CheckedChanged += new System.EventHandler(this.D3DMultiThredforDubleSpoilerforTenDesire_CheckedChanged);
+            // 
+            // ダブルスポイラー以降
+            // 
+            this.ダブルスポイラー以降.Controls.Add(this.checkBox5);
+            this.ダブルスポイラー以降.Controls.Add(this.D3DMultiThredforDubleSpoiler);
+            this.ダブルスポイラー以降.Location = new System.Drawing.Point(18, 211);
+            this.ダブルスポイラー以降.Name = "ダブルスポイラー以降";
+            this.ダブルスポイラー以降.Size = new System.Drawing.Size(257, 162);
+            this.ダブルスポイラー以降.TabIndex = 2;
+            this.ダブルスポイラー以降.TabStop = false;
+            this.ダブルスポイラー以降.Text = "ダブルスポイラー以降";
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(11, 72);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox5.Size = new System.Drawing.Size(171, 16);
+            this.checkBox5.TabIndex = 1;
+            this.checkBox5.Text = "DirectInputをVpatch側で制御";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            // 
+            // D3DMultiThredforDubleSpoiler
+            // 
+            this.D3DMultiThredforDubleSpoiler.AutoSize = true;
+            this.D3DMultiThredforDubleSpoiler.Location = new System.Drawing.Point(11, 30);
+            this.D3DMultiThredforDubleSpoiler.Name = "D3DMultiThredforDubleSpoiler";
+            this.D3DMultiThredforDubleSpoiler.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.D3DMultiThredforDubleSpoiler.Size = new System.Drawing.Size(182, 16);
+            this.D3DMultiThredforDubleSpoiler.TabIndex = 0;
+            this.D3DMultiThredforDubleSpoiler.Text = "Direct3Dをマルチスレッドで動かす";
+            this.D3DMultiThredforDubleSpoiler.UseVisualStyleBackColor = true;
+            this.D3DMultiThredforDubleSpoiler.CheckedChanged += new System.EventHandler(this.D3DMultiThredforDubleSpoiler_CheckedChanged);
+            // 
+            // processPrimary
+            // 
+            this.processPrimary.Controls.Add(this.checkBox4);
+            this.processPrimary.Controls.Add(this.processPrimaryText);
+            this.processPrimary.Controls.Add(this.processPrimaryTrackBar);
+            this.processPrimary.Location = new System.Drawing.Point(300, 16);
+            this.processPrimary.Name = "processPrimary";
+            this.processPrimary.Size = new System.Drawing.Size(308, 172);
+            this.processPrimary.TabIndex = 1;
+            this.processPrimary.TabStop = false;
+            this.processPrimary.Text = "プロセス優先度";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(72, 127);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox4.Size = new System.Drawing.Size(176, 16);
+            this.checkBox4.TabIndex = 2;
+            this.checkBox4.Text = "Vsyncが正常に動作しない場合";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // processPrimaryText
+            // 
+            this.processPrimaryText.AutoSize = true;
+            this.processPrimaryText.Location = new System.Drawing.Point(138, 93);
+            this.processPrimaryText.Name = "processPrimaryText";
+            this.processPrimaryText.Size = new System.Drawing.Size(35, 12);
+            this.processPrimaryText.TabIndex = 1;
+            this.processPrimaryText.Text = "label2";
+            // 
+            // processPrimaryTrackBar
+            // 
+            this.processPrimaryTrackBar.Location = new System.Drawing.Point(10, 24);
+            this.processPrimaryTrackBar.Maximum = 4;
+            this.processPrimaryTrackBar.Name = "processPrimaryTrackBar";
+            this.processPrimaryTrackBar.Size = new System.Drawing.Size(292, 45);
+            this.processPrimaryTrackBar.TabIndex = 0;
+            // 
+            // 動作させるCPUコア数
+            // 
+            this.動作させるCPUコア数.Controls.Add(this.CPU0_CPU1Work);
+            this.動作させるCPUコア数.Controls.Add(this.CPU1Work);
+            this.動作させるCPUコア数.Controls.Add(this.CPU0Work);
+            this.動作させるCPUコア数.Controls.Add(this.radioButton1);
+            this.動作させるCPUコア数.Location = new System.Drawing.Point(17, 16);
+            this.動作させるCPUコア数.Name = "動作させるCPUコア数";
+            this.動作させるCPUコア数.Size = new System.Drawing.Size(258, 172);
+            this.動作させるCPUコア数.TabIndex = 0;
+            this.動作させるCPUコア数.TabStop = false;
+            this.動作させるCPUコア数.Text = "動作させるCPUコア数";
+            // 
+            // CPU0_CPU1Work
+            // 
+            this.CPU0_CPU1Work.AutoSize = true;
+            this.CPU0_CPU1Work.Location = new System.Drawing.Point(16, 127);
+            this.CPU0_CPU1Work.Name = "CPU0_CPU1Work";
+            this.CPU0_CPU1Work.Size = new System.Drawing.Size(150, 16);
+            this.CPU0_CPU1Work.TabIndex = 3;
+            this.CPU0_CPU1Work.TabStop = true;
+            this.CPU0_CPU1Work.Text = "CPU0とCPU1で動作させる";
+            this.CPU0_CPU1Work.UseVisualStyleBackColor = true;
+            // 
+            // CPU1Work
+            // 
+            this.CPU1Work.AutoSize = true;
+            this.CPU1Work.Location = new System.Drawing.Point(16, 93);
+            this.CPU1Work.Name = "CPU1Work";
+            this.CPU1Work.Size = new System.Drawing.Size(113, 16);
+            this.CPU1Work.TabIndex = 2;
+            this.CPU1Work.TabStop = true;
+            this.CPU1Work.Text = "CPU1で動作させる";
+            this.CPU1Work.UseVisualStyleBackColor = true;
+            // 
+            // CPU0Work
+            // 
+            this.CPU0Work.AutoSize = true;
+            this.CPU0Work.Location = new System.Drawing.Point(16, 60);
+            this.CPU0Work.Name = "CPU0Work";
+            this.CPU0Work.Size = new System.Drawing.Size(113, 16);
+            this.CPU0Work.TabIndex = 1;
+            this.CPU0Work.TabStop = true;
+            this.CPU0Work.Text = "CPU0で動作させる";
+            this.CPU0Work.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(16, 26);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(97, 16);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "特に指定しない";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(63, 415);
@@ -695,253 +959,6 @@
             this.button2.Text = "決定";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // 非アクティブでも描画
-            // 
-            this.非アクティブでも描画.AutoSize = true;
-            this.非アクティブでも描画.Location = new System.Drawing.Point(8, 59);
-            this.非アクティブでも描画.Name = "非アクティブでも描画";
-            this.非アクティブでも描画.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.非アクティブでも描画.Size = new System.Drawing.Size(121, 16);
-            this.非アクティブでも描画.TabIndex = 1;
-            this.非アクティブでも描画.Text = "非アクティブでも描画";
-            this.非アクティブでも描画.UseVisualStyleBackColor = true;
-            this.非アクティブでも描画.CheckedChanged += new System.EventHandler(this.非アクティブでも描画_CheckedChanged);
-            // 
-            // 妖々夢の桜点バグを修正します
-            // 
-            this.妖々夢の桜点バグを修正します.AutoSize = true;
-            this.妖々夢の桜点バグを修正します.Location = new System.Drawing.Point(8, 100);
-            this.妖々夢の桜点バグを修正します.Name = "妖々夢の桜点バグを修正します";
-            this.妖々夢の桜点バグを修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.妖々夢の桜点バグを修正します.Size = new System.Drawing.Size(174, 16);
-            this.妖々夢の桜点バグを修正します.TabIndex = 2;
-            this.妖々夢の桜点バグを修正します.Text = "妖々夢の桜点バグを修正します";
-            this.妖々夢の桜点バグを修正します.UseVisualStyleBackColor = true;
-            // 
-            // 風神録のバグマリを修正します
-            // 
-            this.風神録のバグマリを修正します.AutoSize = true;
-            this.風神録のバグマリを修正します.Location = new System.Drawing.Point(8, 140);
-            this.風神録のバグマリを修正します.Name = "風神録のバグマリを修正します";
-            this.風神録のバグマリを修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.風神録のバグマリを修正します.Size = new System.Drawing.Size(166, 16);
-            this.風神録のバグマリを修正します.TabIndex = 3;
-            this.風神録のバグマリを修正します.Text = "風神録のバグマリを修正します";
-            this.風神録のバグマリを修正します.UseVisualStyleBackColor = true;
-            // 
-            // 星蓮船の聖輦船の影を修正します
-            // 
-            this.星蓮船の聖輦船の影を修正します.AutoSize = true;
-            this.星蓮船の聖輦船の影を修正します.Location = new System.Drawing.Point(8, 180);
-            this.星蓮船の聖輦船の影を修正します.Name = "星蓮船の聖輦船の影を修正します";
-            this.星蓮船の聖輦船の影を修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.星蓮船の聖輦船の影を修正します.Size = new System.Drawing.Size(189, 16);
-            this.星蓮船の聖輦船の影を修正します.TabIndex = 4;
-            this.星蓮船の聖輦船の影を修正します.Text = "星蓮船の聖輦船の影を修正します";
-            this.星蓮船の聖輦船の影を修正します.UseVisualStyleBackColor = true;
-            // 
-            // 入力の暴走を修正します
-            // 
-            this.入力の暴走を修正します.AutoSize = true;
-            this.入力の暴走を修正します.Location = new System.Drawing.Point(8, 220);
-            this.入力の暴走を修正します.Name = "入力の暴走を修正します";
-            this.入力の暴走を修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.入力の暴走を修正します.Size = new System.Drawing.Size(143, 16);
-            this.入力の暴走を修正します.TabIndex = 5;
-            this.入力の暴走を修正します.Text = "入力の暴走を修正します";
-            this.入力の暴走を修正します.UseVisualStyleBackColor = true;
-            // 
-            // FrameSkipFeelMany
-            // 
-            this.FrameSkipFeelMany.AutoSize = true;
-            this.FrameSkipFeelMany.Location = new System.Drawing.Point(339, 308);
-            this.FrameSkipFeelMany.Name = "FrameSkipFeelMany";
-            this.FrameSkipFeelMany.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FrameSkipFeelMany.Size = new System.Drawing.Size(243, 16);
-            this.FrameSkipFeelMany.TabIndex = 12;
-            this.FrameSkipFeelMany.Text = "フレームスキップをなるべく感じさせないようにする";
-            this.FrameSkipFeelMany.UseVisualStyleBackColor = true;
-            // 
-            // 動作させるCPUコア数
-            // 
-            this.動作させるCPUコア数.Controls.Add(this.CPU0_CPU1Work);
-            this.動作させるCPUコア数.Controls.Add(this.CPU1Work);
-            this.動作させるCPUコア数.Controls.Add(this.CPU0Work);
-            this.動作させるCPUコア数.Controls.Add(this.radioButton1);
-            this.動作させるCPUコア数.Location = new System.Drawing.Point(17, 16);
-            this.動作させるCPUコア数.Name = "動作させるCPUコア数";
-            this.動作させるCPUコア数.Size = new System.Drawing.Size(258, 172);
-            this.動作させるCPUコア数.TabIndex = 0;
-            this.動作させるCPUコア数.TabStop = false;
-            this.動作させるCPUコア数.Text = "動作させるCPUコア数";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(16, 26);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(97, 16);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "特に指定しない";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // CPU0Work
-            // 
-            this.CPU0Work.AutoSize = true;
-            this.CPU0Work.Location = new System.Drawing.Point(16, 60);
-            this.CPU0Work.Name = "CPU0Work";
-            this.CPU0Work.Size = new System.Drawing.Size(113, 16);
-            this.CPU0Work.TabIndex = 1;
-            this.CPU0Work.TabStop = true;
-            this.CPU0Work.Text = "CPU0で動作させる";
-            this.CPU0Work.UseVisualStyleBackColor = true;
-            // 
-            // CPU1Work
-            // 
-            this.CPU1Work.AutoSize = true;
-            this.CPU1Work.Location = new System.Drawing.Point(16, 93);
-            this.CPU1Work.Name = "CPU1Work";
-            this.CPU1Work.Size = new System.Drawing.Size(113, 16);
-            this.CPU1Work.TabIndex = 2;
-            this.CPU1Work.TabStop = true;
-            this.CPU1Work.Text = "CPU1で動作させる";
-            this.CPU1Work.UseVisualStyleBackColor = true;
-            // 
-            // CPU0_CPU1Work
-            // 
-            this.CPU0_CPU1Work.AutoSize = true;
-            this.CPU0_CPU1Work.Location = new System.Drawing.Point(16, 127);
-            this.CPU0_CPU1Work.Name = "CPU0_CPU1Work";
-            this.CPU0_CPU1Work.Size = new System.Drawing.Size(150, 16);
-            this.CPU0_CPU1Work.TabIndex = 3;
-            this.CPU0_CPU1Work.TabStop = true;
-            this.CPU0_CPU1Work.Text = "CPU0とCPU1で動作させる";
-            this.CPU0_CPU1Work.UseVisualStyleBackColor = true;
-            // 
-            // processPrimary
-            // 
-            this.processPrimary.Controls.Add(this.checkBox4);
-            this.processPrimary.Controls.Add(this.processPrimaryText);
-            this.processPrimary.Controls.Add(this.processPrimaryTrackBar);
-            this.processPrimary.Location = new System.Drawing.Point(300, 16);
-            this.processPrimary.Name = "processPrimary";
-            this.processPrimary.Size = new System.Drawing.Size(308, 172);
-            this.processPrimary.TabIndex = 1;
-            this.processPrimary.TabStop = false;
-            this.processPrimary.Text = "プロセス優先度";
-            // 
-            // processPrimaryTrackBar
-            // 
-            this.processPrimaryTrackBar.Location = new System.Drawing.Point(10, 24);
-            this.processPrimaryTrackBar.Maximum = 4;
-            this.processPrimaryTrackBar.Name = "processPrimaryTrackBar";
-            this.processPrimaryTrackBar.Size = new System.Drawing.Size(292, 45);
-            this.processPrimaryTrackBar.TabIndex = 0;
-            // 
-            // processPrimaryText
-            // 
-            this.processPrimaryText.AutoSize = true;
-            this.processPrimaryText.Location = new System.Drawing.Point(138, 93);
-            this.processPrimaryText.Name = "processPrimaryText";
-            this.processPrimaryText.Size = new System.Drawing.Size(35, 12);
-            this.processPrimaryText.TabIndex = 1;
-            this.processPrimaryText.Text = "label2";
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(72, 127);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox4.Size = new System.Drawing.Size(176, 16);
-            this.checkBox4.TabIndex = 2;
-            this.checkBox4.Text = "Vsyncが正常に動作しない場合";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // ダブルスポイラー以降
-            // 
-            this.ダブルスポイラー以降.Controls.Add(this.checkBox5);
-            this.ダブルスポイラー以降.Controls.Add(this.D3DMultiThredforDubleSpoiler);
-            this.ダブルスポイラー以降.Location = new System.Drawing.Point(18, 211);
-            this.ダブルスポイラー以降.Name = "ダブルスポイラー以降";
-            this.ダブルスポイラー以降.Size = new System.Drawing.Size(257, 162);
-            this.ダブルスポイラー以降.TabIndex = 2;
-            this.ダブルスポイラー以降.TabStop = false;
-            this.ダブルスポイラー以降.Text = "ダブルスポイラー以降";
-            // 
-            // 東方神霊廟のみ
-            // 
-            this.東方神霊廟のみ.Controls.Add(this.checksum);
-            this.東方神霊廟のみ.Controls.Add(this.checkBox7);
-            this.東方神霊廟のみ.Controls.Add(this.D3DMultiThredforDubleSpoilerforTenDesire);
-            this.東方神霊廟のみ.Location = new System.Drawing.Point(300, 211);
-            this.東方神霊廟のみ.Name = "東方神霊廟のみ";
-            this.東方神霊廟のみ.Size = new System.Drawing.Size(308, 162);
-            this.東方神霊廟のみ.TabIndex = 3;
-            this.東方神霊廟のみ.TabStop = false;
-            this.東方神霊廟のみ.Text = "東方神霊廟のみ";
-            // 
-            // D3DMultiThredforDubleSpoiler
-            // 
-            this.D3DMultiThredforDubleSpoiler.AutoSize = true;
-            this.D3DMultiThredforDubleSpoiler.Location = new System.Drawing.Point(11, 30);
-            this.D3DMultiThredforDubleSpoiler.Name = "D3DMultiThredforDubleSpoiler";
-            this.D3DMultiThredforDubleSpoiler.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.D3DMultiThredforDubleSpoiler.Size = new System.Drawing.Size(182, 16);
-            this.D3DMultiThredforDubleSpoiler.TabIndex = 0;
-            this.D3DMultiThredforDubleSpoiler.Text = "Direct3Dをマルチスレッドで動かす";
-            this.D3DMultiThredforDubleSpoiler.UseVisualStyleBackColor = true;
-            this.D3DMultiThredforDubleSpoiler.CheckedChanged += new System.EventHandler(this.D3DMultiThredforDubleSpoiler_CheckedChanged);
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(11, 72);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox5.Size = new System.Drawing.Size(171, 16);
-            this.checkBox5.TabIndex = 1;
-            this.checkBox5.Text = "DirectInputをVpatch側で制御";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
-            // 
-            // D3DMultiThredforDubleSpoilerforTenDesire
-            // 
-            this.D3DMultiThredforDubleSpoilerforTenDesire.AutoSize = true;
-            this.D3DMultiThredforDubleSpoilerforTenDesire.Location = new System.Drawing.Point(24, 30);
-            this.D3DMultiThredforDubleSpoilerforTenDesire.Name = "D3DMultiThredforDubleSpoilerforTenDesire";
-            this.D3DMultiThredforDubleSpoilerforTenDesire.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.D3DMultiThredforDubleSpoilerforTenDesire.Size = new System.Drawing.Size(182, 16);
-            this.D3DMultiThredforDubleSpoilerforTenDesire.TabIndex = 2;
-            this.D3DMultiThredforDubleSpoilerforTenDesire.Text = "Direct3Dをマルチスレッドで動かす";
-            this.D3DMultiThredforDubleSpoilerforTenDesire.UseVisualStyleBackColor = true;
-            this.D3DMultiThredforDubleSpoilerforTenDesire.CheckedChanged += new System.EventHandler(this.D3DMultiThredforDubleSpoilerforTenDesire_CheckedChanged);
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(24, 72);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox7.Size = new System.Drawing.Size(179, 16);
-            this.checkBox7.TabIndex = 3;
-            this.checkBox7.Text = "バイリニアフィルタリングで拡大する";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
-            // 
-            // checksum
-            // 
-            this.checksum.AutoSize = true;
-            this.checksum.Location = new System.Drawing.Point(24, 112);
-            this.checksum.Name = "checksum";
-            this.checksum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checksum.Size = new System.Drawing.Size(188, 16);
-            this.checksum.TabIndex = 4;
-            this.checksum.Text = "th13.exeのチェックサムを有効にする";
-            this.checksum.UseVisualStyleBackColor = true;
-            this.checksum.CheckedChanged += new System.EventHandler(this.checksum_CheckedChanged);
             // 
             // VpatchGUI
             // 
@@ -980,15 +997,15 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.先行描画設定TrackBar)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            this.動作させるCPUコア数.ResumeLayout(false);
-            this.動作させるCPUコア数.PerformLayout();
+            this.東方神霊廟のみ.ResumeLayout(false);
+            this.東方神霊廟のみ.PerformLayout();
+            this.ダブルスポイラー以降.ResumeLayout(false);
+            this.ダブルスポイラー以降.PerformLayout();
             this.processPrimary.ResumeLayout(false);
             this.processPrimary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processPrimaryTrackBar)).EndInit();
-            this.ダブルスポイラー以降.ResumeLayout(false);
-            this.ダブルスポイラー以降.PerformLayout();
-            this.東方神霊廟のみ.ResumeLayout(false);
-            this.東方神霊廟のみ.PerformLayout();
+            this.動作させるCPUコア数.ResumeLayout(false);
+            this.動作させるCPUコア数.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1070,5 +1087,6 @@
         private System.Windows.Forms.CheckBox D3DMultiThredforDubleSpoilerforTenDesire;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox D3DMultiThredforDubleSpoiler;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

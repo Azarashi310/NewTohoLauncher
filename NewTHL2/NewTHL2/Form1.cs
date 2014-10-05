@@ -1038,6 +1038,12 @@ namespace NewTHL2
             {
                 //ここからVpatchの設定を読み取り
                 Dictionary<string,int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
+                
+                //VpatchGUIを参照
+                VpatchGUI VGUI = new VpatchGUI();
+                
+                //ここで設定のイニシャライズをする
+                VGUI.setValues(vpatchValues,Thxx[select].ToString());
             }
             else
             {
