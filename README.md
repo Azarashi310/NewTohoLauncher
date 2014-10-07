@@ -15,15 +15,23 @@ Visual Studoio 2013 Proffesional で　言語はC# で作ってます。
 仕様
 
 ・セーブデータのバックアップ
+
 ・リプレイデータのバックアップ
+
 ・リプレイデータのユーザーデータ化（できるものに限る）
+
 ・Vpatchのアシスト（GUI化）
+
 ・Adonisのサポート
+
 ・Casterのサポート（今後）
+
 ・Twitterでの対戦者募集（対戦できるゲームのみ）
+
 ・ゲームが起動できます（当たり前）
 
 Vpatch　及び Adonis　及び Caster　に関しては
+
 ◆swmpLV/75E　様のものです。
 
 VaptchのGUI化に関しては本人様の許可を頂いております。
