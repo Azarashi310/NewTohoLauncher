@@ -88,6 +88,12 @@ Adonisの設定もGUI化してます
 ipアドレスやポート番号などを指定しておくと、CUIでの打ち込みをすっ飛ばしてくれます
 
 
+##History
+
+今んとこ作り直してるんで
+
+再実装中の機能が多いです
+
 ##License (MITLicense)
 
 Copyright (c) 2014 Azarashi310
