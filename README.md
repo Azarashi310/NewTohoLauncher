@@ -10,7 +10,9 @@ Visual Studoio 2013 Proffesional で　言語はC# で作ってます。
 このソフトについて
 
 このソフトは　サークル　上海アリス幻樂団　様　と　黄昏フロンティア　様　と　呑んべぇ会　様から
-出ているソフト（※）をランチャーソフトにまとめ、起動できるものになります。
+出ているソフト（※）
+
+をランチャーソフトにまとめ、起動できるものになります。
 
 仕様
 
@@ -69,6 +71,8 @@ VaptchのGUI化に関しては本人様の許可を頂いております。
 東方心綺楼　～ Hopeless Masquerade.
 
 東方輝針城　～ Double Dealing Character.
+
+弾幕アマノジャク　～ Impossible Spell Card.
 
 黄昏酒場　～ Uwabami Breakers ～
 
