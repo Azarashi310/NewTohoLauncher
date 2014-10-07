@@ -3,7 +3,7 @@ NewTohoLauncher
 
 New東方ランチャー
 
-Visual Studoio 2013 Proffesional で　言語はC# で作ってます。
+Visual Studoio Proffesional 2013 で　言語はC# で作ってます。
 
 ##Examples
 
