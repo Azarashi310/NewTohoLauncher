@@ -22,9 +22,9 @@ Visual Studoio 2013 Proffesional で　言語はC# で作ってます。
 
 ・リプレイデータのユーザーデータ化（できるものに限る）
 
-・Vpatchのアシスト（GUI化）
+・Vpatchのアシスト（設定GUI化）
 
-・Adonisのサポート
+・Adonisのアシスト（設定GUI化）
 
 ・Casterのサポート（今後）
 
@@ -32,9 +32,12 @@ Visual Studoio 2013 Proffesional で　言語はC# で作ってます。
 
 ・ゲームが起動できます（当たり前）
 
-Vpatch　及び Adonis　及び Caster　に関しては
+Vpatch　及び Adonis　に関しては
 
 ◆swmpLV/75E　様のものです。
+
+Caster　に関しては
+◆yK8Yp05c   様のものです
 
 VaptchのGUI化に関しては本人様の許可を頂いております。
 
@@ -76,7 +79,13 @@ VaptchのGUI化に関しては本人様の許可を頂いております。
 
 黄昏酒場　～ Uwabami Breakers ～
 
+##Adonis
 
+アドニスのサポートに関して
+
+Adonisの設定もGUI化してます
+
+ipアドレスやポート番号などを指定しておくと、CUIでの打ち込みをすっ飛ばしてくれます
 
 
 ##License (MITLicense)
