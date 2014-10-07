@@ -10,7 +10,7 @@ Visual Studoio 2013 Proffesional で　言語はC# で作ってます。
 このソフトについて
 
 このソフトは　サークル　上海アリス幻樂団　様　と　黄昏フロンティア　様　と　呑んべぇ会　様から
-出ているソフトをランチャーソフトにまとめ、起動できるものになります。
+出ているソフト（※）をランチャーソフトにまとめ、起動できるものになります。
 
 仕様
 
@@ -36,27 +36,41 @@ Vpatch　及び Adonis　及び Caster　に関しては
 
 VaptchのGUI化に関しては本人様の許可を頂いております。
 
+※ソフト一覧
 
+東方紅魔郷　～ the Embodiment of Scarlet Devil.
 
+東方妖々夢　～ Perfect Cherry Blossom.
 
+東方萃夢想　～ Immaterial and Missing Power.
 
+東方永夜抄　～ Imperishable Night.
 
+東方花映塚　～ Phantasmagoria of Flower View.
 
+東方文花帖　～ Shoot the Bullet.
 
+東方風神録　～ Mountain of Faith.
 
+東方緋想天　～ Scarlet Weather Rhapsody.
 
+東方地霊殿　～ Subterranean Animism.
 
+東方星蓮船　～ Undefined Fantastic Object.
 
+東方非想天則　～ 超弩級ギニョルの謎を追え
 
+ダブルスポイラー　～ 東方文花帖
 
+妖精大戦争～東方三月精
 
+東方神霊廟 ～Ten Desires.
 
+東方心綺楼　～ Hopeless Masquerade.
 
+東方輝針城　～ Double Dealing Character.
 
-
-
-
-
+黄昏酒場　～ Uwabami Breakers ～
 
 
 
