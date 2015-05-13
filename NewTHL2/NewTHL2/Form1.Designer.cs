@@ -80,9 +80,12 @@
             this.th143_I = new System.Windows.Forms.PictureBox();
             this.th15_P = new System.Windows.Forms.Panel();
             this.th15_L = new System.Windows.Forms.Label();
-            this.th_15_I = new System.Windows.Forms.PictureBox();
+            this.th15_I = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.alcostg_P = new System.Windows.Forms.Panel();
+            this.alcostg_L = new System.Windows.Forms.Label();
+            this.alcostg_I = new System.Windows.Forms.PictureBox();
             this.th075_P = new System.Windows.Forms.Panel();
             this.th075_L = new System.Windows.Forms.Label();
             this.th075_I = new System.Windows.Forms.PictureBox();
@@ -95,9 +98,6 @@
             this.th135_P = new System.Windows.Forms.Panel();
             this.th135_L = new System.Windows.Forms.Label();
             this.th135_I = new System.Windows.Forms.PictureBox();
-            this.alcostg_P = new System.Windows.Forms.Panel();
-            this.alcostg_L = new System.Windows.Forms.Label();
-            this.alcostg_I = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -116,6 +116,12 @@
             this.リプレイのユーザーデータ化ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.th145_P = new System.Windows.Forms.Panel();
+            this.th145_L = new System.Windows.Forms.Label();
+            this.th145_I = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -147,9 +153,11 @@
             this.th143_P.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th143_I)).BeginInit();
             this.th15_P.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.th_15_I)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.th15_I)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.alcostg_P.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alcostg_I)).BeginInit();
             this.th075_P.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th075_I)).BeginInit();
             this.th105_P.SuspendLayout();
@@ -158,12 +166,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.th123_I)).BeginInit();
             this.th135_P.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th135_I)).BeginInit();
-            this.alcostg_P.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alcostg_I)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPain_BG)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.th145_P.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.th145_I)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -614,7 +624,7 @@
             // th15_P
             // 
             this.th15_P.Controls.Add(this.th15_L);
-            this.th15_P.Controls.Add(this.th_15_I);
+            this.th15_P.Controls.Add(this.th15_I);
             this.th15_P.Location = new System.Drawing.Point(3, 1121);
             this.th15_P.Name = "th15_P";
             this.th15_P.Size = new System.Drawing.Size(260, 80);
@@ -629,13 +639,13 @@
             this.th15_L.TabIndex = 2;
             this.th15_L.Text = "東方紺珠伝 \r\n～ Legacy of Lunatic Kingdom.";
             // 
-            // th_15_I
+            // th15_I
             // 
-            this.th_15_I.Location = new System.Drawing.Point(4, 7);
-            this.th_15_I.Name = "th_15_I";
-            this.th_15_I.Size = new System.Drawing.Size(64, 64);
-            this.th_15_I.TabIndex = 0;
-            this.th_15_I.TabStop = false;
+            this.th15_I.Location = new System.Drawing.Point(4, 7);
+            this.th15_I.Name = "th15_I";
+            this.th15_I.Size = new System.Drawing.Size(64, 64);
+            this.th15_I.TabIndex = 0;
+            this.th15_I.TabStop = false;
             // 
             // tabPage2
             // 
@@ -650,24 +660,52 @@
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.Controls.Add(this.alcostg_P);
             this.flowLayoutPanel2.Controls.Add(this.th075_P);
             this.flowLayoutPanel2.Controls.Add(this.th105_P);
             this.flowLayoutPanel2.Controls.Add(this.th123_P);
             this.flowLayoutPanel2.Controls.Add(this.th135_P);
-            this.flowLayoutPanel2.Controls.Add(this.alcostg_P);
+            this.flowLayoutPanel2.Controls.Add(this.th145_P);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(-3, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 515);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 553);
             this.flowLayoutPanel2.TabIndex = 0;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
+            // 
+            // alcostg_P
+            // 
+            this.alcostg_P.Controls.Add(this.alcostg_L);
+            this.alcostg_P.Controls.Add(this.alcostg_I);
+            this.alcostg_P.Location = new System.Drawing.Point(3, 3);
+            this.alcostg_P.Name = "alcostg_P";
+            this.alcostg_P.Size = new System.Drawing.Size(260, 80);
+            this.alcostg_P.TabIndex = 6;
+            // 
+            // alcostg_L
+            // 
+            this.alcostg_L.AutoSize = true;
+            this.alcostg_L.Location = new System.Drawing.Point(74, 29);
+            this.alcostg_L.Name = "alcostg_L";
+            this.alcostg_L.Size = new System.Drawing.Size(133, 24);
+            this.alcostg_L.TabIndex = 2;
+            this.alcostg_L.Text = "黄昏酒場　\r\n～ Uwabami Breakers ～";
+            // 
+            // alcostg_I
+            // 
+            this.alcostg_I.Location = new System.Drawing.Point(4, 7);
+            this.alcostg_I.Name = "alcostg_I";
+            this.alcostg_I.Size = new System.Drawing.Size(64, 64);
+            this.alcostg_I.TabIndex = 0;
+            this.alcostg_I.TabStop = false;
             // 
             // th075_P
             // 
             this.th075_P.Controls.Add(this.th075_L);
             this.th075_P.Controls.Add(this.th075_I);
-            this.th075_P.Location = new System.Drawing.Point(3, 3);
+            this.th075_P.Location = new System.Drawing.Point(3, 89);
             this.th075_P.Name = "th075_P";
             this.th075_P.Size = new System.Drawing.Size(260, 80);
-            this.th075_P.TabIndex = 2;
+            this.th075_P.TabIndex = 7;
             // 
             // th075_L
             // 
@@ -690,10 +728,10 @@
             // 
             this.th105_P.Controls.Add(this.th105_L);
             this.th105_P.Controls.Add(this.th105_I);
-            this.th105_P.Location = new System.Drawing.Point(3, 89);
+            this.th105_P.Location = new System.Drawing.Point(3, 175);
             this.th105_P.Name = "th105_P";
             this.th105_P.Size = new System.Drawing.Size(260, 80);
-            this.th105_P.TabIndex = 3;
+            this.th105_P.TabIndex = 8;
             // 
             // th105_L
             // 
@@ -716,10 +754,10 @@
             // 
             this.th123_P.Controls.Add(this.th123_L);
             this.th123_P.Controls.Add(this.th123_I);
-            this.th123_P.Location = new System.Drawing.Point(3, 175);
+            this.th123_P.Location = new System.Drawing.Point(3, 261);
             this.th123_P.Name = "th123_P";
             this.th123_P.Size = new System.Drawing.Size(260, 80);
-            this.th123_P.TabIndex = 4;
+            this.th123_P.TabIndex = 9;
             // 
             // th123_L
             // 
@@ -740,12 +778,13 @@
             // 
             // th135_P
             // 
+            this.th135_P.Controls.Add(this.panel1);
             this.th135_P.Controls.Add(this.th135_L);
             this.th135_P.Controls.Add(this.th135_I);
-            this.th135_P.Location = new System.Drawing.Point(3, 261);
+            this.th135_P.Location = new System.Drawing.Point(3, 347);
             this.th135_P.Name = "th135_P";
             this.th135_P.Size = new System.Drawing.Size(260, 80);
-            this.th135_P.TabIndex = 5;
+            this.th135_P.TabIndex = 10;
             // 
             // th135_L
             // 
@@ -763,32 +802,6 @@
             this.th135_I.Size = new System.Drawing.Size(64, 64);
             this.th135_I.TabIndex = 0;
             this.th135_I.TabStop = false;
-            // 
-            // alcostg_P
-            // 
-            this.alcostg_P.Controls.Add(this.alcostg_L);
-            this.alcostg_P.Controls.Add(this.alcostg_I);
-            this.alcostg_P.Location = new System.Drawing.Point(3, 347);
-            this.alcostg_P.Name = "alcostg_P";
-            this.alcostg_P.Size = new System.Drawing.Size(260, 80);
-            this.alcostg_P.TabIndex = 6;
-            // 
-            // alcostg_L
-            // 
-            this.alcostg_L.AutoSize = true;
-            this.alcostg_L.Location = new System.Drawing.Point(74, 29);
-            this.alcostg_L.Name = "alcostg_L";
-            this.alcostg_L.Size = new System.Drawing.Size(133, 24);
-            this.alcostg_L.TabIndex = 2;
-            this.alcostg_L.Text = "黄昏酒場　\r\n～ Uwabami Breakers ～";
-            // 
-            // alcostg_I
-            // 
-            this.alcostg_I.Location = new System.Drawing.Point(4, 7);
-            this.alcostg_I.Name = "alcostg_I";
-            this.alcostg_I.Size = new System.Drawing.Size(64, 64);
-            this.alcostg_I.TabIndex = 0;
-            this.alcostg_I.TabStop = false;
             // 
             // button2
             // 
@@ -950,6 +963,58 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(7, 77);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(260, 80);
+            this.panel1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(74, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "東方心綺楼　\r\n～ Hopeless Masquerade.";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(4, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // th145_P
+            // 
+            this.th145_P.Controls.Add(this.th145_L);
+            this.th145_P.Controls.Add(this.th145_I);
+            this.th145_P.Location = new System.Drawing.Point(3, 433);
+            this.th145_P.Name = "th145_P";
+            this.th145_P.Size = new System.Drawing.Size(260, 80);
+            this.th145_P.TabIndex = 12;
+            // 
+            // th145_L
+            // 
+            this.th145_L.AutoSize = true;
+            this.th145_L.Location = new System.Drawing.Point(74, 30);
+            this.th145_L.Name = "th145_L";
+            this.th145_L.Size = new System.Drawing.Size(140, 24);
+            this.th145_L.TabIndex = 2;
+            this.th145_L.Text = "東方深秘録　\r\n～ Urban Legend in Limbo.";
+            // 
+            // th145_I
+            // 
+            this.th145_I.Location = new System.Drawing.Point(4, 7);
+            this.th145_I.Name = "th145_I";
+            this.th145_I.Size = new System.Drawing.Size(64, 64);
+            this.th145_I.TabIndex = 0;
+            this.th145_I.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1017,9 +1082,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.th143_I)).EndInit();
             this.th15_P.ResumeLayout(false);
             this.th15_P.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.th_15_I)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.th15_I)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.alcostg_P.ResumeLayout(false);
+            this.alcostg_P.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alcostg_I)).EndInit();
             this.th075_P.ResumeLayout(false);
             this.th075_P.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th075_I)).EndInit();
@@ -1032,13 +1100,16 @@
             this.th135_P.ResumeLayout(false);
             this.th135_P.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th135_I)).EndInit();
-            this.alcostg_P.ResumeLayout(false);
-            this.alcostg_P.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alcostg_I)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPain_BG)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.th145_P.ResumeLayout(false);
+            this.th145_P.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.th145_I)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1084,14 +1155,6 @@
         private System.Windows.Forms.Panel th143_P;
         private System.Windows.Forms.PictureBox th143_I;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Panel th075_P;
-        private System.Windows.Forms.PictureBox th075_I;
-        private System.Windows.Forms.Panel th105_P;
-        private System.Windows.Forms.PictureBox th105_I;
-        private System.Windows.Forms.Panel th123_P;
-        private System.Windows.Forms.PictureBox th123_I;
-        private System.Windows.Forms.Panel alcostg_P;
-        private System.Windows.Forms.PictureBox alcostg_I;
         private System.Windows.Forms.PictureBox rightPain_BG;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -1110,13 +1173,6 @@
         private System.Windows.Forms.Label th13_L;
         private System.Windows.Forms.Label th14_L;
         private System.Windows.Forms.Label th143_L;
-        private System.Windows.Forms.Label th075_L;
-        private System.Windows.Forms.Label th105_L;
-        private System.Windows.Forms.Label th123_L;
-        private System.Windows.Forms.Panel th135_P;
-        private System.Windows.Forms.Label th135_L;
-        private System.Windows.Forms.PictureBox th135_I;
-        private System.Windows.Forms.Label alcostg_L;
         private System.Windows.Forms.Label titleName;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem バックアップフォルダの設定ToolStripMenuItem1;
@@ -1131,8 +1187,29 @@
         private System.Windows.Forms.ToolStripMenuItem adonisの設定ToolStripMenuItem;
         private System.Windows.Forms.Panel th15_P;
         private System.Windows.Forms.Label th15_L;
-        private System.Windows.Forms.PictureBox th_15_I;
+        private System.Windows.Forms.PictureBox th15_I;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel alcostg_P;
+        private System.Windows.Forms.Label alcostg_L;
+        private System.Windows.Forms.PictureBox alcostg_I;
+        private System.Windows.Forms.Panel th075_P;
+        private System.Windows.Forms.Label th075_L;
+        private System.Windows.Forms.PictureBox th075_I;
+        private System.Windows.Forms.Panel th105_P;
+        private System.Windows.Forms.Label th105_L;
+        private System.Windows.Forms.PictureBox th105_I;
+        private System.Windows.Forms.Panel th123_P;
+        private System.Windows.Forms.Label th123_L;
+        private System.Windows.Forms.PictureBox th123_I;
+        private System.Windows.Forms.Panel th135_P;
+        private System.Windows.Forms.Label th135_L;
+        private System.Windows.Forms.PictureBox th135_I;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel th145_P;
+        private System.Windows.Forms.Label th145_L;
+        private System.Windows.Forms.PictureBox th145_I;
     }
 }
 

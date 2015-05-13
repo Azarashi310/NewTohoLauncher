@@ -16,6 +16,13 @@ namespace NewTHL2
 {
     public partial class Form1 : Form
     {
+        /*
+         * 
+         * メモ
+         * 新作を追加したらパネル関連のものと、FP_switchの配列の枠を増やしたりすること
+         * 
+         */
+        
         #region iniファイルを使いたい
         // iniの読み込み
         [DllImport("kernel32.DLL")]
@@ -30,11 +37,11 @@ namespace NewTHL2
         //作品用enum
         enum ThXXGames
         {
-            alcostg, Th06, Th07, Th075, Th08, Th09, Th095, Th10, Th105, Th11, Th12, Th123, Th125, Th128, Th13, Th135, Th14, Th143
+            alcostg, Th06, Th07, Th075, Th08, Th09, Th095, Th10, Th105, Th11, Th12, Th123, Th125, Th128, Th13, Th135, Th14, Th143, Th145, Th15
         }
-        ThXXGames[] Thxx = new ThXXGames[18]
+        ThXXGames[] Thxx = new ThXXGames[20]
         {ThXXGames.alcostg,ThXXGames.Th06,ThXXGames.Th07,ThXXGames.Th075,ThXXGames.Th08,ThXXGames.Th09,ThXXGames.Th095,ThXXGames.Th10,ThXXGames.Th105,ThXXGames.Th11,ThXXGames.Th12,
-         ThXXGames.Th123,ThXXGames.Th125,ThXXGames.Th128,ThXXGames.Th13,ThXXGames.Th135,ThXXGames.Th14,ThXXGames.Th143};
+         ThXXGames.Th123,ThXXGames.Th125,ThXXGames.Th128,ThXXGames.Th13,ThXXGames.Th135,ThXXGames.Th14,ThXXGames.Th143,ThXXGames.Th145,ThXXGames.Th15};
 
         //選択時変更用画像
         //private Bitmap BMP = NewTHL2.Properties.Resources.PBG;
@@ -47,7 +54,7 @@ namespace NewTHL2
         //R/W用のエンコード
         public static Encoding sjis = Encoding.GetEncoding("Shift-JIS");
         //ファイルパスが通ってるかどうかの記憶
-        public string[] FP_switch = new string[18];
+        public string[] FP_switch = new string[20];
         //今選択しているもの
         public int select = 999;
 
@@ -145,6 +152,8 @@ namespace NewTHL2
             th135_P.Click += gamePanel_Click;
             th14_P.Click += gamePanel_Click;
             th143_P.Click += gamePanel_Click;
+            th145_P.Click += gamePanel_Click;
+            th15_P.Click += gamePanel_Click;
             alcostg_P.Click += gamePanel_Click;
             #endregion
             #region ラベルクリックハンドラ
@@ -190,26 +199,16 @@ namespace NewTHL2
             pictureBox1.MouseUp += pictureBox1_MouseUp;
             #endregion
         }
-
-        void pictureBox1_MouseUp(object sender, MouseEventArgs e)
-        {
-            pictureBox1.Image = NewTHL2.Properties.Resources.spana;
-        }
-
-        void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            pictureBox1.Image = NewTHL2.Properties.Resources.spana_click;
-        }
         //パネルのアイコンの初期化
         private void panelIconInitialize()
         {
+            string EXE;
             for(int i = 0; i < Thxx.Length;  i++)
             {
                 switch(i)
                 {
                     case 0:
                         {
-                            string EXE;
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -219,7 +218,6 @@ namespace NewTHL2
                         }
                     case 1:
                         {
-                            string EXE;
                             //実行ファイルはちゃんと存在するか
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
@@ -231,7 +229,6 @@ namespace NewTHL2
                         }
                     case 2:
                         {
-                            string EXE;
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -241,7 +238,7 @@ namespace NewTHL2
                         }
                     case 3:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -251,7 +248,7 @@ namespace NewTHL2
                         }
                     case 4:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -261,7 +258,7 @@ namespace NewTHL2
                         }
                     case 5:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -271,7 +268,7 @@ namespace NewTHL2
                         }
                     case 6:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -281,7 +278,7 @@ namespace NewTHL2
                         }
                     case 7:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -291,7 +288,7 @@ namespace NewTHL2
                         }
                     case 8:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -301,7 +298,7 @@ namespace NewTHL2
                         }
                     case 9:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -311,7 +308,7 @@ namespace NewTHL2
                         }
                     case 10:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -321,7 +318,7 @@ namespace NewTHL2
                         }
                     case 11:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -331,7 +328,7 @@ namespace NewTHL2
                         }
                     case 12:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -341,7 +338,7 @@ namespace NewTHL2
                         }
                     case 13:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -351,7 +348,7 @@ namespace NewTHL2
                         }
                     case 14:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -361,7 +358,7 @@ namespace NewTHL2
                         }
                     case 15:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -371,7 +368,7 @@ namespace NewTHL2
                         }
                     case 16:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -381,7 +378,7 @@ namespace NewTHL2
                         }
                     case 17:
                         {
-                            string EXE;
+                            
                             EXE = thxx_EXE(FP_switch[i].ToString(),i);
                             if (File.Exists(EXE))
                             {
@@ -389,7 +386,24 @@ namespace NewTHL2
                             }
                             break;
                         }
-                    
+                    case 18:
+                        {
+                            EXE = thxx_EXE(FP_switch[i].ToString(), i);
+                            if(File.Exists(EXE))
+                            {
+                                th145_I.Image = algo.GetIcon.returnPanelIcon(EXE, th145_I.Width, th145_I.Height);
+                            }
+                            break;
+                        }
+                    case 19:
+                        {
+                            EXE = thxx_EXE(FP_switch[i].ToString(), i);
+                            if(File.Exists(EXE))
+                            {
+                                th15_I.Image = algo.GetIcon.returnPanelIcon(EXE, th15_I.Width, th15_I.Height);
+                            }
+                            break;
+                        }
                 }
             }
         }
@@ -398,7 +412,7 @@ namespace NewTHL2
         private void filePathInitialize()
         {
             StringBuilder FP = new StringBuilder(1024);
-            string[] FilePath = new string[18];
+            string[] FilePath = new string[20];
             for (int i = 0; i < Thxx.Length; i++)
             {
                 GetPrivateProfileString("FilePath", Thxx[i].ToString(), "", FP, Convert.ToUInt32(FP.Capacity), settingFilePath);
@@ -639,7 +653,30 @@ namespace NewTHL2
                             }
                             break;
                         }
-
+                    case 18:
+                        {
+                            if(Directory.Exists(FP_switch[i]))
+                            {
+                                th145_P.BackColor = Color.Transparent;
+                            }
+                            else
+                            {
+                                th145_P.BackColor = Color.LightGray;
+                            }
+                            break;
+                        }
+                    case 19:
+                        {
+                            if(Directory.Exists(FP_switch[i]))
+                            {
+                                th15_P.BackColor = Color.Transparent;
+                            }
+                            else
+                            {
+                                th15_P.BackColor = Color.LightGray;
+                            }
+                            break;
+                        }
                 }
             }
         }
@@ -647,6 +684,7 @@ namespace NewTHL2
         //複数のイベントハンドラを処理する
         void gamePanel_Click(object sender, EventArgs e)
         {
+            string EXE;
             tabPage1.Focus();
             //配色を戻す
             panelColorInitialize();
@@ -656,7 +694,7 @@ namespace NewTHL2
             #region パネル群&ラベル群&イメージ群
             if (sender.Equals(alcostg_P) | sender.Equals(alcostg_L) | sender.Equals(alcostg_I))
             {
-                string EXE;
+                
                 //rightPainのタイトルを変える
                 titleName.Text = alcostg_L.Text;
                 //パネルの背景色を変える
@@ -672,7 +710,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th06_P) | sender.Equals(th06_L) | sender.Equals(th06_I))
             {
-                string EXE;
+                
                 //rightPainのタイトルを変える
                 titleName.Text = th06_L.Text;
                 //パネルの背景色を変える
@@ -691,7 +729,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th07_P) | sender.Equals(th07_L) | sender.Equals(th07_I))
             {
-                string EXE;
+                
                 titleName.Text = th07_L.Text;
                 th07_P.BackColor = Color.LightPink;
                 select = 2;
@@ -704,7 +742,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th075_P) | sender.Equals(th075_L) | sender.Equals(th075_I))
             {
-                string EXE;
+                
                 titleName.Text = th075_L.Text;
                 th075_P.BackColor = Color.LightPink;
                 select = 3;
@@ -717,7 +755,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th08_P) | sender.Equals(th08_L) | sender.Equals(th08_I))
             {
-                string EXE;
+                
                 titleName.Text = th08_L.Text;
                 th08_P.BackColor = Color.LightPink;
                 select = 4;
@@ -730,7 +768,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th09_P) | sender.Equals(th09_L) | sender.Equals(th09_I))
             {
-                string EXE;
+                
                 titleName.Text = th09_L.Text;
                 th09_P.BackColor = Color.LightPink;
                 select = 5;
@@ -743,7 +781,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th095_P) | sender.Equals(th095_L) | sender.Equals(th095_I))
             {
-                string EXE;
+                
                 titleName.Text = th095_L.Text;
                 th095_P.BackColor = Color.LightPink;
                 select = 6;
@@ -756,7 +794,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th10_P) | sender.Equals(th10_L) | sender.Equals(th10_I))
             {
-                string EXE;
+                
                 titleName.Text = th10_L.Text;
                 th10_P.BackColor = Color.LightPink;
                 select = 7;
@@ -769,7 +807,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th105_P) | sender.Equals(th105_L) | sender.Equals(th105_I))
             {
-                string EXE;
+                
                 titleName.Text = th105_L.Text;
                 th105_P.BackColor = Color.LightPink;
                 select = 8;
@@ -782,7 +820,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th11_P) | sender.Equals(th11_L) | sender.Equals(th11_I))
             {
-                string EXE;
+                
                 titleName.Text = th11_L.Text;
                 th11_P.BackColor = Color.LightPink;
                 select = 9;
@@ -795,7 +833,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th12_P) | sender.Equals(th12_L) | sender.Equals(th12_I))
             {
-                string EXE;
+                
                 titleName.Text = th12_L.Text;
                 th12_P.BackColor = Color.LightPink;
                 select = 10;
@@ -808,7 +846,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th123_P) | sender.Equals(th123_L) | sender.Equals(th123_I))
             {
-                string EXE;
+                
                 titleName.Text = th123_L.Text;
                 th123_P.BackColor = Color.LightPink;
                 select = 11;
@@ -821,7 +859,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th125_P) | sender.Equals(th125_L) | sender.Equals(th125_I))
             {
-                string EXE;
+                
                 titleName.Text = th125_L.Text;
                 th125_P.BackColor = Color.LightPink;
                 select = 12;
@@ -834,7 +872,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th128_P) | sender.Equals(th128_L) | sender.Equals(th128_I))
             {
-                string EXE;
+                
                 titleName.Text = th128_L.Text;
                 th128_P.BackColor = Color.LightPink;
                 select = 13;
@@ -847,7 +885,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th13_P) | sender.Equals(th13_L) | sender.Equals(th13_I))
             {
-                string EXE;
+                
                 titleName.Text = th13_L.Text;
                 th13_P.BackColor = Color.LightPink;
                 select = 14;
@@ -860,7 +898,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th135_P) | sender.Equals(th135_L) | sender.Equals(th135_I))
             {
-                string EXE;
+                
                 titleName.Text = th135_L.Text;
                 th135_P.BackColor = Color.LightPink;
                 select = 15;
@@ -873,7 +911,7 @@ namespace NewTHL2
             }
             if (sender.Equals(th14_P) | sender.Equals(th14_L) | sender.Equals(th14_I))
             {
-                string EXE;
+                
                 titleName.Text = th14_L.Text;
                 th14_P.BackColor = Color.LightPink;
                 select = 16;
@@ -886,12 +924,36 @@ namespace NewTHL2
             }
             if (sender.Equals(th143_P) | sender.Equals(th143_L) | sender.Equals(th143_I))
             {
-                string EXE;
+                
                 titleName.Text = th143_L.Text;
                 th143_P.BackColor = Color.LightPink;
                 select = 17;
                 textBox1.Text = FP_switch[select].ToString();
                 EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
+            }
+            if( sender.Equals(th145_P) | sender.Equals(th145_L) | sender.Equals(th145_I))
+            {
+                titleName.Text = th145_L.Text;
+                th145_P.BackColor = Color.LightPink;
+                select = 18;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(),select);
+                if(File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
+            }
+            if(sender.Equals(th15_P) | sender.Equals(th15_L) | sender.Equals(th15_I))
+            {
+                titleName.Text = th15_L.Text;
+                th15_P.BackColor = Color.LightPink;
+                select = 19;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(), select);
                 if(File.Exists(EXE))
                 {
                     rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
@@ -1225,14 +1287,22 @@ namespace NewTHL2
             tabPage1.Focus();
         }
         //スパナをクリックしたら
-        private void button3_Click(object sender, EventArgs e)
-        {}
+        //private void button3_Click(object sender, EventArgs e)
+        // {}
         //スパナをクリックしたら
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             contextMenuStrip2.Show(pictureBox1, new Point(pictureBox1.Width / 2, pictureBox1.Height / 2));
         }
-        
+        void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            pictureBox1.Image = NewTHL2.Properties.Resources.spana;
+        }
+
+        void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox1.Image = NewTHL2.Properties.Resources.spana_click;
+        }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -1277,6 +1347,11 @@ namespace NewTHL2
         {
             NewTHL2.Help HP = new Help();
             HP.Show();
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         
