@@ -31,5 +31,24 @@ namespace NewTHL2
         {
 
         }
+
+        //FC2ブログに飛ばす
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://azarashi310.blog.fc2.com/");
+        }
+
+        //FC2ホームページに飛ばす
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://azarashimakers.web.fc2.com");
+        }
+
+        //ツイッターに飛ばす
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://twitter.com/kudryavka310");
+        }
+
     }
 }

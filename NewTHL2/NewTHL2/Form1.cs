@@ -45,7 +45,7 @@ namespace NewTHL2
         //ハッシュファイルパス
         public const string hashFilePath = @"resource/hash.ini";
         //R/W用のエンコード
-        private Encoding sjis = Encoding.GetEncoding("Shift-JIS");
+        public static Encoding sjis = Encoding.GetEncoding("Shift-JIS");
         //ファイルパスが通ってるかどうかの記憶
         public string[] FP_switch = new string[18];
         //今選択しているもの
@@ -119,6 +119,8 @@ namespace NewTHL2
                     MessageBox.Show("ハッシュファイルを作成しました。", "お知らせ");
                 }
             }
+            //押せるメニューの初期化
+            gameSettingSelector();
         }
         //イベントハンドラ一式の作成
         private void eventHandlerInitialize()
@@ -184,7 +186,19 @@ namespace NewTHL2
             th14_I.Click += gamePanel_Click;
             th143_I.Click += gamePanel_Click;
             alcostg_I.Click += gamePanel_Click;
+            pictureBox1.MouseDown += pictureBox1_MouseDown;
+            pictureBox1.MouseUp += pictureBox1_MouseUp;
             #endregion
+        }
+
+        void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            pictureBox1.Image = NewTHL2.Properties.Resources.spana;
+        }
+
+        void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox1.Image = NewTHL2.Properties.Resources.spana_click;
         }
         //パネルのアイコンの初期化
         private void panelIconInitialize()
@@ -972,13 +986,14 @@ namespace NewTHL2
             vpatchの設定ToolStripMenuItem1.Enabled = true;
             ゲームの設定を開くToolStripMenuItem1.Enabled = true;
 
-            if(FP_switch[select] == "")
+            if(select == 999)
             {
                 バックアップフォルダの設定ToolStripMenuItem1.Enabled = false;
                 ゲームの設定を開くToolStripMenuItem1.Enabled = false;
                 ゲームのフォルダを開くToolStripMenuItem1.Enabled = false;
                 ランチャの背景設定ToolStripMenuItem1.Enabled = false;
                 特殊な設定ToolStripMenuItem1.Enabled = false;
+                return;
             }
             if((Thxx[select].ToString() == "alcostg")|(Thxx[select].ToString() == "Th075")|(Thxx[select].ToString() == "Th105")|(Thxx[select].ToString() == "Th123")|
                 (Thxx[select].ToString() == "Th135"))
@@ -1033,18 +1048,45 @@ namespace NewTHL2
         {
             string VpatchIniPath = Path.Combine(FP_switch[select], "vpatch.ini");
             string VpatchExePath = Path.Combine(FP_switch[select], "vpatch.exe");
+            
             //vpatch.iniは存在するか？
             if(File.Exists(VpatchIniPath))
             {
                 //ここからVpatchの設定を読み取り
                 Dictionary<string,int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
-                
+                if(Thxx[select].ToString() == "Th12")
+                {
+
+                }
+                else if(Thxx[select].ToString() == "Th125")
+                {
+                    //要素が同じかどうかを確かめる(ダブスポ)
+                    
+                    //Dictionary<string, int> vpatchValues_DS = algo.vpatchValueReturn.getVpatchValue(uri);
+
+                    //要素数が同じでなければオリジナルのものにする
+                    //if(vpatchValues.Count != vpatchValues_DS.Count)
+                    //{
+                    //    algo.VpatchValueWrite.vpatchIniWrite(VpatchIniPath, NewTHL2.Properties.Resources.vpatch_th125);
+                    //}
+                }
+                else if(Thxx[select].ToString() == "Th13")
+                {
+                    Dictionary<string, int> vpatchValues_TenDesire = algo.vpatchValueReturn.getVpatchValue(NewTHL2.Properties.Resources.vpatch_th13);
+                    if(vpatchValues.Count != vpatchValues_TenDesire.Count)
+                    {
+                        algo.VpatchValueWrite.vpatchIniWrite(VpatchIniPath, NewTHL2.Properties.Resources.vpatch_th13);
+                    }
+                }
                 //VpatchGUIを参照
                 VpatchGUI VGUI = new VpatchGUI();
-                
+                 
                 //ここで設定のイニシャライズをする
                 VGUI.setValues(vpatchValues,Thxx[select].ToString());
+
+                VGUI.Show();
             }
+            //存在しなければ
             else
             {
                 if(File.Exists(VpatchExePath))
@@ -1054,11 +1096,18 @@ namespace NewTHL2
                     if(DialogResult == DialogResult.Yes)
                     {
                         //ここで作成
+                        NewTHL2.algo.FileCopy.makeVpatchIni(VpatchIniPath,Thxx[select].ToString());
+                        MessageBox.Show("vpatch.iniを作成しました", "お知らせ");
+                        
                     }
                     else
                     {
                         MessageBox.Show("作成をキャンセルしました", "お知らせ");
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Vpatch.iniは存在しますが、Vpatch.exeが存在しません・・・（どういうことなの）", "お知らせ");
                 }
                 
             }
@@ -1088,7 +1137,7 @@ namespace NewTHL2
             //ファイルパスの取得
             FP = algo.OFDandSFD.FBD_Run();
             DL = Path.GetPathRoot(FP);
-            //キャンセル処理
+            //キャンセル処理（ここまずいのであとで変える）
             if(FP == @"C:\Windows")
             {
                 MessageBox.Show("キャンセルされました","お知らせ");
@@ -1177,9 +1226,13 @@ namespace NewTHL2
         }
         //スパナをクリックしたら
         private void button3_Click(object sender, EventArgs e)
+        {}
+        //スパナをクリックしたら
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            contextMenuStrip2.Show(button3, new Point(button3.Width / 2, button3.Height / 2));
+            contextMenuStrip2.Show(pictureBox1, new Point(pictureBox1.Width / 2, pictureBox1.Height / 2));
         }
+        
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -1219,12 +1272,14 @@ namespace NewTHL2
         {
 
         }
-
+        //ヘルプ
         private void 困ったことがあったらToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewTHL2.Help HP = new Help();
             HP.Show();
         }
+
+        
 
         
 

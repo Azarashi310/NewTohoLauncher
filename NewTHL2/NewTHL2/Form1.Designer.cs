@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.メニューToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.一括登録ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +78,9 @@
             this.th143_P = new System.Windows.Forms.Panel();
             this.th143_L = new System.Windows.Forms.Label();
             this.th143_I = new System.Windows.Forms.PictureBox();
+            this.th15_P = new System.Windows.Forms.Panel();
+            this.th15_L = new System.Windows.Forms.Label();
+            this.th_15_I = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.th075_P = new System.Windows.Forms.Panel();
@@ -99,7 +101,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.rightPainIcon = new System.Windows.Forms.PictureBox();
             this.rightPain_BG = new System.Windows.Forms.PictureBox();
             this.titleName = new System.Windows.Forms.Label();
@@ -110,10 +111,11 @@
             this.ランチャの背景設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.特殊な設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatchの設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.casterの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adonisの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.リプレイのユーザーデータ化ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
-            this.adonisの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.casterの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,6 +146,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.th14_I)).BeginInit();
             this.th143_P.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th143_I)).BeginInit();
+            this.th15_P.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.th_15_I)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.th075_P.SuspendLayout();
@@ -159,6 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rightPainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPain_BG)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -226,7 +231,7 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 21);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(286, 543);
+            this.tabControl1.Size = new System.Drawing.Size(294, 543);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -236,7 +241,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(278, 517);
+            this.tabPage1.Size = new System.Drawing.Size(286, 517);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "東方原作";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -258,10 +263,11 @@
             this.flowLayoutPanel1.Controls.Add(this.th13_P);
             this.flowLayoutPanel1.Controls.Add(this.th14_P);
             this.flowLayoutPanel1.Controls.Add(this.th143_P);
+            this.flowLayoutPanel1.Controls.Add(this.th15_P);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(-3, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(262, 1147);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(266, 1215);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // th06_P
@@ -605,13 +611,39 @@
             this.th143_I.TabIndex = 0;
             this.th143_I.TabStop = false;
             // 
+            // th15_P
+            // 
+            this.th15_P.Controls.Add(this.th15_L);
+            this.th15_P.Controls.Add(this.th_15_I);
+            this.th15_P.Location = new System.Drawing.Point(3, 1121);
+            this.th15_P.Name = "th15_P";
+            this.th15_P.Size = new System.Drawing.Size(260, 80);
+            this.th15_P.TabIndex = 9;
+            // 
+            // th15_L
+            // 
+            this.th15_L.AutoSize = true;
+            this.th15_L.Location = new System.Drawing.Point(74, 28);
+            this.th15_L.Name = "th15_L";
+            this.th15_L.Size = new System.Drawing.Size(161, 24);
+            this.th15_L.TabIndex = 2;
+            this.th15_L.Text = "東方紺珠伝 \r\n～ Legacy of Lunatic Kingdom.";
+            // 
+            // th_15_I
+            // 
+            this.th_15_I.Location = new System.Drawing.Point(4, 7);
+            this.th_15_I.Name = "th_15_I";
+            this.th_15_I.Size = new System.Drawing.Size(64, 64);
+            this.th_15_I.TabIndex = 0;
+            this.th_15_I.TabStop = false;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.flowLayoutPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(278, 517);
+            this.tabPage2.Size = new System.Drawing.Size(286, 517);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "上海×黄昏　＆　呑べえ";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -792,19 +824,6 @@
             this.textBox1.Size = new System.Drawing.Size(345, 19);
             this.textBox1.TabIndex = 5;
             // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(714, 21);
-            this.button3.MaximumSize = new System.Drawing.Size(70, 70);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(70, 70);
-            this.button3.TabIndex = 8;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // rightPainIcon
             // 
             this.rightPainIcon.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -845,7 +864,7 @@
             this.ランチャの背景設定ToolStripMenuItem1,
             this.特殊な設定ToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 136);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 114);
             // 
             // バックアップフォルダの設定ToolStripMenuItem1
             // 
@@ -891,6 +910,18 @@
             this.vpatchの設定ToolStripMenuItem1.Text = "Vpatchの設定";
             this.vpatchの設定ToolStripMenuItem1.Click += new System.EventHandler(this.vpatchの設定ToolStripMenuItem1_Click);
             // 
+            // casterの設定ToolStripMenuItem
+            // 
+            this.casterの設定ToolStripMenuItem.Name = "casterの設定ToolStripMenuItem";
+            this.casterの設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.casterの設定ToolStripMenuItem.Text = "Casterの設定";
+            // 
+            // adonisの設定ToolStripMenuItem
+            // 
+            this.adonisの設定ToolStripMenuItem.Name = "adonisの設定ToolStripMenuItem";
+            this.adonisの設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.adonisの設定ToolStripMenuItem.Text = "Adonisの設定";
+            // 
             // リプレイのユーザーデータ化ToolStripMenuItem1
             // 
             this.リプレイのユーザーデータ化ToolStripMenuItem1.Name = "リプレイのユーザーデータ化ToolStripMenuItem1";
@@ -908,26 +939,25 @@
             this.vpatch_Toggle.Text = "Vpatchで起動";
             this.vpatch_Toggle.UseVisualStyleBackColor = true;
             // 
-            // adonisの設定ToolStripMenuItem
+            // pictureBox1
             // 
-            this.adonisの設定ToolStripMenuItem.Name = "adonisの設定ToolStripMenuItem";
-            this.adonisの設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.adonisの設定ToolStripMenuItem.Text = "Adonisの設定";
-            // 
-            // casterの設定ToolStripMenuItem
-            // 
-            this.casterの設定ToolStripMenuItem.Name = "casterの設定ToolStripMenuItem";
-            this.casterの設定ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.casterの設定ToolStripMenuItem.Text = "Casterの設定";
+            this.pictureBox1.Image = global::NewTHL2.Properties.Resources.spana;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(714, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.vpatch_Toggle);
             this.Controls.Add(this.titleName);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.textBox1);
@@ -985,6 +1015,9 @@
             this.th143_P.ResumeLayout(false);
             this.th143_P.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th143_I)).EndInit();
+            this.th15_P.ResumeLayout(false);
+            this.th15_P.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.th_15_I)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.th075_P.ResumeLayout(false);
@@ -1005,6 +1038,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rightPainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPain_BG)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1063,7 +1097,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox rightPainIcon;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label th06_L;
         private System.Windows.Forms.Label th07_L;
         private System.Windows.Forms.Label th08_L;
@@ -1096,6 +1129,10 @@
         private System.Windows.Forms.CheckBox vpatch_Toggle;
         private System.Windows.Forms.ToolStripMenuItem casterの設定ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adonisの設定ToolStripMenuItem;
+        private System.Windows.Forms.Panel th15_P;
+        private System.Windows.Forms.Label th15_L;
+        private System.Windows.Forms.PictureBox th_15_I;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
