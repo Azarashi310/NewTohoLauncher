@@ -15,9 +15,15 @@ namespace NewTHL2
         public WakeUp()
         {
             InitializeComponent();
+            this.textBox1.SelectionStart = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WakeUp_Load(object sender, EventArgs e)
         {
 
         }

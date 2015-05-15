@@ -96,8 +96,14 @@
             this.th123_L = new System.Windows.Forms.Label();
             this.th123_I = new System.Windows.Forms.PictureBox();
             this.th135_P = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.th135_L = new System.Windows.Forms.Label();
             this.th135_I = new System.Windows.Forms.PictureBox();
+            this.th145_P = new System.Windows.Forms.Panel();
+            this.th145_L = new System.Windows.Forms.Label();
+            this.th145_I = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -116,12 +122,7 @@
             this.リプレイのユーザーデータ化ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.th145_P = new System.Windows.Forms.Panel();
-            this.th145_L = new System.Windows.Forms.Label();
-            this.th145_I = new System.Windows.Forms.PictureBox();
+            this.updaterの起動ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -165,15 +166,15 @@
             this.th123_P.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th123_I)).BeginInit();
             this.th135_P.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.th135_I)).BeginInit();
+            this.th145_P.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.th145_I)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPain_BG)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.th145_P.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.th145_I)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -786,6 +787,32 @@
             this.th135_P.Size = new System.Drawing.Size(260, 80);
             this.th135_P.TabIndex = 10;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(7, 77);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(260, 80);
+            this.panel1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(74, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "東方心綺楼　\r\n～ Hopeless Masquerade.";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(4, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // th135_L
             // 
             this.th135_L.AutoSize = true;
@@ -802,6 +829,32 @@
             this.th135_I.Size = new System.Drawing.Size(64, 64);
             this.th135_I.TabIndex = 0;
             this.th135_I.TabStop = false;
+            // 
+            // th145_P
+            // 
+            this.th145_P.Controls.Add(this.th145_L);
+            this.th145_P.Controls.Add(this.th145_I);
+            this.th145_P.Location = new System.Drawing.Point(3, 433);
+            this.th145_P.Name = "th145_P";
+            this.th145_P.Size = new System.Drawing.Size(260, 80);
+            this.th145_P.TabIndex = 12;
+            // 
+            // th145_L
+            // 
+            this.th145_L.AutoSize = true;
+            this.th145_L.Location = new System.Drawing.Point(74, 30);
+            this.th145_L.Name = "th145_L";
+            this.th145_L.Size = new System.Drawing.Size(140, 24);
+            this.th145_L.TabIndex = 2;
+            this.th145_L.Text = "東方深秘録　\r\n～ Urban Legend in Limbo.";
+            // 
+            // th145_I
+            // 
+            this.th145_I.Location = new System.Drawing.Point(4, 7);
+            this.th145_I.Name = "th145_I";
+            this.th145_I.Size = new System.Drawing.Size(64, 64);
+            this.th145_I.TabIndex = 0;
+            this.th145_I.TabStop = false;
             // 
             // button2
             // 
@@ -877,7 +930,7 @@
             this.ランチャの背景設定ToolStripMenuItem1,
             this.特殊な設定ToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 114);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 136);
             // 
             // バックアップフォルダの設定ToolStripMenuItem1
             // 
@@ -911,7 +964,8 @@
             this.vpatchの設定ToolStripMenuItem1,
             this.casterの設定ToolStripMenuItem,
             this.adonisの設定ToolStripMenuItem,
-            this.リプレイのユーザーデータ化ToolStripMenuItem1});
+            this.リプレイのユーザーデータ化ToolStripMenuItem1,
+            this.updaterの起動ToolStripMenuItem});
             this.特殊な設定ToolStripMenuItem1.Name = "特殊な設定ToolStripMenuItem1";
             this.特殊な設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
             this.特殊な設定ToolStripMenuItem1.Text = "特殊な設定";
@@ -963,57 +1017,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // panel1
+            // updaterの起動ToolStripMenuItem
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(7, 77);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 80);
-            this.panel1.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "東方心綺楼　\r\n～ Hopeless Masquerade.";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(4, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // th145_P
-            // 
-            this.th145_P.Controls.Add(this.th145_L);
-            this.th145_P.Controls.Add(this.th145_I);
-            this.th145_P.Location = new System.Drawing.Point(3, 433);
-            this.th145_P.Name = "th145_P";
-            this.th145_P.Size = new System.Drawing.Size(260, 80);
-            this.th145_P.TabIndex = 12;
-            // 
-            // th145_L
-            // 
-            this.th145_L.AutoSize = true;
-            this.th145_L.Location = new System.Drawing.Point(74, 30);
-            this.th145_L.Name = "th145_L";
-            this.th145_L.Size = new System.Drawing.Size(140, 24);
-            this.th145_L.TabIndex = 2;
-            this.th145_L.Text = "東方深秘録　\r\n～ Urban Legend in Limbo.";
-            // 
-            // th145_I
-            // 
-            this.th145_I.Location = new System.Drawing.Point(4, 7);
-            this.th145_I.Name = "th145_I";
-            this.th145_I.Size = new System.Drawing.Size(64, 64);
-            this.th145_I.TabIndex = 0;
-            this.th145_I.TabStop = false;
+            this.updaterの起動ToolStripMenuItem.Name = "updaterの起動ToolStripMenuItem";
+            this.updaterの起動ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.updaterの起動ToolStripMenuItem.Text = "Updaterの起動";
+            this.updaterの起動ToolStripMenuItem.Click += new System.EventHandler(this.updaterの起動ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1099,17 +1108,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.th123_I)).EndInit();
             this.th135_P.ResumeLayout(false);
             this.th135_P.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.th135_I)).EndInit();
+            this.th145_P.ResumeLayout(false);
+            this.th145_P.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.th145_I)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rightPain_BG)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.th145_P.ResumeLayout(false);
-            this.th145_P.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.th145_I)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1210,6 +1219,7 @@
         private System.Windows.Forms.Panel th145_P;
         private System.Windows.Forms.Label th145_L;
         private System.Windows.Forms.PictureBox th145_I;
+        private System.Windows.Forms.ToolStripMenuItem updaterの起動ToolStripMenuItem;
     }
 }
 

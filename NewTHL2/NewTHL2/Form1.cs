@@ -37,11 +37,11 @@ namespace NewTHL2
         //作品用enum
         enum ThXXGames
         {
-            alcostg, Th06, Th07, Th075, Th08, Th09, Th095, Th10, Th105, Th11, Th12, Th123, Th125, Th128, Th13, Th135, Th14, Th143, Th145, Th15
+            alcostg, th06, th07, th075, th08, th09, th095, th10, th105, th11, th12, th123, th125, th128, th13, th135, th14, th143, th145, th15
         }
         ThXXGames[] Thxx = new ThXXGames[20]
-        {ThXXGames.alcostg,ThXXGames.Th06,ThXXGames.Th07,ThXXGames.Th075,ThXXGames.Th08,ThXXGames.Th09,ThXXGames.Th095,ThXXGames.Th10,ThXXGames.Th105,ThXXGames.Th11,ThXXGames.Th12,
-         ThXXGames.Th123,ThXXGames.Th125,ThXXGames.Th128,ThXXGames.Th13,ThXXGames.Th135,ThXXGames.Th14,ThXXGames.Th143,ThXXGames.Th145,ThXXGames.Th15};
+        {ThXXGames.alcostg,ThXXGames.th06,ThXXGames.th07,ThXXGames.th075,ThXXGames.th08,ThXXGames.th09,ThXXGames.th095,ThXXGames.th10,ThXXGames.th105,ThXXGames.th11,ThXXGames.th12,
+         ThXXGames.th123,ThXXGames.th125,ThXXGames.th128,ThXXGames.th13,ThXXGames.th135,ThXXGames.th14,ThXXGames.th143,ThXXGames.th145,ThXXGames.th15};
 
         //選択時変更用画像
         //private Bitmap BMP = NewTHL2.Properties.Resources.PBG;
@@ -49,7 +49,7 @@ namespace NewTHL2
         public const string settingFolderPath = @"resource";
         //設定用iniファイルパス
         public const string settingFilePath = @"resource/settings.ini";
-        //ハッシュファイルパス
+        //ハッシュファイルパスs
         public const string hashFilePath = @"resource/hash.ini";
         //R/W用のエンコード
         public static Encoding sjis = Encoding.GetEncoding("Shift-JIS");
@@ -174,6 +174,8 @@ namespace NewTHL2
             th135_L.Click += gamePanel_Click;
             th14_L.Click += gamePanel_Click;
             th143_L.Click += gamePanel_Click;
+            th145_L.Click += gamePanel_Click;
+            th15_L.Click += gamePanel_Click;
             alcostg_L.Click += gamePanel_Click;
             #endregion
             #region イメージクリックハンドラ
@@ -194,10 +196,12 @@ namespace NewTHL2
             th135_I.Click += gamePanel_Click;
             th14_I.Click += gamePanel_Click;
             th143_I.Click += gamePanel_Click;
+            th145_I.Click += gamePanel_Click;
+            th15_I.Click += gamePanel_Click;
             alcostg_I.Click += gamePanel_Click;
+            #endregion
             pictureBox1.MouseDown += pictureBox1_MouseDown;
             pictureBox1.MouseUp += pictureBox1_MouseUp;
-            #endregion
         }
         //パネルのアイコンの初期化
         private void panelIconInitialize()
@@ -433,7 +437,7 @@ namespace NewTHL2
         //パネルの配色の初期化(もっといい方法をみつけること)
         private void panelColorInitialize()
         {
-            for (int i = 0; i < 18; i++)
+            for (int i = 0; i < Thxx.Length; i++)
             {
                 switch (i)
                 {
@@ -974,7 +978,8 @@ namespace NewTHL2
             //ハッシュ取得用
             StringBuilder hash = new StringBuilder(1024);
             //比較用
-            bool flag;
+            bool flag = false;
+
             //何も選択してない場合は参照させない形にするのがいいね
             if (select == 999)
             {
@@ -995,31 +1000,84 @@ namespace NewTHL2
                 //何故かハッシュ値が消えている場合の処理
                 if (hash.ToString() == "")
                 {
-                    MessageBox.Show("ハッシュファイルエラー" + Environment.NewLine + "メニューからハッシュ値の更新を押してください", "お知らせ");
-                    return;
+                    DialogResult = MessageBox.Show("ハッシュファイルエラー" + Environment.NewLine + "キャンセルする場合は　はい" + Environment.NewLine +
+                                    "そのまま、選択したフォルダの中の東方の実行ファイルを元にハッシュ値を取得し、" + Environment.NewLine +
+                                    "ハッシュ値テーブルに書き加え、ファイル参照する場合は　いいえ　を押してください", "お知らせ", MessageBoxButtons.YesNo);
+                    if (DialogResult == DialogResult.Yes)
+                    {
+                        return;
+                    }
+                    else if (DialogResult == DialogResult.No)
+                    {
+                        //ゲームの実行ファイル名(ファイルパスをくっつけたもの)を取得
+                        EXE = thxx_EXE(FP, select);
+                        //MD5の取得
+                        string md5 = algo.Hash.exportMD5(EXE);
+                        //ハッシュテーブルに書き込む
+                        WritePrivateProfileString("HASH", Thxx[select].ToString(), md5, hashFilePath);
+                        //比較用のハッシュ値を取得するために一度iniファイルからhashの再取得
+                        GetPrivateProfileString("HASH", Thxx[select].ToString(), "", hash, Convert.ToUInt32(hash.Capacity), hashFilePath);
+                    }
                 }
-                //ハッシュを比較
-                EXE = thxx_EXE(FP,select);
+                //ハッシュを比較(thxx_EXEでゲームの実行ファイル名を取得)
+                EXE = thxx_EXE(FP, select);
                 //EXEファイルが存在するか
-                if(!File.Exists(EXE))
+                if (!File.Exists(EXE))
                 {
                     MessageBox.Show("そこに東方の実行ファイルはありますか？正しい場所を選択してください", "お知らせ");
                     return;
                 }
-                flag = algo.Hash.compairMD5(EXE, hash.ToString());
+
+                //ここでハッシュ値が正しいか確認
+                if(Thxx[select].ToString() == "th09")
+                {
+                    //2種のハッシュ格納用
+                    string[] hashArray = new string[2];
+                    //分割すべき位置を取得
+                    int separated = hash.ToString().IndexOf("_");
+                    //花映塚Ver1.00の方の格納
+                    hashArray[0] = hash.ToString().Substring(0, separated);
+                    //花映塚Ver1.50の方の格納
+                    hashArray[1] = hash.ToString().Substring(separated + 1);
+                    for (int _i = 0; _i < hashArray.Length; _i++)
+                    {
+                        //MD5の比較
+                        flag = algo.Hash.compairMD5(EXE, hashArray[_i]);
+                        //一発目から正しければさっさと抜けたほうが効率いいので。
+                        if (flag)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    flag = algo.Hash.compairMD5(EXE, hash.ToString());
+                }
+                
                 //選択したものが正しいか
                 if (flag == true)
                 {
                     //iniファイルに書き込み
                     WritePrivateProfileString("FilePath", Thxx[select].ToString(), FP, settingFilePath);
                     textBox1.Text = FP;
+
+                    //新規追加した場合には初期化式を走らせる
+                    //ファイルパスが通ってるかどうかの設定です。
+                    filePathInitialize();
+                    //パネルの配色の初期化
+                    panelColorInitialize();
+                    //パネルのアイコンの初期化
+                    panelIconInitialize();
                 }
                 else
                 {
-                    MessageBox.Show("違うファイルが選択されているか、ハッシュ値表が古いです" + Environment.NewLine +
-                        "ファイルが違う場合は再度参照しなおしてください。" + Environment.NewLine + "ハッシュ値表が古い場合はメニューからハッシュ値の更新を押してください（要ネット環境）", "お知らせ");
+                    MessageBox.Show("東方のバージョンが古いか、ハッシュ値表が古いです" + Environment.NewLine +
+                                    "バージョンが古い場合は公式サイトでアップデートしてください。" + Environment.NewLine +
+                                    "ハッシュ値表が古い場合はメニューからハッシュ値の更新を押してください（要ネット環境）", "お知らせ");
                     return;
                 }
+                
             }
         }
 
@@ -1047,7 +1105,9 @@ namespace NewTHL2
             リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = true;
             vpatchの設定ToolStripMenuItem1.Enabled = true;
             ゲームの設定を開くToolStripMenuItem1.Enabled = true;
-
+            adonisの設定ToolStripMenuItem.Enabled = true;
+            casterの設定ToolStripMenuItem.Enabled = true;
+            updaterの起動ToolStripMenuItem.Enabled = true;
             if(select == 999)
             {
                 バックアップフォルダの設定ToolStripMenuItem1.Enabled = false;
@@ -1055,33 +1115,60 @@ namespace NewTHL2
                 ゲームのフォルダを開くToolStripMenuItem1.Enabled = false;
                 ランチャの背景設定ToolStripMenuItem1.Enabled = false;
                 特殊な設定ToolStripMenuItem1.Enabled = false;
+                adonisの設定ToolStripMenuItem.Enabled = false;
+                casterの設定ToolStripMenuItem.Enabled = false;
+                updaterの起動ToolStripMenuItem.Enabled = false; ;
                 return;
             }
-            if((Thxx[select].ToString() == "alcostg")|(Thxx[select].ToString() == "Th075")|(Thxx[select].ToString() == "Th105")|(Thxx[select].ToString() == "Th123")|
-                (Thxx[select].ToString() == "Th135"))
+            if((Thxx[select].ToString() == "alcostg")|(Thxx[select].ToString() == "th075")|(Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123")|
+                (Thxx[select].ToString() == "th135"))
             {
                 特殊な設定ToolStripMenuItem1.Enabled = false;
             }
-            if(Thxx[select].ToString() == "Th10")
+            if(Thxx[select].ToString() == "th10")
             {
                 リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = false;
             }
-            if((Thxx[select].ToString() == "Th13")|(Thxx[select].ToString() == "Th14")|(Thxx[select].ToString() == "Th143"))
+            if ((Thxx[select].ToString() == "th13") | (Thxx[select].ToString() == "th14") | (Thxx[select].ToString() == "th143") | (Thxx[select].ToString() == "th145") |
+                (Thxx[select].ToString() == "th15"))
             {
                 vpatchの設定ToolStripMenuItem1.Enabled = false;
             }
-            if((Thxx[select].ToString() == "Th105")|(Thxx[select].ToString() == "Th123")|(Thxx[select].ToString() == "Th135"))
+            if(Thxx[select].ToString() == "th09")
+            {
+                adonisの設定ToolStripMenuItem.Enabled = true;
+            }
+            if(Thxx[select].ToString() != "th09")
+            {
+                adonisの設定ToolStripMenuItem.Enabled = false;
+            }
+            if ((Thxx[select].ToString() == "th105") | (Thxx[select].ToString() == "th123") | (Thxx[select].ToString() == "th135") | (Thxx[select].ToString() == "th145"))
             {
                 ゲームの設定を開くToolStripMenuItem1.Enabled = false;
             }
-            
+            if(Thxx[select].ToString() == "th145")
+            {
+                updaterの起動ToolStripMenuItem.Enabled = true;
+            }
+            if(Thxx[select].ToString() != "th145")
+            {
+                updaterの起動ToolStripMenuItem.Enabled = false;
+            }
+            if(Thxx[select].ToString() == "th075")
+            {
+                casterの設定ToolStripMenuItem.Enabled = true;
+            }
+            if(Thxx[select].ToString() != "th075")
+            {
+                casterの設定ToolStripMenuItem.Enabled = false;
+            }
         }
 
         //custom.exe及びconfig.exe
         private void ゲームの設定を開くToolStripMenuItem1_Click(object sender, EventArgs e)
         {   
             //config及びcustomが存在するか
-            if(Thxx[select].ToString() == "Th075")
+            if(Thxx[select].ToString() == "th075")
             {
                 string config = Path.Combine(FP_switch[select], "config.exe");
                 if(File.Exists(config))
@@ -1116,11 +1203,11 @@ namespace NewTHL2
             {
                 //ここからVpatchの設定を読み取り
                 Dictionary<string,int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
-                if(Thxx[select].ToString() == "Th12")
+                if(Thxx[select].ToString() == "th12")
                 {
 
                 }
-                else if(Thxx[select].ToString() == "Th125")
+                else if(Thxx[select].ToString() == "th125")
                 {
                     //要素が同じかどうかを確かめる(ダブスポ)
                     
@@ -1132,7 +1219,7 @@ namespace NewTHL2
                     //    algo.VpatchValueWrite.vpatchIniWrite(VpatchIniPath, NewTHL2.Properties.Resources.vpatch_th125);
                     //}
                 }
-                else if(Thxx[select].ToString() == "Th13")
+                else if(Thxx[select].ToString() == "th13")
                 {
                     Dictionary<string, int> vpatchValues_TenDesire = algo.vpatchValueReturn.getVpatchValue(NewTHL2.Properties.Resources.vpatch_th13);
                     if(vpatchValues.Count != vpatchValues_TenDesire.Count)
@@ -1213,6 +1300,8 @@ namespace NewTHL2
             }
             
             NewTHL2.Search SC = new Search();
+            //数に合わせてプログレスバーの最大値を変えとく
+            SC.progressBar1.Maximum = Thxx.Length;
             SC.Show(this);
             //ここで検索しつつ登録
             for (int i = 0; i < Thxx.Length; i++)
@@ -1232,7 +1321,7 @@ namespace NewTHL2
                 foreach (string temp in THEXE)
                 {
                     //東方花映塚　～ Phantasmagoria of Flower View.の場合
-                    if (Thxx[i].ToString() == "Th09")
+                    if (Thxx[i].ToString() == "th09")
                     {
                         //2種のハッシュ格納用
                         string[] hashArray = new string[2];
@@ -1242,7 +1331,7 @@ namespace NewTHL2
                         hashArray[0] = hash.ToString().Substring(0, separated);
                         //花映塚Ver1.50の方の格納
                         hashArray[1] = hash.ToString().Substring(separated + 1);
-                        for(int _i = 0; _i < 2; _i++)
+                        for(int _i = 0; _i < hashArray.Length; _i++)
                         {
                             //MD5の比較
                             flag = algo.Hash.compairMD5(temp, hashArray[_i]);
@@ -1275,6 +1364,18 @@ namespace NewTHL2
             //アプリケーションの再起動
             Application.Restart();
         }
+        //th145のみ、アップデーターの起動
+        private void updaterの起動ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string UpdaterPath = Path.Combine(textBox1.Text,"updater.exe");
+            if (File.Exists(UpdaterPath))
+            {
+                Process P = new Process();
+                P.StartInfo.FileName = UpdaterPath;
+                P.StartInfo.WorkingDirectory = FP_switch[select];
+                P.Start();
+            }
+        }
         //タブをクリックしたら
         void tabControl1_Click(object sender, EventArgs e)
         {
@@ -1286,9 +1387,6 @@ namespace NewTHL2
         {
             tabPage1.Focus();
         }
-        //スパナをクリックしたら
-        //private void button3_Click(object sender, EventArgs e)
-        // {}
         //スパナをクリックしたら
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -1353,17 +1451,5 @@ namespace NewTHL2
         {
 
         }
-
-        
-
-        
-
-
-        
-
-
-        
-
-
     }
 }

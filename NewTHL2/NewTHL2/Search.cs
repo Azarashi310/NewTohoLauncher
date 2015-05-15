@@ -15,6 +15,7 @@ namespace NewTHL2
         public Search()
         {
             InitializeComponent();
+            this.textBox1.SelectionStart = 0;
         }
 
         private void progressBar1_Click(object sender, EventArgs e)
