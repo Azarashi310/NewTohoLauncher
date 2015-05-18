@@ -1300,9 +1300,9 @@ namespace NewTHL2
                     else
                     {
                         //そもそもVpatchがない者達は除外した上で
-                        if((Thxx[i].ToString() != "th075") | (Thxx[i].ToString() != "th105") | (Thxx[i].ToString() != "th123") | 
-                           (Thxx[i].ToString() != "th135") | (Thxx[i].ToString() != "th14") | (Thxx[i].ToString() != "th143") | 
-                           (Thxx[i].ToString() != "th145") | (Thxx[i].ToString() != "th15"))
+                        if((Thxx[i].ToString() != "alcostg") & (Thxx[i].ToString() != "th075") & (Thxx[i].ToString() != "th105") & (Thxx[i].ToString() != "th123") &
+                           (Thxx[i].ToString() != "th135") & (Thxx[i].ToString() != "th14") & (Thxx[i].ToString() != "th143") &
+                           (Thxx[i].ToString() != "th145") & (Thxx[i].ToString() != "th15"))
                         {
                             //ここでファイルを作成する
                             algo.FileCopy.makeVpatchIni(VpatchIniPath);
