@@ -1273,17 +1273,17 @@ namespace NewTHL2
         //Vpatchファイルの初期化（引き継ぎあり）
         private void vpatchファイルのToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("おしらせ", "ファイルパスが通っているゲームでVpatch.iniが存在するゲームのVpatch.iniを初期化をします。" + Environment.NewLine +
+            DialogResult = MessageBox.Show("ファイルパスが通っているゲームでVpatch.iniが存在するゲームのVpatch.iniを初期化をします。"+ Environment.NewLine +
                             "よろしいですか？"+Environment.NewLine+
-                            "※ もともとある設定値は引き継ぎ、共通化されたVpatch.iniファイルにしますのでご安心ください ※",MessageBoxButtons.YesNo);
+                            "※ もともとある設定値は引き継ぎ、共通化されたVpatch.iniファイルにしますのでご安心ください ※", "おしらせ", MessageBoxButtons.YesNo);
             if(DialogResult == DialogResult.No)
             {
-                MessageBox.Show("おしらせ", "キャンセルされました");
+                MessageBox.Show("キャンセルされました","おしらせ");
                 return;
             }
             else if(DialogResult == DialogResult.Yes)
             {
-                for(int i = 1; i < FP_switch.Length + 1; i++)
+                for(int i = 0; i < FP_switch.Length; i++)
                 {
                     //Vpatch.iniのファイルパスを参照する
                     string VpatchIniPath = Path.Combine(FP_switch[i], "vpatch.ini");
@@ -1293,14 +1293,16 @@ namespace NewTHL2
                         Dictionary<string, int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
                         //ここで共通化したもので上書き
                         algo.FileCopy.makeVpatchIni(VpatchIniPath);
-
+                        //ここで引き継ぎ
+                        algo.VpatchValueWrite.vpatchFileSucceed(vpatchValues, VpatchIniPath);
                     }
+                    //存在しない場合は作る
                     else
                     {
                         //そもそもVpatchがない者達は除外した上で
-                        if((Thxx[select].ToString() != "th075") | (Thxx[select].ToString() != "th105") | (Thxx[select].ToString() != "th123") | 
-                           (Thxx[select].ToString() != "th135") | (Thxx[select].ToString() != "th14") | (Thxx[select].ToString() != "th143") | 
-                           (Thxx[select].ToString() != "th145") | (Thxx[select].ToString() != "th15"))
+                        if((Thxx[i].ToString() != "th075") | (Thxx[i].ToString() != "th105") | (Thxx[i].ToString() != "th123") | 
+                           (Thxx[i].ToString() != "th135") | (Thxx[i].ToString() != "th14") | (Thxx[i].ToString() != "th143") | 
+                           (Thxx[i].ToString() != "th145") | (Thxx[i].ToString() != "th15"))
                         {
                             //ここでファイルを作成する
                             algo.FileCopy.makeVpatchIni(VpatchIniPath);
