@@ -62,18 +62,18 @@ namespace NewTHL2.Properties {
         
         /// <summary>
         ///   [HASH]
-        ///Th06 = fa3d64768b1bfc50703dedc2db92f7fa
-        ///Th07 = 0126afce1e805370d36c3482445e98da
-        ///Th075 = 21bcb855a39f2170195811e6ad292f18
-        ///Th08 = 77b6785e04a3406e50be68714a193650
-        ///Th09 = 8bc284d591e247cb62fe62a710ac1689_cf634df46e05552e104fa97a971aaac0
-        ///Th095 = 8de95bc7651419201fc1a4ea49bc0697
-        ///Th10 = 7dc488d82c81dd4aee4ba098b8804d83
-        ///Th105 = 2ae711a6c92c4addbdbf526bc61d8e59
-        ///Th11 = 6af1e3b37f28293f4fc127ee01d2632c
-        ///Th12 = 212f187591f4f1fa99eb2845d1b3cf20
-        ///Th123 = df35d1fbc7b583317adabe8cd9f53b2e
-        ///Th125 = e78dca66 [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///alcostg = b31eb1628c8478b24a1b628a4f1ebc11
+        ///th06 = fa3d64768b1bfc50703dedc2db92f7fa
+        ///th07 = 0126afce1e805370d36c3482445e98da
+        ///th075 = 21bcb855a39f2170195811e6ad292f18
+        ///th08 = 77b6785e04a3406e50be68714a193650
+        ///th09 = 8bc284d591e247cb62fe62a710ac1689_cf634df46e05552e104fa97a971aaac0
+        ///th095 = 8de95bc7651419201fc1a4ea49bc0697
+        ///th10 = 7dc488d82c81dd4aee4ba098b8804d83
+        ///th105 = 2ae711a6c92c4addbdbf526bc61d8e59
+        ///th11 = 6af1e3b37f28293f4fc127ee01d2632c
+        ///th12 = 212f187591f4f1fa99eb2845d1b3cf20
+        ///th123 = df35d1 [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string hash {
             get {
@@ -193,6 +193,45 @@ namespace NewTHL2.Properties {
             get {
                 object obj = ResourceManager.GetObject("spana_click", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   [Window]
+        ///AskWindowMode = 0
+        ///enabled = 1
+        ///X = 0
+        ///Y = 0
+        ///Width = 1280
+        ///Height = 728
+        ///TitleBar = 0
+        ///AlwaysOnTop = 0
+        ///
+        ///[Option]
+        ///Vsync = 0
+        ///SleepType = 1
+        ///BltPrepareTime = -1
+        ///AutoBltPrepareTime = 1
+        ///AllowShortDelay = 0
+        ///GameFPS = 60
+        ///ReplaySkipFPS = 200
+        ///ReplaySlowFPS = 30
+        ///CalcFPS = 1
+        ///BugFixGetDeviceState = 0
+        ///BugFixCherry = 0
+        ///BugFixTh10Power3 =0
+        ///BugFixTh12Shadow = 0
+        ///DisableChecksum = 0
+        ///AllowShortDelay = 0
+        ///AlwaysBlt = 1
+        ///ProcessPriority = 0
+        ///ProcessAffinityMask = 0
+        ///LockBackBuffer = 0
+        ///D3DMultiThread  [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string vpatch_All {
+            get {
+                return ResourceManager.GetString("vpatch_All", resourceCulture);
             }
         }
         

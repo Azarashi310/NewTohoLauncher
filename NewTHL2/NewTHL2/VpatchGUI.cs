@@ -21,6 +21,10 @@ namespace NewTHL2
             this.ControlBox = !this.ControlBox;
             //this.trackBar1.ValueChanged += trackBar1_ValueChanged;
         }
+        private void VpatchGUI_Load(object sender, EventArgs e)
+        {
+
+        }
         //値をセットする
         public void setValues(Dictionary<string,int> values,string titleName)
         {
@@ -127,6 +131,12 @@ namespace NewTHL2
                             G2_VpatchOriginalDrawing.Checked = true;
                             break;
                         }
+                    default:
+                        {
+                            //東方本家の描画方法で描画
+                            G2_OriginalDrawing.Checked = true;
+                            break;
+                        }
                 }
             }
 
@@ -158,6 +168,12 @@ namespace NewTHL2
                         {
                             //Vpatch独自の描画形式
                             G_3VpatchOriginalDrawing.Checked = true;
+                            break;
+                        }
+                    default:
+                        {
+                            //東方本家の描画方法で描画
+                            G3_OriginalDrawing.Checked = true;
                             break;
                         }
                 }
@@ -195,6 +211,12 @@ namespace NewTHL2
                             G1_UnderDrawing.Checked = true;
                             break;
                         }
+                    default:
+                        {
+                            //東方本家の描画方法で描画
+                            G1_OriginalDrawing.Checked = true;
+                            break;
+                        }
                 }
             }
             #endregion
@@ -224,6 +246,11 @@ namespace NewTHL2
                 case 1:
                     {
                         FPSControlOn.Checked = true;
+                        break;
+                    }
+                default:
+                    {
+                        FPSAutoControl.Checked = true;
                         break;
                     }
             }
@@ -362,6 +389,11 @@ namespace NewTHL2
                         CPU0_CPU1Work.Checked = true;
                         break;
                     }
+                default:
+                    {
+                        radioButton1.Checked = true;
+                        break;
+                    }
             }
             //プロセス優先度
             processPrimaryTrackBar.Value = vpatchValues["ProcessPriority"];
@@ -392,6 +424,21 @@ namespace NewTHL2
                         processPrimaryText.Text = "高";
                         break;
                     }
+                default:
+                    {
+                        processPrimaryText.Text = "通常";
+                        break;
+                    }
+            }
+
+            //Vsyncが正常に動作しない場合
+            if(vpatchValues["LockBackBuffer"] == 1)
+            {
+                checkBox4.Checked = true;
+            }
+            else
+            {
+                checkBox4.Checked = false;
             }
 
             //ダブルスポイラー以降の特殊設定
@@ -409,11 +456,11 @@ namespace NewTHL2
                 //DirectInputをVpatch側で制御
                 if(vpatchValues["HookDirectInput"] == 1)
                 {
-                    checkBox5.Checked = true;
+                    DirectInput_DoubleSpoiler.Checked = true;
                 }
                 else
                 {
-                    checkBox5.Checked = false;
+                    DirectInput_DoubleSpoiler.Checked = false;
                 }
             }
             else
@@ -462,6 +509,12 @@ namespace NewTHL2
             #endregion
         }
 
+        /*
+         * 
+         * ここからボタンが押された時の挙動
+         * 
+         */
+
         //決定ボタン
         private void button2_Click(object sender, EventArgs e)
         {
@@ -477,10 +530,7 @@ namespace NewTHL2
         {
             this.Close();
         }
-        private void VpatchGUI_Load(object sender, EventArgs e)
-        {
 
-        }
         //起動時にW or F を尋ねる
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -508,6 +558,7 @@ namespace NewTHL2
             }
         }
 
+        //描画位置とかをいじるためのチェックボックス
         private void 詳細設定_Enter(object sender, EventArgs e)
         {
             if(詳細設定.Enabled == false)
@@ -516,6 +567,7 @@ namespace NewTHL2
             }
         }
 
+        //描画位置の指定(X)
         private void 描画位置X_Text_TextChanged(object sender, EventArgs e)
         {
             int valueX;
@@ -523,6 +575,7 @@ namespace NewTHL2
             vpatchValues["X"] = valueX;
         }
 
+        //描画位置の指定（Y）
         private void 描画位置Y_Text_TextChanged(object sender, EventArgs e)
         {
             int valueY;
@@ -530,6 +583,7 @@ namespace NewTHL2
             vpatchValues["Y"] = valueY;
         }
 
+        //ウィンドウの幅
         private void Width_Text_TextChanged(object sender, EventArgs e)
         {
             int valueW;
@@ -537,13 +591,15 @@ namespace NewTHL2
             vpatchValues["Width"] = valueW;
         }
         
+        //ウィンドウの高さ
         private void Height_Text_TextChanged(object sender, EventArgs e)
         {
             int valueH;
             Int32.TryParse(Height_Text.Text, out valueH);
             vpatchValues["Height"] = valueH;
         }
-
+        
+        //タイトルバーの表示の有無
         private void ShowTitleBar_CheckedChanged(object sender, EventArgs e)
         {
             if(ShowTitleBar.Checked == true)
@@ -556,6 +612,7 @@ namespace NewTHL2
             }
         }
 
+        //常に手前に表示
         private void AlwaysOnTop_CheckedChanged(object sender, EventArgs e)
         {
             if(AlwaysOnTop.Checked == true)
@@ -587,34 +644,140 @@ namespace NewTHL2
 
         }
 
+        //非アクティブのやつ
         private void 非アクティブでも描画_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (非アクティブでも描画.Checked == true)
+            {
+                vpatchValues["AlwaysBlt"] = 1;
+            }
+            else
+            {
+                vpatchValues["AlwaysBlt"] = 0;
+            }
         }
 
+        //Th13バイリニアフィルタリング
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
         {
-
+            if(checkBox7.Checked == true)
+            {
+                vpatchValues["D3DMultiThread"] = 1;
+            }
+            else
+            {
+                vpatchValues["D3DMultiThread"] = 0;
+            }
         }
 
+        //th13Checksum
         private void checksum_CheckedChanged(object sender, EventArgs e)
         {
-
+            //th13.exeのチェックサムを無効にする
+            if(checksum.Checked == true)
+            {
+                vpatchValues["DisableChecksum"] = 1;
+            }
+            else
+            {
+                vpatchValues["DisableChecksum"] = 0;
+            }
         }
 
-        private void D3DMultiThredforDubleSpoilerforTenDesire_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //DirectInput_DoubleSpoiler
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
-
+            if(DirectInput_DoubleSpoiler.Checked == true)
+            {
+                vpatchValues["HookDirectInput"] = 1;
+            }
+            else
+            {
+                vpatchValues["HookDirectInput"] = 0;
+            }
         }
 
+        //D3DMultiTread(DS)
         private void D3DMultiThredforDubleSpoiler_CheckedChanged(object sender, EventArgs e)
         {
+            //Direct3Dをマルチスレッドで動かす
+            if (D3DMultiThredforDubleSpoiler.Checked == true)
+            {
+                vpatchValues["D3DMultiThread"] = 1;
+            }
+            else
+            {
+                vpatchValues["D3DMultiThread"] = 0;
+            }
+        }
+        
+        //D3DMultiTread(TedDesire)
+        private void D3DMultiThredforDubleSpoilerforTenDesire_CheckedChanged(object sender, EventArgs e)
+        {
+            //Direct3Dをマルチスレッドで動かす
+            if (D3DMultiThredforTenDesire.Checked == true)
+            {
+                vpatchValues["D3DMultiThread"] = 1;
+            }
+            else
+            {
+                vpatchValues["D3DMultiThread"] = 0;
+            }
+        }
 
+        //LockBackBuffer
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox4.Checked == true)
+            {
+                vpatchValues["LockBackBuffer"] = 1;
+            }
+            else
+            {
+                vpatchValues["LockBackBuffer"] = 0;
+            }
+        }
+        
+        //プロセス優先度の変更
+        private void processPrimaryTrackBar_Scroll(object sender, EventArgs e)
+        {
+            //値の変更
+            vpatchValues["ProcessPriority"] = processPrimaryTrackBar.Value;
+
+            //下のラベルの文字の変更 
+            switch (processPrimaryTrackBar.Value)
+             {
+                case -2:
+                    {
+                        processPrimaryText.Text = "低";
+                        break;
+                    }
+                case -1:
+                    {
+                        processPrimaryText.Text = "通常以下";
+                        break;
+                    }
+                case 0:
+                    {
+                        processPrimaryText.Text = "通常";
+                        break;
+                    }
+                case 1:
+                    {
+                        processPrimaryText.Text = "通常以上";
+                        break;
+                    }
+                case 2:
+                    {
+                        processPrimaryText.Text = "高";
+                        break;
+                    }
+                default:
+                    {
+                        processPrimaryText.Text = "通常";
+                        break;
+                    }
+             }
         }
 
         

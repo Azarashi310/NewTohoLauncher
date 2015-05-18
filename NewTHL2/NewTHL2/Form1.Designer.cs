@@ -120,9 +120,10 @@
             this.casterの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adonisの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.リプレイのユーザーデータ化ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updaterの起動ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.updaterの起動ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vpatchファイルのToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -193,7 +194,8 @@
             this.メニューToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.一括登録ToolStripMenuItem,
             this.設定ファイルのインポートToolStripMenuItem,
-            this.設定ファイルのエクスポートToolStripMenuItem});
+            this.設定ファイルのエクスポートToolStripMenuItem,
+            this.vpatchファイルのToolStripMenuItem});
             this.メニューToolStripMenuItem.Name = "メニューToolStripMenuItem";
             this.メニューToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             this.メニューToolStripMenuItem.Text = "メニュー";
@@ -930,7 +932,7 @@
             this.ランチャの背景設定ToolStripMenuItem1,
             this.特殊な設定ToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 136);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 114);
             // 
             // バックアップフォルダの設定ToolStripMenuItem1
             // 
@@ -995,6 +997,13 @@
             this.リプレイのユーザーデータ化ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
             this.リプレイのユーザーデータ化ToolStripMenuItem1.Text = "リプレイのユーザーデータ化";
             // 
+            // updaterの起動ToolStripMenuItem
+            // 
+            this.updaterの起動ToolStripMenuItem.Name = "updaterの起動ToolStripMenuItem";
+            this.updaterの起動ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.updaterの起動ToolStripMenuItem.Text = "Updaterの起動";
+            this.updaterの起動ToolStripMenuItem.Click += new System.EventHandler(this.updaterの起動ToolStripMenuItem_Click);
+            // 
             // vpatch_Toggle
             // 
             this.vpatch_Toggle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -1010,19 +1019,19 @@
             // 
             this.pictureBox1.Image = global::NewTHL2.Properties.Resources.spana;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(714, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(714, 27);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 70);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // updaterの起動ToolStripMenuItem
+            // vpatchファイルのToolStripMenuItem
             // 
-            this.updaterの起動ToolStripMenuItem.Name = "updaterの起動ToolStripMenuItem";
-            this.updaterの起動ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.updaterの起動ToolStripMenuItem.Text = "Updaterの起動";
-            this.updaterの起動ToolStripMenuItem.Click += new System.EventHandler(this.updaterの起動ToolStripMenuItem_Click);
+            this.vpatchファイルのToolStripMenuItem.Name = "vpatchファイルのToolStripMenuItem";
+            this.vpatchファイルのToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.vpatchファイルのToolStripMenuItem.Text = "Vpatchファイルの初期化";
+            this.vpatchファイルのToolStripMenuItem.Click += new System.EventHandler(this.vpatchファイルのToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1220,6 +1229,7 @@
         private System.Windows.Forms.Label th145_L;
         private System.Windows.Forms.PictureBox th145_I;
         private System.Windows.Forms.ToolStripMenuItem updaterの起動ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vpatchファイルのToolStripMenuItem;
     }
 }
 

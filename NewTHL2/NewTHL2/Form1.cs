@@ -1129,8 +1129,8 @@ namespace NewTHL2
             {
                 リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = false;
             }
-            if ((Thxx[select].ToString() == "th13") | (Thxx[select].ToString() == "th14") | (Thxx[select].ToString() == "th143") | (Thxx[select].ToString() == "th145") |
-                (Thxx[select].ToString() == "th15"))
+            if ((Thxx[select].ToString() == "th075") | (Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123") | (Thxx[select].ToString() == "th135")|
+                (Thxx[select].ToString() == "th14") | (Thxx[select].ToString() == "th143") | (Thxx[select].ToString() == "th145") |(Thxx[select].ToString() == "th15"))
             {
                 vpatchの設定ToolStripMenuItem1.Enabled = false;
             }
@@ -1203,6 +1203,13 @@ namespace NewTHL2
             {
                 //ここからVpatchの設定を読み取り
                 Dictionary<string,int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
+                /*
+                 * 試験的にvpatchのデーターをすべて共通のものにしてみる
+                 * 
+                 */
+                
+                
+                /*
                 if(Thxx[select].ToString() == "th12")
                 {
 
@@ -1227,6 +1234,7 @@ namespace NewTHL2
                         algo.VpatchValueWrite.vpatchIniWrite(VpatchIniPath, NewTHL2.Properties.Resources.vpatch_th13);
                     }
                 }
+                 */
                 //VpatchGUIを参照
                 VpatchGUI VGUI = new VpatchGUI();
                  
@@ -1245,7 +1253,7 @@ namespace NewTHL2
                     if(DialogResult == DialogResult.Yes)
                     {
                         //ここで作成
-                        NewTHL2.algo.FileCopy.makeVpatchIni(VpatchIniPath,Thxx[select].ToString());
+                        NewTHL2.algo.FileCopy.makeVpatchIni(VpatchIniPath/*,Thxx[select].ToString()*/);
                         MessageBox.Show("vpatch.iniを作成しました", "お知らせ");
                         
                     }
@@ -1259,6 +1267,46 @@ namespace NewTHL2
                     MessageBox.Show("Vpatch.iniは存在しますが、Vpatch.exeが存在しません・・・（どういうことなの）", "お知らせ");
                 }
                 
+            }
+        }
+
+        //Vpatchファイルの初期化（引き継ぎあり）
+        private void vpatchファイルのToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("おしらせ", "ファイルパスが通っているゲームでVpatch.iniが存在するゲームのVpatch.iniを初期化をします。" + Environment.NewLine +
+                            "よろしいですか？"+Environment.NewLine+
+                            "※ もともとある設定値は引き継ぎ、共通化されたVpatch.iniファイルにしますのでご安心ください ※",MessageBoxButtons.YesNo);
+            if(DialogResult == DialogResult.No)
+            {
+                MessageBox.Show("おしらせ", "キャンセルされました");
+                return;
+            }
+            else if(DialogResult == DialogResult.Yes)
+            {
+                for(int i = 1; i < FP_switch.Length + 1; i++)
+                {
+                    //Vpatch.iniのファイルパスを参照する
+                    string VpatchIniPath = Path.Combine(FP_switch[i], "vpatch.ini");
+                    if(File.Exists(VpatchIniPath))
+                    {
+                        //ここからVpatchの設定を読み取り
+                        Dictionary<string, int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
+                        //ここで共通化したもので上書き
+                        algo.FileCopy.makeVpatchIni(VpatchIniPath);
+
+                    }
+                    else
+                    {
+                        //そもそもVpatchがない者達は除外した上で
+                        if((Thxx[select].ToString() != "th075") | (Thxx[select].ToString() != "th105") | (Thxx[select].ToString() != "th123") | 
+                           (Thxx[select].ToString() != "th135") | (Thxx[select].ToString() != "th14") | (Thxx[select].ToString() != "th143") | 
+                           (Thxx[select].ToString() != "th145") | (Thxx[select].ToString() != "th15"))
+                        {
+                            //ここでファイルを作成する
+                            algo.FileCopy.makeVpatchIni(VpatchIniPath);
+                        }
+                    }
+                }
             }
         }
 
@@ -1451,5 +1499,7 @@ namespace NewTHL2
         {
 
         }
+
+
     }
 }

@@ -92,7 +92,7 @@
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.D3DMultiThredforTenDesire = new System.Windows.Forms.CheckBox();
             this.ダブルスポイラー以降 = new System.Windows.Forms.GroupBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.DirectInput_DoubleSpoiler = new System.Windows.Forms.CheckBox();
             this.D3DMultiThredforDubleSpoiler = new System.Windows.Forms.CheckBox();
             this.processPrimary = new System.Windows.Forms.GroupBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -821,7 +821,7 @@
             // 
             // ダブルスポイラー以降
             // 
-            this.ダブルスポイラー以降.Controls.Add(this.checkBox5);
+            this.ダブルスポイラー以降.Controls.Add(this.DirectInput_DoubleSpoiler);
             this.ダブルスポイラー以降.Controls.Add(this.D3DMultiThredforDubleSpoiler);
             this.ダブルスポイラー以降.Location = new System.Drawing.Point(18, 211);
             this.ダブルスポイラー以降.Name = "ダブルスポイラー以降";
@@ -830,17 +830,17 @@
             this.ダブルスポイラー以降.TabStop = false;
             this.ダブルスポイラー以降.Text = "ダブルスポイラー以降";
             // 
-            // checkBox5
+            // DirectInput_DoubleSpoiler
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(11, 72);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox5.Size = new System.Drawing.Size(171, 16);
-            this.checkBox5.TabIndex = 1;
-            this.checkBox5.Text = "DirectInputをVpatch側で制御";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            this.DirectInput_DoubleSpoiler.AutoSize = true;
+            this.DirectInput_DoubleSpoiler.Location = new System.Drawing.Point(11, 72);
+            this.DirectInput_DoubleSpoiler.Name = "DirectInput_DoubleSpoiler";
+            this.DirectInput_DoubleSpoiler.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DirectInput_DoubleSpoiler.Size = new System.Drawing.Size(171, 16);
+            this.DirectInput_DoubleSpoiler.TabIndex = 1;
+            this.DirectInput_DoubleSpoiler.Text = "DirectInputをVpatch側で制御";
+            this.DirectInput_DoubleSpoiler.UseVisualStyleBackColor = true;
+            this.DirectInput_DoubleSpoiler.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // D3DMultiThredforDubleSpoiler
             // 
@@ -876,6 +876,7 @@
             this.checkBox4.TabIndex = 2;
             this.checkBox4.Text = "Vsyncが正常に動作しない場合";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // processPrimaryText
             // 
@@ -894,6 +895,7 @@
             this.processPrimaryTrackBar.Name = "processPrimaryTrackBar";
             this.processPrimaryTrackBar.Size = new System.Drawing.Size(292, 45);
             this.processPrimaryTrackBar.TabIndex = 0;
+            this.processPrimaryTrackBar.Scroll += new System.EventHandler(this.processPrimaryTrackBar_Scroll);
             // 
             // 動作させるCPUコア数
             // 
@@ -1097,7 +1099,7 @@
         private System.Windows.Forms.CheckBox checksum;
         private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.CheckBox D3DMultiThredforTenDesire;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox DirectInput_DoubleSpoiler;
         private System.Windows.Forms.CheckBox D3DMultiThredforDubleSpoiler;
         private System.Windows.Forms.ToolTip toolTip1;
     }
