@@ -46,17 +46,17 @@ namespace NewTHL2
         //選択時変更用画像
         //private Bitmap BMP = NewTHL2.Properties.Resources.PBG;
         //設定ファイル格納用フォルダパス
-        public const string settingFolderPath = @"resource";
+        private const string settingFolderPath = @"resource";
         //設定用iniファイルパス
-        public const string settingFilePath = @"resource/settings.ini";
+        private const string settingFilePath = @"resource/settings.ini";
         //ハッシュファイルパスs
-        public const string hashFilePath = @"resource/hash.ini";
+        private const string hashFilePath = @"resource/hash.ini";
         //R/W用のエンコード
         public static Encoding sjis = Encoding.GetEncoding("Shift-JIS");
         //ファイルパスが通ってるかどうかの記憶
-        public string[] FP_switch = new string[20];
+        private string[] FP_switch = new string[20];
         //今選択しているもの
-        public int select = 999;
+        private int select = 999;
 
         //コンストラクタ
         public Form1()
@@ -1223,7 +1223,7 @@ namespace NewTHL2
             if(File.Exists(VpatchIniPath))
             {
                 //ここからVpatchの設定を読み取り
-                Dictionary<string,string> vpatchValues = algo.IniFileValueReturn.getVpatchValue(VpatchIniPath);
+                Dictionary<string,string> vpatchValues = algo.IniFileValueReturn.getIniFileValue(VpatchIniPath);
                 
                 /*
                  * 試験的にvpatchのデーターをすべて共通のものにしてみる
@@ -1264,7 +1264,7 @@ namespace NewTHL2
                 //ここで設定のイニシャライズをする
                 VGUI.setValues(vpatchValues,Thxx[select].ToString(),VpatchIniPath);
 
-                VGUI.Show();
+                VGUI.ShowDialog();
             }
             //存在しなければ
             else
@@ -1313,7 +1313,7 @@ namespace NewTHL2
                     if(File.Exists(VpatchIniPath))
                     {
                         //ここからVpatchの設定を読み取り
-                        Dictionary<string, string> vpatchValues = algo.IniFileValueReturn.getVpatchValue(VpatchIniPath);
+                        Dictionary<string, string> vpatchValues = algo.IniFileValueReturn.getIniFileValue(VpatchIniPath);
                         //ここで共通化したもので上書き
                         algo.FileCopy.makeVpatchIni(VpatchIniPath);
                         //ここで引き継ぎ
@@ -1323,7 +1323,7 @@ namespace NewTHL2
                     else
                     {
                         //そもそもVpatchがない者達は除外した上で
-                        if((Thxx[i].ToString() != "alcostg") & (Thxx[i].ToString() != "th075") & (Thxx[i].ToString() != "th105") & (Thxx[i].ToString() != "th123") &
+                        if((Thxx[i].ToString() != "th075") & (Thxx[i].ToString() != "th105") & (Thxx[i].ToString() != "th123") &
                            (Thxx[i].ToString() != "th135") & (Thxx[i].ToString() != "th14") & (Thxx[i].ToString() != "th143") &
                            (Thxx[i].ToString() != "th145") & (Thxx[i].ToString() != "th15"))
                         {
@@ -1448,7 +1448,7 @@ namespace NewTHL2
         //新作ができたとき用のファイルパス設定表の更新
         private void ファイルパスの設定の更新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Dictionary<string,string> FilePathListSource = 
+            Dictionary<string, string> FilePathListSource = algo.IniFileValueReturn.getIniFileValue(settingFilePath);
         }
         //th145のみ、アップデーターの起動
         private void updaterの起動ToolStripMenuItem_Click(object sender, EventArgs e)
