@@ -50,7 +50,7 @@
     <Compile Include="algo\GetIcon.cs" />
     <Compile Include="algo\Hash.cs" />
     <Compile Include="algo\OFDandSFD.cs" />
-    <Compile Include="algo\vpatchValueReturn.cs">
+    <Compile Include="algo\IniFileValueReturn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="algo\VpatchValueWrite.cs">

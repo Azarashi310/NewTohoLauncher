@@ -34,6 +34,7 @@
             this.一括登録ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.設定ファイルのインポートToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.設定ファイルのエクスポートToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vpatchファイルのToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ヘルプToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.困ったことがあったらToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -123,7 +124,7 @@
             this.updaterの起動ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.vpatchファイルのToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ファイルパスの設定の更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -195,7 +196,8 @@
             this.一括登録ToolStripMenuItem,
             this.設定ファイルのインポートToolStripMenuItem,
             this.設定ファイルのエクスポートToolStripMenuItem,
-            this.vpatchファイルのToolStripMenuItem});
+            this.vpatchファイルのToolStripMenuItem,
+            this.ファイルパスの設定の更新ToolStripMenuItem});
             this.メニューToolStripMenuItem.Name = "メニューToolStripMenuItem";
             this.メニューToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             this.メニューToolStripMenuItem.Text = "メニュー";
@@ -219,6 +221,13 @@
             this.設定ファイルのエクスポートToolStripMenuItem.Name = "設定ファイルのエクスポートToolStripMenuItem";
             this.設定ファイルのエクスポートToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.設定ファイルのエクスポートToolStripMenuItem.Text = "設定ファイルのエクスポート";
+            // 
+            // vpatchファイルのToolStripMenuItem
+            // 
+            this.vpatchファイルのToolStripMenuItem.Name = "vpatchファイルのToolStripMenuItem";
+            this.vpatchファイルのToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.vpatchファイルのToolStripMenuItem.Text = "Vpatchファイルの初期化";
+            this.vpatchファイルのToolStripMenuItem.Click += new System.EventHandler(this.vpatchファイルのToolStripMenuItem_Click);
             // 
             // ヘルプToolStripMenuItem
             // 
@@ -868,6 +877,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "起動";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -939,6 +949,7 @@
             this.バックアップフォルダの設定ToolStripMenuItem1.Name = "バックアップフォルダの設定ToolStripMenuItem1";
             this.バックアップフォルダの設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
             this.バックアップフォルダの設定ToolStripMenuItem1.Text = "バックアップフォルダの設定";
+            this.バックアップフォルダの設定ToolStripMenuItem1.Click += new System.EventHandler(this.バックアップフォルダの設定ToolStripMenuItem1_Click);
             // 
             // ゲームの設定を開くToolStripMenuItem1
             // 
@@ -1026,12 +1037,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // vpatchファイルのToolStripMenuItem
+            // ファイルパスの設定の更新ToolStripMenuItem
             // 
-            this.vpatchファイルのToolStripMenuItem.Name = "vpatchファイルのToolStripMenuItem";
-            this.vpatchファイルのToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.vpatchファイルのToolStripMenuItem.Text = "Vpatchファイルの初期化";
-            this.vpatchファイルのToolStripMenuItem.Click += new System.EventHandler(this.vpatchファイルのToolStripMenuItem_Click);
+            this.ファイルパスの設定の更新ToolStripMenuItem.Name = "ファイルパスの設定の更新ToolStripMenuItem";
+            this.ファイルパスの設定の更新ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.ファイルパスの設定の更新ToolStripMenuItem.Text = "ファイルパスの設定の更新";
+            this.ファイルパスの設定の更新ToolStripMenuItem.Click += new System.EventHandler(this.ファイルパスの設定の更新ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1230,6 +1241,7 @@
         private System.Windows.Forms.PictureBox th145_I;
         private System.Windows.Forms.ToolStripMenuItem updaterの起動ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vpatchファイルのToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ファイルパスの設定の更新ToolStripMenuItem;
     }
 }
 

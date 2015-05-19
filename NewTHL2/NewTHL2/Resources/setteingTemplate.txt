@@ -15,7 +15,9 @@ Th128 =
 Th13 =
 Th135 =
 Th14 =
-Th143
+Th143 =
+Th145 =
+Th15 =
 alcostg =
 [Vsync]
 Th06 =
@@ -48,9 +50,12 @@ Th13 =
 Th135 = 
 Th14 = 
 Th143 =
+Th145 =
+Th15 =
 alcostg =
 
 ///Backup///
+///原作STG///
 [TH06BU]
 Save =
 Replay =
@@ -113,11 +118,15 @@ Save =
 Replay =
 Snapshot =
 Vpatch=
+///ここまで///
+///のんべえ///
 [ALCOSTGBU]
 Save =
 Replay 
 Vpatch =
 SnapShot=
+///ここまで///
+///黄昏系///
 [TH075BU]
 Save =
 Replay =
@@ -142,18 +151,22 @@ Replay =
 Profile =
 Icon =
 Okubi =
-Vpatch =
 SnapShot=
 [TH14BU]
 Save =
 Replay =
 Profile =
-Vpatch =
 SnapShot=
 [TH143BU]
 Save =
 Replay =
 Profile =
-Vpatch =
 SnapShot=
-//ここまで//
+[TH145BU]
+Save =
+Replay =
+Profile =
+SnapShot =
+Icon =
+Macro =
+///ここまで///

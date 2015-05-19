@@ -1192,6 +1192,27 @@ namespace NewTHL2
             }
         }
 
+        //ゲームの起動
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string startEXE = "";
+            //Vpatch起動の場合(あとで)
+            if(vpatch_Toggle.Checked == true)
+            {
+
+            }
+            //通常起動の場合(あとでバックアップの機能とか追加)
+            else
+            {
+                startEXE = thxx_EXE(textBox1.Text, select);
+                Process P = new Process();
+                P.StartInfo.FileName = startEXE;
+                P.StartInfo.WorkingDirectory = FP_switch[select];
+                P.Start();
+                this.Close();
+            }
+        }
+
         //Vpatchの設定(GUI)
         private void vpatchの設定ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -1202,7 +1223,7 @@ namespace NewTHL2
             if(File.Exists(VpatchIniPath))
             {
                 //ここからVpatchの設定を読み取り
-                Dictionary<string,int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
+                Dictionary<string,int> vpatchValues = algo.IniFileValueReturn.getVpatchValue(VpatchIniPath);
                 /*
                  * 試験的にvpatchのデーターをすべて共通のものにしてみる
                  * 
@@ -1290,7 +1311,7 @@ namespace NewTHL2
                     if(File.Exists(VpatchIniPath))
                     {
                         //ここからVpatchの設定を読み取り
-                        Dictionary<string, int> vpatchValues = algo.vpatchValueReturn.getVpatchValue(VpatchIniPath);
+                        Dictionary<string, int> vpatchValues = algo.IniFileValueReturn.getVpatchValue(VpatchIniPath);
                         //ここで共通化したもので上書き
                         algo.FileCopy.makeVpatchIni(VpatchIniPath);
                         //ここで引き継ぎ
@@ -1325,6 +1346,13 @@ namespace NewTHL2
                 MessageBox.Show("ゲームのフォルダが存在しないようです。" + Environment.NewLine + "設定を再確認してください", "確認して下さい");
             }
         }
+
+        //バックアップフォルダの設定
+        private void バックアップフォルダの設定ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //ファイル一括登録
         private void 一括登録ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1414,6 +1442,12 @@ namespace NewTHL2
             //アプリケーションの再起動
             Application.Restart();
         }
+        
+        //新作ができたとき用のファイルパス設定表の更新
+        private void ファイルパスの設定の更新ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Dictionary<string,string> FilePathListSource = 
+        }
         //th145のみ、アップデーターの起動
         private void updaterの起動ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1501,6 +1535,12 @@ namespace NewTHL2
         {
 
         }
+
+
+
+        
+
+
 
 
     }
