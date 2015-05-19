@@ -80,14 +80,14 @@ namespace NewTHL2.algo
                 for (int keys = 0; keys < keyTemp.Count; keys++ )
                 {
                     keys = keys_temp;
-                    GetPrivateProfileString(section[sectionCount], keyTemp[keys], "", value, Convert.ToUInt32(value.Capacity), FilePath);
-                    if (value.ToString() != "")
+                    GetPrivateProfileString(section[sectionCount], keyTemp[keys], "null", value, Convert.ToUInt32(value.Capacity), FilePath);
+                    if (value.ToString() != "null")
                     {
                         //Dictionaryに追加
                         vpatch_key_Value.Add(keyTemp[keys], value.ToString());
                         keys_temp++;
                     }
-                    else if(value.ToString() == "")
+                    else if(value.ToString() == "null")
                     {
                         keys_temp = keys;
                         break;

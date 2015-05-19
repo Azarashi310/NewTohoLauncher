@@ -1,167 +1,167 @@
 ﻿[FilePath]
-th06 =
-th07 =
-th075 =
-th08 =
-th09 =
-th095 =
-th10 =
-th105 =
-th11 =
-th12 =
-th123 =
-th125 =
-th128 =
-th13 =
-th135 =
-th14 =
-th143 =
-th145 =
-th15 =
-alcostg =
+th06 = none
+th07 = none
+th075 = none
+th08 = none
+th09 = none
+th095 = none
+th10 = none
+th105 = none
+th11 = none
+th12 = none
+th123 = none
+th125 = none
+th128 = none
+th13 = none
+th135 = none
+th14 = none
+th143 = none
+th145 = none
+th15 = none
+alcostg = none
 [VsyncSwitch]
-th06_V =
-th07_V = 
-th08_V = 
-th09_V = 
-th095_V = 
-th10_V = 
-th11_V = 
-th12_V = 
-th125_V = 
-th128_V = 
-th13_V = 
-alcostg_V = 
+th06_V = none
+th07_V = none 
+th08_V = none 
+th09_V = none 
+th095_V = none 
+th10_V = none 
+th11_V = none 
+th12_V = none 
+th125_V = none 
+th128_V = none 
+th13_V = none 
+alcostg_V = none 
 [BG]
-th06_BG = 
-th07_BG = 
-th075_BG = 
-th08_BG = 
-th09_BG = 
-th095_BG = 
-th10_BG = 
-th105_BG = 
-th11_BG = 
-th12_BG = 
-th123_BG = 
-th125_BG = 
-th128_BG = 
-th13_BG = 
-th135_BG = 
-th14_BG = 
-th143_BG =
-th145_BG =
-th15_BG =
-alcostg_BG =
+th06_BG = none 
+th07_BG = none 
+th075_BG = none 
+th08_BG = none 
+th09_BG = none 
+th095_BG = none 
+th10_BG = none 
+th105_BG = none 
+th11_BG = none 
+th12_BG = none 
+th123_BG = none 
+th125_BG = none 
+th128_BG = none 
+th13_BG = none 
+th135_BG = none 
+th14_BG = none 
+th143_BG = none
+th145_BG = none
+th15_BG = none
+alcostg_BG = none
 
 ///Backup///
 ///原作STG///
 [TH06BU]
-th06_Save =
-th06_Replay =
-th06_Vpatch =
-th06_SnapShot=
+th06_Save = none
+th06_Replay = none
+th06_Vpatch = none
+th06_SnapShot= none
 [TH07BU]
-th07_Save =
-th07_Replay =
-th07_Vpatch =
+th07_Save = none
+th07_Replay = none
+th07_Vpatch = none
 [TH08BU]
-th08_Save =
-th08_Replay =
-th08_SnapShot =
-th08_Vpatch =
+th08_Save = none
+th08_Replay = none
+th08_SnapShot = none
+th08_Vpatch = none
 [TH09BU]
-th09_Save =
-th09_Replay =
-th09_Snapshot =
-th09_Vpatch =
+th09_Save = none
+th09_Replay = none
+th09_Snapshot = none
+th09_Vpatch = none
 [TH095BU]
-th095_Save =
-th095_Replay =
-th095_Snapshot =
-th095_BestShot =
-th095_Vpatch =
+th095_Save = none
+th095_Replay = none
+th095_Snapshot = none
+th095_BestShot = none
+th095_Vpatch = none
 [TH10BU]
-th10_Save =
-th10_Replay =
-th10_Snapshot = 
-th10_Hint =
-th10_Vpatch =
+th10_Save = none
+th10_Replay = none
+th10_Snapshot = none 
+th10_Hint = none
+th10_Vpatch = none
 [TH11BU]
-th11_Save =
-th11_Replay =
-th11_Snapshot =
-th11_Vpatch =
+th11_Save = none
+th11_Replay = none
+th11_Snapshot = none
+th11_Vpatch = none
 [TH12BU]
-th12_Save =
-th12_Replay =
-th12_Snapshot =
-th12_Vpatch =
+th12_Save = none
+th12_Replay = none
+th12_Snapshot = none
+th12_Vpatch = none
 [TH125BU]
-th125_Save =
-th125_Replay =
-th125_Snapshot =
-th125_BestShot =
-th125_Vpatch =
+th125_Save = none
+th125_Replay = none
+th125_Snapshot = none
+th125_BestShot = none
+th125_Vpatch = none
 [TH128BU]
-th128_Save = 
-th128_Replay = 
-th128_Snapshot = 
-th128_Vpatch = 
+th128_Save = none 
+th128_Replay = none 
+th128_Snapshot = none 
+th128_Vpatch = none 
 [TH13BU]
-th13_Save =
-th13_Replay =
-th13_Snapshot =
-th13_Vpatch =
+th13_Save = none
+th13_Replay = none
+th13_Snapshot = none
+th13_Vpatch = none
 [TH14BU]
-th14_Save =
-th14_Replay =
-th14_Snapshot =
-th14_Vpatch=
+th14_Save = none
+th14_Replay = none
+th14_Snapshot = none
+th14_Vpatch= none
 ///ここまで///
 ///のんべえ///
 [ALCOSTGBU]
-alcostg_Save =
+alcostg_Save = none
 alcostg_Replay 
-alcostg_Vpatch =
-alcostg_SnapShot=
+alcostg_Vpatch = none
+alcostg_SnapShot= none
 ///ここまで///
 ///黄昏系///
 [TH075BU]
-th075_Save =
-th075_Replay =
-th075_Vpatch=
-th075_SnapShot=
-th075_BestShot=
+th075_Save = none
+th075_Replay = none
+th075_Vpatch= none
+th075_SnapShot= none
+th075_BestShot= none
 [TH105BU]
-th105_Save =
-th105_Replay =
-th105_Profile =
-th105_Vpatch=
-th105_SnapShot=
+th105_Save = none
+th105_Replay = none
+th105_Profile = none
+th105_Vpatch= none
+th105_SnapShot= none
 [TH123BU]
-th123_Save =
-th123_Replay =
-th123_Profile =
-th123_Vpatch =
-th123_SnapShot=
+th123_Save = none
+th123_Replay = none
+th123_Profile = none
+th123_Vpatch = none
+th123_SnapShot= none
 [TH135BU]
-th135_Save =
-th135_Replay =
-th135_Profile =
-th135_Icon =
-th135_Okubi =
-th135_SnapShot=
+th135_Save = none
+th135_Replay = none
+th135_Profile = none
+th135_Icon = none
+th135_Okubi = none
+th135_SnapShot= none
 [TH143BU]
-th143_Save =
-th143_Replay =
-th143_Profile =
-th143_SnapShot=
+th143_Save = none
+th143_Replay = none
+th143_Profile = none
+th143_SnapShot= none
 [TH145BU]
-th145_Save =
-th145_Replay =
-th145_Profile =
-th145_SnapShot =
-th145_Icon =
-th145_Macro =
+th145_Save = none
+th145_Replay = none
+th145_Profile = none
+th145_SnapShot = none
+th145_Icon = none
+th145_Macro = none
 ///ここまで///

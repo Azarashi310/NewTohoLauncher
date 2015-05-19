@@ -52,15 +52,15 @@ namespace NewTHL2.algo
                 {
                     key_count = key_temp;
                     //現在のセクションにそのキーが存在するか確認する用
-                    GetPrivateProfileString(section[sec_count], keyList[key_count], "", getValue, Convert.ToUInt32(getValue.Capacity), FilePath);
+                    GetPrivateProfileString(section[sec_count], keyList[key_count], "null", getValue, Convert.ToUInt32(getValue.Capacity), FilePath);
 
-                    if (getValue.ToString() != "")
+                    if (getValue.ToString() != "null")
                     {
                         //iniへの書き込み
                         WritePrivateProfileString(section[sec_count], keyList[key_count], valueList[key_count], FilePath);
                         key_temp++;
                     }
-                    else if (getValue.ToString() == "")
+                    else if (getValue.ToString() == "null")
                     {
                         key_temp = key_count;
                         break;
