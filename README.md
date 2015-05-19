@@ -77,6 +77,10 @@ VaptchのGUI化に関しては本人様の許可を頂いております。
 
 弾幕アマノジャク　～ Impossible Spell Card.
 
+東方深秘録 ～ Urban Legend in Limbo.
+
+東方紺珠伝 ～ Legacy of Lunatic Kingdom.
+
 黄昏酒場　～ Uwabami Breakers ～
 
 ##Adonis
@@ -89,6 +93,9 @@ ipアドレスやポート番号などを指定しておくと、CUIでの打ち
 
 
 ##History
+
+2015/05/20
+とりあえずVpatch周りは完成したので変なバグがなければ問題なし。
 
 今んとこ作り直してるんで
 
