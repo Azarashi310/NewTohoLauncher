@@ -53,7 +53,7 @@
     <Compile Include="algo\IniFileValueReturn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="algo\VpatchValueWrite.cs">
+    <Compile Include="algo\IniFileValueWrite.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.cs">

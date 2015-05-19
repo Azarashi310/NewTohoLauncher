@@ -1223,7 +1223,8 @@ namespace NewTHL2
             if(File.Exists(VpatchIniPath))
             {
                 //ここからVpatchの設定を読み取り
-                Dictionary<string,int> vpatchValues = algo.IniFileValueReturn.getVpatchValue(VpatchIniPath);
+                Dictionary<string,string> vpatchValues = algo.IniFileValueReturn.getVpatchValue(VpatchIniPath);
+                
                 /*
                  * 試験的にvpatchのデーターをすべて共通のものにしてみる
                  * 
@@ -1256,11 +1257,12 @@ namespace NewTHL2
                     }
                 }
                  */
+
                 //VpatchGUIを参照
                 VpatchGUI VGUI = new VpatchGUI();
                  
                 //ここで設定のイニシャライズをする
-                VGUI.setValues(vpatchValues,Thxx[select].ToString());
+                VGUI.setValues(vpatchValues,Thxx[select].ToString(),VpatchIniPath);
 
                 VGUI.Show();
             }
@@ -1311,11 +1313,11 @@ namespace NewTHL2
                     if(File.Exists(VpatchIniPath))
                     {
                         //ここからVpatchの設定を読み取り
-                        Dictionary<string, int> vpatchValues = algo.IniFileValueReturn.getVpatchValue(VpatchIniPath);
+                        Dictionary<string, string> vpatchValues = algo.IniFileValueReturn.getVpatchValue(VpatchIniPath);
                         //ここで共通化したもので上書き
                         algo.FileCopy.makeVpatchIni(VpatchIniPath);
                         //ここで引き継ぎ
-                        algo.VpatchValueWrite.vpatchFileSucceed(vpatchValues, VpatchIniPath);
+                        algo.IniFileValueWrite.IniFileWriter(vpatchValues, VpatchIniPath);
                     }
                     //存在しない場合は作る
                     else

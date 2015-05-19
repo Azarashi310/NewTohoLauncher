@@ -11,18 +11,17 @@ namespace NewTHL2.algo
     {
         /// <summary>
         /// 引数にはVpatchのファイルパスをいれろください。
-        /// 戻り値はDictionary　string,int　やで
+        /// 戻り値はDictionary　string,string　やで
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static Dictionary<string,int> getVpatchValue(string path)
+        public static Dictionary<string,string> getVpatchValue(string path)
         {
-            
             //一時的にkeyを格納する(String)
             List<string> keyTemp = new List<string>();
 
             //実際にリターンするもの
-            Dictionary<string, int> vpatch_key_Value = new Dictionary<string, int>();
+            Dictionary<string, string> vpatch_key_Value = new Dictionary<string, string>();
 
             //セクションの取得
             List<string> section = new List<string>();
@@ -35,7 +34,7 @@ namespace NewTHL2.algo
 
             /*
              * ここ改善できる
-             * セクションを取得していちいち"Window"とか書かなくてもいいようにする
+             * セクションを取得していちいち"Window"とか書かなくてもいいようにした
              */
             //セクションの取得
             //取得用のバイトを用意
@@ -88,7 +87,7 @@ namespace NewTHL2.algo
                     if (value.ToString() != "")
                     {
                         //Dictionaryに追加
-                        vpatch_key_Value.Add(keyTemp[keys], int.Parse(value.ToString()));
+                        vpatch_key_Value.Add(keyTemp[keys], value.ToString());
                         keys_temp++;
                     }
                     else if(value.ToString() == "")
@@ -122,5 +121,91 @@ namespace NewTHL2.algo
             return vpatch_key_Value;
         }
 
+        /// <summary>
+        /// 東方のファイルパスを渡す
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static Dictionary<string,string> getFilePath(string path)
+        {
+            //一時的にkeyを格納する(String)
+            List<string> keyTemp = new List<string>();
+
+            //実際にリターンするもの
+            Dictionary<string, string> FilePath_Key_Value = new Dictionary<string, string>();
+
+            //セクションの取得
+            List<string> section = new List<string>();
+
+            //ファイルパス
+            string vpatchPath = path;
+
+            //
+
+
+            /*
+             * ここ改善できる
+             * セクションを取得していちいち"Window"とか書かなくてもいいようにした
+             */
+            //セクションの取得
+            //取得用のバイトを用意
+            byte[] sectionByte = new byte[1024];
+            //バイトとしてセクションを取得
+            uint sectionResult_uint = GetPrivateProfileStringByByteArray(null, null, "default", sectionByte, (uint)sectionByte.Length, path);
+            //文字列として変数に入れる
+            string resultSection = Encoding.Default.GetString(sectionByte, 0, (int)sectionResult_uint - 1);
+            //まとまってるセクションを分けて入れるようの配列を用意
+            string[] sections = resultSection.Split('\0');
+            //セクションを分けて配列に入れる
+            foreach (string tempSection in sections)
+            {
+                section.Add(tempSection);
+            }
+
+            //Keyの取得
+            foreach (string temp_section in section)
+            {
+                //Vpatch.iniのWindowのkeyを取得する
+                byte[] byteArr = new byte[1024];
+                uint resultSize = GetPrivateProfileStringByByteArray(temp_section, null, "", byteArr, (uint)byteArr.Length, path);
+                string result = Encoding.Default.GetString(byteArr, 0, (int)resultSize - 1);
+                string[] keys = result.Split('\0');
+
+                //Vpatch.iniのWindow部分のkeyを取得する
+                foreach (string key in keys)
+                {
+                    keyTemp.Add(key);
+                }
+            }
+
+            //取得したValueの格納用
+            StringBuilder value = new StringBuilder(1024);
+            //キーの番号を保存する
+            int keys_temp = 0;
+
+            //valueを取得し、配列にぶち込む
+            for (int sectionCount = 0; sectionCount < section.Count; sectionCount++)
+            {
+                for (int keys = 0; keys < keyTemp.Count; keys++)
+                {
+                    keys = keys_temp;
+                    GetPrivateProfileString(section[sectionCount], keyTemp[keys], "", value, Convert.ToUInt32(value.Capacity), vpatchPath);
+                    if (value.ToString() != "")
+                    {
+                        //Dictionaryに追加
+                        FilePath_Key_Value.Add(keyTemp[keys], value.ToString());
+                        keys_temp++;
+                    }
+                    else if (value.ToString() == "")
+                    {
+                        keys_temp = keys;
+                        break;
+                    }
+                }
+
+            }
+
+            return FilePath_Key_Value;
+        }
     }
 }

@@ -13,7 +13,9 @@ namespace NewTHL2
     public partial class VpatchGUI : Form
     {
         //書き込み用
-        public static Dictionary<string, int> vpatchValues;
+        private Dictionary<string, string> vpatchValues;
+        private string _FilePath;
+
         public VpatchGUI()
         {
             InitializeComponent();
@@ -26,10 +28,11 @@ namespace NewTHL2
 
         }
         //値をセットする
-        public void setValues(Dictionary<string,int> values,string titleName)
+        public void setValues(Dictionary<string,string> values,string titleName,string FilePath)
         {
             //値を取得
             vpatchValues = values;
+            this._FilePath = FilePath;
             //Dictionary<string, int> vpatchValues = values;           
 
             #region Window
@@ -39,7 +42,7 @@ namespace NewTHL2
              */
 
             //起動時にWindow or FullScreenを尋ねる
-            if(vpatchValues["AskWindowMode"] == 1)
+            if(vpatchValues["AskWindowMode"] == "1")
             {
                 checkBox1.Checked = true;
             }
@@ -48,7 +51,7 @@ namespace NewTHL2
                 checkBox1.Checked = false;
             }
             //Vsync側でWindowのサイズを指定する
-            if(vpatchValues["enabled"] == 1)
+            if(vpatchValues["enabled"] == "1")
             {
                 checkBox2.Checked = true;
                 //trueであるならば詳細設定をenabledにする
@@ -74,7 +77,7 @@ namespace NewTHL2
             Height_Text.Text = vpatchValues["Height"].ToString();
 
             //タイトルバーを表示させるかどうか
-            if(vpatchValues["TitleBar"] == 1)
+            if(vpatchValues["TitleBar"] == "1")
             {
                 ShowTitleBar.Checked = true;
             }
@@ -84,7 +87,7 @@ namespace NewTHL2
             }
 
             //常に手前で表示させる
-            if(vpatchValues["AlwaysOnTop"] == 1)
+            if(vpatchValues["AlwaysOnTop"] == "1")
             {
                 AlwaysOnTop.Checked = true;
             }
@@ -113,19 +116,19 @@ namespace NewTHL2
                 垂直同期設定ダブルスポイラー以降.Enabled = true;
                 switch(vpatchValues["Vsync"])
                 {
-                    case -1:
+                    case "-1":
                         {
                             //東方本家の描画方法で描画
                             G2_OriginalDrawing.Checked = true;
                             break;
                         }
-                    case 0:
+                    case "0":
                         {
                             //垂直同期なし（Vpatch制御）
                             G2_NoVsync.Checked = true;
                             break;
                         }
-                    case 1:
+                    case "1":
                         {
                             //Vpatch独自の描画形式
                             G2_VpatchOriginalDrawing.Checked = true;
@@ -146,25 +149,25 @@ namespace NewTHL2
                 垂直同期設定東方神霊廟.Enabled = true;
                 switch (vpatchValues["Vsync"])
                 {
-                    case -1:
+                    case "-1":
                         {
                             //ハードウェア補助レベル１
                             G_3HardWareAssistLv1.Checked = true;
                             break;
                         }
-                    case -2:
+                    case "-2":
                         {
                             //ハードウェア補助レベル２
                             G_3HardWareAssistLv2.Checked = true;
                             break;
                         }
-                    case 0:
+                    case "0":
                         {
                             //東方本家の描画方法で描画
                             G3_OriginalDrawing.Checked = true;
                             break;
                         }
-                    case 1:
+                    case "1":
                         {
                             //Vpatch独自の描画形式
                             G_3VpatchOriginalDrawing.Checked = true;
@@ -185,19 +188,19 @@ namespace NewTHL2
                 垂直同期設定.Enabled = true;
                 switch (vpatchValues["Vsync"])
                 {
-                    case 0:
+                    case "0":
                         {
                             //東方本家の描画方法で描画
                             G1_OriginalDrawing.Checked = true;
                             break;
                         }
-                    case 1:
+                    case "1":
                         {
                             //モニターのリフレッシュレートに合わせる
                             G1_MonitorRefreshLate.Checked = true;
                             break;
                         }
-                    case 2:
+                    case "2":
                         {
                             //Vsync側で設定したFPSの値に近づけて描画
                             G1_VsyncFPS.Checked = true;
@@ -205,7 +208,7 @@ namespace NewTHL2
                             groupBox3.Enabled = true;
                             break;
                         }
-                    case 3:
+                    case "3":
                         {
                             //画面の真ん中より下で操作する人向け
                             G1_UnderDrawing.Checked = true;
@@ -233,17 +236,17 @@ namespace NewTHL2
             //FPS制御の設定
             switch(vpatchValues["SleepType"])
             {
-                case -1:
+                case "-1":
                     {
                         FPSAutoControl.Checked = true;
                         break;
                     }
-                case 0:
+                case "0":
                     {
                         FPSControlOff.Checked = true;
                         break;
                     }
-                case 1:
+                case "1":
                     {
                         FPSControlOn.Checked = true;
                         break;
@@ -265,7 +268,7 @@ namespace NewTHL2
             textBox2.Text = vpatchValues["ReplaySlowFPS"].ToString();
 
             //描画設定
-            if(vpatchValues["CalcFPS"] == 1)
+            if(vpatchValues["CalcFPS"] == "1")
             {
                 //自動計測のチェックボックス
                 checkBox3.Checked = true;
@@ -279,7 +282,7 @@ namespace NewTHL2
                 先行描画設定の値.Text = "値 ＝ " + 先行描画設定TrackBar.Value.ToString();
             }
 
-            if(vpatchValues["BltPrepareTime"] == -1)
+            if(vpatchValues["BltPrepareTime"] == "-1")
             {
                 //先行描画の値が -1 であるのならば、自動計測のチェックボックスをオンにする
                 checkBox3.Checked = true;
@@ -287,11 +290,11 @@ namespace NewTHL2
             else
             {
                 //先行描画の値を取得
-                先行描画設定TrackBar.Value = vpatchValues["BltPrepareTime"];
+                先行描画設定TrackBar.Value = int.Parse(vpatchValues["BltPrepareTime"]);
             }
 
             //FPSの独自の自動計測
-            if (vpatchValues["CalcFPS"] == 1)
+            if (vpatchValues["CalcFPS"] == "1")
             {
                 FPS値を独自方法で計算します.Checked = true;
             }
@@ -301,7 +304,7 @@ namespace NewTHL2
             }
 
             //非アクティブでも描画
-            if(vpatchValues["AlwaysBlt"] == 1)
+            if(vpatchValues["AlwaysBlt"] == "1")
             {
                 非アクティブでも描画.Checked = true;
             }
@@ -311,7 +314,7 @@ namespace NewTHL2
             }
 
             //妖々夢の桜点バグを修正
-            if(vpatchValues["BugFixCherry"] == 1)
+            if(vpatchValues["BugFixCherry"] == "1")
             {
                 妖々夢の桜点バグを修正します.Checked = true;
             }
@@ -321,7 +324,7 @@ namespace NewTHL2
             }
 
             //風神録のバグマリを修正する
-            if(vpatchValues["BugFixTh10Power3"] == 1)
+            if(vpatchValues["BugFixTh10Power3"] == "1")
             {
                 風神録のバグマリを修正します.Checked = true;
             }
@@ -331,7 +334,7 @@ namespace NewTHL2
             }
 
             //星蓮船の聖輦船の影を修正します
-            if (vpatchValues["BugFixTh12Shadow"] == 1)
+            if (vpatchValues["BugFixTh12Shadow"] == "1")
             {
                 星蓮船の聖輦船の影を修正します.Checked = true;
             } 
@@ -341,7 +344,7 @@ namespace NewTHL2
             }
 
             //入力の暴走を修正します
-            if (vpatchValues["BugFixGetDeviceState"] == 1)
+            if (vpatchValues["BugFixGetDeviceState"] == "1")
             {
                 入力の暴走を修正します.Checked = true;
             }
@@ -351,7 +354,7 @@ namespace NewTHL2
             }
 
             //フレームスキップをなるべく感じさせないようにする
-            if (vpatchValues["AllowShortDelay"] == 1)
+            if (vpatchValues["AllowShortDelay"] == "1")
             {
                 shortDelay.Checked = true;
             }
@@ -369,22 +372,22 @@ namespace NewTHL2
             //動作コア
             switch(vpatchValues["ProcessAffinityMask"])
             {
-                case 0:
+                case "0":
                     {
                         radioButton1.Checked = true;
                         break;
                     }
-                case 1:
+                case "1":
                     {
                         CPU0Work.Checked = true;
                         break;
                     }
-                case 2:
+                case "2":
                     {
                         CPU1Work.Checked = true;
                         break;
                     }
-                case 3:
+                case "3":
                     {
                         CPU0_CPU1Work.Checked = true;
                         break;
@@ -396,30 +399,30 @@ namespace NewTHL2
                     }
             }
             //プロセス優先度
-            processPrimaryTrackBar.Value = vpatchValues["ProcessPriority"];
+            processPrimaryTrackBar.Value = int.Parse(vpatchValues["ProcessPriority"]);
             switch (vpatchValues["ProcessPriority"])
             {
-                case -2:
+                case "-2":
                     {
                         processPrimaryText.Text = "低";
                         break;
                     }
-                case -1:
+                case "-1":
                     {
                         processPrimaryText.Text = "通常以下";
                         break;
                     }
-                case 0:
+                case "0":
                     {
                         processPrimaryText.Text = "通常";
                         break;
                     }
-                case 1:
+                case "1":
                     {
                         processPrimaryText.Text = "通常以上";
                         break;
                     }
-                case 2:
+                case "2":
                     {
                         processPrimaryText.Text = "高";
                         break;
@@ -432,7 +435,7 @@ namespace NewTHL2
             }
 
             //Vsyncが正常に動作しない場合
-            if(vpatchValues["LockBackBuffer"] == 1)
+            if(vpatchValues["LockBackBuffer"] == "1")
             {
                 checkBox4.Checked = true;
             }
@@ -445,7 +448,7 @@ namespace NewTHL2
             if(titleName == "Th125")
             {
                 //Direct3Dをマルチスレッドで動かす
-                if (vpatchValues["D3DMultiThread"] == 1)
+                if (vpatchValues["D3DMultiThread"] == "1")
                 {
                     D3DMultiThredforDubleSpoiler.Checked = true;
                 }
@@ -454,7 +457,7 @@ namespace NewTHL2
                     D3DMultiThredforDubleSpoiler.Checked = false;
                 }
                 //DirectInputをVpatch側で制御
-                if(vpatchValues["HookDirectInput"] == 1)
+                if(vpatchValues["HookDirectInput"] == "1")
                 {
                     DirectInput_DoubleSpoiler.Checked = true;
                 }
@@ -472,7 +475,7 @@ namespace NewTHL2
             if(titleName == "Th13")
             {
                 //Direct3Dをマルチスレッドで動かす
-                if(vpatchValues["D3DMultiThread"] == 1)
+                if(vpatchValues["D3DMultiThread"] == "1")
                 {
                     D3DMultiThredforTenDesire.Enabled = true;
                 }
@@ -482,7 +485,7 @@ namespace NewTHL2
                 }
                 
                 //バイリニアフィルタリングで拡大する
-                if(vpatchValues["MagnificationMethod"] == 1)
+                if(vpatchValues["MagnificationMethod"] == "1")
                 {
                     checkBox7.Checked = true;
                 }
@@ -492,7 +495,7 @@ namespace NewTHL2
                 }
 
                 //th13.exeのチェックサムを無効にする
-                if(vpatchValues["DisableChecksum"] == 1)
+                if(vpatchValues["DisableChecksum"] == "1")
                 {
                     checksum.Enabled = true;
                 }
@@ -522,6 +525,7 @@ namespace NewTHL2
             if(DialogResult == DialogResult.OK)
             {
                 //ここでVpatch.iniへの書き込み処理です
+                algo.IniFileValueWrite.IniFileWriter(vpatchValues, _FilePath);
                 this.Close();
             }
         }
@@ -536,11 +540,11 @@ namespace NewTHL2
         {
             if(checkBox1.Checked == Enabled)
             {
-                vpatchValues["AskWindowMode"] = 1;
+                vpatchValues["AskWindowMode"] = "1";
             }
             else
             {
-                vpatchValues["AskWindowMode"] = 0;
+                vpatchValues["AskWindowMode"] = "0";
             }
         }
         //Vsync側でWindowのサイズをしていするか
@@ -548,12 +552,12 @@ namespace NewTHL2
         {
             if(checkBox2.Checked == true)
             {
-                vpatchValues["enabled"] = 1;
+                vpatchValues["enabled"] = "1";
                 詳細設定.Enabled = true;
             }
             else
             {
-                vpatchValues["enabled"] = 0;
+                vpatchValues["enabled"] = "0";
                 詳細設定.Enabled = false;
             }
         }
@@ -570,33 +574,25 @@ namespace NewTHL2
         //描画位置の指定(X)
         private void 描画位置X_Text_TextChanged(object sender, EventArgs e)
         {
-            int valueX;
-            Int32.TryParse(描画位置X_Text.Text ,out valueX);
-            vpatchValues["X"] = valueX;
+            vpatchValues["X"] = 描画位置X_Text.Text;
         }
 
         //描画位置の指定（Y）
         private void 描画位置Y_Text_TextChanged(object sender, EventArgs e)
         {
-            int valueY;
-            Int32.TryParse(描画位置Y_Text.Text, out valueY);
-            vpatchValues["Y"] = valueY;
+            vpatchValues["Y"] = 描画位置Y_Text.Text;
         }
 
         //ウィンドウの幅
         private void Width_Text_TextChanged(object sender, EventArgs e)
         {
-            int valueW;
-            Int32.TryParse(Width_Text.Text, out valueW);
-            vpatchValues["Width"] = valueW;
+            vpatchValues["Width"] = Width_Text.Text;
         }
         
         //ウィンドウの高さ
         private void Height_Text_TextChanged(object sender, EventArgs e)
         {
-            int valueH;
-            Int32.TryParse(Height_Text.Text, out valueH);
-            vpatchValues["Height"] = valueH;
+            vpatchValues["Height"] = Height_Text.Text;
         }
         
         //タイトルバーの表示の有無
@@ -604,11 +600,11 @@ namespace NewTHL2
         {
             if(ShowTitleBar.Checked == true)
             {
-                vpatchValues["TitleBar"] = 1;
+                vpatchValues["TitleBar"] = "1";
             }
             else
             {
-                vpatchValues["TitleBar"] = 0;
+                vpatchValues["TitleBar"] = "0";
             }
         }
 
@@ -617,11 +613,11 @@ namespace NewTHL2
         {
             if(AlwaysOnTop.Checked == true)
             {
-                vpatchValues["AlwaysOnTop"] = 1;
+                vpatchValues["AlwaysOnTop"] ="1";
             }
             else
             {
-                vpatchValues["AlwaysOnTop"] = 0;
+                vpatchValues["AlwaysOnTop"] ="0";
             }
         }
 
@@ -630,7 +626,7 @@ namespace NewTHL2
         {
             if(G1_OriginalDrawing.Checked == true)
             {
-                vpatchValues["Vsync"] = 0;
+                vpatchValues["Vsync"] = "0";
             }
         }
 
@@ -649,11 +645,11 @@ namespace NewTHL2
         {
             if (非アクティブでも描画.Checked == true)
             {
-                vpatchValues["AlwaysBlt"] = 1;
+                vpatchValues["AlwaysBlt"] = "1";
             }
             else
             {
-                vpatchValues["AlwaysBlt"] = 0;
+                vpatchValues["AlwaysBlt"] = "0";
             }
         }
 
@@ -662,11 +658,11 @@ namespace NewTHL2
         {
             if(checkBox7.Checked == true)
             {
-                vpatchValues["D3DMultiThread"] = 1;
+                vpatchValues["D3DMultiThread"] = "1";
             }
             else
             {
-                vpatchValues["D3DMultiThread"] = 0;
+                vpatchValues["D3DMultiThread"] = "0";
             }
         }
 
@@ -676,11 +672,11 @@ namespace NewTHL2
             //th13.exeのチェックサムを無効にする
             if(checksum.Checked == true)
             {
-                vpatchValues["DisableChecksum"] = 1;
+                vpatchValues["DisableChecksum"] = "1";
             }
             else
             {
-                vpatchValues["DisableChecksum"] = 0;
+                vpatchValues["DisableChecksum"] = "0";
             }
         }
 
@@ -689,11 +685,11 @@ namespace NewTHL2
         {
             if(DirectInput_DoubleSpoiler.Checked == true)
             {
-                vpatchValues["HookDirectInput"] = 1;
+                vpatchValues["HookDirectInput"] = "1";
             }
             else
             {
-                vpatchValues["HookDirectInput"] = 0;
+                vpatchValues["HookDirectInput"] = "0";
             }
         }
 
@@ -703,11 +699,11 @@ namespace NewTHL2
             //Direct3Dをマルチスレッドで動かす
             if (D3DMultiThredforDubleSpoiler.Checked == true)
             {
-                vpatchValues["D3DMultiThread"] = 1;
+                vpatchValues["D3DMultiThread"] = "1";
             }
             else
             {
-                vpatchValues["D3DMultiThread"] = 0;
+                vpatchValues["D3DMultiThread"] = "0";
             }
         }
         
@@ -717,11 +713,11 @@ namespace NewTHL2
             //Direct3Dをマルチスレッドで動かす
             if (D3DMultiThredforTenDesire.Checked == true)
             {
-                vpatchValues["D3DMultiThread"] = 1;
+                vpatchValues["D3DMultiThread"] = "1";
             }
             else
             {
-                vpatchValues["D3DMultiThread"] = 0;
+                vpatchValues["D3DMultiThread"] = "0";
             }
         }
 
@@ -730,11 +726,11 @@ namespace NewTHL2
         {
             if(checkBox4.Checked == true)
             {
-                vpatchValues["LockBackBuffer"] = 1;
+                vpatchValues["LockBackBuffer"] = "1";
             }
             else
             {
-                vpatchValues["LockBackBuffer"] = 0;
+                vpatchValues["LockBackBuffer"] = "0";
             }
         }
         
@@ -742,7 +738,7 @@ namespace NewTHL2
         private void processPrimaryTrackBar_Scroll(object sender, EventArgs e)
         {
             //値の変更
-            vpatchValues["ProcessPriority"] = processPrimaryTrackBar.Value;
+            vpatchValues["ProcessPriority"] = processPrimaryTrackBar.Value.ToString();
 
             //下のラベルの文字の変更 
             switch (processPrimaryTrackBar.Value)
