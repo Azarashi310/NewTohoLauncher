@@ -111,7 +111,7 @@ namespace NewTHL2
             groupBox3.Enabled = true;
 
             //垂直同期設定（ダブルスポイラー）
-            if(titleName == "Th125")
+            if(titleName == "th125")
             {
                 垂直同期設定ダブルスポイラー以降.Enabled = true;
                 switch(vpatchValues["Vsync"])
@@ -144,7 +144,7 @@ namespace NewTHL2
             }
 
             //垂直同期設定（神霊廟）
-            else if(titleName == "Th13")
+            else if(titleName == "th13")
             {
                 垂直同期設定東方神霊廟.Enabled = true;
                 switch (vpatchValues["Vsync"])
@@ -271,13 +271,13 @@ namespace NewTHL2
             if(vpatchValues["CalcFPS"] == "1")
             {
                 //自動計測のチェックボックス
-                checkBox3.Checked = true;
+                PrecedingDrawAutoMeasurement.Checked = true;
                 //自動計測のチェックボックスがオンならばトラックバーは利用できない
                 先行描画設定TrackBar.Enabled = false;
             }
             else
             {
-                checkBox3.Checked = false;
+                PrecedingDrawAutoMeasurement.Checked = false;
                 //自動計測のチェックボックスがオフなので先行描画設定を利用する
                 先行描画設定の値.Text = "値 ＝ " + 先行描画設定TrackBar.Value.ToString();
             }
@@ -285,7 +285,7 @@ namespace NewTHL2
             if(vpatchValues["BltPrepareTime"] == "-1")
             {
                 //先行描画の値が -1 であるのならば、自動計測のチェックボックスをオンにする
-                checkBox3.Checked = true;
+                PrecedingDrawAutoMeasurement.Checked = true;
             }
             else
             {
@@ -437,15 +437,15 @@ namespace NewTHL2
             //Vsyncが正常に動作しない場合
             if(vpatchValues["LockBackBuffer"] == "1")
             {
-                checkBox4.Checked = true;
+                VpatchDoesnotWork.Checked = true;
             }
             else
             {
-                checkBox4.Checked = false;
+                VpatchDoesnotWork.Checked = false;
             }
 
             //ダブルスポイラー以降の特殊設定
-            if(titleName == "Th125")
+            if((titleName == "th125") || (titleName == "th128"))
             {
                 //Direct3Dをマルチスレッドで動かす
                 if (vpatchValues["D3DMultiThread"] == "1")
@@ -472,36 +472,39 @@ namespace NewTHL2
             }
             
             //東方神霊廟のみ
-            if(titleName == "Th13")
+            if(titleName == "th13")
             {
+                D3DMultiThredforTenDesire.Enabled = true;
+                Bilinearfiltering.Enabled = true;
+                checksum.Enabled = true;
                 //Direct3Dをマルチスレッドで動かす
                 if(vpatchValues["D3DMultiThread"] == "1")
                 {
-                    D3DMultiThredforTenDesire.Enabled = true;
+                    D3DMultiThredforTenDesire.Checked = true;
                 }
                 else
                 {
-                    D3DMultiThredforTenDesire.Enabled = false;
+                    D3DMultiThredforTenDesire.Checked = false;
                 }
                 
                 //バイリニアフィルタリングで拡大する
                 if(vpatchValues["MagnificationMethod"] == "1")
                 {
-                    checkBox7.Checked = true;
+                    Bilinearfiltering.Checked = true;
                 }
                 else
                 {
-                    checkBox7.Checked = false;
+                    Bilinearfiltering.Checked = false;
                 }
 
                 //th13.exeのチェックサムを無効にする
                 if(vpatchValues["DisableChecksum"] == "1")
                 {
-                    checksum.Enabled = true;
+                    checksum.Checked = true;
                 }
                 else
                 {
-                    checksum.Enabled = false;
+                    checksum.Checked = false;
                 }
             }
             else
@@ -656,7 +659,7 @@ namespace NewTHL2
         //Th13バイリニアフィルタリング
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox7.Checked == true)
+            if(Bilinearfiltering.Checked == true)
             {
                 vpatchValues["D3DMultiThread"] = "1";
             }
@@ -724,7 +727,7 @@ namespace NewTHL2
         //LockBackBuffer
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox4.Checked == true)
+            if(VpatchDoesnotWork.Checked == true)
             {
                 vpatchValues["LockBackBuffer"] = "1";
             }

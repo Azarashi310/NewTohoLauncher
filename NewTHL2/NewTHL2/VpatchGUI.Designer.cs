@@ -85,17 +85,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.先行描画設定の値 = new System.Windows.Forms.Label();
             this.先行描画設定TrackBar = new System.Windows.Forms.TrackBar();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.PrecedingDrawAutoMeasurement = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.東方神霊廟のみ = new System.Windows.Forms.GroupBox();
             this.checksum = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.Bilinearfiltering = new System.Windows.Forms.CheckBox();
             this.D3DMultiThredforTenDesire = new System.Windows.Forms.CheckBox();
             this.ダブルスポイラー以降 = new System.Windows.Forms.GroupBox();
             this.DirectInput_DoubleSpoiler = new System.Windows.Forms.CheckBox();
             this.D3DMultiThredforDubleSpoiler = new System.Windows.Forms.CheckBox();
             this.processPrimary = new System.Windows.Forms.GroupBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.VpatchDoesnotWork = new System.Windows.Forms.CheckBox();
             this.processPrimaryText = new System.Windows.Forms.Label();
             this.processPrimaryTrackBar = new System.Windows.Forms.TrackBar();
             this.動作させるCPUコア数 = new System.Windows.Forms.GroupBox();
@@ -719,7 +719,7 @@
             // 
             this.groupBox2.Controls.Add(this.先行描画設定の値);
             this.groupBox2.Controls.Add(this.先行描画設定TrackBar);
-            this.groupBox2.Controls.Add(this.checkBox3);
+            this.groupBox2.Controls.Add(this.PrecedingDrawAutoMeasurement);
             this.groupBox2.Location = new System.Drawing.Point(23, 214);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(255, 135);
@@ -746,16 +746,16 @@
             this.先行描画設定TrackBar.Size = new System.Drawing.Size(234, 45);
             this.先行描画設定TrackBar.TabIndex = 1;
             // 
-            // checkBox3
+            // PrecedingDrawAutoMeasurement
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(11, 18);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox3.Size = new System.Drawing.Size(172, 16);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.Text = "先行描画設定を自動計測する";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.PrecedingDrawAutoMeasurement.AutoSize = true;
+            this.PrecedingDrawAutoMeasurement.Location = new System.Drawing.Point(11, 18);
+            this.PrecedingDrawAutoMeasurement.Name = "PrecedingDrawAutoMeasurement";
+            this.PrecedingDrawAutoMeasurement.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PrecedingDrawAutoMeasurement.Size = new System.Drawing.Size(172, 16);
+            this.PrecedingDrawAutoMeasurement.TabIndex = 0;
+            this.PrecedingDrawAutoMeasurement.Text = "先行描画設定を自動計測する";
+            this.PrecedingDrawAutoMeasurement.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -774,7 +774,7 @@
             // 東方神霊廟のみ
             // 
             this.東方神霊廟のみ.Controls.Add(this.checksum);
-            this.東方神霊廟のみ.Controls.Add(this.checkBox7);
+            this.東方神霊廟のみ.Controls.Add(this.Bilinearfiltering);
             this.東方神霊廟のみ.Controls.Add(this.D3DMultiThredforTenDesire);
             this.東方神霊廟のみ.Location = new System.Drawing.Point(300, 211);
             this.東方神霊廟のみ.Name = "東方神霊廟のみ";
@@ -795,17 +795,17 @@
             this.checksum.UseVisualStyleBackColor = true;
             this.checksum.CheckedChanged += new System.EventHandler(this.checksum_CheckedChanged);
             // 
-            // checkBox7
+            // Bilinearfiltering
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(24, 72);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox7.Size = new System.Drawing.Size(179, 16);
-            this.checkBox7.TabIndex = 3;
-            this.checkBox7.Text = "バイリニアフィルタリングで拡大する";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
+            this.Bilinearfiltering.AutoSize = true;
+            this.Bilinearfiltering.Location = new System.Drawing.Point(24, 72);
+            this.Bilinearfiltering.Name = "Bilinearfiltering";
+            this.Bilinearfiltering.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Bilinearfiltering.Size = new System.Drawing.Size(179, 16);
+            this.Bilinearfiltering.TabIndex = 3;
+            this.Bilinearfiltering.Text = "バイリニアフィルタリングで拡大する";
+            this.Bilinearfiltering.UseVisualStyleBackColor = true;
+            this.Bilinearfiltering.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
             // 
             // D3DMultiThredforTenDesire
             // 
@@ -856,7 +856,7 @@
             // 
             // processPrimary
             // 
-            this.processPrimary.Controls.Add(this.checkBox4);
+            this.processPrimary.Controls.Add(this.VpatchDoesnotWork);
             this.processPrimary.Controls.Add(this.processPrimaryText);
             this.processPrimary.Controls.Add(this.processPrimaryTrackBar);
             this.processPrimary.Location = new System.Drawing.Point(300, 16);
@@ -866,17 +866,17 @@
             this.processPrimary.TabStop = false;
             this.processPrimary.Text = "プロセス優先度";
             // 
-            // checkBox4
+            // VpatchDoesnotWork
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(72, 127);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox4.Size = new System.Drawing.Size(176, 16);
-            this.checkBox4.TabIndex = 2;
-            this.checkBox4.Text = "Vsyncが正常に動作しない場合";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.VpatchDoesnotWork.AutoSize = true;
+            this.VpatchDoesnotWork.Location = new System.Drawing.Point(72, 127);
+            this.VpatchDoesnotWork.Name = "VpatchDoesnotWork";
+            this.VpatchDoesnotWork.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.VpatchDoesnotWork.Size = new System.Drawing.Size(176, 16);
+            this.VpatchDoesnotWork.TabIndex = 2;
+            this.VpatchDoesnotWork.Text = "Vsyncが正常に動作しない場合";
+            this.VpatchDoesnotWork.UseVisualStyleBackColor = true;
+            this.VpatchDoesnotWork.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // processPrimaryText
             // 
@@ -1068,7 +1068,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label 先行描画設定の値;
         private System.Windows.Forms.TrackBar 先行描画設定TrackBar;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox PrecedingDrawAutoMeasurement;
         private System.Windows.Forms.GroupBox FPS制御の設定;
         private System.Windows.Forms.RadioButton FPSAutoControl;
         private System.Windows.Forms.RadioButton FPSControlOff;
@@ -1094,10 +1094,10 @@
         private System.Windows.Forms.RadioButton CPU0_CPU1Work;
         private System.Windows.Forms.RadioButton CPU1Work;
         private System.Windows.Forms.GroupBox ダブルスポイラー以降;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox VpatchDoesnotWork;
         private System.Windows.Forms.GroupBox 東方神霊廟のみ;
         private System.Windows.Forms.CheckBox checksum;
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox Bilinearfiltering;
         private System.Windows.Forms.CheckBox D3DMultiThredforTenDesire;
         private System.Windows.Forms.CheckBox DirectInput_DoubleSpoiler;
         private System.Windows.Forms.CheckBox D3DMultiThredforDubleSpoiler;

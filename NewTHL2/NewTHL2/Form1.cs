@@ -1101,8 +1101,10 @@ namespace NewTHL2
         private void gameSettingSelector()
         {
             //まず初期化
+            バックアップフォルダの設定ToolStripMenuItem1.Enabled = true;
             特殊な設定ToolStripMenuItem1.Enabled = true;
             リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = true;
+            ゲームのフォルダを開くToolStripMenuItem1.Enabled = true;
             vpatchの設定ToolStripMenuItem1.Enabled = true;
             ゲームの設定を開くToolStripMenuItem1.Enabled = true;
             adonisの設定ToolStripMenuItem.Enabled = true;
@@ -1117,8 +1119,14 @@ namespace NewTHL2
                 特殊な設定ToolStripMenuItem1.Enabled = false;
                 adonisの設定ToolStripMenuItem.Enabled = false;
                 casterの設定ToolStripMenuItem.Enabled = false;
-                updaterの起動ToolStripMenuItem.Enabled = false; ;
+                updaterの起動ToolStripMenuItem.Enabled = false;
                 return;
+            }
+            if(FP_switch[select] != "")
+            {
+                バックアップフォルダの設定ToolStripMenuItem1.Enabled = true;
+                ゲームの設定を開くToolStripMenuItem1.Enabled = true;
+                ゲームのフォルダを開くToolStripMenuItem1.Enabled = true;
             }
             if((Thxx[select].ToString() == "alcostg")|(Thxx[select].ToString() == "th075")|(Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123")|
                 (Thxx[select].ToString() == "th135"))
@@ -1199,7 +1207,12 @@ namespace NewTHL2
             //Vpatch起動の場合(あとで)
             if(vpatch_Toggle.Checked == true)
             {
-
+                startEXE = Path.Combine(textBox1.Text, "vpatch.exe");
+                Process P = new Process();
+                P.StartInfo.FileName = startEXE;
+                P.StartInfo.WorkingDirectory = FP_switch[select];
+                P.Start();
+                this.Close();
             }
             //通常起動の場合(あとでバックアップの機能とか追加)
             else
