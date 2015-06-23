@@ -262,10 +262,10 @@ namespace NewTHL2
             GameFPS_Text.Text = vpatchValues["GameFPS"].ToString();
 
             //ReplaySkipFPS
-            textBox1.Text = vpatchValues["ReplaySkipFPS"].ToString();
+            ReplaySkipFPS_Text.Text = vpatchValues["ReplaySkipFPS"].ToString();
 
             //ReplaySlowFPS
-            textBox2.Text = vpatchValues["ReplaySlowFPS"].ToString();
+            ReplaySlowFPS.Text = vpatchValues["ReplaySlowFPS"].ToString();
 
             //描画設定
             if(vpatchValues["CalcFPS"] == "1")
@@ -279,7 +279,7 @@ namespace NewTHL2
             {
                 PrecedingDrawAutoMeasurement.Checked = false;
                 //自動計測のチェックボックスがオフなので先行描画設定を利用する
-                先行描画設定の値.Text = "値 ＝ " + 先行描画設定TrackBar.Value.ToString();
+                PrecedingDrawTrackBar_Value.Text = "値 ＝ " + 先行描画設定TrackBar.Value.ToString();
             }
 
             if(vpatchValues["BltPrepareTime"] == "-1")
@@ -306,51 +306,51 @@ namespace NewTHL2
             //非アクティブでも描画
             if(vpatchValues["AlwaysBlt"] == "1")
             {
-                非アクティブでも描画.Checked = true;
+                AlwaysBlt_CheckBox.Checked = true;
             }
             else
             {
-                非アクティブでも描画.Checked = false;
+                AlwaysBlt_CheckBox.Checked = false;
             }
 
             //妖々夢の桜点バグを修正
             if(vpatchValues["BugFixCherry"] == "1")
             {
-                妖々夢の桜点バグを修正します.Checked = true;
+                BugFixCherry_Checkbox.Checked = true;
             }
             else
             {
-                妖々夢の桜点バグを修正します.Checked = false;
+                BugFixCherry_Checkbox.Checked = false;
             }
 
             //風神録のバグマリを修正する
             if(vpatchValues["BugFixTh10Power3"] == "1")
             {
-                風神録のバグマリを修正します.Checked = true;
+                BugFixTh10Power.Checked = true;
             }
             else
             {
-                風神録のバグマリを修正します.Checked = false;
+                BugFixTh10Power.Checked = false;
             }
 
             //星蓮船の聖輦船の影を修正します
             if (vpatchValues["BugFixTh12Shadow"] == "1")
             {
-                星蓮船の聖輦船の影を修正します.Checked = true;
+                BugFixTh12Shadow_Checkbox.Checked = true;
             } 
             else
             {
-                星蓮船の聖輦船の影を修正します.Checked = false;
+                BugFixTh12Shadow_Checkbox.Checked = false;
             }
 
             //入力の暴走を修正します
             if (vpatchValues["BugFixGetDeviceState"] == "1")
             {
-                入力の暴走を修正します.Checked = true;
+                HookDirectInput_CheckBox.Checked = true;
             }
             else
             {
-                入力の暴走を修正します.Checked = false;
+                HookDirectInput_CheckBox.Checked = false;
             }
 
             //フレームスキップをなるべく感じさせないようにする
@@ -744,20 +744,93 @@ namespace NewTHL2
             }
         }
         #endregion
-        private void label1_Click(object sender, EventArgs e)
+        #region FPS制御の設定
+        //FPS制御をONにする(SleepType)
+        private void FPSControlOn_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (FPSControlOn.Checked)
+            {
+                vpatchValues["SleepType"] = "1";
+            }
+        }
+        //FPS制御をしない
+        private void FPSControlOff_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FPSControlOff.Checked)
+            {
+                vpatchValues["SleepType"] = "0";
+            }
+        }
+        //FPS制御を自動制御する
+        private void FPSAutoControl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FPSAutoControl.Checked)
+            {
+                vpatchValues["SleepType"] = "-1";
+            }
+        }
+        #endregion
+        #region 再生FPS
+        //ゲーム上のFPSの変更
+        private void GameFPS_Text_TextChanged(object sender, EventArgs e)
+        {
+            vpatchValues["GameFPS"] = GameFPS_Text.Text;
         }
 
+
+        //リプレイスキップ時のFPS
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            vpatchValues["ReplaySkipFPS"] = ReplaySkipFPS_Text.Text;
+        }
+        //リプレイスロー時のFPS
+        private void ReplaySlowFPS_TextChanged(object sender, EventArgs e)
+        {
+            vpatchValues["ReplaySlowFPS"] = ReplaySlowFPS_Text.Text;
+        }
+        #endregion
+        #region 描画設定
+        //先行描画設定の自動計測
+        private void PrecedingDrawAutoMeasurement_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PrecedingDrawAutoMeasurement.Checked)
+            {
+                vpatchValues["AutoBltPrepareTime"] = "1";
+            }
+            else
+            {
+                vpatchValues["AutoBltPrepareTime"] = "0";
+            }
+        }
+        //先行描画設定の値
+        private void PrecedingDrawTrackBar_Scroll(object sender, EventArgs e)
+        {
+            vpatchValues["BltPrepareTime"] = 先行描画設定TrackBar.Value.ToString();
+            PrecedingDrawTrackBar_Value.Text = "値 = " + 先行描画設定TrackBar.Value.ToString();
+        }
+        //値表示用
+        private void PrecedingDrawTrackBar_Value_Click(object sender, EventArgs e)
+        {
 
         }
-
+        #endregion
+        #region バグフィックス
+        //妖々夢のFPSの値が変なとき
+        private void FPS値を独自方法で計算します_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FPS値を独自方法で計算します.Checked)
+            {
+                vpatchValues["CalcFPS"] = "1";
+            }
+            else
+            {
+                vpatchValues["CalcFPS"] = "0";
+            }
+        }
         //非アクティブのやつ
         private void 非アクティブでも描画_CheckedChanged(object sender, EventArgs e)
         {
-            if (非アクティブでも描画.Checked )
+            if (AlwaysBlt_CheckBox.Checked)
             {
                 vpatchValues["AlwaysBlt"] = "1";
             }
@@ -766,6 +839,56 @@ namespace NewTHL2
                 vpatchValues["AlwaysBlt"] = "0";
             }
         }
+        //妖々夢の桜点バグ
+        private void BugFixCherry_Checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BugFixCherry_Checkbox.Checked)
+            {
+                vpatchValues["BugFixCherry"] = "1";
+            }
+            else
+            {
+                vpatchValues["BugFixCherry"] = "0";
+            }
+        }
+        //風神録の魔理沙のバグ
+        private void BugFixTh10Power_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BugFixTh10Power.Checked)
+            {
+                vpatchValues["BugFixTh10Power3"] = "1";
+            }
+            else
+            {
+                vpatchValues["BugFixTh10Power3"] = "0";
+            }
+        }
+
+        //星蓮船の影バグ
+        private void BugFixTh12Shadow_Checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BugFixTh12Shadow_Checkbox.Checked)
+            {
+                vpatchValues["BugFixTh12Shadow"] = "1";
+            }
+            else
+            {
+                vpatchValues["BugFixTh12Shadow"] = "0";
+            }
+        }
+        //入力の暴走(rev7)
+        private void HookDirectInput_CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HookDirectInput_CheckBox.Checked)
+            {
+                vpatchValues["HookDirectInput"] = "1";
+            }
+            else
+            {
+                vpatchValues["HookDirectInput"] = "0";
+            }
+        }
+        #endregion
 
         //Th13バイリニアフィルタリング
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
@@ -889,5 +1012,16 @@ namespace NewTHL2
                     }
              }
         }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

@@ -47,6 +47,10 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Vsync_th128 = new System.Windows.Forms.GroupBox();
+            this.G3_MonitorRefreshLate = new System.Windows.Forms.RadioButton();
+            this.G3_NoVsync = new System.Windows.Forms.RadioButton();
+            this.G3_OriginalDraw = new System.Windows.Forms.RadioButton();
             this.垂直同期設定東方神霊廟 = new System.Windows.Forms.GroupBox();
             this.G4_HardwareAssistLv2 = new System.Windows.Forms.RadioButton();
             this.G4_HardwareAssistLv1 = new System.Windows.Forms.RadioButton();
@@ -64,11 +68,11 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.shortDelay = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.入力の暴走を修正します = new System.Windows.Forms.CheckBox();
-            this.星蓮船の聖輦船の影を修正します = new System.Windows.Forms.CheckBox();
-            this.風神録のバグマリを修正します = new System.Windows.Forms.CheckBox();
-            this.妖々夢の桜点バグを修正します = new System.Windows.Forms.CheckBox();
-            this.非アクティブでも描画 = new System.Windows.Forms.CheckBox();
+            this.HookDirectInput_CheckBox = new System.Windows.Forms.CheckBox();
+            this.BugFixTh12Shadow_Checkbox = new System.Windows.Forms.CheckBox();
+            this.BugFixTh10Power = new System.Windows.Forms.CheckBox();
+            this.BugFixCherry_Checkbox = new System.Windows.Forms.CheckBox();
+            this.AlwaysBlt_CheckBox = new System.Windows.Forms.CheckBox();
             this.FPS値を独自方法で計算します = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.FPS制御の設定 = new System.Windows.Forms.GroupBox();
@@ -76,14 +80,14 @@
             this.FPSControlOff = new System.Windows.Forms.RadioButton();
             this.FPSControlOn = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ReplaySlowFPS = new System.Windows.Forms.TextBox();
             this.ReplaySlowFPS_Text = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ReplaySkipFPS_Text = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.GameFPS_Text = new System.Windows.Forms.TextBox();
             this.GameFPS = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.先行描画設定の値 = new System.Windows.Forms.Label();
+            this.PrecedingDrawTrackBar_Value = new System.Windows.Forms.Label();
             this.先行描画設定TrackBar = new System.Windows.Forms.TrackBar();
             this.PrecedingDrawAutoMeasurement = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -106,15 +110,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.Vsync_th128 = new System.Windows.Forms.GroupBox();
-            this.G3_OriginalDraw = new System.Windows.Forms.RadioButton();
-            this.G3_NoVsync = new System.Windows.Forms.RadioButton();
-            this.G3_MonitorRefreshLate = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.詳細設定.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.Vsync_th128.SuspendLayout();
             this.垂直同期設定東方神霊廟.SuspendLayout();
             this.垂直同期設定ダブルスポイラー以降.SuspendLayout();
             this.垂直同期設定.SuspendLayout();
@@ -131,7 +132,6 @@
             this.processPrimary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processPrimaryTrackBar)).BeginInit();
             this.動作させるCPUコア数.SuspendLayout();
-            this.Vsync_th128.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -318,6 +318,57 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "垂直同期設定";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // Vsync_th128
+            // 
+            this.Vsync_th128.Controls.Add(this.G3_MonitorRefreshLate);
+            this.Vsync_th128.Controls.Add(this.G3_NoVsync);
+            this.Vsync_th128.Controls.Add(this.G3_OriginalDraw);
+            this.Vsync_th128.Location = new System.Drawing.Point(37, 221);
+            this.Vsync_th128.Name = "Vsync_th128";
+            this.Vsync_th128.Size = new System.Drawing.Size(255, 140);
+            this.Vsync_th128.TabIndex = 5;
+            this.Vsync_th128.TabStop = false;
+            this.Vsync_th128.Text = "垂直同期設定～妖精大戦争～";
+            // 
+            // G3_MonitorRefreshLate
+            // 
+            this.G3_MonitorRefreshLate.AutoSize = true;
+            this.G3_MonitorRefreshLate.Location = new System.Drawing.Point(6, 79);
+            this.G3_MonitorRefreshLate.Name = "G3_MonitorRefreshLate";
+            this.G3_MonitorRefreshLate.Size = new System.Drawing.Size(195, 16);
+            this.G3_MonitorRefreshLate.TabIndex = 2;
+            this.G3_MonitorRefreshLate.TabStop = true;
+            this.G3_MonitorRefreshLate.Text = "モニターのリフレッシュレートに合わせる";
+            this.toolTip1.SetToolTip(this.G3_MonitorRefreshLate, "垂直同期をせずに、描画を行います。");
+            this.G3_MonitorRefreshLate.UseVisualStyleBackColor = true;
+            this.G3_MonitorRefreshLate.CheckedChanged += new System.EventHandler(this.G3_MonitorRefreshLate_CheckedChanged);
+            // 
+            // G3_NoVsync
+            // 
+            this.G3_NoVsync.AutoSize = true;
+            this.G3_NoVsync.Location = new System.Drawing.Point(6, 48);
+            this.G3_NoVsync.Name = "G3_NoVsync";
+            this.G3_NoVsync.Size = new System.Drawing.Size(90, 16);
+            this.G3_NoVsync.TabIndex = 1;
+            this.G3_NoVsync.TabStop = true;
+            this.G3_NoVsync.Text = "垂直同期なし";
+            this.toolTip1.SetToolTip(this.G3_NoVsync, "垂直同期をせずに、描画を行います。");
+            this.G3_NoVsync.UseVisualStyleBackColor = true;
+            this.G3_NoVsync.CheckedChanged += new System.EventHandler(this.G3_NoVsync_CheckedChanged);
+            // 
+            // G3_OriginalDraw
+            // 
+            this.G3_OriginalDraw.AutoSize = true;
+            this.G3_OriginalDraw.Location = new System.Drawing.Point(6, 18);
+            this.G3_OriginalDraw.Name = "G3_OriginalDraw";
+            this.G3_OriginalDraw.Size = new System.Drawing.Size(163, 16);
+            this.G3_OriginalDraw.TabIndex = 0;
+            this.G3_OriginalDraw.TabStop = true;
+            this.G3_OriginalDraw.Text = "東方本家の描画方法で描画";
+            this.toolTip1.SetToolTip(this.G3_OriginalDraw, "垂直同期をせずに、描画を行います。");
+            this.G3_OriginalDraw.UseVisualStyleBackColor = true;
+            this.G3_OriginalDraw.CheckedChanged += new System.EventHandler(this.G3_OriginalDraw_CheckedChanged);
             // 
             // 垂直同期設定東方神霊廟
             // 
@@ -534,11 +585,11 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.入力の暴走を修正します);
-            this.groupBox5.Controls.Add(this.星蓮船の聖輦船の影を修正します);
-            this.groupBox5.Controls.Add(this.風神録のバグマリを修正します);
-            this.groupBox5.Controls.Add(this.妖々夢の桜点バグを修正します);
-            this.groupBox5.Controls.Add(this.非アクティブでも描画);
+            this.groupBox5.Controls.Add(this.HookDirectInput_CheckBox);
+            this.groupBox5.Controls.Add(this.BugFixTh12Shadow_Checkbox);
+            this.groupBox5.Controls.Add(this.BugFixTh10Power);
+            this.groupBox5.Controls.Add(this.BugFixCherry_Checkbox);
+            this.groupBox5.Controls.Add(this.AlwaysBlt_CheckBox);
             this.groupBox5.Controls.Add(this.FPS値を独自方法で計算します);
             this.groupBox5.Location = new System.Drawing.Point(321, 6);
             this.groupBox5.Name = "groupBox5";
@@ -546,62 +597,67 @@
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "BugFix";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
-            // 入力の暴走を修正します
+            // HookDirectInput_CheckBox
             // 
-            this.入力の暴走を修正します.AutoSize = true;
-            this.入力の暴走を修正します.Location = new System.Drawing.Point(8, 220);
-            this.入力の暴走を修正します.Name = "入力の暴走を修正します";
-            this.入力の暴走を修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.入力の暴走を修正します.Size = new System.Drawing.Size(143, 16);
-            this.入力の暴走を修正します.TabIndex = 5;
-            this.入力の暴走を修正します.Text = "入力の暴走を修正します";
-            this.入力の暴走を修正します.UseVisualStyleBackColor = true;
+            this.HookDirectInput_CheckBox.AutoSize = true;
+            this.HookDirectInput_CheckBox.Location = new System.Drawing.Point(8, 220);
+            this.HookDirectInput_CheckBox.Name = "HookDirectInput_CheckBox";
+            this.HookDirectInput_CheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.HookDirectInput_CheckBox.Size = new System.Drawing.Size(143, 16);
+            this.HookDirectInput_CheckBox.TabIndex = 5;
+            this.HookDirectInput_CheckBox.Text = "入力の暴走を修正します";
+            this.HookDirectInput_CheckBox.UseVisualStyleBackColor = true;
+            this.HookDirectInput_CheckBox.CheckedChanged += new System.EventHandler(this.HookDirectInput_CheckBox_CheckedChanged);
             // 
-            // 星蓮船の聖輦船の影を修正します
+            // BugFixTh12Shadow_Checkbox
             // 
-            this.星蓮船の聖輦船の影を修正します.AutoSize = true;
-            this.星蓮船の聖輦船の影を修正します.Location = new System.Drawing.Point(8, 180);
-            this.星蓮船の聖輦船の影を修正します.Name = "星蓮船の聖輦船の影を修正します";
-            this.星蓮船の聖輦船の影を修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.星蓮船の聖輦船の影を修正します.Size = new System.Drawing.Size(189, 16);
-            this.星蓮船の聖輦船の影を修正します.TabIndex = 4;
-            this.星蓮船の聖輦船の影を修正します.Text = "星蓮船の聖輦船の影を修正します";
-            this.星蓮船の聖輦船の影を修正します.UseVisualStyleBackColor = true;
+            this.BugFixTh12Shadow_Checkbox.AutoSize = true;
+            this.BugFixTh12Shadow_Checkbox.Location = new System.Drawing.Point(8, 180);
+            this.BugFixTh12Shadow_Checkbox.Name = "BugFixTh12Shadow_Checkbox";
+            this.BugFixTh12Shadow_Checkbox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BugFixTh12Shadow_Checkbox.Size = new System.Drawing.Size(189, 16);
+            this.BugFixTh12Shadow_Checkbox.TabIndex = 4;
+            this.BugFixTh12Shadow_Checkbox.Text = "星蓮船の聖輦船の影を修正します";
+            this.BugFixTh12Shadow_Checkbox.UseVisualStyleBackColor = true;
+            this.BugFixTh12Shadow_Checkbox.CheckedChanged += new System.EventHandler(this.BugFixTh12Shadow_Checkbox_CheckedChanged);
             // 
-            // 風神録のバグマリを修正します
+            // BugFixTh10Power
             // 
-            this.風神録のバグマリを修正します.AutoSize = true;
-            this.風神録のバグマリを修正します.Location = new System.Drawing.Point(8, 140);
-            this.風神録のバグマリを修正します.Name = "風神録のバグマリを修正します";
-            this.風神録のバグマリを修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.風神録のバグマリを修正します.Size = new System.Drawing.Size(166, 16);
-            this.風神録のバグマリを修正します.TabIndex = 3;
-            this.風神録のバグマリを修正します.Text = "風神録のバグマリを修正します";
-            this.風神録のバグマリを修正します.UseVisualStyleBackColor = true;
+            this.BugFixTh10Power.AutoSize = true;
+            this.BugFixTh10Power.Location = new System.Drawing.Point(8, 140);
+            this.BugFixTh10Power.Name = "BugFixTh10Power";
+            this.BugFixTh10Power.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BugFixTh10Power.Size = new System.Drawing.Size(166, 16);
+            this.BugFixTh10Power.TabIndex = 3;
+            this.BugFixTh10Power.Text = "風神録のバグマリを修正します";
+            this.BugFixTh10Power.UseVisualStyleBackColor = true;
+            this.BugFixTh10Power.CheckedChanged += new System.EventHandler(this.BugFixTh10Power_CheckedChanged);
             // 
-            // 妖々夢の桜点バグを修正します
+            // BugFixCherry_Checkbox
             // 
-            this.妖々夢の桜点バグを修正します.AutoSize = true;
-            this.妖々夢の桜点バグを修正します.Location = new System.Drawing.Point(8, 100);
-            this.妖々夢の桜点バグを修正します.Name = "妖々夢の桜点バグを修正します";
-            this.妖々夢の桜点バグを修正します.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.妖々夢の桜点バグを修正します.Size = new System.Drawing.Size(174, 16);
-            this.妖々夢の桜点バグを修正します.TabIndex = 2;
-            this.妖々夢の桜点バグを修正します.Text = "妖々夢の桜点バグを修正します";
-            this.妖々夢の桜点バグを修正します.UseVisualStyleBackColor = true;
+            this.BugFixCherry_Checkbox.AutoSize = true;
+            this.BugFixCherry_Checkbox.Location = new System.Drawing.Point(8, 100);
+            this.BugFixCherry_Checkbox.Name = "BugFixCherry_Checkbox";
+            this.BugFixCherry_Checkbox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BugFixCherry_Checkbox.Size = new System.Drawing.Size(174, 16);
+            this.BugFixCherry_Checkbox.TabIndex = 2;
+            this.BugFixCherry_Checkbox.Text = "妖々夢の桜点バグを修正します";
+            this.BugFixCherry_Checkbox.UseVisualStyleBackColor = true;
+            this.BugFixCherry_Checkbox.CheckedChanged += new System.EventHandler(this.BugFixCherry_Checkbox_CheckedChanged);
             // 
-            // 非アクティブでも描画
+            // AlwaysBlt_CheckBox
             // 
-            this.非アクティブでも描画.AutoSize = true;
-            this.非アクティブでも描画.Location = new System.Drawing.Point(8, 59);
-            this.非アクティブでも描画.Name = "非アクティブでも描画";
-            this.非アクティブでも描画.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.非アクティブでも描画.Size = new System.Drawing.Size(121, 16);
-            this.非アクティブでも描画.TabIndex = 1;
-            this.非アクティブでも描画.Text = "非アクティブでも描画";
-            this.非アクティブでも描画.UseVisualStyleBackColor = true;
-            this.非アクティブでも描画.CheckedChanged += new System.EventHandler(this.非アクティブでも描画_CheckedChanged);
+            this.AlwaysBlt_CheckBox.AutoSize = true;
+            this.AlwaysBlt_CheckBox.Location = new System.Drawing.Point(8, 59);
+            this.AlwaysBlt_CheckBox.Name = "AlwaysBlt_CheckBox";
+            this.AlwaysBlt_CheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AlwaysBlt_CheckBox.Size = new System.Drawing.Size(121, 16);
+            this.AlwaysBlt_CheckBox.TabIndex = 1;
+            this.AlwaysBlt_CheckBox.Text = "非アクティブでも描画";
+            this.AlwaysBlt_CheckBox.UseVisualStyleBackColor = true;
+            this.AlwaysBlt_CheckBox.CheckedChanged += new System.EventHandler(this.非アクティブでも描画_CheckedChanged);
             // 
             // FPS値を独自方法で計算します
             // 
@@ -613,6 +669,7 @@
             this.FPS値を独自方法で計算します.TabIndex = 0;
             this.FPS値を独自方法で計算します.Text = "FPS値を独自方法で計算します";
             this.FPS値を独自方法で計算します.UseVisualStyleBackColor = true;
+            this.FPS値を独自方法で計算します.CheckedChanged += new System.EventHandler(this.FPS値を独自方法で計算します_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -648,6 +705,7 @@
             this.FPSAutoControl.TabStop = true;
             this.FPSAutoControl.Text = "自動計測";
             this.FPSAutoControl.UseVisualStyleBackColor = true;
+            this.FPSAutoControl.CheckedChanged += new System.EventHandler(this.FPSAutoControl_CheckedChanged);
             // 
             // FPSControlOff
             // 
@@ -659,6 +717,7 @@
             this.FPSControlOff.TabStop = true;
             this.FPSControlOff.Text = "Off";
             this.FPSControlOff.UseVisualStyleBackColor = true;
+            this.FPSControlOff.CheckedChanged += new System.EventHandler(this.FPSControlOff_CheckedChanged);
             // 
             // FPSControlOn
             // 
@@ -670,12 +729,13 @@
             this.FPSControlOn.TabStop = true;
             this.FPSControlOn.Text = "On";
             this.FPSControlOn.UseVisualStyleBackColor = true;
+            this.FPSControlOn.CheckedChanged += new System.EventHandler(this.FPSControlOn_CheckedChanged);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.ReplaySlowFPS);
             this.groupBox3.Controls.Add(this.ReplaySlowFPS_Text);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.ReplaySkipFPS_Text);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.GameFPS_Text);
             this.groupBox3.Controls.Add(this.GameFPS);
@@ -686,12 +746,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "FPS設定";
             // 
-            // textBox2
+            // ReplaySlowFPS
             // 
-            this.textBox2.Location = new System.Drawing.Point(112, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 19);
-            this.textBox2.TabIndex = 5;
+            this.ReplaySlowFPS.Location = new System.Drawing.Point(112, 92);
+            this.ReplaySlowFPS.Name = "ReplaySlowFPS";
+            this.ReplaySlowFPS.Size = new System.Drawing.Size(122, 19);
+            this.ReplaySlowFPS.TabIndex = 5;
+            this.ReplaySlowFPS.TextChanged += new System.EventHandler(this.ReplaySlowFPS_TextChanged);
             // 
             // ReplaySlowFPS_Text
             // 
@@ -702,13 +763,13 @@
             this.ReplaySlowFPS_Text.TabIndex = 4;
             this.ReplaySlowFPS_Text.Text = "ReplaySlowFPS";
             // 
-            // textBox1
+            // ReplaySkipFPS_Text
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(122, 19);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.ReplaySkipFPS_Text.Location = new System.Drawing.Point(112, 57);
+            this.ReplaySkipFPS_Text.Name = "ReplaySkipFPS_Text";
+            this.ReplaySkipFPS_Text.Size = new System.Drawing.Size(122, 19);
+            this.ReplaySkipFPS_Text.TabIndex = 3;
+            this.ReplaySkipFPS_Text.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -726,6 +787,7 @@
             this.GameFPS_Text.Name = "GameFPS_Text";
             this.GameFPS_Text.Size = new System.Drawing.Size(122, 19);
             this.GameFPS_Text.TabIndex = 1;
+            this.GameFPS_Text.TextChanged += new System.EventHandler(this.GameFPS_Text_TextChanged);
             // 
             // GameFPS
             // 
@@ -738,7 +800,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.先行描画設定の値);
+            this.groupBox2.Controls.Add(this.PrecedingDrawTrackBar_Value);
             this.groupBox2.Controls.Add(this.先行描画設定TrackBar);
             this.groupBox2.Controls.Add(this.PrecedingDrawAutoMeasurement);
             this.groupBox2.Location = new System.Drawing.Point(23, 214);
@@ -748,15 +810,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "描画設定";
             // 
-            // 先行描画設定の値
+            // PrecedingDrawTrackBar_Value
             // 
-            this.先行描画設定の値.AutoSize = true;
-            this.先行描画設定の値.Location = new System.Drawing.Point(110, 100);
-            this.先行描画設定の値.Name = "先行描画設定の値";
-            this.先行描画設定の値.Size = new System.Drawing.Size(37, 12);
-            this.先行描画設定の値.TabIndex = 2;
-            this.先行描画設定の値.Text = "値 = 0";
-            this.先行描画設定の値.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PrecedingDrawTrackBar_Value.AutoSize = true;
+            this.PrecedingDrawTrackBar_Value.Location = new System.Drawing.Point(110, 100);
+            this.PrecedingDrawTrackBar_Value.Name = "PrecedingDrawTrackBar_Value";
+            this.PrecedingDrawTrackBar_Value.Size = new System.Drawing.Size(37, 12);
+            this.PrecedingDrawTrackBar_Value.TabIndex = 2;
+            this.PrecedingDrawTrackBar_Value.Text = "値 = 0";
+            this.PrecedingDrawTrackBar_Value.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PrecedingDrawTrackBar_Value.Click += new System.EventHandler(this.PrecedingDrawTrackBar_Value_Click);
             // 
             // 先行描画設定TrackBar
             // 
@@ -766,6 +829,7 @@
             this.先行描画設定TrackBar.Name = "先行描画設定TrackBar";
             this.先行描画設定TrackBar.Size = new System.Drawing.Size(234, 45);
             this.先行描画設定TrackBar.TabIndex = 1;
+            this.先行描画設定TrackBar.Scroll += new System.EventHandler(this.PrecedingDrawTrackBar_Scroll);
             // 
             // PrecedingDrawAutoMeasurement
             // 
@@ -777,6 +841,7 @@
             this.PrecedingDrawAutoMeasurement.TabIndex = 0;
             this.PrecedingDrawAutoMeasurement.Text = "先行描画設定を自動計測する";
             this.PrecedingDrawAutoMeasurement.UseVisualStyleBackColor = true;
+            this.PrecedingDrawAutoMeasurement.CheckedChanged += new System.EventHandler(this.PrecedingDrawAutoMeasurement_CheckedChanged);
             // 
             // tabPage4
             // 
@@ -997,57 +1062,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Vsync_th128
-            // 
-            this.Vsync_th128.Controls.Add(this.G3_MonitorRefreshLate);
-            this.Vsync_th128.Controls.Add(this.G3_NoVsync);
-            this.Vsync_th128.Controls.Add(this.G3_OriginalDraw);
-            this.Vsync_th128.Location = new System.Drawing.Point(37, 221);
-            this.Vsync_th128.Name = "Vsync_th128";
-            this.Vsync_th128.Size = new System.Drawing.Size(255, 140);
-            this.Vsync_th128.TabIndex = 5;
-            this.Vsync_th128.TabStop = false;
-            this.Vsync_th128.Text = "垂直同期設定～妖精大戦争～";
-            // 
-            // G3_OriginalDraw
-            // 
-            this.G3_OriginalDraw.AutoSize = true;
-            this.G3_OriginalDraw.Location = new System.Drawing.Point(6, 18);
-            this.G3_OriginalDraw.Name = "G3_OriginalDraw";
-            this.G3_OriginalDraw.Size = new System.Drawing.Size(163, 16);
-            this.G3_OriginalDraw.TabIndex = 0;
-            this.G3_OriginalDraw.TabStop = true;
-            this.G3_OriginalDraw.Text = "東方本家の描画方法で描画";
-            this.toolTip1.SetToolTip(this.G3_OriginalDraw, "垂直同期をせずに、描画を行います。");
-            this.G3_OriginalDraw.UseVisualStyleBackColor = true;
-            this.G3_OriginalDraw.CheckedChanged += new System.EventHandler(this.G3_OriginalDraw_CheckedChanged);
-            // 
-            // G3_NoVsync
-            // 
-            this.G3_NoVsync.AutoSize = true;
-            this.G3_NoVsync.Location = new System.Drawing.Point(6, 48);
-            this.G3_NoVsync.Name = "G3_NoVsync";
-            this.G3_NoVsync.Size = new System.Drawing.Size(90, 16);
-            this.G3_NoVsync.TabIndex = 1;
-            this.G3_NoVsync.TabStop = true;
-            this.G3_NoVsync.Text = "垂直同期なし";
-            this.toolTip1.SetToolTip(this.G3_NoVsync, "垂直同期をせずに、描画を行います。");
-            this.G3_NoVsync.UseVisualStyleBackColor = true;
-            this.G3_NoVsync.CheckedChanged += new System.EventHandler(this.G3_NoVsync_CheckedChanged);
-            // 
-            // G3_MonitorRefreshLate
-            // 
-            this.G3_MonitorRefreshLate.AutoSize = true;
-            this.G3_MonitorRefreshLate.Location = new System.Drawing.Point(6, 79);
-            this.G3_MonitorRefreshLate.Name = "G3_MonitorRefreshLate";
-            this.G3_MonitorRefreshLate.Size = new System.Drawing.Size(195, 16);
-            this.G3_MonitorRefreshLate.TabIndex = 2;
-            this.G3_MonitorRefreshLate.TabStop = true;
-            this.G3_MonitorRefreshLate.Text = "モニターのリフレッシュレートに合わせる";
-            this.toolTip1.SetToolTip(this.G3_MonitorRefreshLate, "垂直同期をせずに、描画を行います。");
-            this.G3_MonitorRefreshLate.UseVisualStyleBackColor = true;
-            this.G3_MonitorRefreshLate.CheckedChanged += new System.EventHandler(this.G3_MonitorRefreshLate_CheckedChanged);
-            // 
             // VpatchGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1066,6 +1080,8 @@
             this.詳細設定.ResumeLayout(false);
             this.詳細設定.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.Vsync_th128.ResumeLayout(false);
+            this.Vsync_th128.PerformLayout();
             this.垂直同期設定東方神霊廟.ResumeLayout(false);
             this.垂直同期設定東方神霊廟.PerformLayout();
             this.垂直同期設定ダブルスポイラー以降.ResumeLayout(false);
@@ -1094,8 +1110,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.processPrimaryTrackBar)).EndInit();
             this.動作させるCPUコア数.ResumeLayout(false);
             this.動作させるCPUコア数.PerformLayout();
-            this.Vsync_th128.ResumeLayout(false);
-            this.Vsync_th128.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1137,12 +1151,12 @@
         private System.Windows.Forms.RadioButton G1_MonitorRefreshLate;
         private System.Windows.Forms.RadioButton G1_OriginalDrawing;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ReplaySkipFPS_Text;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox GameFPS_Text;
         private System.Windows.Forms.Label GameFPS;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label 先行描画設定の値;
+        private System.Windows.Forms.Label PrecedingDrawTrackBar_Value;
         private System.Windows.Forms.TrackBar 先行描画設定TrackBar;
         private System.Windows.Forms.CheckBox PrecedingDrawAutoMeasurement;
         private System.Windows.Forms.GroupBox FPS制御の設定;
@@ -1153,13 +1167,13 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox FPS値を独自方法で計算します;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ReplaySlowFPS;
         private System.Windows.Forms.Label ReplaySlowFPS_Text;
-        private System.Windows.Forms.CheckBox 非アクティブでも描画;
-        private System.Windows.Forms.CheckBox 星蓮船の聖輦船の影を修正します;
-        private System.Windows.Forms.CheckBox 風神録のバグマリを修正します;
-        private System.Windows.Forms.CheckBox 妖々夢の桜点バグを修正します;
-        private System.Windows.Forms.CheckBox 入力の暴走を修正します;
+        private System.Windows.Forms.CheckBox AlwaysBlt_CheckBox;
+        private System.Windows.Forms.CheckBox BugFixTh12Shadow_Checkbox;
+        private System.Windows.Forms.CheckBox BugFixTh10Power;
+        private System.Windows.Forms.CheckBox BugFixCherry_Checkbox;
+        private System.Windows.Forms.CheckBox HookDirectInput_CheckBox;
         private System.Windows.Forms.CheckBox shortDelay;
         private System.Windows.Forms.GroupBox 動作させるCPUコア数;
         private System.Windows.Forms.RadioButton CPU0Work;
