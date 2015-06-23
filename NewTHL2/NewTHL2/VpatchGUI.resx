@@ -141,7 +141,7 @@
 フルスクリーン時にハードウェアの支援が利用できない場合は、
 　強制的に Vpatch独自の描画形式 の設定で動作します。</value>
   </data>
-  <data name="G4_VpatchOriginalDrawing.ToolTip" xml:space="preserve">
+  <data name="G4_MonitorRefreshLate.ToolTip" xml:space="preserve">
     <value>独自の方法でソフトウェア的に垂直同期を取り、描画を行います。
 　ハードウェア的に行う垂直同期よりも低入力遅延で操作が可能です。
 　フレームレートは、モニタのリフレッシュレートと同じになります。
@@ -168,7 +168,4 @@ Direct3Dをマルチスレッドで動かす にチェックボックスをオ�
 　※CalcFPS=0にしている場合は、fps表示が不安定になることがあります(59fps～61fps辺りをふらつく)
 　※CalcFPS=1の場合でも、多少不安定になることがありますが、四捨五入時には60fpsになると思います</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>13, 9</value>
-  </metadata>
 </root>

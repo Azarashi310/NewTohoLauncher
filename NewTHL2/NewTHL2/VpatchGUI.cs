@@ -131,7 +131,7 @@ namespace NewTHL2
                     case "1":
                         {
                             //Vpatch独自の描画形式
-                            G2_VpatchOriginalDrawing.Checked = true;
+                            G2_MonitorRefreshLate.Checked = true;
                             break;
                         }
                     default:
@@ -170,7 +170,7 @@ namespace NewTHL2
                     case "1":
                         {
                             //Vpatch独自の描画形式
-                            G4_VpatchOriginalDrawing.Checked = true;
+                            G4_MonitorRefreshLate.Checked = true;
                             break;
                         }
                     default:
@@ -623,7 +623,7 @@ namespace NewTHL2
                 vpatchValues["AlwaysOnTop"] ="0";
             }
         }
-        #region 垂直同期設定（ダブスポよりもまえ）
+        #region 垂直同期設定VsyncPatchRev6
         //垂直同期設定（本家）
         private void G1_OriginalDrawing_CheckedChanged(object sender, EventArgs e)
         {
@@ -654,6 +654,93 @@ namespace NewTHL2
             if(G1_UnderDrawing.Checked)
             {
                 vpatchValues["Vsync"] = "3";
+            }
+        }
+        #endregion
+        #region 垂直同期設定VsyncPatchRev7
+        //本家の描画設定
+        private void G2_OriginalDrawing_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G2_OriginalDrawing.Checked)
+            {
+                vpatchValues["Vsync"] = "-1";
+            }
+        }
+        //垂直同期なし(Vpatch制御)
+        private void G2_NoVsync_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G2_NoVsync.Checked)
+            {
+                vpatchValues["Vsync"] = "0";
+            }
+        }
+        //モニターのリフレッシュレートに合わせる
+        private void G2_MonitorRefreshLate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G2_MonitorRefreshLate.Checked)
+            {
+                vpatchValues["Vsync"] = "1";
+            }
+        }
+        #endregion
+        #region 垂直同期設定VsyncPatchRevth128
+        //本家の描画
+        private void G3_OriginalDraw_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G3_OriginalDraw.Checked)
+            {
+                vpatchValues["Vsync"] = "-1";
+            }
+        }
+        //垂直同期なし
+        private void G3_NoVsync_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G3_NoVsync.Checked)
+            {
+                vpatchValues["Vsync"] = "0";
+            }
+        }
+        //モニターのリフレッシュレートに合わせる
+        private void G3_MonitorRefreshLate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G3_MonitorRefreshLate.Checked)
+            {
+                vpatchValues["Vsync"] = "1";
+            }
+        }
+        #endregion
+        #region 垂直同期設定VsyncPathcRevth13
+
+        //垂直同期なし
+        private void G4_OriginalDrawing_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G4_OriginalDrawing.Checked)
+            {
+                vpatchValues["Vsync"] = "0";
+            }
+        }
+        //モニターのリフレッシュレートに合わせる
+        private void G4_MonitorRefreshLate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G4_MonitorRefreshLate.Checked)
+            {
+                vpatchValues["Vsync"] = "1";
+            }
+        }
+        //ハードウェア補助レベル１
+        private void G4_HardwareAssistLv1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G4_HardwareAssistLv1.Checked)
+            {
+                vpatchValues["Vsync"] = "-1";
+            }
+        }
+        //ハードウェア補助レベル２
+        private void G4_HardwareAssistLv2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (G4_HardwareAssistLv2.Checked)
+            {
+                vpatchValues["Vsync"] = "-2";
             }
         }
         #endregion
@@ -802,16 +889,5 @@ namespace NewTHL2
                     }
              }
         }
-        #region VsyncPatchRev7
-        //本家の描画設定
-        private void G2_OriginalDrawing_CheckedChanged(object sender, EventArgs e)
-        {
-            if(G2_OriginalDrawing.Checked)
-            {
-                vpatchValues["Vsync"] = "0";
-            }
-        }
-
-        #endregion
     }
 }

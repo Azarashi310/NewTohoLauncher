@@ -50,10 +50,10 @@
             this.垂直同期設定東方神霊廟 = new System.Windows.Forms.GroupBox();
             this.G4_HardwareAssistLv2 = new System.Windows.Forms.RadioButton();
             this.G4_HardwareAssistLv1 = new System.Windows.Forms.RadioButton();
-            this.G4_VpatchOriginalDrawing = new System.Windows.Forms.RadioButton();
+            this.G4_MonitorRefreshLate = new System.Windows.Forms.RadioButton();
             this.G4_OriginalDrawing = new System.Windows.Forms.RadioButton();
             this.垂直同期設定ダブルスポイラー以降 = new System.Windows.Forms.GroupBox();
-            this.G2_VpatchOriginalDrawing = new System.Windows.Forms.RadioButton();
+            this.G2_MonitorRefreshLate = new System.Windows.Forms.RadioButton();
             this.G2_NoVsync = new System.Windows.Forms.RadioButton();
             this.G2_OriginalDrawing = new System.Windows.Forms.RadioButton();
             this.垂直同期設定 = new System.Windows.Forms.GroupBox();
@@ -323,7 +323,7 @@
             // 
             this.垂直同期設定東方神霊廟.Controls.Add(this.G4_HardwareAssistLv2);
             this.垂直同期設定東方神霊廟.Controls.Add(this.G4_HardwareAssistLv1);
-            this.垂直同期設定東方神霊廟.Controls.Add(this.G4_VpatchOriginalDrawing);
+            this.垂直同期設定東方神霊廟.Controls.Add(this.G4_MonitorRefreshLate);
             this.垂直同期設定東方神霊廟.Controls.Add(this.G4_OriginalDrawing);
             this.垂直同期設定東方神霊廟.Location = new System.Drawing.Point(313, 221);
             this.垂直同期設定東方神霊廟.Name = "垂直同期設定東方神霊廟";
@@ -343,6 +343,7 @@
             this.G4_HardwareAssistLv2.Text = "ハードウェア補助レベル２";
             this.toolTip1.SetToolTip(this.G4_HardwareAssistLv2, resources.GetString("G4_HardwareAssistLv2.ToolTip"));
             this.G4_HardwareAssistLv2.UseVisualStyleBackColor = true;
+            this.G4_HardwareAssistLv2.CheckedChanged += new System.EventHandler(this.G4_HardwareAssistLv2_CheckedChanged);
             // 
             // G4_HardwareAssistLv1
             // 
@@ -355,34 +356,37 @@
             this.G4_HardwareAssistLv1.Text = "ハードウェア補助レベル１";
             this.toolTip1.SetToolTip(this.G4_HardwareAssistLv1, resources.GetString("G4_HardwareAssistLv1.ToolTip"));
             this.G4_HardwareAssistLv1.UseVisualStyleBackColor = true;
+            this.G4_HardwareAssistLv1.CheckedChanged += new System.EventHandler(this.G4_HardwareAssistLv1_CheckedChanged);
             // 
-            // G4_VpatchOriginalDrawing
+            // G4_MonitorRefreshLate
             // 
-            this.G4_VpatchOriginalDrawing.AutoSize = true;
-            this.G4_VpatchOriginalDrawing.Location = new System.Drawing.Point(6, 48);
-            this.G4_VpatchOriginalDrawing.Name = "G4_VpatchOriginalDrawing";
-            this.G4_VpatchOriginalDrawing.Size = new System.Drawing.Size(141, 16);
-            this.G4_VpatchOriginalDrawing.TabIndex = 1;
-            this.G4_VpatchOriginalDrawing.TabStop = true;
-            this.G4_VpatchOriginalDrawing.Text = "Vpatch独自の描画形式";
-            this.toolTip1.SetToolTip(this.G4_VpatchOriginalDrawing, resources.GetString("G4_VpatchOriginalDrawing.ToolTip"));
-            this.G4_VpatchOriginalDrawing.UseVisualStyleBackColor = true;
+            this.G4_MonitorRefreshLate.AutoSize = true;
+            this.G4_MonitorRefreshLate.Location = new System.Drawing.Point(6, 48);
+            this.G4_MonitorRefreshLate.Name = "G4_MonitorRefreshLate";
+            this.G4_MonitorRefreshLate.Size = new System.Drawing.Size(195, 16);
+            this.G4_MonitorRefreshLate.TabIndex = 1;
+            this.G4_MonitorRefreshLate.TabStop = true;
+            this.G4_MonitorRefreshLate.Text = "モニターのリフレッシュレートに合わせる";
+            this.toolTip1.SetToolTip(this.G4_MonitorRefreshLate, resources.GetString("G4_MonitorRefreshLate.ToolTip"));
+            this.G4_MonitorRefreshLate.UseVisualStyleBackColor = true;
+            this.G4_MonitorRefreshLate.CheckedChanged += new System.EventHandler(this.G4_MonitorRefreshLate_CheckedChanged);
             // 
             // G4_OriginalDrawing
             // 
             this.G4_OriginalDrawing.AutoSize = true;
             this.G4_OriginalDrawing.Location = new System.Drawing.Point(6, 18);
             this.G4_OriginalDrawing.Name = "G4_OriginalDrawing";
-            this.G4_OriginalDrawing.Size = new System.Drawing.Size(163, 16);
+            this.G4_OriginalDrawing.Size = new System.Drawing.Size(90, 16);
             this.G4_OriginalDrawing.TabIndex = 0;
             this.G4_OriginalDrawing.TabStop = true;
-            this.G4_OriginalDrawing.Text = "東方本家の描画方法で描画";
+            this.G4_OriginalDrawing.Text = "垂直同期なし";
             this.toolTip1.SetToolTip(this.G4_OriginalDrawing, "垂直同期をせずに、描画を行います。");
             this.G4_OriginalDrawing.UseVisualStyleBackColor = true;
+            this.G4_OriginalDrawing.CheckedChanged += new System.EventHandler(this.G4_OriginalDrawing_CheckedChanged);
             // 
             // 垂直同期設定ダブルスポイラー以降
             // 
-            this.垂直同期設定ダブルスポイラー以降.Controls.Add(this.G2_VpatchOriginalDrawing);
+            this.垂直同期設定ダブルスポイラー以降.Controls.Add(this.G2_MonitorRefreshLate);
             this.垂直同期設定ダブルスポイラー以降.Controls.Add(this.G2_NoVsync);
             this.垂直同期設定ダブルスポイラー以降.Controls.Add(this.G2_OriginalDrawing);
             this.垂直同期設定ダブルスポイラー以降.Location = new System.Drawing.Point(313, 25);
@@ -394,31 +398,33 @@
             this.toolTip1.SetToolTip(this.垂直同期設定ダブルスポイラー以降, "■対応ゲーム\r\n東方文花帖 ver1.02a\r\n東方風神録 ver1.00a\r\n黄昏酒場   ver1.00a (web配布版)\r\n東方地霊殿 ver1.00a\r" +
         "\n東方星蓮船 ver1.00b\r\nダブルスポイラー ver1.00a");
             // 
-            // G2_VpatchOriginalDrawing
+            // G2_MonitorRefreshLate
             // 
-            this.G2_VpatchOriginalDrawing.AutoSize = true;
-            this.G2_VpatchOriginalDrawing.Location = new System.Drawing.Point(7, 85);
-            this.G2_VpatchOriginalDrawing.Name = "G2_VpatchOriginalDrawing";
-            this.G2_VpatchOriginalDrawing.Size = new System.Drawing.Size(141, 16);
-            this.G2_VpatchOriginalDrawing.TabIndex = 6;
-            this.G2_VpatchOriginalDrawing.TabStop = true;
-            this.G2_VpatchOriginalDrawing.Text = "Vpatch独自の描画形式";
-            this.toolTip1.SetToolTip(this.G2_VpatchOriginalDrawing, "独自の方法で垂直同期をとり、描画を行います\r\n　Gameの速度(fps)は、モニタのリフレッシュレートと同じになります\r\n　Vsync=1にしてもティアリング(ち" +
+            this.G2_MonitorRefreshLate.AutoSize = true;
+            this.G2_MonitorRefreshLate.Location = new System.Drawing.Point(7, 85);
+            this.G2_MonitorRefreshLate.Name = "G2_MonitorRefreshLate";
+            this.G2_MonitorRefreshLate.Size = new System.Drawing.Size(185, 16);
+            this.G2_MonitorRefreshLate.TabIndex = 6;
+            this.G2_MonitorRefreshLate.TabStop = true;
+            this.G2_MonitorRefreshLate.Text = "モニタのリフレッシュレートに合わせる";
+            this.toolTip1.SetToolTip(this.G2_MonitorRefreshLate, "独自の方法で垂直同期をとり、描画を行います\r\n　Gameの速度(fps)は、モニタのリフレッシュレートと同じになります\r\n　Vsync=1にしてもティアリング(ち" +
         "らつき)が発生する場合は、\r\n　LockBackBuffer=1 と D3DMultiThread=1 と ProcessPriority=2 を設定してみてく" +
         "ださい");
-            this.G2_VpatchOriginalDrawing.UseVisualStyleBackColor = true;
+            this.G2_MonitorRefreshLate.UseVisualStyleBackColor = true;
+            this.G2_MonitorRefreshLate.CheckedChanged += new System.EventHandler(this.G2_MonitorRefreshLate_CheckedChanged);
             // 
             // G2_NoVsync
             // 
             this.G2_NoVsync.AutoSize = true;
             this.G2_NoVsync.Location = new System.Drawing.Point(7, 51);
             this.G2_NoVsync.Name = "G2_NoVsync";
-            this.G2_NoVsync.Size = new System.Drawing.Size(162, 16);
+            this.G2_NoVsync.Size = new System.Drawing.Size(90, 16);
             this.G2_NoVsync.TabIndex = 5;
             this.G2_NoVsync.TabStop = true;
-            this.G2_NoVsync.Text = "垂直同期なし（Vpatch制御）";
+            this.G2_NoVsync.Text = "垂直同期なし";
             this.toolTip1.SetToolTip(this.G2_NoVsync, "垂直同期をせずに、描画を行います");
             this.G2_NoVsync.UseVisualStyleBackColor = true;
+            this.G2_NoVsync.CheckedChanged += new System.EventHandler(this.G2_NoVsync_CheckedChanged);
             // 
             // G2_OriginalDrawing
             // 
@@ -1014,6 +1020,7 @@
             this.G3_OriginalDraw.Text = "東方本家の描画方法で描画";
             this.toolTip1.SetToolTip(this.G3_OriginalDraw, "垂直同期をせずに、描画を行います。");
             this.G3_OriginalDraw.UseVisualStyleBackColor = true;
+            this.G3_OriginalDraw.CheckedChanged += new System.EventHandler(this.G3_OriginalDraw_CheckedChanged);
             // 
             // G3_NoVsync
             // 
@@ -1026,6 +1033,7 @@
             this.G3_NoVsync.Text = "垂直同期なし";
             this.toolTip1.SetToolTip(this.G3_NoVsync, "垂直同期をせずに、描画を行います。");
             this.G3_NoVsync.UseVisualStyleBackColor = true;
+            this.G3_NoVsync.CheckedChanged += new System.EventHandler(this.G3_NoVsync_CheckedChanged);
             // 
             // G3_MonitorRefreshLate
             // 
@@ -1038,6 +1046,7 @@
             this.G3_MonitorRefreshLate.Text = "モニターのリフレッシュレートに合わせる";
             this.toolTip1.SetToolTip(this.G3_MonitorRefreshLate, "垂直同期をせずに、描画を行います。");
             this.G3_MonitorRefreshLate.UseVisualStyleBackColor = true;
+            this.G3_MonitorRefreshLate.CheckedChanged += new System.EventHandler(this.G3_MonitorRefreshLate_CheckedChanged);
             // 
             // VpatchGUI
             // 
@@ -1116,10 +1125,10 @@
         private System.Windows.Forms.GroupBox 垂直同期設定東方神霊廟;
         private System.Windows.Forms.RadioButton G4_HardwareAssistLv2;
         private System.Windows.Forms.RadioButton G4_HardwareAssistLv1;
-        private System.Windows.Forms.RadioButton G4_VpatchOriginalDrawing;
+        private System.Windows.Forms.RadioButton G4_MonitorRefreshLate;
         private System.Windows.Forms.RadioButton G4_OriginalDrawing;
         private System.Windows.Forms.GroupBox 垂直同期設定ダブルスポイラー以降;
-        private System.Windows.Forms.RadioButton G2_VpatchOriginalDrawing;
+        private System.Windows.Forms.RadioButton G2_MonitorRefreshLate;
         private System.Windows.Forms.RadioButton G2_NoVsync;
         private System.Windows.Forms.RadioButton G2_OriginalDrawing;
         private System.Windows.Forms.GroupBox 垂直同期設定;
