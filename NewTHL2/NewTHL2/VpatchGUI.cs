@@ -152,31 +152,31 @@ namespace NewTHL2
                     case "-1":
                         {
                             //ハードウェア補助レベル１
-                            G_3HardWareAssistLv1.Checked = true;
+                            G4_HardwareAssistLv1.Checked = true;
                             break;
                         }
                     case "-2":
                         {
                             //ハードウェア補助レベル２
-                            G_3HardWareAssistLv2.Checked = true;
+                            G4_HardwareAssistLv2.Checked = true;
                             break;
                         }
                     case "0":
                         {
                             //東方本家の描画方法で描画
-                            G3_OriginalDrawing.Checked = true;
+                            G4_OriginalDrawing.Checked = true;
                             break;
                         }
                     case "1":
                         {
                             //Vpatch独自の描画形式
-                            G_3VpatchOriginalDrawing.Checked = true;
+                            G4_VpatchOriginalDrawing.Checked = true;
                             break;
                         }
                     default:
                         {
                             //東方本家の描画方法で描画
-                            G3_OriginalDrawing.Checked = true;
+                            G4_OriginalDrawing.Checked = true;
                             break;
                         }
                 }
@@ -468,7 +468,7 @@ namespace NewTHL2
             }
             else
             {
-                ダブルスポイラー以降.Enabled = false;
+                VsyncRev7_Vsyncth128_HardcoreSettings.Enabled = false;
             }
             
             //東方神霊廟のみ
@@ -553,7 +553,7 @@ namespace NewTHL2
         //Vsync側でWindowのサイズをしていするか
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox2.Checked == true)
+            if(checkBox2.Checked )
             {
                 vpatchValues["enabled"] = "1";
                 詳細設定.Enabled = true;
@@ -601,7 +601,7 @@ namespace NewTHL2
         //タイトルバーの表示の有無
         private void ShowTitleBar_CheckedChanged(object sender, EventArgs e)
         {
-            if(ShowTitleBar.Checked == true)
+            if(ShowTitleBar.Checked )
             {
                 vpatchValues["TitleBar"] = "1";
             }
@@ -614,7 +614,7 @@ namespace NewTHL2
         //常に手前に表示
         private void AlwaysOnTop_CheckedChanged(object sender, EventArgs e)
         {
-            if(AlwaysOnTop.Checked == true)
+            if(AlwaysOnTop.Checked )
             {
                 vpatchValues["AlwaysOnTop"] ="1";
             }
@@ -623,16 +623,40 @@ namespace NewTHL2
                 vpatchValues["AlwaysOnTop"] ="0";
             }
         }
-
+        #region 垂直同期設定（ダブスポよりもまえ）
         //垂直同期設定（本家）
         private void G1_OriginalDrawing_CheckedChanged(object sender, EventArgs e)
         {
-            if(G1_OriginalDrawing.Checked == true)
+            if(G1_OriginalDrawing.Checked)
             {
                 vpatchValues["Vsync"] = "0";
             }
         }
-
+        //垂直同期設定（モニターのリフレッシュレートに合わせる）
+        private void G1_MonitorRefreshLate_CheckedChanged(object sender, EventArgs e)
+        {
+            if(G1_MonitorRefreshLate.Checked)
+            {
+                vpatchValues["Vsync"] = "1";
+            }
+        }
+        //Vsync側で設定したFPS値に近づけて描画
+        private void G1_VsyncFPS_CheckedChanged(object sender, EventArgs e)
+        {
+            if(G1_VsyncFPS.Checked)
+            {
+                vpatchValues["Vsync"] = "2";
+            }
+        }
+        //画面の真ん中よりしたで操作する人向け
+        private void G1_UnderDrawing_CheckedChanged(object sender, EventArgs e)
+        {
+            if(G1_UnderDrawing.Checked)
+            {
+                vpatchValues["Vsync"] = "3";
+            }
+        }
+        #endregion
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -646,7 +670,7 @@ namespace NewTHL2
         //非アクティブのやつ
         private void 非アクティブでも描画_CheckedChanged(object sender, EventArgs e)
         {
-            if (非アクティブでも描画.Checked == true)
+            if (非アクティブでも描画.Checked )
             {
                 vpatchValues["AlwaysBlt"] = "1";
             }
@@ -659,7 +683,7 @@ namespace NewTHL2
         //Th13バイリニアフィルタリング
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
         {
-            if(Bilinearfiltering.Checked == true)
+            if(Bilinearfiltering.Checked )
             {
                 vpatchValues["D3DMultiThread"] = "1";
             }
@@ -673,7 +697,7 @@ namespace NewTHL2
         private void checksum_CheckedChanged(object sender, EventArgs e)
         {
             //th13.exeのチェックサムを無効にする
-            if(checksum.Checked == true)
+            if(checksum.Checked )
             {
                 vpatchValues["DisableChecksum"] = "1";
             }
@@ -686,7 +710,7 @@ namespace NewTHL2
         //DirectInput_DoubleSpoiler
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
-            if(DirectInput_DoubleSpoiler.Checked == true)
+            if(DirectInput_DoubleSpoiler.Checked )
             {
                 vpatchValues["HookDirectInput"] = "1";
             }
@@ -700,7 +724,7 @@ namespace NewTHL2
         private void D3DMultiThredforDubleSpoiler_CheckedChanged(object sender, EventArgs e)
         {
             //Direct3Dをマルチスレッドで動かす
-            if (D3DMultiThredforDubleSpoiler.Checked == true)
+            if (D3DMultiThredforDubleSpoiler.Checked )
             {
                 vpatchValues["D3DMultiThread"] = "1";
             }
@@ -714,7 +738,7 @@ namespace NewTHL2
         private void D3DMultiThredforDubleSpoilerforTenDesire_CheckedChanged(object sender, EventArgs e)
         {
             //Direct3Dをマルチスレッドで動かす
-            if (D3DMultiThredforTenDesire.Checked == true)
+            if (D3DMultiThredforTenDesire.Checked )
             {
                 vpatchValues["D3DMultiThread"] = "1";
             }
@@ -727,7 +751,7 @@ namespace NewTHL2
         //LockBackBuffer
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if(VpatchDoesnotWork.Checked == true)
+            if(VpatchDoesnotWork.Checked )
             {
                 vpatchValues["LockBackBuffer"] = "1";
             }
@@ -778,27 +802,16 @@ namespace NewTHL2
                     }
              }
         }
+        #region VsyncPatchRev7
+        //本家の描画設定
+        private void G2_OriginalDrawing_CheckedChanged(object sender, EventArgs e)
+        {
+            if(G2_OriginalDrawing.Checked)
+            {
+                vpatchValues["Vsync"] = "0";
+            }
+        }
 
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-
-
-
-
-        
-
-        
+        #endregion
     }
 }

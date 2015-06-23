@@ -64,11 +64,6 @@ namespace NewTHL2.algo
                 }
             }
 
-            //取得したValue(Window)格納用
-            //StringBuilder Value_window = new StringBuilder(1024);
-            //取得したValue(Option)格納用
-            //StringBuilder Value_Option = new StringBuilder(1024);
-
             //取得したValueの格納用
             StringBuilder value = new StringBuilder(1024);
             //キーの番号を保存する
@@ -93,9 +88,9 @@ namespace NewTHL2.algo
                         break;
                     }
                 }
-                    
-            }
 
+            }
+            #region 以前のコード
             /*
             for (int i = 0; i < keyTemp.Count; i++ )
             {
@@ -115,7 +110,45 @@ namespace NewTHL2.algo
                 }
             }
             */
+            #endregion
+
             return vpatch_key_Value;
+        }
+
+        /// <summary>
+        /// 第一引数にはsettingsのパス、第二引数はバックアップする作品のセクション
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="thbu"></param>
+        /// <returns></returns>
+        public static Dictionary<string,string> getSettingsFileValue(string path,string thbu)
+        {
+            //返す値
+            Dictionary<string, string> backupvalues = new Dictionary<string, string>();
+            //取得したキー
+            List<string> keyTemp = new List<string>();
+            //取得したvalue
+            StringBuilder SB = new StringBuilder(1024);
+
+            byte[] byteArr = new byte[1024];
+            uint resultSize = GetPrivateProfileStringByByteArray(thbu, null, "", byteArr, (uint)byteArr.Length, path);
+            string result = Encoding.Default.GetString(byteArr, 0, (int)resultSize - 1);
+            string[] keys = result.Split('\0');
+
+            //Vpatch.iniのWindow部分のkeyを取得する
+            foreach (string key in keys)
+            {
+                keyTemp.Add(key);
+            }
+
+            //keyを利用してvalueを取得
+            for (int i = 0; i < keyTemp.Count;i++ )
+            {
+                GetPrivateProfileString(thbu, keyTemp[i], "", SB, Convert.ToUInt32(SB.Capacity), path);
+                backupvalues.Add(keyTemp[i], SB.ToString());
+            }
+            
+            return backupvalues;
         }
     }
 }

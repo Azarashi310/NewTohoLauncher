@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>13, 9</value>
   </metadata>
-  <data name="G_3HardWareAssistLv2.ToolTip" xml:space="preserve">
+  <data name="G4_HardwareAssistLv2.ToolTip" xml:space="preserve">
     <value>ハードウェアの支援を使用して垂直同期を行います。フルスクリーン時のみ有効です。
 　ハードウェアの支援を使用しているため、完璧な垂直同期が可能です。
 　この設定では、ゲームループにwaitを入れずに全力で回すようにします。
@@ -131,7 +131,7 @@
 フルスクリーン時にハードウェアの支援が利用できない場合は、
 　強制的に Vpatch独自の描画形式 の設定で動作します。</value>
   </data>
-  <data name="G_3HardWareAssistLv1.ToolTip" xml:space="preserve">
+  <data name="G4_HardwareAssistLv1.ToolTip" xml:space="preserve">
     <value>ハードウェアの支援を使用して垂直同期を行います。フルスクリーン時のみ有効です。
 　ハードウェアの支援を使用しているため、完璧な垂直同期が可能です。
 この設定では、2フレーム以上の遅延が起きないように、タイミングを調節しつつ描画します。
@@ -141,7 +141,7 @@
 フルスクリーン時にハードウェアの支援が利用できない場合は、
 　強制的に Vpatch独自の描画形式 の設定で動作します。</value>
   </data>
-  <data name="G_3VpatchOriginalDrawing.ToolTip" xml:space="preserve">
+  <data name="G4_VpatchOriginalDrawing.ToolTip" xml:space="preserve">
     <value>独自の方法でソフトウェア的に垂直同期を取り、描画を行います。
 　ハードウェア的に行う垂直同期よりも低入力遅延で操作が可能です。
 　フレームレートは、モニタのリフレッシュレートと同じになります。
@@ -168,4 +168,7 @@ Direct3Dをマルチスレッドで動かす にチェックボックスをオ�
 　※CalcFPS=0にしている場合は、fps表示が不安定になることがあります(59fps～61fps辺りをふらつく)
 　※CalcFPS=1の場合でも、多少不安定になることがありますが、四捨五入時には60fpsになると思います</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>13, 9</value>
+  </metadata>
 </root>

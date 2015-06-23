@@ -1237,13 +1237,14 @@ namespace NewTHL2
             {
                 //ここからVpatchの設定を読み取り
                 Dictionary<string,string> vpatchValues = algo.IniFileValueReturn.getIniFileValue(VpatchIniPath);
-                
+
+                #region 以前のコード
                 /*
                  * 試験的にvpatchのデーターをすべて共通のものにしてみる
                  * 
                  */
-                
-                
+
+
                 /*
                 if(Thxx[select].ToString() == "th12")
                 {
@@ -1270,6 +1271,7 @@ namespace NewTHL2
                     }
                 }
                  */
+                #endregion
 
                 //VpatchGUIを参照
                 VpatchGUI VGUI = new VpatchGUI();
@@ -1365,7 +1367,15 @@ namespace NewTHL2
         //バックアップフォルダの設定
         private void バックアップフォルダの設定ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //セクションを用意
+            string backupSection = Thxx[select].ToString() + "BU";
+            //大文字化
+            backupSection.ToUpper();
+            //keyとvalueを取得
+            Dictionary<string,string> settingsFileIni = NewTHL2.algo.IniFileValueReturn.getSettingsFileValue(settingFilePath, backupSection);
 
+            Backup BU = new Backup();
+            BU.ShowDialog();
         }
 
         //ファイル一括登録
@@ -1461,7 +1471,22 @@ namespace NewTHL2
         //新作ができたとき用のファイルパス設定表の更新
         private void ファイルパスの設定の更新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> FilePathListSource = algo.IniFileValueReturn.getIniFileValue(settingFilePath);
+            DialogResult = MessageBox.Show("設定ファイルを新しい物に引き継ぎます。よろしいですか？", "お知らせ", MessageBoxButtons.YesNo);
+            if(DialogResult == DialogResult.Yes)
+            {
+                Dictionary<string, string> FilePathListSource = algo.IniFileValueReturn.getIniFileValue(settingFilePath);
+                StreamWriter SW = new StreamWriter(settingFilePath, false,sjis);
+                SW.WriteLine(NewTHL2.Properties.Resources.setteingTemplate);
+                SW.Close();
+                algo.IniFileValueWrite.IniFileWriter(FilePathListSource, settingFilePath);
+                MessageBox.Show("完了しました", "お知らせ");
+            }
+            else
+            {
+                MessageBox.Show("キャセンルされました", "お知らせ");
+                return;
+            }
+            
         }
         //th145のみ、アップデーターの起動
         private void updaterの起動ToolStripMenuItem_Click(object sender, EventArgs e)

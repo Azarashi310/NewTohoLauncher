@@ -48,10 +48,10 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.垂直同期設定東方神霊廟 = new System.Windows.Forms.GroupBox();
-            this.G_3HardWareAssistLv2 = new System.Windows.Forms.RadioButton();
-            this.G_3HardWareAssistLv1 = new System.Windows.Forms.RadioButton();
-            this.G_3VpatchOriginalDrawing = new System.Windows.Forms.RadioButton();
-            this.G3_OriginalDrawing = new System.Windows.Forms.RadioButton();
+            this.G4_HardwareAssistLv2 = new System.Windows.Forms.RadioButton();
+            this.G4_HardwareAssistLv1 = new System.Windows.Forms.RadioButton();
+            this.G4_VpatchOriginalDrawing = new System.Windows.Forms.RadioButton();
+            this.G4_OriginalDrawing = new System.Windows.Forms.RadioButton();
             this.垂直同期設定ダブルスポイラー以降 = new System.Windows.Forms.GroupBox();
             this.G2_VpatchOriginalDrawing = new System.Windows.Forms.RadioButton();
             this.G2_NoVsync = new System.Windows.Forms.RadioButton();
@@ -91,7 +91,7 @@
             this.checksum = new System.Windows.Forms.CheckBox();
             this.Bilinearfiltering = new System.Windows.Forms.CheckBox();
             this.D3DMultiThredforTenDesire = new System.Windows.Forms.CheckBox();
-            this.ダブルスポイラー以降 = new System.Windows.Forms.GroupBox();
+            this.VsyncRev7_Vsyncth128_HardcoreSettings = new System.Windows.Forms.GroupBox();
             this.DirectInput_DoubleSpoiler = new System.Windows.Forms.CheckBox();
             this.D3DMultiThredforDubleSpoiler = new System.Windows.Forms.CheckBox();
             this.processPrimary = new System.Windows.Forms.GroupBox();
@@ -106,6 +106,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.Vsync_th128 = new System.Windows.Forms.GroupBox();
+            this.G3_OriginalDraw = new System.Windows.Forms.RadioButton();
+            this.G3_NoVsync = new System.Windows.Forms.RadioButton();
+            this.G3_MonitorRefreshLate = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -123,10 +127,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.先行描画設定TrackBar)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.東方神霊廟のみ.SuspendLayout();
-            this.ダブルスポイラー以降.SuspendLayout();
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.SuspendLayout();
             this.processPrimary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processPrimaryTrackBar)).BeginInit();
             this.動作させるCPUコア数.SuspendLayout();
+            this.Vsync_th128.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -302,6 +307,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.Vsync_th128);
             this.tabPage2.Controls.Add(this.垂直同期設定東方神霊廟);
             this.tabPage2.Controls.Add(this.垂直同期設定ダブルスポイラー以降);
             this.tabPage2.Controls.Add(this.垂直同期設定);
@@ -315,64 +321,64 @@
             // 
             // 垂直同期設定東方神霊廟
             // 
-            this.垂直同期設定東方神霊廟.Controls.Add(this.G_3HardWareAssistLv2);
-            this.垂直同期設定東方神霊廟.Controls.Add(this.G_3HardWareAssistLv1);
-            this.垂直同期設定東方神霊廟.Controls.Add(this.G_3VpatchOriginalDrawing);
-            this.垂直同期設定東方神霊廟.Controls.Add(this.G3_OriginalDrawing);
-            this.垂直同期設定東方神霊廟.Location = new System.Drawing.Point(37, 200);
+            this.垂直同期設定東方神霊廟.Controls.Add(this.G4_HardwareAssistLv2);
+            this.垂直同期設定東方神霊廟.Controls.Add(this.G4_HardwareAssistLv1);
+            this.垂直同期設定東方神霊廟.Controls.Add(this.G4_VpatchOriginalDrawing);
+            this.垂直同期設定東方神霊廟.Controls.Add(this.G4_OriginalDrawing);
+            this.垂直同期設定東方神霊廟.Location = new System.Drawing.Point(313, 221);
             this.垂直同期設定東方神霊廟.Name = "垂直同期設定東方神霊廟";
             this.垂直同期設定東方神霊廟.Size = new System.Drawing.Size(255, 140);
             this.垂直同期設定東方神霊廟.TabIndex = 4;
             this.垂直同期設定東方神霊廟.TabStop = false;
             this.垂直同期設定東方神霊廟.Text = "垂直同期設定～東方神霊廟～";
             // 
-            // G_3HardWareAssistLv2
+            // G4_HardwareAssistLv2
             // 
-            this.G_3HardWareAssistLv2.AutoSize = true;
-            this.G_3HardWareAssistLv2.Location = new System.Drawing.Point(6, 111);
-            this.G_3HardWareAssistLv2.Name = "G_3HardWareAssistLv2";
-            this.G_3HardWareAssistLv2.Size = new System.Drawing.Size(138, 16);
-            this.G_3HardWareAssistLv2.TabIndex = 3;
-            this.G_3HardWareAssistLv2.TabStop = true;
-            this.G_3HardWareAssistLv2.Text = "ハードウェア補助レベル２";
-            this.toolTip1.SetToolTip(this.G_3HardWareAssistLv2, resources.GetString("G_3HardWareAssistLv2.ToolTip"));
-            this.G_3HardWareAssistLv2.UseVisualStyleBackColor = true;
+            this.G4_HardwareAssistLv2.AutoSize = true;
+            this.G4_HardwareAssistLv2.Location = new System.Drawing.Point(6, 111);
+            this.G4_HardwareAssistLv2.Name = "G4_HardwareAssistLv2";
+            this.G4_HardwareAssistLv2.Size = new System.Drawing.Size(138, 16);
+            this.G4_HardwareAssistLv2.TabIndex = 3;
+            this.G4_HardwareAssistLv2.TabStop = true;
+            this.G4_HardwareAssistLv2.Text = "ハードウェア補助レベル２";
+            this.toolTip1.SetToolTip(this.G4_HardwareAssistLv2, resources.GetString("G4_HardwareAssistLv2.ToolTip"));
+            this.G4_HardwareAssistLv2.UseVisualStyleBackColor = true;
             // 
-            // G_3HardWareAssistLv1
+            // G4_HardwareAssistLv1
             // 
-            this.G_3HardWareAssistLv1.AutoSize = true;
-            this.G_3HardWareAssistLv1.Location = new System.Drawing.Point(6, 79);
-            this.G_3HardWareAssistLv1.Name = "G_3HardWareAssistLv1";
-            this.G_3HardWareAssistLv1.Size = new System.Drawing.Size(138, 16);
-            this.G_3HardWareAssistLv1.TabIndex = 2;
-            this.G_3HardWareAssistLv1.TabStop = true;
-            this.G_3HardWareAssistLv1.Text = "ハードウェア補助レベル１";
-            this.toolTip1.SetToolTip(this.G_3HardWareAssistLv1, resources.GetString("G_3HardWareAssistLv1.ToolTip"));
-            this.G_3HardWareAssistLv1.UseVisualStyleBackColor = true;
+            this.G4_HardwareAssistLv1.AutoSize = true;
+            this.G4_HardwareAssistLv1.Location = new System.Drawing.Point(6, 79);
+            this.G4_HardwareAssistLv1.Name = "G4_HardwareAssistLv1";
+            this.G4_HardwareAssistLv1.Size = new System.Drawing.Size(138, 16);
+            this.G4_HardwareAssistLv1.TabIndex = 2;
+            this.G4_HardwareAssistLv1.TabStop = true;
+            this.G4_HardwareAssistLv1.Text = "ハードウェア補助レベル１";
+            this.toolTip1.SetToolTip(this.G4_HardwareAssistLv1, resources.GetString("G4_HardwareAssistLv1.ToolTip"));
+            this.G4_HardwareAssistLv1.UseVisualStyleBackColor = true;
             // 
-            // G_3VpatchOriginalDrawing
+            // G4_VpatchOriginalDrawing
             // 
-            this.G_3VpatchOriginalDrawing.AutoSize = true;
-            this.G_3VpatchOriginalDrawing.Location = new System.Drawing.Point(6, 48);
-            this.G_3VpatchOriginalDrawing.Name = "G_3VpatchOriginalDrawing";
-            this.G_3VpatchOriginalDrawing.Size = new System.Drawing.Size(141, 16);
-            this.G_3VpatchOriginalDrawing.TabIndex = 1;
-            this.G_3VpatchOriginalDrawing.TabStop = true;
-            this.G_3VpatchOriginalDrawing.Text = "Vpatch独自の描画形式";
-            this.toolTip1.SetToolTip(this.G_3VpatchOriginalDrawing, resources.GetString("G_3VpatchOriginalDrawing.ToolTip"));
-            this.G_3VpatchOriginalDrawing.UseVisualStyleBackColor = true;
+            this.G4_VpatchOriginalDrawing.AutoSize = true;
+            this.G4_VpatchOriginalDrawing.Location = new System.Drawing.Point(6, 48);
+            this.G4_VpatchOriginalDrawing.Name = "G4_VpatchOriginalDrawing";
+            this.G4_VpatchOriginalDrawing.Size = new System.Drawing.Size(141, 16);
+            this.G4_VpatchOriginalDrawing.TabIndex = 1;
+            this.G4_VpatchOriginalDrawing.TabStop = true;
+            this.G4_VpatchOriginalDrawing.Text = "Vpatch独自の描画形式";
+            this.toolTip1.SetToolTip(this.G4_VpatchOriginalDrawing, resources.GetString("G4_VpatchOriginalDrawing.ToolTip"));
+            this.G4_VpatchOriginalDrawing.UseVisualStyleBackColor = true;
             // 
-            // G3_OriginalDrawing
+            // G4_OriginalDrawing
             // 
-            this.G3_OriginalDrawing.AutoSize = true;
-            this.G3_OriginalDrawing.Location = new System.Drawing.Point(6, 18);
-            this.G3_OriginalDrawing.Name = "G3_OriginalDrawing";
-            this.G3_OriginalDrawing.Size = new System.Drawing.Size(163, 16);
-            this.G3_OriginalDrawing.TabIndex = 0;
-            this.G3_OriginalDrawing.TabStop = true;
-            this.G3_OriginalDrawing.Text = "東方本家の描画方法で描画";
-            this.toolTip1.SetToolTip(this.G3_OriginalDrawing, "垂直同期をせずに、描画を行います。");
-            this.G3_OriginalDrawing.UseVisualStyleBackColor = true;
+            this.G4_OriginalDrawing.AutoSize = true;
+            this.G4_OriginalDrawing.Location = new System.Drawing.Point(6, 18);
+            this.G4_OriginalDrawing.Name = "G4_OriginalDrawing";
+            this.G4_OriginalDrawing.Size = new System.Drawing.Size(163, 16);
+            this.G4_OriginalDrawing.TabIndex = 0;
+            this.G4_OriginalDrawing.TabStop = true;
+            this.G4_OriginalDrawing.Text = "東方本家の描画方法で描画";
+            this.toolTip1.SetToolTip(this.G4_OriginalDrawing, "垂直同期をせずに、描画を行います。");
+            this.G4_OriginalDrawing.UseVisualStyleBackColor = true;
             // 
             // 垂直同期設定ダブルスポイラー以降
             // 
@@ -384,7 +390,9 @@
             this.垂直同期設定ダブルスポイラー以降.Size = new System.Drawing.Size(255, 140);
             this.垂直同期設定ダブルスポイラー以降.TabIndex = 1;
             this.垂直同期設定ダブルスポイラー以降.TabStop = false;
-            this.垂直同期設定ダブルスポイラー以降.Text = "垂直同期設定～ダブルスポイラー以降～";
+            this.垂直同期設定ダブルスポイラー以降.Text = "垂直同期設定～VsyncPatchRev7対応分～";
+            this.toolTip1.SetToolTip(this.垂直同期設定ダブルスポイラー以降, "■対応ゲーム\r\n東方文花帖 ver1.02a\r\n東方風神録 ver1.00a\r\n黄昏酒場   ver1.00a (web配布版)\r\n東方地霊殿 ver1.00a\r" +
+        "\n東方星蓮船 ver1.00b\r\nダブルスポイラー ver1.00a");
             // 
             // G2_VpatchOriginalDrawing
             // 
@@ -423,6 +431,7 @@
             this.G2_OriginalDrawing.Text = "東方本家の描画方法で描画";
             this.toolTip1.SetToolTip(this.G2_OriginalDrawing, "custom.exeで設定した垂直同期(入力のレイテンシ)の設定で動作します\r\n　この場合、フレームレート制御はvpatchでは制御せず、本家の動作のままです");
             this.G2_OriginalDrawing.UseVisualStyleBackColor = true;
+            this.G2_OriginalDrawing.CheckedChanged += new System.EventHandler(this.G2_OriginalDrawing_CheckedChanged);
             // 
             // 垂直同期設定
             // 
@@ -436,6 +445,9 @@
             this.垂直同期設定.TabIndex = 0;
             this.垂直同期設定.TabStop = false;
             this.垂直同期設定.Text = "垂直同期設定";
+            this.toolTip1.SetToolTip(this.垂直同期設定, "■対応ゲーム\r\n東方紅魔郷 ver1.02h\r\n東方妖々夢 ver1.00b\r\n東方永夜抄 ver1.00d\r\n東方花映塚 ver1.50a\r\n\r\nいろいろ考えた" +
+        "結果rev6でしか対応していない物のみ\r\nこちらの設定に致しました。\r\nrev7 testで対応している作品に関しては\r\nrev7 testをDLしてください。" +
+        "");
             // 
             // G1_UnderDrawing
             // 
@@ -448,6 +460,7 @@
             this.G1_UnderDrawing.Text = "画面の真ん中より下で操作する人向け";
             this.toolTip1.SetToolTip(this.G1_UnderDrawing, resources.GetString("G1_UnderDrawing.ToolTip"));
             this.G1_UnderDrawing.UseVisualStyleBackColor = true;
+            this.G1_UnderDrawing.CheckedChanged += new System.EventHandler(this.G1_UnderDrawing_CheckedChanged);
             // 
             // G1_VsyncFPS
             // 
@@ -460,6 +473,7 @@
             this.G1_VsyncFPS.Text = "Vsync側で設定したFPSの値に近づけて描画";
             this.toolTip1.SetToolTip(this.G1_VsyncFPS, resources.GetString("G1_VsyncFPS.ToolTip"));
             this.G1_VsyncFPS.UseVisualStyleBackColor = true;
+            this.G1_VsyncFPS.CheckedChanged += new System.EventHandler(this.G1_VsyncFPS_CheckedChanged);
             // 
             // G1_MonitorRefreshLate
             // 
@@ -473,6 +487,7 @@
             this.toolTip1.SetToolTip(this.G1_MonitorRefreshLate, "独自の方法で垂直同期をとり、描画を行います\r\n　※ちなみにVsync=1の時は、画面上半分は0～8ms程度の描画遅延、画面下半分は8ms～16ms程度の描画遅延が" +
         "起こります");
             this.G1_MonitorRefreshLate.UseVisualStyleBackColor = true;
+            this.G1_MonitorRefreshLate.CheckedChanged += new System.EventHandler(this.G1_MonitorRefreshLate_CheckedChanged);
             // 
             // G1_OriginalDrawing
             // 
@@ -760,7 +775,7 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.東方神霊廟のみ);
-            this.tabPage4.Controls.Add(this.ダブルスポイラー以降);
+            this.tabPage4.Controls.Add(this.VsyncRev7_Vsyncth128_HardcoreSettings);
             this.tabPage4.Controls.Add(this.processPrimary);
             this.tabPage4.Controls.Add(this.動作させるCPUコア数);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -819,16 +834,18 @@
             this.D3DMultiThredforTenDesire.UseVisualStyleBackColor = true;
             this.D3DMultiThredforTenDesire.CheckedChanged += new System.EventHandler(this.D3DMultiThredforDubleSpoilerforTenDesire_CheckedChanged);
             // 
-            // ダブルスポイラー以降
+            // VsyncRev7_Vsyncth128_HardcoreSettings
             // 
-            this.ダブルスポイラー以降.Controls.Add(this.DirectInput_DoubleSpoiler);
-            this.ダブルスポイラー以降.Controls.Add(this.D3DMultiThredforDubleSpoiler);
-            this.ダブルスポイラー以降.Location = new System.Drawing.Point(18, 211);
-            this.ダブルスポイラー以降.Name = "ダブルスポイラー以降";
-            this.ダブルスポイラー以降.Size = new System.Drawing.Size(257, 162);
-            this.ダブルスポイラー以降.TabIndex = 2;
-            this.ダブルスポイラー以降.TabStop = false;
-            this.ダブルスポイラー以降.Text = "ダブルスポイラー以降";
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.Controls.Add(this.DirectInput_DoubleSpoiler);
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.Controls.Add(this.D3DMultiThredforDubleSpoiler);
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.Location = new System.Drawing.Point(18, 211);
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.Name = "VsyncRev7_Vsyncth128_HardcoreSettings";
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.Size = new System.Drawing.Size(257, 162);
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.TabIndex = 2;
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.TabStop = false;
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.Text = "VsyncRev7対応分及び妖精大戦争";
+            this.toolTip1.SetToolTip(this.VsyncRev7_Vsyncth128_HardcoreSettings, "■対応ゲーム\r\n東方文花帖 ver1.02a\r\n東方風神録 ver1.00a\r\n黄昏酒場   ver1.00a (web配布版)\r\n東方地霊殿 ver1.00a\r" +
+        "\n東方星蓮船 ver1.00b\r\nダブルスポイラー ver1.00a\r\n妖精大戦争 ver1.00a");
             // 
             // DirectInput_DoubleSpoiler
             // 
@@ -974,6 +991,54 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // Vsync_th128
+            // 
+            this.Vsync_th128.Controls.Add(this.G3_MonitorRefreshLate);
+            this.Vsync_th128.Controls.Add(this.G3_NoVsync);
+            this.Vsync_th128.Controls.Add(this.G3_OriginalDraw);
+            this.Vsync_th128.Location = new System.Drawing.Point(37, 221);
+            this.Vsync_th128.Name = "Vsync_th128";
+            this.Vsync_th128.Size = new System.Drawing.Size(255, 140);
+            this.Vsync_th128.TabIndex = 5;
+            this.Vsync_th128.TabStop = false;
+            this.Vsync_th128.Text = "垂直同期設定～妖精大戦争～";
+            // 
+            // G3_OriginalDraw
+            // 
+            this.G3_OriginalDraw.AutoSize = true;
+            this.G3_OriginalDraw.Location = new System.Drawing.Point(6, 18);
+            this.G3_OriginalDraw.Name = "G3_OriginalDraw";
+            this.G3_OriginalDraw.Size = new System.Drawing.Size(163, 16);
+            this.G3_OriginalDraw.TabIndex = 0;
+            this.G3_OriginalDraw.TabStop = true;
+            this.G3_OriginalDraw.Text = "東方本家の描画方法で描画";
+            this.toolTip1.SetToolTip(this.G3_OriginalDraw, "垂直同期をせずに、描画を行います。");
+            this.G3_OriginalDraw.UseVisualStyleBackColor = true;
+            // 
+            // G3_NoVsync
+            // 
+            this.G3_NoVsync.AutoSize = true;
+            this.G3_NoVsync.Location = new System.Drawing.Point(6, 48);
+            this.G3_NoVsync.Name = "G3_NoVsync";
+            this.G3_NoVsync.Size = new System.Drawing.Size(90, 16);
+            this.G3_NoVsync.TabIndex = 1;
+            this.G3_NoVsync.TabStop = true;
+            this.G3_NoVsync.Text = "垂直同期なし";
+            this.toolTip1.SetToolTip(this.G3_NoVsync, "垂直同期をせずに、描画を行います。");
+            this.G3_NoVsync.UseVisualStyleBackColor = true;
+            // 
+            // G3_MonitorRefreshLate
+            // 
+            this.G3_MonitorRefreshLate.AutoSize = true;
+            this.G3_MonitorRefreshLate.Location = new System.Drawing.Point(6, 79);
+            this.G3_MonitorRefreshLate.Name = "G3_MonitorRefreshLate";
+            this.G3_MonitorRefreshLate.Size = new System.Drawing.Size(195, 16);
+            this.G3_MonitorRefreshLate.TabIndex = 2;
+            this.G3_MonitorRefreshLate.TabStop = true;
+            this.G3_MonitorRefreshLate.Text = "モニターのリフレッシュレートに合わせる";
+            this.toolTip1.SetToolTip(this.G3_MonitorRefreshLate, "垂直同期をせずに、描画を行います。");
+            this.G3_MonitorRefreshLate.UseVisualStyleBackColor = true;
+            // 
             // VpatchGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1013,13 +1078,15 @@
             this.tabPage4.ResumeLayout(false);
             this.東方神霊廟のみ.ResumeLayout(false);
             this.東方神霊廟のみ.PerformLayout();
-            this.ダブルスポイラー以降.ResumeLayout(false);
-            this.ダブルスポイラー以降.PerformLayout();
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.ResumeLayout(false);
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.PerformLayout();
             this.processPrimary.ResumeLayout(false);
             this.processPrimary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processPrimaryTrackBar)).EndInit();
             this.動作させるCPUコア数.ResumeLayout(false);
             this.動作させるCPUコア数.PerformLayout();
+            this.Vsync_th128.ResumeLayout(false);
+            this.Vsync_th128.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1047,10 +1114,10 @@
         private System.Windows.Forms.CheckBox AlwaysOnTop;
         private System.Windows.Forms.CheckBox ShowTitleBar;
         private System.Windows.Forms.GroupBox 垂直同期設定東方神霊廟;
-        private System.Windows.Forms.RadioButton G_3HardWareAssistLv2;
-        private System.Windows.Forms.RadioButton G_3HardWareAssistLv1;
-        private System.Windows.Forms.RadioButton G_3VpatchOriginalDrawing;
-        private System.Windows.Forms.RadioButton G3_OriginalDrawing;
+        private System.Windows.Forms.RadioButton G4_HardwareAssistLv2;
+        private System.Windows.Forms.RadioButton G4_HardwareAssistLv1;
+        private System.Windows.Forms.RadioButton G4_VpatchOriginalDrawing;
+        private System.Windows.Forms.RadioButton G4_OriginalDrawing;
         private System.Windows.Forms.GroupBox 垂直同期設定ダブルスポイラー以降;
         private System.Windows.Forms.RadioButton G2_VpatchOriginalDrawing;
         private System.Windows.Forms.RadioButton G2_NoVsync;
@@ -1093,7 +1160,7 @@
         private System.Windows.Forms.TrackBar processPrimaryTrackBar;
         private System.Windows.Forms.RadioButton CPU0_CPU1Work;
         private System.Windows.Forms.RadioButton CPU1Work;
-        private System.Windows.Forms.GroupBox ダブルスポイラー以降;
+        private System.Windows.Forms.GroupBox VsyncRev7_Vsyncth128_HardcoreSettings;
         private System.Windows.Forms.CheckBox VpatchDoesnotWork;
         private System.Windows.Forms.GroupBox 東方神霊廟のみ;
         private System.Windows.Forms.CheckBox checksum;
@@ -1102,5 +1169,9 @@
         private System.Windows.Forms.CheckBox DirectInput_DoubleSpoiler;
         private System.Windows.Forms.CheckBox D3DMultiThredforDubleSpoiler;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.GroupBox Vsync_th128;
+        private System.Windows.Forms.RadioButton G3_OriginalDraw;
+        private System.Windows.Forms.RadioButton G3_NoVsync;
+        private System.Windows.Forms.RadioButton G3_MonitorRefreshLate;
     }
 }
