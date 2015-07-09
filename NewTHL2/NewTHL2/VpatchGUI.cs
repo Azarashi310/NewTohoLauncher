@@ -27,6 +27,13 @@ namespace NewTHL2
         {
 
         }
+
+        /*
+         * 事前の設定
+         * 
+         * 
+         */
+
         //値をセットする
         public void setValues(Dictionary<string,string> values,string titleName,string FilePath)
         {
@@ -105,13 +112,12 @@ namespace NewTHL2
             //垂直同期設定(とりあえず初期化)
             垂直同期設定.Enabled = false;
             垂直同期設定東方神霊廟.Enabled = false;
+            //rev7以降
             垂直同期設定ダブルスポイラー以降.Enabled = false;
-            
-            //FPS設定（初期化）
-            groupBox3.Enabled = true;
 
-            //垂直同期設定（ダブルスポイラー）
-            if(titleName == "th125")
+            //垂直同期設定（rev7以降）
+            if((titleName == "th095") || (titleName == "th10") ||(titleName == "alcostg") || (titleName == "th11") || (titleName == "th12")
+                || (titleName == "th125") || (titleName == "th128"))
             {
                 垂直同期設定ダブルスポイラー以降.Enabled = true;
                 switch(vpatchValues["Vsync"])
@@ -181,7 +187,6 @@ namespace NewTHL2
                         }
                 }
             }
-
             //垂直同期設定（通常）
             else
             {
@@ -222,6 +227,7 @@ namespace NewTHL2
                         }
                 }
             }
+
             #endregion
             #region drawSettings&BugFix
             /*
@@ -233,6 +239,9 @@ namespace NewTHL2
             FPSAutoControl.Checked = false;
             FPSControlOff.Checked = false;
             FPSControlOn.Checked = false;
+            //FPS設定（初期化）
+            groupBox3.Enabled = false;
+
             //FPS制御の設定
             switch(vpatchValues["SleepType"])
             {
@@ -256,6 +265,11 @@ namespace NewTHL2
                         FPSAutoControl.Checked = true;
                         break;
                     }
+            }
+            //GameFPSの設定(vsyncが1ではない時のみ有効)
+            if (vpatchValues["Vsync"] != "1")
+            {
+                groupBox3.Enabled = false;
             }
 
             //GameFPS
@@ -444,8 +458,9 @@ namespace NewTHL2
                 VpatchDoesnotWork.Checked = false;
             }
 
-            //ダブルスポイラー以降の特殊設定
-            if((titleName == "th125") || (titleName == "th128"))
+            //rev7対応分の特殊設定
+            if ((titleName == "th09") || (titleName == "th10") || (titleName == "alcostg") || (titleName == "th11") || (titleName == "th12")
+                || (titleName == "th125") || (titleName == "th128"))
             {
                 //Direct3Dをマルチスレッドで動かす
                 if (vpatchValues["D3DMultiThread"] == "1")
@@ -520,25 +535,9 @@ namespace NewTHL2
          * ここからボタンが押された時の挙動
          * 
          */
+        #region Window
 
-        //決定ボタン
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DialogResult = MessageBox.Show("設定を変更致しますよろしいですか？", "お知らせ",MessageBoxButtons.OKCancel);
-            if(DialogResult == DialogResult.OK)
-            {
-                //ここでVpatch.iniへの書き込み処理です
-                algo.IniFileValueWrite.IniFileWriter(vpatchValues, _FilePath);
-                this.Close();
-            }
-        }
-        //キャンセルボタン
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        //起動時にW or F を尋ねる
+        //起動時にWindow or FullScreen を尋ねる
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBox1.Checked == Enabled)
@@ -623,6 +622,7 @@ namespace NewTHL2
                 vpatchValues["AlwaysOnTop"] ="0";
             }
         }
+        #endregion
         #region 垂直同期設定VsyncPatchRev6
         //垂直同期設定（本家）
         private void G1_OriginalDrawing_CheckedChanged(object sender, EventArgs e)
@@ -683,7 +683,10 @@ namespace NewTHL2
             }
         }
         #endregion
+
+        //th128はrev7と併用（使用せず）
         #region 垂直同期設定VsyncPatchRevth128
+        /*
         //本家の描画
         private void G3_OriginalDraw_CheckedChanged(object sender, EventArgs e)
         {
@@ -708,7 +711,9 @@ namespace NewTHL2
                 vpatchValues["Vsync"] = "1";
             }
         }
+         * */
         #endregion
+
         #region 垂直同期設定VsyncPathcRevth13
 
         //垂直同期なし
@@ -889,7 +894,7 @@ namespace NewTHL2
             }
         }
         #endregion
-
+        #region ハードコア
         //Th13バイリニアフィルタリング
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
         {
@@ -944,7 +949,7 @@ namespace NewTHL2
             }
         }
         
-        //D3DMultiTread(TedDesire)
+        //D3DMultiTread(TendDesire)
         private void D3DMultiThredforDubleSpoilerforTenDesire_CheckedChanged(object sender, EventArgs e)
         {
             //Direct3Dをマルチスレッドで動かす
@@ -1012,6 +1017,25 @@ namespace NewTHL2
                     }
              }
         }
+        #endregion
+
+        //決定ボタン
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("設定を変更致しますよろしいですか？", "お知らせ", MessageBoxButtons.OKCancel);
+            if (DialogResult == DialogResult.OK)
+            {
+                //ここでVpatch.iniへの書き込み処理です
+                algo.IniFileValueWrite.IniFileWriter(vpatchValues, _FilePath);
+                this.Close();
+            }
+        }
+        //キャンセルボタン
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 

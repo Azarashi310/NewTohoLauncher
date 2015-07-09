@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cancelButton = new System.Windows.Forms.Button();
             this.decideButton = new System.Windows.Forms.Button();
             this.savedata_TextBox = new System.Windows.Forms.TextBox();
@@ -49,14 +50,15 @@
             this.autoSave_Group = new System.Windows.Forms.GroupBox();
             this.profile_Group = new System.Windows.Forms.GroupBox();
             this.Okubi_Group = new System.Windows.Forms.GroupBox();
+            this.OkubiBackupFolder_Browse_Button = new System.Windows.Forms.Button();
+            this.okubi_Textbox = new System.Windows.Forms.TextBox();
             this.macro_Group = new System.Windows.Forms.GroupBox();
             this.macroBackupFolder_Browse_Button = new System.Windows.Forms.Button();
             this.macro_TextBox = new System.Windows.Forms.TextBox();
-            this.OkubiBackupFolder_Browse_Button = new System.Windows.Forms.Button();
-            this.okubi_Textbox = new System.Windows.Forms.TextBox();
             this.hint_Group = new System.Windows.Forms.GroupBox();
             this.hitnBackupFolder_Browse_Button = new System.Windows.Forms.Button();
             this.hint_TextBox = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.savedata_Group.SuspendLayout();
             this.replay_Group.SuspendLayout();
             this.screenShot_Group.SuspendLayout();
@@ -193,6 +195,7 @@
             this.savedata_Group.TabIndex = 26;
             this.savedata_Group.TabStop = false;
             this.savedata_Group.Text = "セーブデータ";
+            this.toolTip1.SetToolTip(this.savedata_Group, "セーブデータのバックアップ場所の指定です。\r\n\r\n対応作品\r\nすべて");
             // 
             // replay_Group
             // 
@@ -203,6 +206,7 @@
             this.replay_Group.TabIndex = 27;
             this.replay_Group.TabStop = false;
             this.replay_Group.Text = "リプレイ";
+            this.toolTip1.SetToolTip(this.replay_Group, "リプレイのバックアップ場所の指定です。\r\n\r\n対応作品\r\nすべて");
             // 
             // screenShot_Group
             // 
@@ -212,7 +216,8 @@
             this.screenShot_Group.Size = new System.Drawing.Size(583, 59);
             this.screenShot_Group.TabIndex = 27;
             this.screenShot_Group.TabStop = false;
-            this.screenShot_Group.Text = "スクリーンショット";
+            this.screenShot_Group.Text = "スナップショット";
+            this.toolTip1.SetToolTip(this.screenShot_Group, "スナップショットのバックアップ場所の指定です。\r\n\r\n対応作品\r\n妖々夢以降（萃夢想を除く）");
             // 
             // bestShot_Group
             // 
@@ -224,6 +229,7 @@
             this.bestShot_Group.TabIndex = 27;
             this.bestShot_Group.TabStop = false;
             this.bestShot_Group.Text = "ベストショット";
+            this.toolTip1.SetToolTip(this.bestShot_Group, "ベストショットのバックアップ場所の指定です。\r\n\r\n対応作品\r\n\r\n東方文花帖\r\nダブルスポイラー");
             // 
             // autoSave_Group
             // 
@@ -235,6 +241,7 @@
             this.autoSave_Group.TabIndex = 27;
             this.autoSave_Group.TabStop = false;
             this.autoSave_Group.Text = "自動セーブ";
+            this.toolTip1.SetToolTip(this.autoSave_Group, "自動セーブのバックアップ場所の指定です\r\n\r\n対応作品\r\n紺珠伝");
             // 
             // profile_Group
             // 
@@ -245,7 +252,8 @@
             this.profile_Group.Size = new System.Drawing.Size(583, 59);
             this.profile_Group.TabIndex = 27;
             this.profile_Group.TabStop = false;
-            this.profile_Group.Text = "プロフィール";
+            this.profile_Group.Text = "プロファイル";
+            this.toolTip1.SetToolTip(this.profile_Group, "プロファイルのバックアップ場所の指定です。\r\n\r\n対応作品\r\n緋想天\r\n非想天則\r\n心綺楼\r\n深秘録");
             // 
             // Okubi_Group
             // 
@@ -257,33 +265,7 @@
             this.Okubi_Group.TabIndex = 27;
             this.Okubi_Group.TabStop = false;
             this.Okubi_Group.Text = "御首頂戴帳";
-            // 
-            // macro_Group
-            // 
-            this.macro_Group.Controls.Add(this.macroBackupFolder_Browse_Button);
-            this.macro_Group.Controls.Add(this.macro_TextBox);
-            this.macro_Group.Location = new System.Drawing.Point(0, 525);
-            this.macro_Group.Name = "macro_Group";
-            this.macro_Group.Size = new System.Drawing.Size(583, 59);
-            this.macro_Group.TabIndex = 27;
-            this.macro_Group.TabStop = false;
-            this.macro_Group.Text = "マクロ";
-            // 
-            // macroBackupFolder_Browse_Button
-            // 
-            this.macroBackupFolder_Browse_Button.Location = new System.Drawing.Point(461, 32);
-            this.macroBackupFolder_Browse_Button.Name = "macroBackupFolder_Browse_Button";
-            this.macroBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
-            this.macroBackupFolder_Browse_Button.TabIndex = 24;
-            this.macroBackupFolder_Browse_Button.Text = "参照";
-            this.macroBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
-            // 
-            // macro_TextBox
-            // 
-            this.macro_TextBox.Location = new System.Drawing.Point(12, 34);
-            this.macro_TextBox.Name = "macro_TextBox";
-            this.macro_TextBox.Size = new System.Drawing.Size(395, 19);
-            this.macro_TextBox.TabIndex = 23;
+            this.toolTip1.SetToolTip(this.Okubi_Group, "御首頂戴帳のバックアップ場所の指定です。\r\n\r\n対応作品\r\n心綺楼\r\n深秘録");
             // 
             // OkubiBackupFolder_Browse_Button
             // 
@@ -301,6 +283,34 @@
             this.okubi_Textbox.Size = new System.Drawing.Size(395, 19);
             this.okubi_Textbox.TabIndex = 22;
             // 
+            // macro_Group
+            // 
+            this.macro_Group.Controls.Add(this.macroBackupFolder_Browse_Button);
+            this.macro_Group.Controls.Add(this.macro_TextBox);
+            this.macro_Group.Location = new System.Drawing.Point(0, 525);
+            this.macro_Group.Name = "macro_Group";
+            this.macro_Group.Size = new System.Drawing.Size(583, 59);
+            this.macro_Group.TabIndex = 27;
+            this.macro_Group.TabStop = false;
+            this.macro_Group.Text = "マクロ";
+            this.toolTip1.SetToolTip(this.macro_Group, "マクロのバックアップ場所の指定です。\r\n\r\n対応作品\r\n深秘録");
+            // 
+            // macroBackupFolder_Browse_Button
+            // 
+            this.macroBackupFolder_Browse_Button.Location = new System.Drawing.Point(461, 32);
+            this.macroBackupFolder_Browse_Button.Name = "macroBackupFolder_Browse_Button";
+            this.macroBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
+            this.macroBackupFolder_Browse_Button.TabIndex = 24;
+            this.macroBackupFolder_Browse_Button.Text = "参照";
+            this.macroBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            // 
+            // macro_TextBox
+            // 
+            this.macro_TextBox.Location = new System.Drawing.Point(12, 34);
+            this.macro_TextBox.Name = "macro_TextBox";
+            this.macro_TextBox.Size = new System.Drawing.Size(395, 19);
+            this.macro_TextBox.TabIndex = 23;
+            // 
             // hint_Group
             // 
             this.hint_Group.Controls.Add(this.hitnBackupFolder_Browse_Button);
@@ -311,6 +321,8 @@
             this.hint_Group.TabIndex = 28;
             this.hint_Group.TabStop = false;
             this.hint_Group.Text = "ヒント";
+            this.toolTip1.SetToolTip(this.hint_Group, "ヒント機能のバックアップ場所の指定です。\r\n\r\n対応作品\r\n風神録\r\n地霊殿（非公式）\r\n※地霊殿においてのヒント機能の使用方法はここには明記いたしません。\r\n　" +
+        "自分でググってください。");
             // 
             // hitnBackupFolder_Browse_Button
             // 
@@ -403,5 +415,6 @@
         private System.Windows.Forms.GroupBox hint_Group;
         private System.Windows.Forms.Button hitnBackupFolder_Browse_Button;
         private System.Windows.Forms.TextBox hint_TextBox;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

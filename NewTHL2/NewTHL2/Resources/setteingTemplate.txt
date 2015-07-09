@@ -59,10 +59,10 @@ alcostg_BG =
 [TH06BU]
 th06_Save = 
 th06_Replay = 
-th06_SnapShot= 
 [TH07BU]
 th07_Save = 
 th07_Replay = 
+th06_SnapShot= 
 [TH08BU]
 th08_Save = 
 th08_Replay = 

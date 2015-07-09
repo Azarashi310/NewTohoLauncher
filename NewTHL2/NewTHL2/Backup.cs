@@ -12,6 +12,9 @@ namespace NewTHL2
 {
     public partial class Backup : Form
     {
+        //ローカルに一度保存
+        Dictionary<string, string> settingIniFile;
+        
         public Backup()
         {
             InitializeComponent();
@@ -21,44 +24,65 @@ namespace NewTHL2
         {
 
         }
-
+        
         //ゲームごとに選択できるものを変更する
+        /// <summary>
+        /// setFileIniにはkeyとvalueを取得したDictionaryクラスのものを入れます
+        /// selectには現在ランチャー側で選択されている作品の名前を入れます。
+        /// </summary>
+        /// <param name="setFileIni"></param>
+        /// <param name="select"></param>
         public void initialize(Dictionary<string,string>setFileIni,string select)
         {
-            if((select == "th06") || (select == "th07")||(select == "th075"))
+            settingIniFile = setFileIni;
+            //セーブデータとリプレイ以外をfalseにして初期化
+            screenShot_Group.Enabled = false;
+            bestShot_Group.Enabled = false;
+            hint_Group.Enabled = false;
+            autoSave_Group.Enabled = false;
+            profile_Group.Enabled = false;
+            Okubi_Group.Enabled = false;
+            macro_Group.Enabled = false;
+            
+            
+            //紅魔郷と萃夢想はスクリーンショットがないため
+            if((select != "th06") & (select != "th075"))
             {
-                screenShot_Group.Enabled = false;
-                bestShot_Group.Enabled = false;
-                hint_Group.Enabled = false;
-                autoSave_Group.Enabled = false;
-                profile_Group.Enabled = false;
-                Okubi_Group.Enabled = false;
-                macro_Group.Enabled = false;
-            }
-            else
-            {
-                if((select == "th095") || (select == "th125"))
+                screenShot_Group.Enabled = true;
+                
+                //文花帖系
+                if ((select == "th095") || (select == "th125"))
                 {
-                    hint_Group.Enabled = false;
-                    autoSave_Group.Enabled = false;
-                    profile_Group.Enabled = false;
-                    Okubi_Group.Enabled = false;
-                    macro_Group.Enabled = false;
+                    bestShot_Group.Enabled = true;
                 }
-                if(select == "th10")
+                //風神録 & 地霊殿
+                if ((select == "th10") || (select == "th11"))
                 {
-                    autoSave_Group.Enabled = false;
-                    profile_Group.Enabled = false;
-                    Okubi_Group.Enabled = false;
-                    macro_Group.Enabled = false;
+                    hint_Group.Enabled = true;
                 }
-                if(select == "")
-                bestShot_Group.Enabled = false;
-                hint_Group.Enabled = false;
-                autoSave_Group.Enabled = false;
-                profile_Group.Enabled = false;
-                Okubi_Group.Enabled = false;
-                macro_Group.Enabled = false;
+                //プロファイルのみの黄昏作品
+                if((select == "th105")||(select == "th123"))
+                {
+                    profile_Group.Enabled = true;
+                }
+                //心綺楼
+                if(select == "th135")
+                {
+                    profile_Group.Enabled = true;
+                    Okubi_Group.Enabled = true;
+                }
+                //深秘録
+                if(select == "th145")
+                {
+                    profile_Group.Enabled = true;
+                    Okubi_Group.Enabled = true;
+                    macro_Group.Enabled = true;
+                }
+                //東方紺珠伝 ～ Legacy of Lunatic Kingdom.
+                if(select == "th15")
+                {
+                    autoSave_Group.Enabled = true;
+                }
             }
         }
 

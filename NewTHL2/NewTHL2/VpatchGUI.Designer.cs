@@ -47,10 +47,6 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.Vsync_th128 = new System.Windows.Forms.GroupBox();
-            this.G3_MonitorRefreshLate = new System.Windows.Forms.RadioButton();
-            this.G3_NoVsync = new System.Windows.Forms.RadioButton();
-            this.G3_OriginalDraw = new System.Windows.Forms.RadioButton();
             this.垂直同期設定東方神霊廟 = new System.Windows.Forms.GroupBox();
             this.G4_HardwareAssistLv2 = new System.Windows.Forms.RadioButton();
             this.G4_HardwareAssistLv1 = new System.Windows.Forms.RadioButton();
@@ -115,7 +111,6 @@
             this.groupBox1.SuspendLayout();
             this.詳細設定.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.Vsync_th128.SuspendLayout();
             this.垂直同期設定東方神霊廟.SuspendLayout();
             this.垂直同期設定ダブルスポイラー以降.SuspendLayout();
             this.垂直同期設定.SuspendLayout();
@@ -307,7 +302,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.Vsync_th128);
             this.tabPage2.Controls.Add(this.垂直同期設定東方神霊廟);
             this.tabPage2.Controls.Add(this.垂直同期設定ダブルスポイラー以降);
             this.tabPage2.Controls.Add(this.垂直同期設定);
@@ -319,64 +313,13 @@
             this.tabPage2.Text = "垂直同期設定";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Vsync_th128
-            // 
-            this.Vsync_th128.Controls.Add(this.G3_MonitorRefreshLate);
-            this.Vsync_th128.Controls.Add(this.G3_NoVsync);
-            this.Vsync_th128.Controls.Add(this.G3_OriginalDraw);
-            this.Vsync_th128.Location = new System.Drawing.Point(37, 221);
-            this.Vsync_th128.Name = "Vsync_th128";
-            this.Vsync_th128.Size = new System.Drawing.Size(255, 140);
-            this.Vsync_th128.TabIndex = 5;
-            this.Vsync_th128.TabStop = false;
-            this.Vsync_th128.Text = "垂直同期設定～妖精大戦争～";
-            // 
-            // G3_MonitorRefreshLate
-            // 
-            this.G3_MonitorRefreshLate.AutoSize = true;
-            this.G3_MonitorRefreshLate.Location = new System.Drawing.Point(6, 79);
-            this.G3_MonitorRefreshLate.Name = "G3_MonitorRefreshLate";
-            this.G3_MonitorRefreshLate.Size = new System.Drawing.Size(195, 16);
-            this.G3_MonitorRefreshLate.TabIndex = 2;
-            this.G3_MonitorRefreshLate.TabStop = true;
-            this.G3_MonitorRefreshLate.Text = "モニターのリフレッシュレートに合わせる";
-            this.toolTip1.SetToolTip(this.G3_MonitorRefreshLate, "垂直同期をせずに、描画を行います。");
-            this.G3_MonitorRefreshLate.UseVisualStyleBackColor = true;
-            this.G3_MonitorRefreshLate.CheckedChanged += new System.EventHandler(this.G3_MonitorRefreshLate_CheckedChanged);
-            // 
-            // G3_NoVsync
-            // 
-            this.G3_NoVsync.AutoSize = true;
-            this.G3_NoVsync.Location = new System.Drawing.Point(6, 48);
-            this.G3_NoVsync.Name = "G3_NoVsync";
-            this.G3_NoVsync.Size = new System.Drawing.Size(90, 16);
-            this.G3_NoVsync.TabIndex = 1;
-            this.G3_NoVsync.TabStop = true;
-            this.G3_NoVsync.Text = "垂直同期なし";
-            this.toolTip1.SetToolTip(this.G3_NoVsync, "垂直同期をせずに、描画を行います。");
-            this.G3_NoVsync.UseVisualStyleBackColor = true;
-            this.G3_NoVsync.CheckedChanged += new System.EventHandler(this.G3_NoVsync_CheckedChanged);
-            // 
-            // G3_OriginalDraw
-            // 
-            this.G3_OriginalDraw.AutoSize = true;
-            this.G3_OriginalDraw.Location = new System.Drawing.Point(6, 18);
-            this.G3_OriginalDraw.Name = "G3_OriginalDraw";
-            this.G3_OriginalDraw.Size = new System.Drawing.Size(163, 16);
-            this.G3_OriginalDraw.TabIndex = 0;
-            this.G3_OriginalDraw.TabStop = true;
-            this.G3_OriginalDraw.Text = "東方本家の描画方法で描画";
-            this.toolTip1.SetToolTip(this.G3_OriginalDraw, "垂直同期をせずに、描画を行います。");
-            this.G3_OriginalDraw.UseVisualStyleBackColor = true;
-            this.G3_OriginalDraw.CheckedChanged += new System.EventHandler(this.G3_OriginalDraw_CheckedChanged);
-            // 
             // 垂直同期設定東方神霊廟
             // 
             this.垂直同期設定東方神霊廟.Controls.Add(this.G4_HardwareAssistLv2);
             this.垂直同期設定東方神霊廟.Controls.Add(this.G4_HardwareAssistLv1);
             this.垂直同期設定東方神霊廟.Controls.Add(this.G4_MonitorRefreshLate);
             this.垂直同期設定東方神霊廟.Controls.Add(this.G4_OriginalDrawing);
-            this.垂直同期設定東方神霊廟.Location = new System.Drawing.Point(313, 221);
+            this.垂直同期設定東方神霊廟.Location = new System.Drawing.Point(37, 222);
             this.垂直同期設定東方神霊廟.Name = "垂直同期設定東方神霊廟";
             this.垂直同期設定東方神霊廟.Size = new System.Drawing.Size(255, 140);
             this.垂直同期設定東方神霊廟.TabIndex = 4;
@@ -745,6 +688,7 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "FPS設定";
+            this.toolTip1.SetToolTip(this.groupBox3, "ゲームのFPSの値を変更できます。\r\n\r\nただし、Vsyncの設定が リフレッシュレートに合わせる　以外\r\nの場合のみ有効になります。");
             // 
             // ReplaySlowFPS
             // 
@@ -1080,8 +1024,6 @@
             this.詳細設定.ResumeLayout(false);
             this.詳細設定.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.Vsync_th128.ResumeLayout(false);
-            this.Vsync_th128.PerformLayout();
             this.垂直同期設定東方神霊廟.ResumeLayout(false);
             this.垂直同期設定東方神霊廟.PerformLayout();
             this.垂直同期設定ダブルスポイラー以降.ResumeLayout(false);
@@ -1192,9 +1134,5 @@
         private System.Windows.Forms.CheckBox DirectInput_DoubleSpoiler;
         private System.Windows.Forms.CheckBox D3DMultiThredforDubleSpoiler;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.GroupBox Vsync_th128;
-        private System.Windows.Forms.RadioButton G3_OriginalDraw;
-        private System.Windows.Forms.RadioButton G3_NoVsync;
-        private System.Windows.Forms.RadioButton G3_MonitorRefreshLate;
     }
 }

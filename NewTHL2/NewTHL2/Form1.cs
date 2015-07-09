@@ -1374,7 +1374,10 @@ namespace NewTHL2
             //keyとvalueを取得
             Dictionary<string,string> settingsFileIni = NewTHL2.algo.IniFileValueReturn.getSettingsFileValue(settingFilePath, backupSection);
 
+            //バックアップクラスをインスタンス化
             Backup BU = new Backup();
+            BU.initialize(settingsFileIni, Thxx[select].ToString());
+            //モーダルウィンドウで表示
             BU.ShowDialog();
         }
 
