@@ -62,7 +62,7 @@ th06_Replay =
 [TH07BU]
 th07_Save = 
 th07_Replay = 
-th06_SnapShot= 
+th07_SnapShot= 
 [TH08BU]
 th08_Save = 
 th08_Replay = 
@@ -84,29 +84,30 @@ th10_Hint =
 [TH11BU]
 th11_Save = 
 th11_Replay = 
-th11_Snapshot = 
+th11_SnapShot = 
+th11_Hint =
 [TH12BU]
 th12_Save = 
 th12_Replay = 
-th12_Snapshot = 
+th12_SnapShot = 
 [TH125BU]
 th125_Save = 
 th125_Replay = 
-th125_Snapshot = 
+th125_SnapShot = 
 th125_BestShot = 
 [TH128BU]
 th128_Save =  
 th128_Replay =  
-th128_Snapshot =  
+th128_SnapShot =  
 [TH13BU]
 th13_Save = 
 th13_Replay = 
-th13_Snapshot = 
+th13_SnapShot = 
 [TH14BU]
 th14_Save = 
 th14_AutoSave = 
 th14_Replay = 
-th14_Snapshot = 
+th14_SnapShot = 
 [TH143BU]
 th143_Save = 
 th143_Replay = 
@@ -142,12 +143,11 @@ th135_Replay =
 th135_Profile = 
 th135_Icon = 
 th135_Okubi = 
-th135_SnapShot= 
 [TH145BU]
 th145_Save = 
 th145_Replay = 
 th145_Profile = 
-th145_SnapShot = 
 th145_Icon = 
 th145_Macro = 
+th145_Okubi = 
 ///ここまで///

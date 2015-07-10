@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Backup));
             this.cancelButton = new System.Windows.Forms.Button();
             this.decideButton = new System.Windows.Forms.Button();
             this.savedata_TextBox = new System.Windows.Forms.TextBox();
@@ -56,9 +57,12 @@
             this.macroBackupFolder_Browse_Button = new System.Windows.Forms.Button();
             this.macro_TextBox = new System.Windows.Forms.TextBox();
             this.hint_Group = new System.Windows.Forms.GroupBox();
-            this.hitnBackupFolder_Browse_Button = new System.Windows.Forms.Button();
+            this.hintBackupFolder_Browse_Button = new System.Windows.Forms.Button();
             this.hint_TextBox = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.icon_Group = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.icon_Textbox = new System.Windows.Forms.TextBox();
             this.savedata_Group.SuspendLayout();
             this.replay_Group.SuspendLayout();
             this.screenShot_Group.SuspendLayout();
@@ -68,11 +72,12 @@
             this.Okubi_Group.SuspendLayout();
             this.macro_Group.SuspendLayout();
             this.hint_Group.SuspendLayout();
+            this.icon_Group.SuspendLayout();
             this.SuspendLayout();
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(57, 601);
+            this.cancelButton.Location = new System.Drawing.Point(57, 660);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(149, 49);
             this.cancelButton.TabIndex = 0;
@@ -82,7 +87,7 @@
             // 
             // decideButton
             // 
-            this.decideButton.Location = new System.Drawing.Point(366, 601);
+            this.decideButton.Location = new System.Drawing.Point(366, 660);
             this.decideButton.Name = "decideButton";
             this.decideButton.Size = new System.Drawing.Size(149, 49);
             this.decideButton.TabIndex = 1;
@@ -132,7 +137,9 @@
             this.savedataBuckupFolder_Browse_button.Size = new System.Drawing.Size(75, 23);
             this.savedataBuckupFolder_Browse_button.TabIndex = 16;
             this.savedataBuckupFolder_Browse_button.Text = "参照";
+            this.toolTip1.SetToolTip(this.savedataBuckupFolder_Browse_button, resources.GetString("savedataBuckupFolder_Browse_button.ToolTip"));
             this.savedataBuckupFolder_Browse_button.UseVisualStyleBackColor = true;
+            this.savedataBuckupFolder_Browse_button.Click += new System.EventHandler(this.savedataBuckupFolder_Browse_button_Click);
             // 
             // replayBackupFolder_Browse_Button
             // 
@@ -141,7 +148,9 @@
             this.replayBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.replayBackupFolder_Browse_Button.TabIndex = 17;
             this.replayBackupFolder_Browse_Button.Text = "参照";
+            this.toolTip1.SetToolTip(this.replayBackupFolder_Browse_Button, resources.GetString("replayBackupFolder_Browse_Button.ToolTip"));
             this.replayBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.replayBackupFolder_Browse_Button.Click += new System.EventHandler(this.replayBackupFolder_Browse_Button_Click);
             // 
             // screenShotBackupFolder_Browse_Button
             // 
@@ -150,7 +159,11 @@
             this.screenShotBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.screenShotBackupFolder_Browse_Button.TabIndex = 18;
             this.screenShotBackupFolder_Browse_Button.Text = "参照";
+            this.toolTip1.SetToolTip(this.screenShotBackupFolder_Browse_Button, "スナップショットのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n　　　　　　　　　　　　（年月日のフォルダを作成します）\r\n参照したフォルダ " +
+        "- thxx - YYYYMMDD - ここに画像ファイル\r\n                                   |\r\n           " +
+        "                        -  thxx - ...\r\n");
             this.screenShotBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.screenShotBackupFolder_Browse_Button.Click += new System.EventHandler(this.screenShotBackupFolder_Browse_Button_Click);
             // 
             // autoSaveBackUpFolder_Browse_Button
             // 
@@ -159,7 +172,9 @@
             this.autoSaveBackUpFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.autoSaveBackUpFolder_Browse_Button.TabIndex = 19;
             this.autoSaveBackUpFolder_Browse_Button.Text = "参照";
+            this.toolTip1.SetToolTip(this.autoSaveBackUpFolder_Browse_Button, resources.GetString("autoSaveBackUpFolder_Browse_Button.ToolTip"));
             this.autoSaveBackUpFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.autoSaveBackUpFolder_Browse_Button.Click += new System.EventHandler(this.autoSaveBackUpFolder_Browse_Button_Click);
             // 
             // profileBackupFolder_Browse_Button
             // 
@@ -168,7 +183,9 @@
             this.profileBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.profileBackupFolder_Browse_Button.TabIndex = 20;
             this.profileBackupFolder_Browse_Button.Text = "参照";
+            this.toolTip1.SetToolTip(this.profileBackupFolder_Browse_Button, resources.GetString("profileBackupFolder_Browse_Button.ToolTip"));
             this.profileBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.profileBackupFolder_Browse_Button.Click += new System.EventHandler(this.profileBackupFolder_Browse_Button_Click);
             // 
             // bestShotBackupFolder_Browse_Button
             // 
@@ -177,7 +194,10 @@
             this.bestShotBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.bestShotBackupFolder_Browse_Button.TabIndex = 25;
             this.bestShotBackupFolder_Browse_Button.Text = "参照";
+            this.toolTip1.SetToolTip(this.bestShotBackupFolder_Browse_Button, "ベストショットの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - YYYYMMDD - ここにベストショットのデータ\r\n" +
+        "                         |\r\n                         -  thxx - ...\r\n");
             this.bestShotBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.bestShotBackupFolder_Browse_Button.Click += new System.EventHandler(this.bestShotBackupFolder_Browse_Button_Click);
             // 
             // bestShot_TextBox
             // 
@@ -274,7 +294,10 @@
             this.OkubiBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.OkubiBackupFolder_Browse_Button.TabIndex = 23;
             this.OkubiBackupFolder_Browse_Button.Text = "参照";
+            this.toolTip1.SetToolTip(this.OkubiBackupFolder_Browse_Button, "御首頂戴帳のバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - YYYYMMDD - ここに御首頂戴帳のデー" +
+        "タ\r\n                         |\r\n                         -  thxx - ...");
             this.OkubiBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.OkubiBackupFolder_Browse_Button.Click += new System.EventHandler(this.OkubiBackupFolder_Browse_Button_Click);
             // 
             // okubi_Textbox
             // 
@@ -287,7 +310,7 @@
             // 
             this.macro_Group.Controls.Add(this.macroBackupFolder_Browse_Button);
             this.macro_Group.Controls.Add(this.macro_TextBox);
-            this.macro_Group.Location = new System.Drawing.Point(0, 525);
+            this.macro_Group.Location = new System.Drawing.Point(0, 580);
             this.macro_Group.Name = "macro_Group";
             this.macro_Group.Size = new System.Drawing.Size(583, 59);
             this.macro_Group.TabIndex = 27;
@@ -302,7 +325,10 @@
             this.macroBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.macroBackupFolder_Browse_Button.TabIndex = 24;
             this.macroBackupFolder_Browse_Button.Text = "参照";
+            this.toolTip1.SetToolTip(this.macroBackupFolder_Browse_Button, "マクロのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - キャラクタ名 - YYYYMMDD_HHMMSS" +
+        "_元の名前.mcr\r\n                         |\r\n                         -  thxx - ...");
             this.macroBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.macroBackupFolder_Browse_Button.Click += new System.EventHandler(this.macroBackupFolder_Browse_Button_Click);
             // 
             // macro_TextBox
             // 
@@ -313,7 +339,7 @@
             // 
             // hint_Group
             // 
-            this.hint_Group.Controls.Add(this.hitnBackupFolder_Browse_Button);
+            this.hint_Group.Controls.Add(this.hintBackupFolder_Browse_Button);
             this.hint_Group.Controls.Add(this.hint_TextBox);
             this.hint_Group.Location = new System.Drawing.Point(0, 265);
             this.hint_Group.Name = "hint_Group";
@@ -324,14 +350,16 @@
             this.toolTip1.SetToolTip(this.hint_Group, "ヒント機能のバックアップ場所の指定です。\r\n\r\n対応作品\r\n風神録\r\n地霊殿（非公式）\r\n※地霊殿においてのヒント機能の使用方法はここには明記いたしません。\r\n　" +
         "自分でググってください。");
             // 
-            // hitnBackupFolder_Browse_Button
+            // hintBackupFolder_Browse_Button
             // 
-            this.hitnBackupFolder_Browse_Button.Location = new System.Drawing.Point(461, 30);
-            this.hitnBackupFolder_Browse_Button.Name = "hitnBackupFolder_Browse_Button";
-            this.hitnBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
-            this.hitnBackupFolder_Browse_Button.TabIndex = 25;
-            this.hitnBackupFolder_Browse_Button.Text = "参照";
-            this.hitnBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.hintBackupFolder_Browse_Button.Location = new System.Drawing.Point(461, 30);
+            this.hintBackupFolder_Browse_Button.Name = "hintBackupFolder_Browse_Button";
+            this.hintBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
+            this.hintBackupFolder_Browse_Button.TabIndex = 25;
+            this.hintBackupFolder_Browse_Button.Text = "参照";
+            this.toolTip1.SetToolTip(this.hintBackupFolder_Browse_Button, resources.GetString("hintBackupFolder_Browse_Button.ToolTip"));
+            this.hintBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
+            this.hintBackupFolder_Browse_Button.Click += new System.EventHandler(this.hintBackupFolder_Browse_Button_Click);
             // 
             // hint_TextBox
             // 
@@ -340,12 +368,51 @@
             this.hint_TextBox.Size = new System.Drawing.Size(395, 19);
             this.hint_TextBox.TabIndex = 24;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 100000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
+            // 
+            // icon_Group
+            // 
+            this.icon_Group.Controls.Add(this.button1);
+            this.icon_Group.Controls.Add(this.icon_Textbox);
+            this.icon_Group.Location = new System.Drawing.Point(0, 519);
+            this.icon_Group.Name = "icon_Group";
+            this.icon_Group.Size = new System.Drawing.Size(583, 59);
+            this.icon_Group.TabIndex = 28;
+            this.icon_Group.TabStop = false;
+            this.icon_Group.Text = "アイコン";
+            this.toolTip1.SetToolTip(this.icon_Group, "アイコンのバックアップ場所の指定です。\r\n\r\n対応作品\r\n心綺楼\r\n深秘録");
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(461, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "参照";
+            this.toolTip1.SetToolTip(this.button1, "アイコンのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - YYYYMMDD - アイコンのデータを入れま" +
+        "す\r\n                         |\r\n                         -  thxx - ...");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // icon_Textbox
+            // 
+            this.icon_Textbox.Location = new System.Drawing.Point(12, 34);
+            this.icon_Textbox.Name = "icon_Textbox";
+            this.icon_Textbox.Size = new System.Drawing.Size(395, 19);
+            this.icon_Textbox.TabIndex = 23;
+            // 
             // Backup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 662);
+            this.ClientSize = new System.Drawing.Size(584, 722);
+            this.Controls.Add(this.icon_Group);
             this.Controls.Add(this.hint_Group);
+            this.Controls.Add(this.macro_Group);
             this.Controls.Add(this.screenShotBackupFolder_Browse_Button);
             this.Controls.Add(this.replayBackupFolder_Browse_Button);
             this.Controls.Add(this.savedataBuckupFolder_Browse_button);
@@ -358,7 +425,6 @@
             this.Controls.Add(this.autoSave_Group);
             this.Controls.Add(this.profile_Group);
             this.Controls.Add(this.Okubi_Group);
-            this.Controls.Add(this.macro_Group);
             this.Name = "Backup";
             this.Text = "バックアップフォルダの設定";
             this.Load += new System.EventHandler(this.Backup_Load);
@@ -380,6 +446,8 @@
             this.macro_Group.PerformLayout();
             this.hint_Group.ResumeLayout(false);
             this.hint_Group.PerformLayout();
+            this.icon_Group.ResumeLayout(false);
+            this.icon_Group.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -413,8 +481,11 @@
         private System.Windows.Forms.Button macroBackupFolder_Browse_Button;
         private System.Windows.Forms.TextBox macro_TextBox;
         private System.Windows.Forms.GroupBox hint_Group;
-        private System.Windows.Forms.Button hitnBackupFolder_Browse_Button;
+        private System.Windows.Forms.Button hintBackupFolder_Browse_Button;
         private System.Windows.Forms.TextBox hint_TextBox;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.GroupBox icon_Group;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox icon_Textbox;
     }
 }

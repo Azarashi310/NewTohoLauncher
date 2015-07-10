@@ -120,4 +120,52 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="savedataBuckupFolder_Browse_button.ToolTip" xml:space="preserve">
+    <value>セーブデータのバックアップの保存先を決めます
+
+バックアップの保存方法は
+　　　　　　　　　　　　（年月日＋時間 + 元の名前.datです）
+参照したフォルダ - thxx - YYYYMMDD_HHMMSS_score(thxx).dat
+                                  |
+                                 -  thxx - ...
+                                 ...</value>
+  </data>
+  <data name="replayBackupFolder_Browse_Button.ToolTip" xml:space="preserve">
+    <value>リプレイのバックアップの保存先を決めます
+
+バックアップの保存方法は
+                                      (年月日＋時間のフォルダを作成)
+参照したフォルダ -  thxx - YYYYMMDD_HHMMSS - リプレイデータ
+                         |
+                         -  thxx - ...
+</value>
+  </data>
+  <data name="autoSaveBackUpFolder_Browse_Button.ToolTip" xml:space="preserve">
+    <value>自動セーブのバックアップの保存先を決めます
+
+バックアップの保存方法は
+                                     （年月日＋時間 + 元の名前.datです）
+参照したフォルダ - thxx - YYYYMMDD_HHMMSS_userhint.dat
+                         |
+                         -  thxx - ...</value>
+  </data>
+  <data name="profileBackupFolder_Browse_Button.ToolTip" xml:space="preserve">
+    <value>プロファイルのバックアップの保存先を決めます
+
+バックアップの保存方法は
+                                     （年月日＋時間 + 元の名前.prfです）
+参照したフォルダ - thxx - YYYYMMDD_HHMMSS_userhint.prf
+                         |
+                         -  thxx - ...</value>
+  </data>
+  <data name="hintBackupFolder_Browse_Button.ToolTip" xml:space="preserve">
+    <value>ヒントのバックアップの保存先を決めます
+
+バックアップの保存方法は
+                                     （年月日＋時間 + 元の名前.txtです）
+参照したフォルダ - thxx - YYYYMMDD_HHMMSS_userhint.txt
+                         |
+                         -  thxx - ...
+</value>
+  </data>
 </root>

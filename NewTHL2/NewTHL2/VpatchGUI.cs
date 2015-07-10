@@ -19,6 +19,7 @@ namespace NewTHL2
         public VpatchGUI()
         {
             InitializeComponent();
+            //閉じるボタンとか消すやつ
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ControlBox = !this.ControlBox;
             //this.trackBar1.ValueChanged += trackBar1_ValueChanged;
@@ -895,33 +896,39 @@ namespace NewTHL2
         }
         #endregion
         #region ハードコア
-        //Th13バイリニアフィルタリング
-        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        //動作させるcpuコア数
+        //特に指定しない
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if(Bilinearfiltering.Checked )
+            if(radioButton1.Checked)
             {
-                vpatchValues["D3DMultiThread"] = "1";
-            }
-            else
-            {
-                vpatchValues["D3DMultiThread"] = "0";
+                vpatchValues["ProcessAffinityMask"] = "0";
             }
         }
-
-        //th13Checksum
-        private void checksum_CheckedChanged(object sender, EventArgs e)
+        //CPU 0　で動作させる
+        private void CPU0Work_CheckedChanged(object sender, EventArgs e)
         {
-            //th13.exeのチェックサムを無効にする
-            if(checksum.Checked )
+            if(CPU0Work.Checked)
             {
-                vpatchValues["DisableChecksum"] = "1";
-            }
-            else
-            {
-                vpatchValues["DisableChecksum"] = "0";
+                vpatchValues["ProcessAffinityMask"] = "1";
             }
         }
-
+        //CPU 1 で動作させる
+        private void CPU1Work_CheckedChanged(object sender, EventArgs e)
+        {
+            if(CPU1Work.Checked)
+            {
+                vpatchValues["ProcessAffinityMask"] = "2";
+            }
+        }
+        //CPU　0 と COU 1　で動作させる
+        private void CPU0_CPU1Work_CheckedChanged(object sender, EventArgs e)
+        {
+            if(CPU0_CPU1Work.Checked)
+            {
+                vpatchValues["ProcessAffinityMask"] = "3";
+            }
+        }
         //DirectInput_DoubleSpoiler
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
@@ -954,6 +961,31 @@ namespace NewTHL2
         {
             //Direct3Dをマルチスレッドで動かす
             if (D3DMultiThredforTenDesire.Checked )
+            {
+                vpatchValues["D3DMultiThread"] = "1";
+            }
+            else
+            {
+                vpatchValues["D3DMultiThread"] = "0";
+            }
+        }
+        //th13Checksum
+        private void checksum_CheckedChanged(object sender, EventArgs e)
+        {
+            //th13.exeのチェックサムを無効にする
+            if (checksum.Checked)
+            {
+                vpatchValues["DisableChecksum"] = "1";
+            }
+            else
+            {
+                vpatchValues["DisableChecksum"] = "0";
+            }
+        }
+        //Th13バイリニアフィルタリング
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Bilinearfiltering.Checked)
             {
                 vpatchValues["D3DMultiThread"] = "1";
             }
@@ -1033,7 +1065,11 @@ namespace NewTHL2
         //キャンセルボタン
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult = MessageBox.Show("キャンセルしますか？", "お知らせ", MessageBoxButtons.OKCancel);
+            if(DialogResult == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -1045,7 +1081,5 @@ namespace NewTHL2
         {
 
         }
-
-
     }
 }

@@ -1376,7 +1376,8 @@ namespace NewTHL2
 
             //バックアップクラスをインスタンス化
             Backup BU = new Backup();
-            BU.initialize(settingsFileIni, Thxx[select].ToString());
+            //初期化
+            BU.initialize(settingsFileIni, Thxx[select].ToString(),settingFilePath);
             //モーダルウィンドウで表示
             BU.ShowDialog();
         }

@@ -952,6 +952,7 @@
             this.CPU0_CPU1Work.TabStop = true;
             this.CPU0_CPU1Work.Text = "CPU0とCPU1で動作させる";
             this.CPU0_CPU1Work.UseVisualStyleBackColor = true;
+            this.CPU0_CPU1Work.CheckedChanged += new System.EventHandler(this.CPU0_CPU1Work_CheckedChanged);
             // 
             // CPU1Work
             // 
@@ -963,6 +964,7 @@
             this.CPU1Work.TabStop = true;
             this.CPU1Work.Text = "CPU1で動作させる";
             this.CPU1Work.UseVisualStyleBackColor = true;
+            this.CPU1Work.CheckedChanged += new System.EventHandler(this.CPU1Work_CheckedChanged);
             // 
             // CPU0Work
             // 
@@ -974,6 +976,7 @@
             this.CPU0Work.TabStop = true;
             this.CPU0Work.Text = "CPU0で動作させる";
             this.CPU0Work.UseVisualStyleBackColor = true;
+            this.CPU0Work.CheckedChanged += new System.EventHandler(this.CPU0Work_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -985,6 +988,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "特に指定しない";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // button1
             // 

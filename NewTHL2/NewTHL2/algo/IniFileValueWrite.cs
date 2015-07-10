@@ -39,18 +39,22 @@ namespace NewTHL2.algo
 
             //キーのカウントのtemp
             int key_temp = 0;
-
+            //消化した分のキー数
+            int usedKey = 0;
+            //全部キーを消化した場合のフラグ
+            bool endKey = false;
             //キーのみを抽出
             List<string> keyList = new List<string>(Dic.Keys);
             //バリューのみ抽出
             List<string> valueList = new List<string>(Dic.Values);
 
 
-            for (int sec_count = 0; sec_count < section.Count; sec_count++)
+            for (int sec_count = 0; sec_count <= section.Count -1; sec_count++)
             {
-                for (int key_count = 0; key_count < Dic.Keys.Count; key_count++)
+                for (int key_count = 0; key_count <= Dic.Keys.Count -1; key_count++)
                 {
                     key_count = key_temp;
+
                     //現在のセクションにそのキーが存在するか確認する用
                     GetPrivateProfileString(section[sec_count], keyList[key_count], "null", getValue, Convert.ToUInt32(getValue.Capacity), FilePath);
 
@@ -58,14 +62,28 @@ namespace NewTHL2.algo
                     {
                         //iniへの書き込み
                         WritePrivateProfileString(section[sec_count], keyList[key_count], valueList[key_count], FilePath);
+                        
+                        //使用したキー数を監視
+                        usedKey++;
+                        if(usedKey == Dic.Keys.Count)
+                        {
+                            endKey = true;
+                        }
+                        
                         key_temp++;
                     }
+                    //セクション移動用
                     else if (getValue.ToString() == "null")
                     {
                         key_temp = key_count;
                         break;
                     }
 
+                }
+                //キーをすべて消化した時用
+                if (endKey)
+                {
+                    break;
                 }
             }
         }
