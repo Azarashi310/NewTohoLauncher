@@ -203,6 +203,7 @@ namespace NewTHL2
             pictureBox1.MouseDown += pictureBox1_MouseDown;
             pictureBox1.MouseUp += pictureBox1_MouseUp;
         }
+        #region 初期化
         //パネルのアイコンの初期化
         private void panelIconInitialize()
         {
@@ -684,8 +685,8 @@ namespace NewTHL2
                 }
             }
         }
-
-        //複数のイベントハンドラを処理する
+        #endregion
+        //複数のイベントハンドラを処理する（左のメニューをクリックした場合のやつ）
         void gamePanel_Click(object sender, EventArgs e)
         {
             string EXE;
@@ -963,6 +964,30 @@ namespace NewTHL2
                     rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
                 }
             }
+
+            //Vpatchのチェックボックスの設定
+            if((Thxx[select].ToString() == "th06") || (Thxx[select].ToString() == "th07") || (Thxx[select].ToString() == "th08") || (Thxx[select].ToString() == "th09")
+                ||(Thxx[select].ToString() == "th095") || (Thxx[select].ToString() == "th10") || (Thxx[select].ToString() == "th11") || (Thxx[select].ToString() == "th12")
+                ||(Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") || (Thxx[select].ToString() == "th13") || (Thxx[select].ToString() == "alcostg"))
+            {
+                //vpatchのトグルスイッチの有効化
+                vpatch_Toggle.Enabled = true;
+                //setting.iniのkeyとvalueを取得
+                Dictionary<string, string> settingIniValue = algo.IniFileValueReturn.getIniFileValue(settingFilePath);
+                if(settingIniValue[Thxx[select].ToString() + "_V"] == "True")
+                {
+                    vpatch_Toggle.Checked = true;
+                }
+                else
+                {
+                    vpatch_Toggle.Checked = false;
+                }
+            }
+            else
+            {
+                vpatch_Toggle.Enabled = false;
+                vpatch_Toggle.Checked = false;
+            }
             //コンテクストメニューの設定
             gameSettingSelector();
             #endregion
@@ -988,7 +1013,7 @@ namespace NewTHL2
             }
             //ファイルダイアログを開き、ファイルパスを取得
             FP = algo.OFDandSFD.FBD_Run();
-            if (FP == @"C:\Windows")
+            if (FP == "")
             {
                 MessageBox.Show("キャンセルされました", "お知らせ");
                 return;
@@ -1197,6 +1222,22 @@ namespace NewTHL2
                     P.StartInfo.WorkingDirectory = FP_switch[select];
                     P.Start();
                 }
+            }
+        }
+
+        //Vpatchを使うかどうかのチェックボックス
+        private void vpatch_Toggle_CheckedChanged(object sender, EventArgs e)
+        {
+            Dictionary<string, string> runVpatch = new Dictionary<string, string>();
+            if(vpatch_Toggle.Checked)
+            {
+                runVpatch.Add(Thxx[select].ToString() + "_V", "True");
+                algo.IniFileValueWrite.IniFileWriter(runVpatch, settingFilePath);
+            }
+            else
+            {
+                runVpatch.Add(Thxx[select].ToString() + "_V", "False");
+                algo.IniFileValueWrite.IniFileWriter(runVpatch, settingFilePath);
             }
         }
 
@@ -1579,13 +1620,5 @@ namespace NewTHL2
         {
 
         }
-
-
-
-        
-
-
-
-
     }
 }

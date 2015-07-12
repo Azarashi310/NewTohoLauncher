@@ -1032,6 +1032,7 @@
             this.vpatch_Toggle.TabIndex = 11;
             this.vpatch_Toggle.Text = "Vpatchで起動";
             this.vpatch_Toggle.UseVisualStyleBackColor = true;
+            this.vpatch_Toggle.CheckedChanged += new System.EventHandler(this.vpatch_Toggle_CheckedChanged);
             // 
             // pictureBox1
             // 
