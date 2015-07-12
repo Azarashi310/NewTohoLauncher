@@ -143,7 +143,7 @@
             // 
             // replayBackupFolder_Browse_Button
             // 
-            this.replayBackupFolder_Browse_Button.Location = new System.Drawing.Point(461, 95);
+            this.replayBackupFolder_Browse_Button.Location = new System.Drawing.Point(461, 28);
             this.replayBackupFolder_Browse_Button.Name = "replayBackupFolder_Browse_Button";
             this.replayBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.replayBackupFolder_Browse_Button.TabIndex = 17;
@@ -154,7 +154,7 @@
             // 
             // screenShotBackupFolder_Browse_Button
             // 
-            this.screenShotBackupFolder_Browse_Button.Location = new System.Drawing.Point(461, 160);
+            this.screenShotBackupFolder_Browse_Button.Location = new System.Drawing.Point(461, 28);
             this.screenShotBackupFolder_Browse_Button.Name = "screenShotBackupFolder_Browse_Button";
             this.screenShotBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.screenShotBackupFolder_Browse_Button.TabIndex = 18;
@@ -220,6 +220,7 @@
             // replay_Group
             // 
             this.replay_Group.Controls.Add(this.replay_Textbox);
+            this.replay_Group.Controls.Add(this.replayBackupFolder_Browse_Button);
             this.replay_Group.Location = new System.Drawing.Point(0, 70);
             this.replay_Group.Name = "replay_Group";
             this.replay_Group.Size = new System.Drawing.Size(583, 59);
@@ -231,6 +232,7 @@
             // screenShot_Group
             // 
             this.screenShot_Group.Controls.Add(this.screenShot_Textbox);
+            this.screenShot_Group.Controls.Add(this.screenShotBackupFolder_Browse_Button);
             this.screenShot_Group.Location = new System.Drawing.Point(0, 135);
             this.screenShot_Group.Name = "screenShot_Group";
             this.screenShot_Group.Size = new System.Drawing.Size(583, 59);
@@ -413,8 +415,6 @@
             this.Controls.Add(this.icon_Group);
             this.Controls.Add(this.hint_Group);
             this.Controls.Add(this.macro_Group);
-            this.Controls.Add(this.screenShotBackupFolder_Browse_Button);
-            this.Controls.Add(this.replayBackupFolder_Browse_Button);
             this.Controls.Add(this.savedataBuckupFolder_Browse_button);
             this.Controls.Add(this.decideButton);
             this.Controls.Add(this.cancelButton);

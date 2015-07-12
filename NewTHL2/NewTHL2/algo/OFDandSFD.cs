@@ -22,11 +22,17 @@ namespace NewTHL2.algo
             //新規フォルダーを作れるか。
             FBD.ShowNewFolderButton = true;
             //ダイアログの表示
-            if (FBD.ShowDialog() == DialogResult.OK)
+            DialogResult result = FBD.ShowDialog();
+            //ダイアログの表示
+            if (result == DialogResult.OK)
             {
-
+                return FBD.SelectedPath;
             }
-            return FBD.SelectedPath;
+            else if(result == DialogResult.Cancel)
+            {
+                return "";
+            }
+            return "";
         }
         public static void OFD_Run(string str)
         {
@@ -55,10 +61,6 @@ namespace NewTHL2.algo
             {
 
             }
-            else
-            {
-
-            }
         }
         //hashテーブル参照用
         public static void OFD_hash()
@@ -72,11 +74,9 @@ namespace NewTHL2.algo
             {
 
             }
-            else
-            {
-
-            }
         }
+
+
         public static void SFD_Run()
         {
             DateTime DT = DateTime.Now;
@@ -87,10 +87,6 @@ namespace NewTHL2.algo
             SFD.FilterIndex = 1;
             SFD.Title = "ファイルパスバックアップを保存する場所を選んで下さい";
             if (SFD.ShowDialog() == DialogResult.OK)
-            {
-
-            }
-            else
             {
 
             }

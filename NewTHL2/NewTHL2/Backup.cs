@@ -18,6 +18,8 @@ namespace NewTHL2
         private string FilePath;
         //選択されている作品
         private string selectedWork;
+        //フォルダ参照がキャンセルされているか
+        private bool cancel = false;
 
         public Backup()
         {
@@ -176,10 +178,12 @@ namespace NewTHL2
                 {
                     profile_Group.Enabled = true;
                     Okubi_Group.Enabled = true;
+                    icon_Group.Enabled = true;
 
                     //テキストボックスに入れる
                     settingIniFile[selectedWork + "_Profile"] = profile_Textbox.Text;
                     settingIniFile[selectedWork + "_Okubi"] = okubi_Textbox.Text;
+                    settingIniFile[selectedWork + "_Icon"] = icon_Textbox.Text;
                 }
                 //深秘録
                 if (selectedWork == "th145")
@@ -187,11 +191,13 @@ namespace NewTHL2
                     profile_Group.Enabled = true;
                     Okubi_Group.Enabled = true;
                     macro_Group.Enabled = true;
+                    icon_Group.Enabled = true;
 
                     //テキストボックスに入れる
                     settingIniFile[selectedWork + "_Profile"] = profile_Textbox.Text;
                     settingIniFile[selectedWork + "_Okubi"] = okubi_Textbox.Text;
                     settingIniFile[selectedWork + "_Macro"] = macro_TextBox.Text;
+                    settingIniFile[selectedWork + "_Icon"] = icon_Textbox.Text;
                 }
                 //東方紺珠伝 ～ Legacy of Lunatic Kingdom.
                 if (selectedWork == "th15")
@@ -222,54 +228,146 @@ namespace NewTHL2
         //セーブデータのフォルダパス参照
         private void savedataBuckupFolder_Browse_button_Click(object sender, EventArgs e)
         {
-            savedata_TextBox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if(!cancel)
+            {
+                savedata_TextBox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //リプレイのフォルダパス参照
         private void replayBackupFolder_Browse_Button_Click(object sender, EventArgs e)
         {
-            replay_Textbox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                replay_Textbox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //スクリーンショットのフォルダパス参照
         private void screenShotBackupFolder_Browse_Button_Click(object sender, EventArgs e)
         {
-            screenShot_Textbox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                screenShot_Textbox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //ベストショットのフォルダパス参照
         private void bestShotBackupFolder_Browse_Button_Click(object sender, EventArgs e)
         {
-            bestShot_TextBox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                bestShot_TextBox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //ヒントのフォルダパス参照
         private void hintBackupFolder_Browse_Button_Click(object sender, EventArgs e)
         {
-            hint_TextBox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                hint_TextBox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //自動セーブのフォルダパス参照
         private void autoSaveBackUpFolder_Browse_Button_Click(object sender, EventArgs e)
         {
-            autoSave_TextBox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                autoSave_TextBox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //プロフィールのフォルダパス参照
         private void profileBackupFolder_Browse_Button_Click(object sender, EventArgs e)
         {
-            profile_Textbox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                profile_Textbox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //御首頂戴帳のフォルダパス参照
         private void OkubiBackupFolder_Browse_Button_Click(object sender, EventArgs e)
         {
-            okubi_Textbox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                okubi_Textbox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //アイコンのフォルダパス参照
         private void button1_Click(object sender, EventArgs e)
         {
-            icon_Textbox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                icon_Textbox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         //マクロのフォルダパス参照
         private void macroBackupFolder_Browse_Button_Click(object sender, EventArgs e)
         {
-            macro_TextBox.Text = algo.OFDandSFD.FBD_Run();
+            string folderPath = getFolderPath();
+            if (!cancel)
+            {
+                macro_TextBox.Text = folderPath;
+            }
+            else
+            {
+                MessageBox.Show("キャンセルされました", "お知らせ");
+            }
         }
         
+        //フォルダパスを取得する
+        private string getFolderPath()
+        {
+            string folderPath = "";
+
+            folderPath = algo.OFDandSFD.FBD_Run();
+            if(folderPath == "")
+            {
+                cancel = true;
+            }
+            return folderPath;
+        }
 
     }
 }

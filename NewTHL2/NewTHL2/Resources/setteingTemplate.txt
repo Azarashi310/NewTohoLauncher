@@ -104,8 +104,7 @@ th13_Save =
 th13_Replay = 
 th13_SnapShot = 
 [TH14BU]
-th14_Save = 
-th14_AutoSave = 
+th14_Save =  
 th14_Replay = 
 th14_SnapShot = 
 [TH143BU]
@@ -116,13 +115,12 @@ th143_SnapShot=
 th15_Save = 
 th15_AutoSave =
 th15_Replay = 
-th15_Profile = 
 th15_SnapShot= 
 ///ここまで///
 ///のんべえ///
 [ALCOSTGBU]
 alcostg_Save = 
-alcostg_Replay 
+alcostg_Replay =
 alcostg_SnapShot= 
 ///ここまで///
 ///黄昏系///
