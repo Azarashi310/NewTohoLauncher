@@ -988,6 +988,7 @@ namespace NewTHL2
                 vpatch_Toggle.Enabled = false;
                 vpatch_Toggle.Checked = false;
             }
+
             //コンテクストメニューの設定
             gameSettingSelector();
             #endregion
@@ -1135,6 +1136,7 @@ namespace NewTHL2
             adonisの設定ToolStripMenuItem.Enabled = true;
             casterの設定ToolStripMenuItem.Enabled = true;
             updaterの起動ToolStripMenuItem.Enabled = true;
+            セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = true;
             if(select == 999)
             {
                 バックアップフォルダの設定ToolStripMenuItem1.Enabled = false;
@@ -1145,6 +1147,7 @@ namespace NewTHL2
                 adonisの設定ToolStripMenuItem.Enabled = false;
                 casterの設定ToolStripMenuItem.Enabled = false;
                 updaterの起動ToolStripMenuItem.Enabled = false;
+                セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = false;
                 return;
             }
             if(FP_switch[select] != "")
@@ -1153,20 +1156,24 @@ namespace NewTHL2
                 ゲームの設定を開くToolStripMenuItem1.Enabled = true;
                 ゲームのフォルダを開くToolStripMenuItem1.Enabled = true;
             }
+            //特殊な設定に関わりがないもの
             if((Thxx[select].ToString() == "alcostg")|(Thxx[select].ToString() == "th075")|(Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123")|
                 (Thxx[select].ToString() == "th135"))
             {
                 特殊な設定ToolStripMenuItem1.Enabled = false;
             }
+            //リプレイのユーザーデータ化
             if(Thxx[select].ToString() == "th10")
             {
                 リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = false;
             }
+            //Vpatchの設定
             if ((Thxx[select].ToString() == "th075") | (Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123") | (Thxx[select].ToString() == "th135")|
                 (Thxx[select].ToString() == "th14") | (Thxx[select].ToString() == "th143") | (Thxx[select].ToString() == "th145") |(Thxx[select].ToString() == "th15"))
             {
                 vpatchの設定ToolStripMenuItem1.Enabled = false;
             }
+            //Adonisの設定
             if(Thxx[select].ToString() == "th09")
             {
                 adonisの設定ToolStripMenuItem.Enabled = true;
@@ -1175,10 +1182,12 @@ namespace NewTHL2
             {
                 adonisの設定ToolStripMenuItem.Enabled = false;
             }
+            //ゲームの設定を開く
             if ((Thxx[select].ToString() == "th105") | (Thxx[select].ToString() == "th123") | (Thxx[select].ToString() == "th135") | (Thxx[select].ToString() == "th145"))
             {
                 ゲームの設定を開くToolStripMenuItem1.Enabled = false;
             }
+            //アップデーターがあるやつ
             if(Thxx[select].ToString() == "th145")
             {
                 updaterの起動ToolStripMenuItem.Enabled = true;
@@ -1187,6 +1196,7 @@ namespace NewTHL2
             {
                 updaterの起動ToolStripMenuItem.Enabled = false;
             }
+            //casterの設定（萃夢想）
             if(Thxx[select].ToString() == "th075")
             {
                 casterの設定ToolStripMenuItem.Enabled = true;
@@ -1194,6 +1204,16 @@ namespace NewTHL2
             if(Thxx[select].ToString() != "th075")
             {
                 casterの設定ToolStripMenuItem.Enabled = false;
+            }
+            //セーブデータが特殊な場所のやつ
+            if((Thxx[select].ToString() == "th125")||(Thxx[select].ToString() == "th128")||(Thxx[select].ToString() == "th13")||(Thxx[select].ToString() == "th14")
+                ||(Thxx[select].ToString() == "th143")||(Thxx[select].ToString() == "th15"))
+            {
+                セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -1265,6 +1285,12 @@ namespace NewTHL2
                 P.Start();
                 this.Close();
             }
+        }
+
+        //ゲーム起動時のバックアップ処理
+        private void gamebackup()
+        {
+
         }
 
         //Vpatchの設定(GUI)
@@ -1402,6 +1428,23 @@ namespace NewTHL2
             else
             {
                 MessageBox.Show("ゲームのフォルダが存在しないようです。" + Environment.NewLine + "設定を再確認してください", "確認して下さい");
+            }
+        }
+
+        //ダブルスポイラー以降のセーブデータフォルダを開く
+        private void セーブデータ等の場所を開くth125以降ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //特殊フォルダのフォルダパスを取得
+            string folderPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            //ShanghaiAliceパスを結合、作品の名前を結合
+            folderPath = Path.Combine(folderPath, "ShanghaiAlice", Thxx[select].ToString());
+            if(Directory.Exists(folderPath))
+            {
+                Process.Start(folderPath);
+            }
+            else
+            {
+                MessageBox.Show("一度でも起動しましたか？してない場合フォルダが作成されていません。", "フォルダがないです");
             }
         }
 

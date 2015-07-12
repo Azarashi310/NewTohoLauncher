@@ -125,6 +125,7 @@
             this.updaterの起動ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -946,10 +947,11 @@
             this.バックアップフォルダの設定ToolStripMenuItem1,
             this.ゲームの設定を開くToolStripMenuItem1,
             this.ゲームのフォルダを開くToolStripMenuItem1,
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem,
             this.ランチャの背景設定ToolStripMenuItem1,
             this.特殊な設定ToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(233, 114);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(314, 158);
             // 
             // バックアップフォルダの設定ToolStripMenuItem1
             // 
@@ -1045,6 +1047,13 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // セーブデータ等の場所を開くth125以降ToolStripMenuItem
+            // 
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Name = "セーブデータ等の場所を開くth125以降ToolStripMenuItem";
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Text = "セーブデータ等の場所を開く（th125以降）";
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Click += new System.EventHandler(this.セーブデータ等の場所を開くth125以降ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1244,6 +1253,7 @@
         private System.Windows.Forms.ToolStripMenuItem updaterの起動ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vpatchファイルのToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ファイルパスの設定の更新ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem セーブデータ等の場所を開くth125以降ToolStripMenuItem;
     }
 }
 
