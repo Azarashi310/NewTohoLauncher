@@ -125,7 +125,7 @@
 
 バックアップの保存方法は
 　　　　　　　　　　　　（年月日＋時間 + 元の名前.datです）
-参照したフォルダ - thxx - YYYYMMDD_HHMMSS_score(thxx).dat
+参照したフォルダ - thxx - yyyyMMdd_HHMMSS_score(thxx).dat
                                   |
                                  -  thxx - ...
                                  ...</value>
@@ -135,7 +135,7 @@
 
 バックアップの保存方法は
                                       (年月日＋時間のフォルダを作成)
-参照したフォルダ -  thxx - YYYYMMDD_HHMMSS - リプレイデータ
+参照したフォルダ -  thxx - yyyyMMdd_HHmmss - リプレイデータ
                          |
                          -  thxx - ...
 </value>
@@ -145,7 +145,7 @@
 
 バックアップの保存方法は
                                      （年月日＋時間 + 元の名前.datです）
-参照したフォルダ - thxx - YYYYMMDD_HHMMSS_userhint.dat
+参照したフォルダ - thxx - yyyyMMdd_HHmmss_userhint.dat
                          |
                          -  thxx - ...</value>
   </data>
@@ -154,7 +154,7 @@
 
 バックアップの保存方法は
                                      （年月日＋時間 + 元の名前.prfです）
-参照したフォルダ - thxx - YYYYMMDD_HHMMSS_userhint.prf
+参照したフォルダ - thxx - yyyyMMdd_HHmmss_userhint.prf
                          |
                          -  thxx - ...</value>
   </data>
@@ -163,7 +163,7 @@
 
 バックアップの保存方法は
                                      （年月日＋時間 + 元の名前.txtです）
-参照したフォルダ - thxx - YYYYMMDD_HHMMSS_userhint.txt
+参照したフォルダ - thxx - yyyyMMdd_HHmmss_userhint.txt
                          |
                          -  thxx - ...
 </value>

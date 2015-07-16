@@ -1261,38 +1261,187 @@ namespace NewTHL2
             }
         }
 
-        //ゲームの起動
+        //ゲームの起動準備
         private void button2_Click(object sender, EventArgs e)
         {
             string startEXE = "";
-            //Vpatch起動の場合(あとで)
-            if(vpatch_Toggle.Checked == true)
+            if(vpatch_Toggle.Checked)
             {
                 startEXE = Path.Combine(textBox1.Text, "vpatch.exe");
-                Process P = new Process();
-                P.StartInfo.FileName = startEXE;
-                P.StartInfo.WorkingDirectory = FP_switch[select];
-                P.Start();
-                this.Close();
             }
-            //通常起動の場合(あとでバックアップの機能とか追加)
             else
             {
                 startEXE = thxx_EXE(textBox1.Text, select);
-                Process P = new Process();
-                P.StartInfo.FileName = startEXE;
-                P.StartInfo.WorkingDirectory = FP_switch[select];
-                P.Start();
+            }
+            //ゲームのバックアップ
+            gamebackup();
+            //ゲームを起動する
+            bool runBool = run(startEXE);
+            if(runBool)
+            {
                 this.Close();
             }
         }
+
+        //ゲームの起動
+        private bool run(string exePath)
+        {
+            Process P = new Process();
+            P.StartInfo.FileName = exePath;
+            P.StartInfo.WorkingDirectory = FP_switch[select];
+            try
+            {
+                P.Start();
+            }
+            catch (System.ComponentModel.Win32Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
 
         //ゲーム起動時のバックアップ処理
         private void gamebackup()
         {
+            //バックアップファイルパス
+            string backupFilePath = "";
+            //元のパス
+            string sourcePath = "";
 
+            //setting.iniから情報を取得
+            Dictionary<string, string> settingIniValue = algo.IniFileValueReturn.getIniFileSectionValue(settingFilePath, Thxx[select].ToString().ToUpper() + "BU");
+            
+            //keyを取得
+            Dictionary<string, string>.KeyCollection keys = settingIniValue.Keys;
+            foreach(string key in keys)
+            {
+                //キーをアンダースコアで分割
+                string splitKey = key.Remove(0, key.IndexOf('_'));
+
+                if((splitKey == "Save") || (splitKey == "Hint"))
+                {
+
+                }
+                else if(splitKey == "AutoSave")
+                {
+
+                }
+                else if(splitKey == "Macro")
+                {
+
+                }
+                //フォルダのバックアップだけですむ奴
+                else
+                {
+                    //スナップショット
+                    if(splitKey == "SnapShot")
+                    {
+                        //ソースパスの設定
+                        if ((Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") ||
+                            (Thxx[select].ToString() == "th13") || (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th143") ||
+                            (Thxx[select].ToString() == "th15"))
+                        {
+                            sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "snapshot");
+                        }
+                        else if(Thxx[select].ToString() == "th145")
+                        {
+                            sourcePath = Path.Combine(FP_switch[select], "ss");
+                        }
+                        else
+                        {
+                            sourcePath = Path.Combine(FP_switch[select], "snapshot");
+                        }
+                       
+                    }
+
+                    //リプレイ
+                    if(splitKey == "Replay")
+                    {
+                        //ソースパスの設定
+                        if ((Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") ||
+                            (Thxx[select].ToString() == "th13") || (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th143") ||
+                            (Thxx[select].ToString() == "th15"))
+                        {
+                            sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "replay");
+                        }
+                        else
+                        {
+                            sourcePath = Path.Combine(FP_switch[select], "replay");
+                        }
+                    }
+
+                    //プロフィール
+                    if(splitKey == "Profile")
+                    {
+                        sourcePath = Path.Combine(FP_switch[select], "profile");
+                    }
+
+                    //アイコン
+                    if(splitKey == "Icon")
+                    {
+                        sourcePath = Path.Combine(FP_switch[select], "icon");
+                    }
+
+                    //御首頂戴帳
+                    if(splitKey == "Okubi")
+                    {
+                        sourcePath = Path.Combine(FP_switch[select], "御首頂戴帳");
+                    }
+
+                    //ベストショット
+                    if(splitKey == "BestShot")
+                    {
+                        if(Thxx[select].ToString() == "th125")
+                        {
+                            sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "bestshot");
+                        }
+                        else
+                        {
+                            sourcePath = Path.Combine(FP_switch[select], "bestshot");
+                        }
+                    }
+
+                    //ソースパスが存在するか？
+                    if (Directory.Exists(sourcePath))
+                    {
+                        //SnapShotのバックアップ
+                        backupFilePath = settingIniValue[key];
+                    }
+
+                    //バックアップフォルダがあるかどうか
+                    if (Directory.Exists(backupFilePath))
+                    {
+                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMM"));
+                    }
+                    else
+                    {
+                        DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
+                            "設定しているパス : " + backupFilePath + Environment.NewLine +
+                            "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
+                        if (DialogResult == DialogResult.Yes)
+                        {
+                            //フォルダの作成
+                            algo.FileManage.folderCreate(backupFilePath);
+                            MessageBox.Show("作成しました", "お知らせ");
+                        }
+                        else
+                        {
+                            MessageBox.Show("フォルダを作成しませんでした。" + Environment.NewLine +
+                                "後ほど、ランチャーからバックアップフォルダパスを再設定してください", "お知らせ");
+                            //フォルダを作成しなかった為、バックアップフォルダを初期化させる
+                            backupFilePath = "";
+                        }
+                    }
+                    //バックアップする
+                    if (backupFilePath != "")
+                    {
+                        algo.FileManage.folderCopy(backupFilePath, sourcePath);
+                    }
+                }
+            }
         }
-
+        
         //Vpatchの設定(GUI)
         private void vpatchの設定ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -1456,7 +1605,7 @@ namespace NewTHL2
             //大文字化
             backupSection.ToUpper();
             //keyとvalueを取得
-            Dictionary<string,string> settingsFileIni = NewTHL2.algo.IniFileValueReturn.getSettingsFileValue(settingFilePath, backupSection);
+            Dictionary<string,string> settingsFileIni = NewTHL2.algo.IniFileValueReturn.getIniFileSectionValue(settingFilePath, backupSection);
 
             //バックアップクラスをインスタンス化
             Backup BU = new Backup();

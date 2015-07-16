@@ -116,12 +116,12 @@ namespace NewTHL2.algo
         }
 
         /// <summary>
-        /// 第一引数にはsettingsのパス、第二引数はバックアップする作品のセクション
+        /// 第一引数にはiniファイルのパス、第二引数は取得したい値があるセクション
         /// </summary>
         /// <param name="path"></param>
-        /// <param name="thbu"></param>
+        /// <param name="section"></param>
         /// <returns></returns>
-        public static Dictionary<string,string> getSettingsFileValue(string path,string thbu)
+        public static Dictionary<string,string> getIniFileSectionValue(string path,string section)
         {
             //返す値
             Dictionary<string, string> backupvalues = new Dictionary<string, string>();
@@ -131,11 +131,11 @@ namespace NewTHL2.algo
             StringBuilder SB = new StringBuilder(1024);
 
             byte[] byteArr = new byte[1024];
-            uint resultSize = GetPrivateProfileStringByByteArray(thbu, null, "", byteArr, (uint)byteArr.Length, path);
+            uint resultSize = GetPrivateProfileStringByByteArray(section, null, "", byteArr, (uint)byteArr.Length, path);
             string result = Encoding.Default.GetString(byteArr, 0, (int)resultSize - 1);
             string[] keys = result.Split('\0');
 
-            //Vpatch.iniのWindow部分のkeyを取得する
+            //iniファイルのkeyを取得
             foreach (string key in keys)
             {
                 keyTemp.Add(key);
@@ -144,7 +144,7 @@ namespace NewTHL2.algo
             //keyを利用してvalueを取得
             for (int i = 0; i < keyTemp.Count;i++ )
             {
-                GetPrivateProfileString(thbu, keyTemp[i], "", SB, Convert.ToUInt32(SB.Capacity), path);
+                GetPrivateProfileString(section, keyTemp[i], "", SB, Convert.ToUInt32(SB.Capacity), path);
                 backupvalues.Add(keyTemp[i], SB.ToString());
             }
             

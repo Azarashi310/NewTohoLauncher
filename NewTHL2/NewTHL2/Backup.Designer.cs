@@ -159,9 +159,9 @@
             this.screenShotBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.screenShotBackupFolder_Browse_Button.TabIndex = 18;
             this.screenShotBackupFolder_Browse_Button.Text = "参照";
-            this.toolTip1.SetToolTip(this.screenShotBackupFolder_Browse_Button, "スナップショットのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n　　　　　　　　　　　　（年月日のフォルダを作成します）\r\n参照したフォルダ " +
-        "- thxx - YYYYMMDD - ここに画像ファイル\r\n                                   |\r\n           " +
-        "                        -  thxx - ...\r\n");
+            this.toolTip1.SetToolTip(this.screenShotBackupFolder_Browse_Button, "スナップショットのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n　　　　　　　　　　　　（年月のフォルダを作成します）\r\n参照したフォルダ -" +
+        " thxx - yyyyMM - ここに画像ファイル\r\n                                   |\r\n              " +
+        "                     -  thxx - ...\r\n");
             this.screenShotBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
             this.screenShotBackupFolder_Browse_Button.Click += new System.EventHandler(this.screenShotBackupFolder_Browse_Button_Click);
             // 
@@ -194,8 +194,8 @@
             this.bestShotBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.bestShotBackupFolder_Browse_Button.TabIndex = 25;
             this.bestShotBackupFolder_Browse_Button.Text = "参照";
-            this.toolTip1.SetToolTip(this.bestShotBackupFolder_Browse_Button, "ベストショットの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - YYYYMMDD - ここにベストショットのデータ\r\n" +
-        "                         |\r\n                         -  thxx - ...\r\n");
+            this.toolTip1.SetToolTip(this.bestShotBackupFolder_Browse_Button, "ベストショットの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - yyyyMM - ここにベストショットのデータ\r\n  " +
+        "                       |\r\n                         -  thxx - ...\r\n");
             this.bestShotBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
             this.bestShotBackupFolder_Browse_Button.Click += new System.EventHandler(this.bestShotBackupFolder_Browse_Button_Click);
             // 
@@ -296,8 +296,8 @@
             this.OkubiBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.OkubiBackupFolder_Browse_Button.TabIndex = 23;
             this.OkubiBackupFolder_Browse_Button.Text = "参照";
-            this.toolTip1.SetToolTip(this.OkubiBackupFolder_Browse_Button, "御首頂戴帳のバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - YYYYMMDD - ここに御首頂戴帳のデー" +
-        "タ\r\n                         |\r\n                         -  thxx - ...");
+            this.toolTip1.SetToolTip(this.OkubiBackupFolder_Browse_Button, "御首頂戴帳のバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - yyyyMMdd- ここに御首頂戴帳のデータ" +
+        "\r\n                         |\r\n                         -  thxx - ...");
             this.OkubiBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
             this.OkubiBackupFolder_Browse_Button.Click += new System.EventHandler(this.OkubiBackupFolder_Browse_Button_Click);
             // 
@@ -327,7 +327,7 @@
             this.macroBackupFolder_Browse_Button.Size = new System.Drawing.Size(75, 23);
             this.macroBackupFolder_Browse_Button.TabIndex = 24;
             this.macroBackupFolder_Browse_Button.Text = "参照";
-            this.toolTip1.SetToolTip(this.macroBackupFolder_Browse_Button, "マクロのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - キャラクタ名 - YYYYMMDD_HHMMSS" +
+            this.toolTip1.SetToolTip(this.macroBackupFolder_Browse_Button, "マクロのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - キャラクタ名 - yyyyMMdd_HHmmss" +
         "_元の名前.mcr\r\n                         |\r\n                         -  thxx - ...");
             this.macroBackupFolder_Browse_Button.UseVisualStyleBackColor = true;
             this.macroBackupFolder_Browse_Button.Click += new System.EventHandler(this.macroBackupFolder_Browse_Button_Click);
@@ -395,8 +395,8 @@
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 24;
             this.button1.Text = "参照";
-            this.toolTip1.SetToolTip(this.button1, "アイコンのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - YYYYMMDD - アイコンのデータを入れま" +
-        "す\r\n                         |\r\n                         -  thxx - ...");
+            this.toolTip1.SetToolTip(this.button1, "アイコンのバックアップの保存先を決めます\r\n\r\nバックアップの保存方法は\r\n\r\n参照したフォルダ - thxx - yyyyMMdd- アイコンのデータを入れます" +
+        "\r\n                         |\r\n                         -  thxx - ...");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
