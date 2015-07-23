@@ -861,6 +861,7 @@
             this.VsyncRev7_Vsyncth128_HardcoreSettings.Text = "VsyncRev7対応分及び妖精大戦争";
             this.toolTip1.SetToolTip(this.VsyncRev7_Vsyncth128_HardcoreSettings, "■対応ゲーム\r\n東方文花帖 ver1.02a\r\n東方風神録 ver1.00a\r\n黄昏酒場   ver1.00a (web配布版)\r\n東方地霊殿 ver1.00a\r" +
         "\n東方星蓮船 ver1.00b\r\nダブルスポイラー ver1.00a\r\n妖精大戦争 ver1.00a");
+            this.VsyncRev7_Vsyncth128_HardcoreSettings.Enter += new System.EventHandler(this.VsyncRev7_Vsyncth128_HardcoreSettings_Enter);
             // 
             // DirectInput_DoubleSpoiler
             // 

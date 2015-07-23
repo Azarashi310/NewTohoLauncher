@@ -116,6 +116,7 @@
             this.バックアップフォルダの設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ゲームの設定を開くToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ゲームのフォルダを開くToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ランチャの背景設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.特殊な設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatchの設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,7 +126,7 @@
             this.updaterの起動ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.タブを増やすToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -198,7 +199,8 @@
             this.設定ファイルのインポートToolStripMenuItem,
             this.設定ファイルのエクスポートToolStripMenuItem,
             this.vpatchファイルのToolStripMenuItem,
-            this.ファイルパスの設定の更新ToolStripMenuItem});
+            this.ファイルパスの設定の更新ToolStripMenuItem,
+            this.タブを増やすToolStripMenuItem});
             this.メニューToolStripMenuItem.Name = "メニューToolStripMenuItem";
             this.メニューToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             this.メニューToolStripMenuItem.Text = "メニュー";
@@ -924,6 +926,7 @@
             // rightPain_BG
             // 
             this.rightPain_BG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightPain_BG.ContextMenuStrip = this.contextMenuStrip2;
             this.rightPain_BG.Location = new System.Drawing.Point(289, 21);
             this.rightPain_BG.Name = "rightPain_BG";
             this.rightPain_BG.Size = new System.Drawing.Size(497, 545);
@@ -951,33 +954,40 @@
             this.ランチャの背景設定ToolStripMenuItem1,
             this.特殊な設定ToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(314, 158);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(314, 136);
             // 
             // バックアップフォルダの設定ToolStripMenuItem1
             // 
             this.バックアップフォルダの設定ToolStripMenuItem1.Name = "バックアップフォルダの設定ToolStripMenuItem1";
-            this.バックアップフォルダの設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.バックアップフォルダの設定ToolStripMenuItem1.Size = new System.Drawing.Size(313, 22);
             this.バックアップフォルダの設定ToolStripMenuItem1.Text = "バックアップフォルダの設定";
             this.バックアップフォルダの設定ToolStripMenuItem1.Click += new System.EventHandler(this.バックアップフォルダの設定ToolStripMenuItem1_Click);
             // 
             // ゲームの設定を開くToolStripMenuItem1
             // 
             this.ゲームの設定を開くToolStripMenuItem1.Name = "ゲームの設定を開くToolStripMenuItem1";
-            this.ゲームの設定を開くToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.ゲームの設定を開くToolStripMenuItem1.Size = new System.Drawing.Size(313, 22);
             this.ゲームの設定を開くToolStripMenuItem1.Text = "ゲームの設定を開く";
             this.ゲームの設定を開くToolStripMenuItem1.Click += new System.EventHandler(this.ゲームの設定を開くToolStripMenuItem1_Click);
             // 
             // ゲームのフォルダを開くToolStripMenuItem1
             // 
             this.ゲームのフォルダを開くToolStripMenuItem1.Name = "ゲームのフォルダを開くToolStripMenuItem1";
-            this.ゲームのフォルダを開くToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.ゲームのフォルダを開くToolStripMenuItem1.Size = new System.Drawing.Size(313, 22);
             this.ゲームのフォルダを開くToolStripMenuItem1.Text = "ゲームのフォルダを開く";
             this.ゲームのフォルダを開くToolStripMenuItem1.Click += new System.EventHandler(this.ゲームのフォルダを開くToolStripMenuItem1_Click);
+            // 
+            // セーブデータ等の場所を開くth125以降ToolStripMenuItem
+            // 
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Name = "セーブデータ等の場所を開くth125以降ToolStripMenuItem";
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Text = "セーブデータ等の場所を開く（th125以降）";
+            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Click += new System.EventHandler(this.セーブデータ等の場所を開くth125以降ToolStripMenuItem_Click);
             // 
             // ランチャの背景設定ToolStripMenuItem1
             // 
             this.ランチャの背景設定ToolStripMenuItem1.Name = "ランチャの背景設定ToolStripMenuItem1";
-            this.ランチャの背景設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.ランチャの背景設定ToolStripMenuItem1.Size = new System.Drawing.Size(313, 22);
             this.ランチャの背景設定ToolStripMenuItem1.Text = "ランチャの背景設定";
             // 
             // 特殊な設定ToolStripMenuItem1
@@ -989,7 +999,7 @@
             this.リプレイのユーザーデータ化ToolStripMenuItem1,
             this.updaterの起動ToolStripMenuItem});
             this.特殊な設定ToolStripMenuItem1.Name = "特殊な設定ToolStripMenuItem1";
-            this.特殊な設定ToolStripMenuItem1.Size = new System.Drawing.Size(232, 22);
+            this.特殊な設定ToolStripMenuItem1.Size = new System.Drawing.Size(313, 22);
             this.特殊な設定ToolStripMenuItem1.Text = "特殊な設定";
             // 
             // vpatchの設定ToolStripMenuItem1
@@ -1048,12 +1058,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // セーブデータ等の場所を開くth125以降ToolStripMenuItem
+            // タブを増やすToolStripMenuItem
             // 
-            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Name = "セーブデータ等の場所を開くth125以降ToolStripMenuItem";
-            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
-            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Text = "セーブデータ等の場所を開く（th125以降）";
-            this.セーブデータ等の場所を開くth125以降ToolStripMenuItem.Click += new System.EventHandler(this.セーブデータ等の場所を開くth125以降ToolStripMenuItem_Click);
+            this.タブを増やすToolStripMenuItem.Name = "タブを増やすToolStripMenuItem";
+            this.タブを増やすToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.タブを増やすToolStripMenuItem.Text = "タブを増やす";
+            this.タブを増やすToolStripMenuItem.Click += new System.EventHandler(this.タブを増やすToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1254,6 +1264,7 @@
         private System.Windows.Forms.ToolStripMenuItem vpatchファイルのToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ファイルパスの設定の更新ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem セーブデータ等の場所を開くth125以降ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem タブを増やすToolStripMenuItem;
     }
 }
 

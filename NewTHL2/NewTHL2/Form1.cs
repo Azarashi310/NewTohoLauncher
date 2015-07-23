@@ -1126,93 +1126,127 @@ namespace NewTHL2
         //選択したゲーム毎の設定のDisableとAbleの設定
         private void gameSettingSelector()
         {
-            //まず初期化
+            //まず初期化(可視化不可視化をちょいと搭載してみる)
+            バックアップフォルダの設定ToolStripMenuItem1.Visible = true;
             バックアップフォルダの設定ToolStripMenuItem1.Enabled = true;
+            特殊な設定ToolStripMenuItem1.Visible = true;
             特殊な設定ToolStripMenuItem1.Enabled = true;
+            リプレイのユーザーデータ化ToolStripMenuItem1.Visible = true;
             リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = true;
+            ゲームのフォルダを開くToolStripMenuItem1.Visible = true;
             ゲームのフォルダを開くToolStripMenuItem1.Enabled = true;
+            vpatchの設定ToolStripMenuItem1.Visible = true;
             vpatchの設定ToolStripMenuItem1.Enabled = true;
+            ゲームの設定を開くToolStripMenuItem1.Visible = true;
             ゲームの設定を開くToolStripMenuItem1.Enabled = true;
+            adonisの設定ToolStripMenuItem.Visible = true;
             adonisの設定ToolStripMenuItem.Enabled = true;
+            casterの設定ToolStripMenuItem.Visible = true;
             casterの設定ToolStripMenuItem.Enabled = true;
+            updaterの起動ToolStripMenuItem.Visible = true;
             updaterの起動ToolStripMenuItem.Enabled = true;
+            セーブデータ等の場所を開くth125以降ToolStripMenuItem.Visible = true;
             セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = true;
             if(select == 999)
             {
+                バックアップフォルダの設定ToolStripMenuItem1.Visible = false;
                 バックアップフォルダの設定ToolStripMenuItem1.Enabled = false;
+                ゲームの設定を開くToolStripMenuItem1.Visible = false;
                 ゲームの設定を開くToolStripMenuItem1.Enabled = false;
+                ゲームのフォルダを開くToolStripMenuItem1.Visible = false;
                 ゲームのフォルダを開くToolStripMenuItem1.Enabled = false;
+                ランチャの背景設定ToolStripMenuItem1.Visible = false;
                 ランチャの背景設定ToolStripMenuItem1.Enabled = false;
+                特殊な設定ToolStripMenuItem1.Visible = false;
                 特殊な設定ToolStripMenuItem1.Enabled = false;
+                adonisの設定ToolStripMenuItem.Visible = false;
                 adonisの設定ToolStripMenuItem.Enabled = false;
+                casterの設定ToolStripMenuItem.Visible = false;
                 casterの設定ToolStripMenuItem.Enabled = false;
+                updaterの起動ToolStripMenuItem.Visible = false;
                 updaterの起動ToolStripMenuItem.Enabled = false;
+                セーブデータ等の場所を開くth125以降ToolStripMenuItem.Visible = false;
                 セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = false;
                 return;
             }
             if(FP_switch[select] != "")
             {
+                バックアップフォルダの設定ToolStripMenuItem1.Visible = true;
                 バックアップフォルダの設定ToolStripMenuItem1.Enabled = true;
+                ゲームの設定を開くToolStripMenuItem1.Visible = true;
                 ゲームの設定を開くToolStripMenuItem1.Enabled = true;
+                ゲームのフォルダを開くToolStripMenuItem1.Visible = true;
                 ゲームのフォルダを開くToolStripMenuItem1.Enabled = true;
             }
             //特殊な設定に関わりがないもの
-            if((Thxx[select].ToString() == "alcostg")|(Thxx[select].ToString() == "th075")|(Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123")|
+            if((Thxx[select].ToString() == "th075")|(Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123")|
                 (Thxx[select].ToString() == "th135"))
             {
+                特殊な設定ToolStripMenuItem1.Visible = false;
                 特殊な設定ToolStripMenuItem1.Enabled = false;
             }
             //リプレイのユーザーデータ化
             if(Thxx[select].ToString() == "th10")
             {
+                リプレイのユーザーデータ化ToolStripMenuItem1.Visible = false;
                 リプレイのユーザーデータ化ToolStripMenuItem1.Enabled = false;
             }
             //Vpatchの設定
             if ((Thxx[select].ToString() == "th075") | (Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123") | (Thxx[select].ToString() == "th135")|
                 (Thxx[select].ToString() == "th14") | (Thxx[select].ToString() == "th143") | (Thxx[select].ToString() == "th145") |(Thxx[select].ToString() == "th15"))
             {
+                vpatchの設定ToolStripMenuItem1.Visible = false;
                 vpatchの設定ToolStripMenuItem1.Enabled = false;
             }
             //Adonisの設定
             if(Thxx[select].ToString() == "th09")
             {
+                adonisの設定ToolStripMenuItem.Visible = true;
                 adonisの設定ToolStripMenuItem.Enabled = true;
             }
             if(Thxx[select].ToString() != "th09")
             {
+                adonisの設定ToolStripMenuItem.Visible = false;
                 adonisの設定ToolStripMenuItem.Enabled = false;
             }
             //ゲームの設定を開く
             if ((Thxx[select].ToString() == "th105") | (Thxx[select].ToString() == "th123") | (Thxx[select].ToString() == "th135") | (Thxx[select].ToString() == "th145"))
             {
+                ゲームの設定を開くToolStripMenuItem1.Visible = false;
                 ゲームの設定を開くToolStripMenuItem1.Enabled = false;
             }
             //アップデーターがあるやつ
             if(Thxx[select].ToString() == "th145")
             {
+                updaterの起動ToolStripMenuItem.Visible = true;
                 updaterの起動ToolStripMenuItem.Enabled = true;
             }
             if(Thxx[select].ToString() != "th145")
             {
+                updaterの起動ToolStripMenuItem.Visible = false;
                 updaterの起動ToolStripMenuItem.Enabled = false;
             }
             //casterの設定（萃夢想）
             if(Thxx[select].ToString() == "th075")
             {
+                casterの設定ToolStripMenuItem.Visible = true;
                 casterの設定ToolStripMenuItem.Enabled = true;
             }
             if(Thxx[select].ToString() != "th075")
             {
+                casterの設定ToolStripMenuItem.Visible = false;
                 casterの設定ToolStripMenuItem.Enabled = false;
             }
             //セーブデータが特殊な場所のやつ
             if((Thxx[select].ToString() == "th125")||(Thxx[select].ToString() == "th128")||(Thxx[select].ToString() == "th13")||(Thxx[select].ToString() == "th14")
                 ||(Thxx[select].ToString() == "th143")||(Thxx[select].ToString() == "th15"))
             {
+                セーブデータ等の場所を開くth125以降ToolStripMenuItem.Visible = true;
                 セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = true;
             }
             else
             {
+                セーブデータ等の場所を開くth125以降ToolStripMenuItem.Visible = false;
                 セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = false;
             }
         }
@@ -1319,18 +1353,88 @@ namespace NewTHL2
                 //キーをアンダースコアで分割
                 string splitKey = key.Remove(0, key.IndexOf('_'));
 
-                if((splitKey == "Save") || (splitKey == "Hint"))
+                //セーブ
+                if(splitKey == "Save")
                 {
-
+                    //ソースパスの設定
+                    if ((Thxx[select].ToString() == "th06") || (Thxx[select].ToString() == "th07") || (Thxx[select].ToString() == "th08") ||
+                        (Thxx[select].ToString() == "th09"))
+                    {
+                        sourcePath = Path.Combine(FP_switch[select], "score.dat");
+                    }
+                    else
+                    {
+                        sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "score" + Thxx[select] + ".dat");
+                    }
                 }
                 else if(splitKey == "AutoSave")
                 {
+                    //体験版だけ tr つける（製品版出たら変える）
+                    sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString() + "tr", "autosave");
+                    
+                    //まず先にバックアップパスにフォルダをつくる
 
+                    //ソースパスが存在するか
+                    if(Directory.Exists(sourcePath))
+                    {
+                        //バックアップパスを代入
+                        backupFilePath = settingIniValue[key];
+                        //バックアップパスがあれば
+                        if(Directory.Exists(backupFilePath))
+                        {
+                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm"));
+                        }
+                        else
+                        {
+                            DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
+                            "設定しているパス : " + backupFilePath + Environment.NewLine +
+                            "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
+                            if (DialogResult == DialogResult.Yes)
+                            {
+                                //フォルダの作成
+                                algo.FileManage.folderCreate(backupFilePath);
+                                MessageBox.Show("作成しました", "お知らせ");
+                            }
+                            else
+                            {
+                                MessageBox.Show("フォルダを作成しませんでした。" + Environment.NewLine +
+                                    "後ほど、ランチャーからバックアップフォルダパスを再設定してください", "お知らせ");
+                                //フォルダを作成しなかった為、バックアップフォルダを初期化させる
+                                backupFilePath = "";
+                            }
+                        }
+                        //ソースフォルダのファイル一覧を取得
+                        string[] files = Directory.GetFiles(sourcePath, "*", SearchOption.AllDirectories);
+                        //ファイルを一つづつ処理
+                        foreach (string file in files)
+                        {
+                            string fileWithoutExt = Path.GetFileNameWithoutExtension(file);
+                            string[] strArray = fileWithoutExt.Split('_');
+                            switch(strArray[0])
+                            {
+                                //霊夢
+                                case "save0":
+                                    {
+                                        //パスの結合
+                                        string comb = Path.Combine(backupFilePath, "霊夢");
+                                        //フォルダがなければ
+                                        if(!Directory.Exists(backupFilePath))
+                                        {
+                                            Directory.CreateDirectory(comb);
+                                        }
+                                        break;
+                                    }
+                            }
+                        }
+                    }
+
+                    return;
                 }
                 else if(splitKey == "Macro")
                 {
 
                 }
+                #region フォルダ作成系
                 //フォルダのバックアップだけですむ奴
                 else
                 {
@@ -1353,7 +1457,7 @@ namespace NewTHL2
                             sourcePath = Path.Combine(FP_switch[select], "snapshot");
                         }
                        
-                    }
+                    } 
 
                     //リプレイ
                     if(splitKey == "Replay")
@@ -1369,6 +1473,12 @@ namespace NewTHL2
                         {
                             sourcePath = Path.Combine(FP_switch[select], "replay");
                         }
+                    }
+
+                    //ヒント
+                    if(splitKey == "Hint")
+                    {
+                        sourcePath = Path.Combine(FP_switch[select], "hint");
                     }
 
                     //プロフィール
@@ -1405,7 +1515,7 @@ namespace NewTHL2
                     //ソースパスが存在するか？
                     if (Directory.Exists(sourcePath))
                     {
-                        //SnapShotのバックアップ
+                        //バックアップパスを代入
                         backupFilePath = settingIniValue[key];
                     }
 
@@ -1414,7 +1524,7 @@ namespace NewTHL2
                     {
                         backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMM"));
                     }
-                    else
+                    else if(backupFilePath != "")
                     {
                         DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
                             "設定しているパス : " + backupFilePath + Environment.NewLine +
@@ -1437,6 +1547,40 @@ namespace NewTHL2
                     if (backupFilePath != "")
                     {
                         algo.FileManage.folderCopy(backupFilePath, sourcePath);
+                        return;
+                    }
+                }
+                #endregion
+                //ソースパスはあるか？
+                if(File.Exists(sourcePath))
+                {
+                    //バックアップパスを代入
+                    backupFilePath = settingIniValue[key];
+                }
+
+                //バックアップフォルダはあるか
+                if(Directory.Exists(backupFilePath))
+                {
+                    backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm") + Path.GetFileName(sourcePath));
+                }
+                else
+                {
+                    DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
+                            "設定しているパス : " + backupFilePath + Environment.NewLine +
+                            "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
+                    if (DialogResult == DialogResult.Yes)
+                    {
+                        //フォルダの作成
+                        algo.FileManage.folderCreate(backupFilePath);
+                        MessageBox.Show("作成しました", "お知らせ");
+                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm") + Path.GetFileName(sourcePath));
+                    }
+                    else
+                    {
+                        MessageBox.Show("フォルダを作成しませんでした。" + Environment.NewLine +
+                            "後ほど、ランチャーからバックアップフォルダパスを再設定してください", "お知らせ");
+                        //フォルダを作成しなかった為、バックアップフォルダを初期化させる
+                        backupFilePath = "";
                     }
                 }
             }
@@ -1453,41 +1597,6 @@ namespace NewTHL2
             {
                 //ここからVpatchの設定を読み取り
                 Dictionary<string,string> vpatchValues = algo.IniFileValueReturn.getIniFileValue(VpatchIniPath);
-
-                #region 以前のコード
-                /*
-                 * 試験的にvpatchのデーターをすべて共通のものにしてみる
-                 * 
-                 */
-
-
-                /*
-                if(Thxx[select].ToString() == "th12")
-                {
-
-                }
-                else if(Thxx[select].ToString() == "th125")
-                {
-                    //要素が同じかどうかを確かめる(ダブスポ)
-                    
-                    //Dictionary<string, int> vpatchValues_DS = algo.vpatchValueReturn.getVpatchValue(uri);
-
-                    //要素数が同じでなければオリジナルのものにする
-                    //if(vpatchValues.Count != vpatchValues_DS.Count)
-                    //{
-                    //    algo.VpatchValueWrite.vpatchIniWrite(VpatchIniPath, NewTHL2.Properties.Resources.vpatch_th125);
-                    //}
-                }
-                else if(Thxx[select].ToString() == "th13")
-                {
-                    Dictionary<string, int> vpatchValues_TenDesire = algo.vpatchValueReturn.getVpatchValue(NewTHL2.Properties.Resources.vpatch_th13);
-                    if(vpatchValues.Count != vpatchValues_TenDesire.Count)
-                    {
-                        algo.VpatchValueWrite.vpatchIniWrite(VpatchIniPath, NewTHL2.Properties.Resources.vpatch_th13);
-                    }
-                }
-                 */
-                #endregion
 
                 //VpatchGUIを参照
                 VpatchGUI VGUI = new VpatchGUI();
@@ -1811,6 +1920,11 @@ namespace NewTHL2
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void タブを増やすToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

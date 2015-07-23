@@ -147,7 +147,26 @@
                                      （年月日＋時間 + 元の名前.datです）
 参照したフォルダ - thxx - yyyyMMdd_HHmmss_userhint.dat
                          |
-                         -  thxx - ...</value>
+                         -  thxx - ...
+
+小ネタとして
+
+自動セーブのファイル名は規則に基づいて付けられてます（あたりまえだけど）
+
+saveX_X.dat
+一個目のXはキャラ名です
+０　霊夢
+１　魔理沙
+２　早苗
+３　優曇華
+
+２個めのXはなんとなくここで気づいた人もいると思いますが
+０　イージー
+１　ノーマル
+２　ハード
+３　ルナティック
+
+となっています。</value>
   </data>
   <data name="profileBackupFolder_Browse_Button.ToolTip" xml:space="preserve">
     <value>プロファイルのバックアップの保存先を決めます

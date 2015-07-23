@@ -34,6 +34,11 @@ namespace NewTHL2
          * 
          * 
          */
+        //イニシャライズ
+        public void initialize(string title)
+        {
+
+        }
 
         //値をセットする
         public void setValues(Dictionary<string,string> values,string titleName,string FilePath)
@@ -43,6 +48,12 @@ namespace NewTHL2
             this._FilePath = FilePath;
             //Dictionary<string, int> vpatchValues = values;           
 
+
+            /*
+             *ココらへんから取得した値をセットしたり
+             * 使わない設定をenableとかします
+             * 
+             */
             #region Window
             /*
              * ここからWindow設定
@@ -270,7 +281,7 @@ namespace NewTHL2
             //GameFPSの設定(vsyncが1ではない時のみ有効)
             if (vpatchValues["Vsync"] != "1")
             {
-                groupBox3.Enabled = false;
+                groupBox3.Enabled = true;
             }
 
             //GameFPS
@@ -327,35 +338,56 @@ namespace NewTHL2
             {
                 AlwaysBlt_CheckBox.Checked = false;
             }
-
+            
             //妖々夢の桜点バグを修正
-            if(vpatchValues["BugFixCherry"] == "1")
+            if(titleName == "th07")
             {
-                BugFixCherry_Checkbox.Checked = true;
+                if (vpatchValues["BugFixCherry"] == "1")
+                {
+                    BugFixCherry_Checkbox.Checked = true;
+                }
+                else
+                {
+                    BugFixCherry_Checkbox.Checked = false;
+                }
             }
             else
             {
-                BugFixCherry_Checkbox.Checked = false;
+                BugFixCherry_Checkbox.Enabled = false;
             }
 
             //風神録のバグマリを修正する
-            if(vpatchValues["BugFixTh10Power3"] == "1")
+            if(titleName == "th10")
             {
-                BugFixTh10Power.Checked = true;
+                if (vpatchValues["BugFixTh10Power3"] == "1")
+                {
+                    BugFixTh10Power.Checked = true;
+                }
+                else
+                {
+                    BugFixTh10Power.Checked = false;
+                }
             }
             else
             {
-                BugFixTh10Power.Checked = false;
+                BugFixTh10Power.Enabled = false;
             }
 
             //星蓮船の聖輦船の影を修正します
-            if (vpatchValues["BugFixTh12Shadow"] == "1")
+            if(titleName == "th12")
             {
-                BugFixTh12Shadow_Checkbox.Checked = true;
-            } 
+                if (vpatchValues["BugFixTh12Shadow"] == "1")
+                {
+                    BugFixTh12Shadow_Checkbox.Checked = true;
+                }
+                else
+                {
+                    BugFixTh12Shadow_Checkbox.Checked = false;
+                }
+            }
             else
             {
-                BugFixTh12Shadow_Checkbox.Checked = false;
+                BugFixTh12Shadow_Checkbox.Enabled = false;
             }
 
             //入力の暴走を修正します
@@ -631,6 +663,10 @@ namespace NewTHL2
             if(G1_OriginalDrawing.Checked)
             {
                 vpatchValues["Vsync"] = "0";
+                if (!groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = true;
+                }
             }
         }
         //垂直同期設定（モニターのリフレッシュレートに合わせる）
@@ -639,6 +675,10 @@ namespace NewTHL2
             if(G1_MonitorRefreshLate.Checked)
             {
                 vpatchValues["Vsync"] = "1";
+                if(groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = false;
+                }
             }
         }
         //Vsync側で設定したFPS値に近づけて描画
@@ -647,7 +687,12 @@ namespace NewTHL2
             if(G1_VsyncFPS.Checked)
             {
                 vpatchValues["Vsync"] = "2";
+                if (!groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = true;
+                }
             }
+
         }
         //画面の真ん中よりしたで操作する人向け
         private void G1_UnderDrawing_CheckedChanged(object sender, EventArgs e)
@@ -655,6 +700,10 @@ namespace NewTHL2
             if(G1_UnderDrawing.Checked)
             {
                 vpatchValues["Vsync"] = "3";
+                if (!groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = true;
+                }
             }
         }
         #endregion
@@ -665,6 +714,10 @@ namespace NewTHL2
             if (G2_OriginalDrawing.Checked)
             {
                 vpatchValues["Vsync"] = "-1";
+                if (!groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = true;
+                }
             }
         }
         //垂直同期なし(Vpatch制御)
@@ -673,6 +726,10 @@ namespace NewTHL2
             if (G2_NoVsync.Checked)
             {
                 vpatchValues["Vsync"] = "0";
+                if (!groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = true;
+                }
             }
         }
         //モニターのリフレッシュレートに合わせる
@@ -681,6 +738,10 @@ namespace NewTHL2
             if (G2_MonitorRefreshLate.Checked)
             {
                 vpatchValues["Vsync"] = "1";
+                if (groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = false;
+                }
             }
         }
         #endregion
@@ -723,6 +784,10 @@ namespace NewTHL2
             if (G4_OriginalDrawing.Checked)
             {
                 vpatchValues["Vsync"] = "0";
+                if (!groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = true;
+                }
             }
         }
         //モニターのリフレッシュレートに合わせる
@@ -731,6 +796,10 @@ namespace NewTHL2
             if (G4_MonitorRefreshLate.Checked)
             {
                 vpatchValues["Vsync"] = "1";
+                if (groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = false;
+                }
             }
         }
         //ハードウェア補助レベル１
@@ -739,6 +808,10 @@ namespace NewTHL2
             if (G4_HardwareAssistLv1.Checked)
             {
                 vpatchValues["Vsync"] = "-1";
+                if (!groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = true;
+                }
             }
         }
         //ハードウェア補助レベル２
@@ -747,6 +820,10 @@ namespace NewTHL2
             if (G4_HardwareAssistLv2.Checked)
             {
                 vpatchValues["Vsync"] = "-2";
+                if (!groupBox3.Enabled)
+                {
+                    groupBox3.Enabled = true;
+                }
             }
         }
         #endregion
@@ -1078,6 +1155,11 @@ namespace NewTHL2
         }
 
         private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VsyncRev7_Vsyncth128_HardcoreSettings_Enter(object sender, EventArgs e)
         {
 
         }
