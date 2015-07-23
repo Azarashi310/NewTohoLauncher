@@ -1352,7 +1352,7 @@ namespace NewTHL2
             {
                 //キーをアンダースコアで分割
                 string splitKey = key.Remove(0, key.IndexOf('_'));
-
+                #region Save
                 //セーブ
                 if(splitKey == "Save")
                 {
@@ -1366,7 +1366,46 @@ namespace NewTHL2
                     {
                         sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "score" + Thxx[select] + ".dat");
                     }
+
+                    //ソースパスはあるか？
+                    if (File.Exists(sourcePath))
+                    {
+                        //バックアップパスを代入
+                        backupFilePath = settingIniValue[key];
+                    }
+
+                    //バックアップフォルダはあるか
+                    if (Directory.Exists(backupFilePath))
+                    {
+                        //ここでバックアップファイルパスにファイルの名前と日付のスタンプ
+                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm") + Path.GetFileName(sourcePath));
+                        //ファイルをバックアップ
+                        File.Copy(sourcePath, backupFilePath);
+                    }
+                    else
+                    {
+                        DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
+                                "設定しているパス : " + backupFilePath + Environment.NewLine +
+                                "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
+                        if (DialogResult == DialogResult.Yes)
+                        {
+                            //フォルダの作成
+                            algo.FileManage.folderCreate(backupFilePath);
+                            MessageBox.Show("作成しました", "お知らせ");
+                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm") + Path.GetFileName(sourcePath));
+                        }
+                        else
+                        {
+                            MessageBox.Show("フォルダを作成しませんでした。" + Environment.NewLine +
+                                "後ほど、ランチャーからバックアップフォルダパスを再設定してください", "お知らせ");
+                            //フォルダを作成しなかった為、バックアップフォルダを初期化させる
+                            backupFilePath = "";
+                        }
+                    }
                 }
+                #endregion
+                #region autoSave
+                //東方紺珠伝の自動セーブ
                 else if(splitKey == "AutoSave")
                 {
                     //体験版だけ tr つける（製品版出たら変える）
@@ -1382,7 +1421,8 @@ namespace NewTHL2
                         //バックアップパスがあれば
                         if(Directory.Exists(backupFilePath))
                         {
-                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm"));
+                            //フォルダでは年月日のスタンプ
+                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd"));
                         }
                         else
                         {
@@ -1408,34 +1448,69 @@ namespace NewTHL2
                         //ファイルを一つづつ処理
                         foreach (string file in files)
                         {
+                            //拡張子のついていないファイル名
                             string fileWithoutExt = Path.GetFileNameWithoutExtension(file);
+                            //上記の文字列を分割
                             string[] strArray = fileWithoutExt.Split('_');
+                            //自動セーブのフォルダパス
+                            string autoSaveFolderPath = "";
                             switch(strArray[0])
                             {
                                 //霊夢
                                 case "save0":
                                     {
                                         //パスの結合
-                                        string comb = Path.Combine(backupFilePath, "霊夢");
-                                        //フォルダがなければ
-                                        if(!Directory.Exists(backupFilePath))
-                                        {
-                                            Directory.CreateDirectory(comb);
-                                        }
+                                        autoSaveFolderPath = Path.Combine(backupFilePath, "霊夢");
+                                        break;
+                                    }
+                                //魔理沙
+                                case "save1":
+                                    {
+                                        autoSaveFolderPath = Path.Combine(backupFilePath, "魔理沙");
+                                        break;
+                                    }
+                                //早苗
+                                case "save2":
+                                    {
+                                        autoSaveFolderPath = Path.Combine(backupFilePath, "早苗");
+                                        break;
+                                    }
+                                //優曇華
+                                case "save3":
+                                    {
+                                        autoSaveFolderPath = Path.Combine(backupFilePath, "優曇華");
                                         break;
                                     }
                             }
+
+                            //フォルダがなければ
+                            if (!Directory.Exists(autoSaveFolderPath))
+                            {
+                                Directory.CreateDirectory(autoSaveFolderPath);
+                            }
+                            //ファイルをパスに含めてコピーする下準備
+                            string autoSaveBackupFilePath = Path.Combine(autoSaveFolderPath, DateTime.Now.TimeOfDay.ToString("HHmm") + "_" + file);
+                            //コピーする
+                            File.Copy(file, autoSaveBackupFilePath);
                         }
                     }
-
                     return;
                 }
+                #endregion
+
+                //東方深秘録のマクロ
                 else if(splitKey == "Macro")
                 {
 
                 }
+
+                /*
+                * 
+                * 
+                * フォルダのバックアップだけですむ奴
+                * 
+                */
                 #region フォルダ作成系
-                //フォルダのバックアップだけですむ奴
                 else
                 {
                     //スナップショット
@@ -1551,38 +1626,6 @@ namespace NewTHL2
                     }
                 }
                 #endregion
-                //ソースパスはあるか？
-                if(File.Exists(sourcePath))
-                {
-                    //バックアップパスを代入
-                    backupFilePath = settingIniValue[key];
-                }
-
-                //バックアップフォルダはあるか
-                if(Directory.Exists(backupFilePath))
-                {
-                    backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm") + Path.GetFileName(sourcePath));
-                }
-                else
-                {
-                    DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
-                            "設定しているパス : " + backupFilePath + Environment.NewLine +
-                            "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
-                    if (DialogResult == DialogResult.Yes)
-                    {
-                        //フォルダの作成
-                        algo.FileManage.folderCreate(backupFilePath);
-                        MessageBox.Show("作成しました", "お知らせ");
-                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm") + Path.GetFileName(sourcePath));
-                    }
-                    else
-                    {
-                        MessageBox.Show("フォルダを作成しませんでした。" + Environment.NewLine +
-                            "後ほど、ランチャーからバックアップフォルダパスを再設定してください", "お知らせ");
-                        //フォルダを作成しなかった為、バックアップフォルダを初期化させる
-                        backupFilePath = "";
-                    }
-                }
             }
         }
         
