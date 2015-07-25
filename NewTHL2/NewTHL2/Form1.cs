@@ -1307,8 +1307,10 @@ namespace NewTHL2
             {
                 startEXE = thxx_EXE(textBox1.Text, select);
             }
+            
             //ゲームのバックアップ
             gamebackup();
+            
             //ゲームを起動する
             bool runBool = run(startEXE);
             if(runBool)
@@ -1334,7 +1336,6 @@ namespace NewTHL2
             return true;
         }
 
-
         //ゲーム起動時のバックアップ処理
         private void gamebackup()
         {
@@ -1342,6 +1343,18 @@ namespace NewTHL2
             string backupFilePath = "";
             //元のパス
             string sourcePath = "";
+            //体験版がある場合のみの処理（黄昏作品以外）
+            string trial = ""; 
+            //紅魔郷のみ
+            if(Thxx[select].ToString() == "th06")
+            {
+                trial = Path.Combine(FP_switch[select], "taiken.txt");
+            }
+            //紅魔郷以外
+            else
+            {
+                trial = Path.Combine(FP_switch[select], Thxx[select].ToString() + "tr.dat");
+            }
 
             //setting.iniから情報を取得
             Dictionary<string, string> settingIniValue = algo.IniFileValueReturn.getIniFileSectionValue(settingFilePath, Thxx[select].ToString().ToUpper() + "BU");
@@ -1354,17 +1367,38 @@ namespace NewTHL2
                 string splitKey = key.Remove(0, key.IndexOf('_'));
                 #region Save
                 //セーブ
-                if(splitKey == "Save")
+                if(splitKey == "_Save")
                 {
-                    //ソースパスの設定
+                    /*
+                     * セーブデータのファイルの場所の指定をする
+                     */
+                    //score.dat　のみのもの
                     if ((Thxx[select].ToString() == "th06") || (Thxx[select].ToString() == "th07") || (Thxx[select].ToString() == "th08") ||
                         (Thxx[select].ToString() == "th09"))
                     {
                         sourcePath = Path.Combine(FP_switch[select], "score.dat");
                     }
+                    //ファイルの場所がroamingの奴
+                    else if((Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") || (Thxx[select].ToString() == "th13") ||
+                        (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th145") || (Thxx[select].ToString() == "th15"))
+                    {
+                        //体験版がある場合
+                        if (File.Exists(trial))
+                        {
+                            //体験版のみtr
+                            sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", 
+                                Thxx[select].ToString() + "tr", "score" + Thxx[select] + ".dat");
+                        }
+                        else
+                        {
+                            sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice",
+                                Thxx[select].ToString(), "score" + Thxx[select] + ".dat");
+                        }
+                    }
+                    //作品名 + score.dat の場合
                     else
                     {
-                        sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "score" + Thxx[select] + ".dat");
+                        sourcePath = Path.Combine(FP_switch[select],Thxx[select] + "score.dat");
                     }
 
                     //ソースパスはあるか？
@@ -1378,7 +1412,9 @@ namespace NewTHL2
                     if (Directory.Exists(backupFilePath))
                     {
                         //ここでバックアップファイルパスにファイルの名前と日付のスタンプ
-                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm") + Path.GetFileName(sourcePath));
+                        //なんかdateタイム周りでおこられる
+                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日") + "_" + DateTime.Now.ToString("HH時mm分ss秒") + "_" + 
+                            Path.GetFileName(sourcePath));
                         //ファイルをバックアップ
                         File.Copy(sourcePath, backupFilePath);
                     }
@@ -1392,7 +1428,8 @@ namespace NewTHL2
                             //フォルダの作成
                             algo.FileManage.folderCreate(backupFilePath);
                             MessageBox.Show("作成しました", "お知らせ");
-                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd") + "_" + DateTime.Now.TimeOfDay.ToString("HHmm") + Path.GetFileName(sourcePath));
+                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日") + "_" + DateTime.Now.TimeOfDay.ToString("HH時mm分ss秒") + "_" + 
+                                Path.GetFileName(sourcePath));
                         }
                         else
                         {
@@ -1406,10 +1443,20 @@ namespace NewTHL2
                 #endregion
                 #region autoSave
                 //東方紺珠伝の自動セーブ
-                else if(splitKey == "AutoSave")
+                else if(splitKey == "_AutoSave")
                 {
                     //体験版だけ tr つける（製品版出たら変える）
-                    sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString() + "tr", "autosave");
+                    if(File.Exists(trial))
+                    {
+                        sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice",
+                            Thxx[select].ToString() + "tr", "autosave");
+                    }
+                    //体験版じゃない場合
+                    else
+                    {
+                        sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice",
+                            Thxx[select].ToString(), "autosave");
+                    }
                     
                     //まず先にバックアップパスにフォルダをつくる
 
@@ -1422,7 +1469,7 @@ namespace NewTHL2
                         if(Directory.Exists(backupFilePath))
                         {
                             //フォルダでは年月日のスタンプ
-                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMMdd"));
+                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日"));
                         }
                         else
                         {
@@ -1489,7 +1536,7 @@ namespace NewTHL2
                                 Directory.CreateDirectory(autoSaveFolderPath);
                             }
                             //ファイルをパスに含めてコピーする下準備
-                            string autoSaveBackupFilePath = Path.Combine(autoSaveFolderPath, DateTime.Now.TimeOfDay.ToString("HHmm") + "_" + file);
+                            string autoSaveBackupFilePath = Path.Combine(autoSaveFolderPath, DateTime.Now.ToString("HH時mm分ss秒") + "_" + Path.GetFileName(file));
                             //コピーする
                             File.Copy(file, autoSaveBackupFilePath);
                         }
@@ -1499,7 +1546,7 @@ namespace NewTHL2
                 #endregion
 
                 //東方深秘録のマクロ
-                else if(splitKey == "Macro")
+                else if(splitKey == "_Macro")
                 {
 
                 }
@@ -1514,15 +1561,25 @@ namespace NewTHL2
                 else
                 {
                     //スナップショット
-                    if(splitKey == "SnapShot")
+                    if(splitKey == "_SnapShot")
                     {
                         //ソースパスの設定
                         if ((Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") ||
                             (Thxx[select].ToString() == "th13") || (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th143") ||
                             (Thxx[select].ToString() == "th15"))
                         {
-                            sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "snapshot");
+                            if(File.Exists(trial))
+                            {
+                                sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                    "ShanghaiAlice", Thxx[select].ToString() + "tr", "snapshot");
+                            }
+                            else
+                            {
+                                sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                    "ShanghaiAlice", Thxx[select].ToString(), "snapshot");
+                            }
                         }
+                        //東方深秘録のみ
                         else if(Thxx[select].ToString() == "th145")
                         {
                             sourcePath = Path.Combine(FP_switch[select], "ss");
@@ -1535,51 +1592,72 @@ namespace NewTHL2
                     } 
 
                     //リプレイ
-                    if(splitKey == "Replay")
+                    if(splitKey == "_Replay")
                     {
                         //ソースパスの設定
                         if ((Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") ||
                             (Thxx[select].ToString() == "th13") || (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th143") ||
                             (Thxx[select].ToString() == "th15"))
                         {
-                            sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "replay");
+                            if(File.Exists(trial))
+                            {
+                                sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                    "ShanghaiAlice", Thxx[select].ToString() + "tr", "replay");
+                            }
+                            else
+                            {
+                                sourcePath = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                    "ShanghaiAlice", Thxx[select].ToString(), "replay");
+                            }
                         }
                         else
                         {
-                            sourcePath = Path.Combine(FP_switch[select], "replay");
+                            if(File.Exists(trial))
+                            {
+                                sourcePath = Path.Combine(FP_switch[select], "replay");
+                            }
                         }
                     }
 
                     //ヒント
-                    if(splitKey == "Hint")
+                    if(splitKey == "_Hint")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "hint");
                     }
 
                     //プロフィール
-                    if(splitKey == "Profile")
+                    if(splitKey == "_Profile")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "profile");
                     }
 
                     //アイコン
-                    if(splitKey == "Icon")
+                    if(splitKey == "_Icon")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "icon");
                     }
 
                     //御首頂戴帳
-                    if(splitKey == "Okubi")
+                    if(splitKey == "_Okubi")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "御首頂戴帳");
                     }
 
                     //ベストショット
-                    if(splitKey == "BestShot")
+                    if(splitKey == "_BestShot")
                     {
                         if(Thxx[select].ToString() == "th125")
                         {
-                            sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShanghaiAlice", Thxx[select].ToString(), "bestshot");
+                            if(File.Exists(trial))
+                            {
+                                sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                    "ShanghaiAlice", Thxx[select].ToString() + "tr", "bestshot");
+                            }
+                            else
+                            {
+                                sourcePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                    "ShanghaiAlice", Thxx[select].ToString(), "bestshot");
+                            }
                         }
                         else
                         {
