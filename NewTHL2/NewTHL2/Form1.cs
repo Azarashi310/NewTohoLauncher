@@ -1343,6 +1343,7 @@ namespace NewTHL2
             string backupFilePath = "";
             //元のパス
             string sourcePath = "";
+
             //体験版がある場合のみの処理（黄昏作品以外）
             string trial = ""; 
             //紅魔郷のみ
@@ -1364,23 +1365,25 @@ namespace NewTHL2
             foreach(string key in keys)
             {
                 //キーをアンダースコアで分割
-                string splitKey = key.Remove(0, key.IndexOf('_'));
+                string splitKey = key.Remove(0, key.IndexOf('_') + 1);
                 #region Save
                 //セーブ
-                if(splitKey == "_Save")
+                if(splitKey == "Save")
                 {
                     /*
                      * セーブデータのファイルの場所の指定をする
                      */
                     //score.dat　のみのもの
-                    if ((Thxx[select].ToString() == "th06") || (Thxx[select].ToString() == "th07") || (Thxx[select].ToString() == "th08") ||
-                        (Thxx[select].ToString() == "th09"))
+                    if ((Thxx[select].ToString() == "th06") || (Thxx[select].ToString() == "th07") || (Thxx[select].ToString() == "th07") || 
+                        (Thxx[select].ToString() == "th08") || (Thxx[select].ToString() == "th09") || (Thxx[select].ToString() == "th105") ||
+                            (Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th135") || (Thxx[select].ToString() == "th145"))
+
                     {
                         sourcePath = Path.Combine(FP_switch[select], "score.dat");
                     }
                     //ファイルの場所がroamingの奴
                     else if((Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") || (Thxx[select].ToString() == "th13") ||
-                        (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th145") || (Thxx[select].ToString() == "th15"))
+                        (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th143") || (Thxx[select].ToString() == "th15"))
                     {
                         //体験版がある場合
                         if (File.Exists(trial))
@@ -1412,7 +1415,6 @@ namespace NewTHL2
                     if (Directory.Exists(backupFilePath))
                     {
                         //ここでバックアップファイルパスにファイルの名前と日付のスタンプ
-                        //なんかdateタイム周りでおこられる
                         backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日") + "_" + DateTime.Now.ToString("HH時mm分ss秒") + "_" + 
                             Path.GetFileName(sourcePath));
                         //ファイルをバックアップ
@@ -1420,6 +1422,14 @@ namespace NewTHL2
                     }
                     else
                     {
+                        backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
+                        if(backupFilePath != "")
+                        {
+                            //ファイルをバックアップ
+                            File.Copy(sourcePath, backupFilePath);
+                        }
+                        #region 以前のコード
+                        /*
                         DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
                                 "設定しているパス : " + backupFilePath + Environment.NewLine +
                                 "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
@@ -1438,12 +1448,14 @@ namespace NewTHL2
                             //フォルダを作成しなかった為、バックアップフォルダを初期化させる
                             backupFilePath = "";
                         }
+                        */
+                        #endregion
                     }
                 }
                 #endregion
                 #region autoSave
                 //東方紺珠伝の自動セーブ
-                else if(splitKey == "_AutoSave")
+                else if(splitKey == "AutoSave")
                 {
                     //体験版だけ tr つける（製品版出たら変える）
                     if(File.Exists(trial))
@@ -1465,14 +1477,18 @@ namespace NewTHL2
                     {
                         //バックアップパスを代入
                         backupFilePath = settingIniValue[key];
-                        //バックアップパスがあれば
-                        if(Directory.Exists(backupFilePath))
+                        //バックアップフォルダの確認
+                        backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
+
+                        #region 以前のコード
+                        if (Directory.Exists(backupFilePath))
                         {
                             //フォルダでは年月日のスタンプ
                             backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日"));
                         }
                         else
                         {
+                            /*
                             DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
                             "設定しているパス : " + backupFilePath + Environment.NewLine +
                             "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
@@ -1489,7 +1505,10 @@ namespace NewTHL2
                                 //フォルダを作成しなかった為、バックアップフォルダを初期化させる
                                 backupFilePath = "";
                             }
+                            */
                         }
+                            #endregion
+
                         //ソースフォルダのファイル一覧を取得
                         string[] files = Directory.GetFiles(sourcePath, "*", SearchOption.AllDirectories);
                         //ファイルを一つづつ処理
@@ -1501,6 +1520,8 @@ namespace NewTHL2
                             string[] strArray = fileWithoutExt.Split('_');
                             //自動セーブのフォルダパス
                             string autoSaveFolderPath = "";
+                            
+                            //ファイルによって変える
                             switch(strArray[0])
                             {
                                 //霊夢
@@ -1530,6 +1551,12 @@ namespace NewTHL2
                                     }
                             }
 
+                            //体験版はフォルダにtrをつける
+                            if(File.Exists(trial))
+                            {
+                                autoSaveFolderPath = autoSaveFolderPath + "tr";
+                            }
+
                             //フォルダがなければ
                             if (!Directory.Exists(autoSaveFolderPath))
                             {
@@ -1541,14 +1568,86 @@ namespace NewTHL2
                             File.Copy(file, autoSaveBackupFilePath);
                         }
                     }
-                    return;
                 }
                 #endregion
 
                 //東方深秘録のマクロ
-                else if(splitKey == "_Macro")
+                else if(splitKey == "Macro")
                 {
+                    //マクロフォルダの取得
+                    sourcePath = Path.Combine(FP_switch[select], "macro");
 
+                    //ソースパスがあるかの確認
+                    if(Directory.Exists(sourcePath))
+                    {
+                        //バックアップフォルダの取得
+                        backupFilePath = settingIniValue[key];
+                        //存在の確認
+                        backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
+
+                        //ソースフォルダのファイル一覧を取得
+                        string[] files = Directory.GetFiles(sourcePath, "*", SearchOption.AllDirectories);
+
+                        //foreachの中で使う準備
+                        string fileWithoutExt;
+                        string[] strArray;
+                        string macroFolderPath;
+                        
+                        //ファイルを一つづつ処理
+                        foreach (string file in files)
+                        {
+                            //拡張子のついていないファイル名
+                            fileWithoutExt = Path.GetFileNameWithoutExtension(file);
+                            //上記の文字列を分割
+                            strArray = fileWithoutExt.Split('_');
+                            //自動セーブのフォルダパス
+                            macroFolderPath = Path.Combine(backupFilePath,strArray[0]);
+
+
+                            /*
+                            //ファイルによって変える
+                            switch (strArray[0])
+                            {
+                                //霊夢
+                                case "save0":
+                                    {
+                                        //パスの結合
+                                        autoSaveFolderPath = Path.Combine(backupFilePath, "霊夢");
+                                        break;
+                                    }
+                                //魔理沙
+                                case "save1":
+                                    {
+                                        autoSaveFolderPath = Path.Combine(backupFilePath, "魔理沙");
+                                        break;
+                                    }
+                                //早苗
+                                case "save2":
+                                    {
+                                        autoSaveFolderPath = Path.Combine(backupFilePath, "早苗");
+                                        break;
+                                    }
+                                //優曇華
+                                case "save3":
+                                    {
+                                        autoSaveFolderPath = Path.Combine(backupFilePath, "優曇華");
+                                        break;
+                                    }
+                            }
+                             * */
+
+                            //フォルダがなければ
+                            if (!Directory.Exists(macroFolderPath))
+                            {
+                                Directory.CreateDirectory(macroFolderPath);
+                            }
+                            //ファイルをパスに含めてコピーする下準備
+                            string autoSaveBackupFilePath = Path.Combine(macroFolderPath, DateTime.Now.ToString("HH時mm分ss秒") + "_" + Path.GetFileName(file));
+                            //コピーする
+                            File.Copy(file, autoSaveBackupFilePath);
+                        }
+                    }
+                    
                 }
 
                 /*
@@ -1561,12 +1660,12 @@ namespace NewTHL2
                 else
                 {
                     //スナップショット
-                    if(splitKey == "_SnapShot")
+                    if(splitKey == "SnapShot")
                     {
                         //ソースパスの設定
                         if ((Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") ||
                             (Thxx[select].ToString() == "th13") || (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th143") ||
-                            (Thxx[select].ToString() == "th15"))
+                             (Thxx[select].ToString() == "th15"))
                         {
                             if(File.Exists(trial))
                             {
@@ -1592,7 +1691,7 @@ namespace NewTHL2
                     } 
 
                     //リプレイ
-                    if(splitKey == "_Replay")
+                    if(splitKey == "Replay")
                     {
                         //ソースパスの設定
                         if ((Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") ||
@@ -1616,35 +1715,39 @@ namespace NewTHL2
                             {
                                 sourcePath = Path.Combine(FP_switch[select], "replay");
                             }
+                            else
+                            {
+                                sourcePath = Path.Combine(FP_switch[select], "replay");
+                            }
                         }
                     }
 
                     //ヒント
-                    if(splitKey == "_Hint")
+                    if(splitKey == "Hint")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "hint");
                     }
 
                     //プロフィール
-                    if(splitKey == "_Profile")
+                    if(splitKey == "Profile")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "profile");
                     }
 
                     //アイコン
-                    if(splitKey == "_Icon")
+                    if(splitKey == "Icon")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "icon");
                     }
 
                     //御首頂戴帳
-                    if(splitKey == "_Okubi")
+                    if(splitKey == "Okubi")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "御首頂戴帳");
                     }
 
                     //ベストショット
-                    if(splitKey == "_BestShot")
+                    if(splitKey == "BestShot")
                     {
                         if(Thxx[select].ToString() == "th125")
                         {
@@ -1665,6 +1768,12 @@ namespace NewTHL2
                         }
                     }
 
+                    //フォルダの存在や、バックアップパスの指定などをやってもらう
+                    algo.FileManage.backupManageandFolderCopy(sourcePath, settingIniValue[key]);
+
+                    #region 以前のやり方
+                    /*ここの仕組みを関数化
+
                     //ソースパスが存在するか？
                     if (Directory.Exists(sourcePath))
                     {
@@ -1675,7 +1784,7 @@ namespace NewTHL2
                     //バックアップフォルダがあるかどうか
                     if (Directory.Exists(backupFilePath))
                     {
-                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyyMM"));
+                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日"));
                     }
                     else if(backupFilePath != "")
                     {
@@ -1696,16 +1805,19 @@ namespace NewTHL2
                             backupFilePath = "";
                         }
                     }
+                    
                     //バックアップする
                     if (backupFilePath != "")
                     {
                         algo.FileManage.folderCopy(backupFilePath, sourcePath);
-                        return;
                     }
+                    */
+                    #endregion
                 }
                 #endregion
             }
         }
+
         
         //Vpatchの設定(GUI)
         private void vpatchの設定ToolStripMenuItem1_Click(object sender, EventArgs e)
