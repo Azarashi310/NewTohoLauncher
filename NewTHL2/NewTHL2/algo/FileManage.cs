@@ -64,6 +64,7 @@ namespace NewTHL2.algo
             string sourcePath = source;
             string backupPath = backup;
 
+
             //ソースパスが存在するか？
             if (Directory.Exists(sourcePath))
             {

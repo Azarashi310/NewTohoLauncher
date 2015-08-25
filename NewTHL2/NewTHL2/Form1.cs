@@ -1570,7 +1570,7 @@ namespace NewTHL2
                     }
                 }
                 #endregion
-
+                #region macro
                 //東方深秘録のマクロ
                 else if(splitKey == "Macro")
                 {
@@ -1603,39 +1603,6 @@ namespace NewTHL2
                             //自動セーブのフォルダパス
                             macroFolderPath = Path.Combine(backupFilePath,strArray[0]);
 
-
-                            /*
-                            //ファイルによって変える
-                            switch (strArray[0])
-                            {
-                                //霊夢
-                                case "save0":
-                                    {
-                                        //パスの結合
-                                        autoSaveFolderPath = Path.Combine(backupFilePath, "霊夢");
-                                        break;
-                                    }
-                                //魔理沙
-                                case "save1":
-                                    {
-                                        autoSaveFolderPath = Path.Combine(backupFilePath, "魔理沙");
-                                        break;
-                                    }
-                                //早苗
-                                case "save2":
-                                    {
-                                        autoSaveFolderPath = Path.Combine(backupFilePath, "早苗");
-                                        break;
-                                    }
-                                //優曇華
-                                case "save3":
-                                    {
-                                        autoSaveFolderPath = Path.Combine(backupFilePath, "優曇華");
-                                        break;
-                                    }
-                            }
-                             * */
-
                             //フォルダがなければ
                             if (!Directory.Exists(macroFolderPath))
                             {
@@ -1647,9 +1614,9 @@ namespace NewTHL2
                             File.Copy(file, autoSaveBackupFilePath);
                         }
                     }
-                    
-                }
 
+                }
+                #endregion
                 /*
                 * 
                 * 
@@ -1659,6 +1626,7 @@ namespace NewTHL2
                 #region フォルダ作成系
                 else
                 {
+                    #region snapshot
                     //スナップショット
                     if(splitKey == "SnapShot")
                     {
@@ -1687,9 +1655,10 @@ namespace NewTHL2
                         {
                             sourcePath = Path.Combine(FP_switch[select], "snapshot");
                         }
-                       
-                    } 
 
+                    }
+                    #endregion
+                    #region replay
                     //リプレイ
                     if(splitKey == "Replay")
                     {
@@ -1721,31 +1690,36 @@ namespace NewTHL2
                             }
                         }
                     }
-
+#endregion
+                    #region hint
                     //ヒント
                     if(splitKey == "Hint")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "hint");
                     }
-
+                    #endregion
+                    #region profile
                     //プロフィール
                     if(splitKey == "Profile")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "profile");
                     }
-
+                    #endregion
+                    #region icon
                     //アイコン
                     if(splitKey == "Icon")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "icon");
                     }
-
+                    #endregion
+                    #region okubi
                     //御首頂戴帳
                     if(splitKey == "Okubi")
                     {
                         sourcePath = Path.Combine(FP_switch[select], "御首頂戴帳");
                     }
-
+                    #endregion
+                    #region bestshot
                     //ベストショット
                     if(splitKey == "BestShot")
                     {
@@ -1767,10 +1741,9 @@ namespace NewTHL2
                             sourcePath = Path.Combine(FP_switch[select], "bestshot");
                         }
                     }
-
+                    #endregion
                     //フォルダの存在や、バックアップパスの指定などをやってもらう
                     algo.FileManage.backupManageandFolderCopy(sourcePath, settingIniValue[key]);
-
                     #region 以前のやり方
                     /*ここの仕組みを関数化
 
