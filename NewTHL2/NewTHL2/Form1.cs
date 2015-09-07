@@ -34,7 +34,7 @@ namespace NewTHL2
         [DllImport("kernel32.DLL",EntryPoint="GetPrivateProfileStringA")]
         public static extern uint GetPrivateProfileStringByByteArray(string lpAppName, string lpKeyName, string lpDefault, byte[] lpReturnedString, uint nSize, string lpFileName);
         #endregion
-        //作品用enum
+        //作品用enum（あくまで作品名を返す用）
         enum ThXXGames
         {
             alcostg, th06, th07, th075, th08, th09, th095, th10, th105, th11, th12, th123, th125, th128, th13, th135, th14, th143, th145, th15
@@ -42,6 +42,9 @@ namespace NewTHL2
         ThXXGames[] Thxx = new ThXXGames[20]
         {ThXXGames.alcostg,ThXXGames.th06,ThXXGames.th07,ThXXGames.th075,ThXXGames.th08,ThXXGames.th09,ThXXGames.th095,ThXXGames.th10,ThXXGames.th105,ThXXGames.th11,ThXXGames.th12,
          ThXXGames.th123,ThXXGames.th125,ThXXGames.th128,ThXXGames.th13,ThXXGames.th135,ThXXGames.th14,ThXXGames.th143,ThXXGames.th145,ThXXGames.th15};
+
+        //作品名から選択番号を取りたい場合
+        private Dictionary<string, int> thxxGamesNumbers = new Dictionary<string, int>();
 
         //選択時変更用画像
         //private Bitmap BMP = NewTHL2.Properties.Resources.PBG;
@@ -420,7 +423,10 @@ namespace NewTHL2
             string[] FilePath = new string[20];
             for (int i = 0; i < Thxx.Length; i++)
             {
+                //設定ファイルから参照
                 GetPrivateProfileString("FilePath", Thxx[i].ToString(), "", FP, Convert.ToUInt32(FP.Capacity), settingFilePath);
+                //ここでついでにthxxgamesNumbersに番号を入れておく
+                thxxGamesNumbers.Add(Thxx[i].ToString(), i);
                 FilePath[i] = FP.ToString();
                 if (File.Exists(FilePath[i]))
                 {
@@ -1311,12 +1317,35 @@ namespace NewTHL2
             //ゲームのバックアップ
             gamebackup();
             
+            if(Thxx[select].ToString() == "th123")
+            {
+                th123_Inisetting();
+            }
+
             //ゲームを起動する
             bool runBool = run(startEXE);
             if(runBool)
             {
                 this.Close();
             }
+        }
+
+        //非想天則のみの特殊設定
+        private void th123_Inisetting()
+        {
+            string configexFilePath = Path.Combine(FP_switch[select],"configex123.ini");
+            string th105FilePath = FP_switch[thxxGamesNumbers["th105"]];
+
+            Dictionary<string, string> iniContents = algo.IniFileValueReturn.getIniFileValue(configexFilePath);
+            //configex.iniにパスがないか、パスのディレクトリが存在しなければ
+            if ((iniContents["path"] == "") || (!Directory.Exists(iniContents["path"])))
+            {
+                iniContents["path"] = th105FilePath;
+                algo.IniFileValueWrite.IniFileWriter(iniContents, configexFilePath);
+                MessageBox.Show("非想天則においての、緋想天の引き継ぎのファイルパスを設定しました" + Environment.NewLine +
+                                    "変更したパス : " + FP_switch[thxxGamesNumbers["th105"]]);
+            }
+
         }
 
         //ゲームの起動
@@ -1376,7 +1405,7 @@ namespace NewTHL2
                     //score.dat　のみのもの
                     if ((Thxx[select].ToString() == "th06") || (Thxx[select].ToString() == "th07") || (Thxx[select].ToString() == "th07") || 
                         (Thxx[select].ToString() == "th08") || (Thxx[select].ToString() == "th09") || (Thxx[select].ToString() == "th105") ||
-                            (Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th135") || (Thxx[select].ToString() == "th145"))
+                        (Thxx[select].ToString() == "th135") || (Thxx[select].ToString() == "th145"))
 
                     {
                         sourcePath = Path.Combine(FP_switch[select], "score.dat");
@@ -1401,10 +1430,18 @@ namespace NewTHL2
                     //作品名 + score.dat の場合
                     else
                     {
-                        sourcePath = Path.Combine(FP_switch[select],Thxx[select] + "score.dat");
+                        //score123.datのようにthがないもの用
+                        if(Thxx[select].ToString() == "th123")
+                        {
+                            sourcePath = Path.Combine(FP_switch[select], "score" + Thxx[select].ToString().Remove(0,2) + ".dat");
+                        }
+                        else
+                        {
+                            sourcePath = Path.Combine(FP_switch[select], Thxx[select] + "score.dat");
+                        }
                     }
 
-                    //ソースパスはあるか？
+                    //ソースファイルはあるか？
                     if (File.Exists(sourcePath))
                     {
                         //バックアップパスを代入
@@ -1662,8 +1699,8 @@ namespace NewTHL2
                     //リプレイ
                     if(splitKey == "Replay")
                     {
-                        //ソースパスの設定
-                        if ((Thxx[select].ToString() == "th123") || (Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") ||
+                        //ソースパスの設定(ローミングの場合)
+                        if ((Thxx[select].ToString() == "th125") || (Thxx[select].ToString() == "th128") ||
                             (Thxx[select].ToString() == "th13") || (Thxx[select].ToString() == "th14") || (Thxx[select].ToString() == "th143") ||
                             (Thxx[select].ToString() == "th15"))
                         {
@@ -1678,6 +1715,7 @@ namespace NewTHL2
                                     "ShanghaiAlice", Thxx[select].ToString(), "replay");
                             }
                         }
+                        //ローミングではなくカレントの場合
                         else
                         {
                             if(File.Exists(trial))
