@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>thl.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -147,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\spana_click.png" />
+    <Content Include="thl.ico" />
     <None Include="Resources\spana.png" />
     <None Include="Resources\spana_32.png" />
     <None Include="Resources\hash.txt" />
