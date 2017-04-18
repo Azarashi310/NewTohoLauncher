@@ -36,6 +36,7 @@
             this.設定ファイルのエクスポートToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vpatchファイルのToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ファイルパスの設定の更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.タブを増やすToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ヘルプToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.困ったことがあったらToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -111,7 +112,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.rightPainIcon = new System.Windows.Forms.PictureBox();
             this.rightPain_BG = new System.Windows.Forms.PictureBox();
-            this.titleName = new System.Windows.Forms.Label();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.バックアップフォルダの設定ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ゲームの設定を開くToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,9 +124,9 @@
             this.adonisの設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.リプレイのユーザーデータ化ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.updaterの起動ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.titleName = new System.Windows.Forms.Label();
             this.vpatch_Toggle = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.タブを増やすToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -238,6 +238,13 @@
             this.ファイルパスの設定の更新ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.ファイルパスの設定の更新ToolStripMenuItem.Text = "設定ファイルの引き継ぎ";
             this.ファイルパスの設定の更新ToolStripMenuItem.Click += new System.EventHandler(this.ファイルパスの設定の更新ToolStripMenuItem_Click);
+            // 
+            // タブを増やすToolStripMenuItem
+            // 
+            this.タブを増やすToolStripMenuItem.Name = "タブを増やすToolStripMenuItem";
+            this.タブを増やすToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.タブを増やすToolStripMenuItem.Text = "タブを増やす";
+            this.タブを増やすToolStripMenuItem.Click += new System.EventHandler(this.タブを増やすToolStripMenuItem_Click);
             // 
             // ヘルプToolStripMenuItem
             // 
@@ -911,6 +918,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(345, 19);
             this.textBox1.TabIndex = 5;
+            this.textBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBox1_DragDrop);
+            this.textBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBox1_DragEnter);
             // 
             // rightPainIcon
             // 
@@ -932,17 +941,6 @@
             this.rightPain_BG.Size = new System.Drawing.Size(497, 545);
             this.rightPain_BG.TabIndex = 3;
             this.rightPain_BG.TabStop = false;
-            // 
-            // titleName
-            // 
-            this.titleName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.titleName.AutoSize = true;
-            this.titleName.Location = new System.Drawing.Point(451, 191);
-            this.titleName.Name = "titleName";
-            this.titleName.Size = new System.Drawing.Size(0, 12);
-            this.titleName.TabIndex = 9;
-            this.titleName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.titleName.Click += new System.EventHandler(this.titleName_Click);
             // 
             // contextMenuStrip2
             // 
@@ -1034,6 +1032,17 @@
             this.updaterの起動ToolStripMenuItem.Text = "Updaterの起動";
             this.updaterの起動ToolStripMenuItem.Click += new System.EventHandler(this.updaterの起動ToolStripMenuItem_Click);
             // 
+            // titleName
+            // 
+            this.titleName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.titleName.AutoSize = true;
+            this.titleName.Location = new System.Drawing.Point(451, 191);
+            this.titleName.Name = "titleName";
+            this.titleName.Size = new System.Drawing.Size(0, 12);
+            this.titleName.TabIndex = 9;
+            this.titleName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.titleName.Click += new System.EventHandler(this.titleName_Click);
+            // 
             // vpatch_Toggle
             // 
             this.vpatch_Toggle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -1057,13 +1066,6 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // タブを増やすToolStripMenuItem
-            // 
-            this.タブを増やすToolStripMenuItem.Name = "タブを増やすToolStripMenuItem";
-            this.タブを増やすToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.タブを増やすToolStripMenuItem.Text = "タブを増やす";
-            this.タブを増やすToolStripMenuItem.Click += new System.EventHandler(this.タブを増やすToolStripMenuItem_Click);
             // 
             // Form1
             // 

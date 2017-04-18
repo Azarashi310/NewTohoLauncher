@@ -49,11 +49,11 @@ namespace NewTHL2
         //選択時変更用画像
         //private Bitmap BMP = NewTHL2.Properties.Resources.PBG;
         //設定ファイル格納用フォルダパス
-        private const string settingFolderPath = @"resource";
+        private const string settingFolderPath = @"./resource";
         //設定用iniファイルパス
-        private const string settingFilePath = @"resource/settings.ini";
+        private const string settingFilePath = @"./resource/settings.ini";
         //ハッシュファイルパスs
-        private const string hashFilePath = @"resource/hash.ini";
+        private const string hashFilePath = @"./resource/hash.ini";
         //R/W用のエンコード
         public static Encoding sjis = Encoding.GetEncoding("Shift-JIS");
         //ファイルパスが通ってるかどうかの記憶
@@ -85,50 +85,46 @@ namespace NewTHL2
         private void Initialize()
         {
             //設定ファイル格納用フォルダと設定ファイルは存在するか？
-            if (Directory.Exists(settingFolderPath) & File.Exists(settingFilePath) & File.Exists(hashFilePath))
+            //フォルダが無ければ作る
+            if (!Directory.Exists(settingFolderPath))
             {
-                //ファイルパスが通ってるかどうかの設定です。
-                filePathInitialize();
-                //パネルの配色の初期化
-                panelColorInitialize();
-                //パネルのアイコンの初期化
-                panelIconInitialize();
+                //フォルダ作成
+                Directory.CreateDirectory(settingFolderPath);
+                //設定ファイル作成
+                File.Create(settingFilePath).Close();
+                //設定ファイルの中身を作成
+                StreamWriter SW = new StreamWriter(settingFilePath, true, sjis);
+                SW.Write(NewTHL2.Properties.Resources.setteingTemplate);
+                SW.Close();
+                MessageBox.Show("設定ファイル及びフォルダが無いため新たに作成しました。", "お知らせ");
             }
-            else
+            //設定ファイルがなければ作る
+            if (!File.Exists(settingFilePath))
             {
-                //フォルダが無ければ作る
-                if (!Directory.Exists(settingFilePath))
-                {
-                    //フォルダ作成
-                    Directory.CreateDirectory(settingFolderPath);
-                    //設定ファイル作成
-                    File.Create(settingFilePath).Close();
-                    //設定ファイルの中身を作成
-                    StreamWriter SW = new StreamWriter(settingFilePath, true, sjis);
-                    SW.Write(NewTHL2.Properties.Resources.setteingTemplate);
-                    SW.Close();
-                    MessageBox.Show("設定ファイル及びフォルダが無いため新たに作成しました。", "お知らせ");
-                }
-                //設定ファイルがなければ作る
-                if (!File.Exists(settingFilePath))
-                {
-                    File.Create(settingFilePath).Close();
-                    //設定ファイルの中身を作成
-                    StreamWriter SW = new StreamWriter(settingFilePath, true, sjis);
-                    SW.Write(NewTHL2.Properties.Resources.setteingTemplate);
-                    SW.Close();
-                    MessageBox.Show("設定ファイルがないため新たに作成しました。", "お知らせ");
-                }
-                //ハッシュファイルがなければつくる
-                if (!File.Exists(hashFilePath))
-                {
-                    File.Create(hashFilePath).Close();
-                    StreamWriter SW = new StreamWriter(hashFilePath, true, sjis);
-                    SW.Write(NewTHL2.Properties.Resources.hash);
-                    SW.Close();
-                    MessageBox.Show("ハッシュファイルを作成しました。", "お知らせ");
-                }
+                File.Create(settingFilePath).Close();
+                //設定ファイルの中身を作成
+                StreamWriter SW = new StreamWriter(settingFilePath, true, sjis);
+                SW.Write(NewTHL2.Properties.Resources.setteingTemplate);
+                SW.Close();
+                MessageBox.Show("設定ファイルがないため新たに作成しました。", "お知らせ");
             }
+            //ハッシュファイルがなければつくる
+            if (!File.Exists(hashFilePath))
+            {
+                File.Create(hashFilePath).Close();
+                StreamWriter SW = new StreamWriter(hashFilePath, true, sjis);
+                SW.Write(NewTHL2.Properties.Resources.hash);
+                SW.Close();
+                MessageBox.Show("ハッシュファイルを作成しました。", "お知らせ");
+            }
+
+
+            //ファイルパスが通ってるかどうかの設定です。
+            filePathInitialize();
+            //パネルの配色の初期化
+            panelColorInitialize();
+            //パネルのアイコンの初期化
+            panelIconInitialize();
             //押せるメニューの初期化
             gameSettingSelector();
         }
@@ -205,7 +201,74 @@ namespace NewTHL2
             #endregion
             pictureBox1.MouseDown += pictureBox1_MouseDown;
             pictureBox1.MouseUp += pictureBox1_MouseUp;
+            //D&D許可
+            textBox1.AllowDrop = true;
+            //D&D処理
+            textBox1.DragEnter += textBox1_DragEnter;
+            textBox1.DragDrop += textBox1_DragDrop;
         }
+
+        //D&Dに入る処理
+        void textBox1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.All;
+        }
+        //ドロップ完了処理
+        void textBox1_DragDrop(object sender, DragEventArgs e)
+        {
+            //ファイルが渡されていない場合
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                return;
+            }
+            else
+            {
+                StringBuilder THhash = new StringBuilder(1024);
+                string[] THEXE;
+                string thexeName;
+                foreach(var FilePath in (string[])e.Data.GetData(DataFormats.FileDrop))
+                {
+                    //ハッシュ値の取得
+                    GetPrivateProfileString("HASH", Thxx[select].ToString(), "", THhash, Convert.ToUInt32(THhash.Capacity), hashFilePath);
+                    //検索するEXEファイルの種別
+                    if(Thxx[select].ToString() == "th06")
+                    {
+                        thexeName = "東方紅魔郷.exe";
+                    }
+                    else
+                    {
+                        thexeName = Thxx[select].ToString() + ".exe";
+                    }
+                    //exeファイルを掘削して検索
+                    THEXE = System.IO.Directory.GetFiles(FilePath, thexeName, SearchOption.AllDirectories);
+                    foreach(string exes in THEXE)
+                    {
+                        bool flag = NewTHL2.algo.Hash.compairMD5(exes, THhash.ToString());
+                        //ファイルが正しかった場合
+                        if(flag)
+                        {
+                            FileInfo Finfo = new FileInfo(exes);
+                            DirectoryInfo Dinfo = Finfo.Directory;
+                            textBox1.Text = Dinfo.FullName;
+
+                            //iniファイルに書き込み
+                            WritePrivateProfileString("FilePath", Thxx[select].ToString(), Dinfo.FullName, settingFilePath);
+
+                            //新規追加した場合には初期化式を走らせる
+                            //ファイルパスが通ってるかどうかの設定です。
+                            filePathInitialize();
+                            //パネルの配色の初期化
+                            panelColorInitialize();
+                            //パネルのアイコンの初期化
+                            panelIconInitialize();
+
+                        }
+                    }
+
+                }
+            }
+        }
+
         #region 初期化
         //パネルのアイコンの初期化
         private void panelIconInitialize()
@@ -1978,12 +2041,15 @@ namespace NewTHL2
             MessageBox.Show("東方が全部（一部でも可）入っているであろうフォルダを選択してください。" + Environment.NewLine + "時間がそこそこかかります。", "お知らせ");
             //ファイルパスの取得
             FP = algo.OFDandSFD.FBD_Run();
-            DL = Path.GetPathRoot(FP);
             //キャンセル処理（ここまずいのであとで変える）
-            if(FP == @"C:\Windows")
+            if (FP == "")
             {
-                MessageBox.Show("キャンセルされました","お知らせ");
+                MessageBox.Show("キャンセルされました", "お知らせ");
                 return;
+            }
+            else
+            {
+                DL = Path.GetPathRoot(FP);
             }
             //ルートドライブを指定されてしまった場合
             if(FP == DL)

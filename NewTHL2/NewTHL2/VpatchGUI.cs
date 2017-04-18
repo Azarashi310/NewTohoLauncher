@@ -291,7 +291,7 @@ namespace NewTHL2
             ReplaySkipFPS_Text.Text = vpatchValues["ReplaySkipFPS"].ToString();
 
             //ReplaySlowFPS
-            ReplaySlowFPS.Text = vpatchValues["ReplaySlowFPS"].ToString();
+            ReplaySlowFPS_Text.Text = vpatchValues["ReplaySlowFPS"].ToString();
 
             //描画設定
             if(vpatchValues["CalcFPS"] == "1")

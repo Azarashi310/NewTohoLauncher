@@ -76,8 +76,8 @@
             this.FPSControlOff = new System.Windows.Forms.RadioButton();
             this.FPSControlOn = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ReplaySlowFPS = new System.Windows.Forms.TextBox();
-            this.ReplaySlowFPS_Text = new System.Windows.Forms.Label();
+            this.ReplaySlowFPS_Text = new System.Windows.Forms.TextBox();
+            this.ReplaySlowFPS = new System.Windows.Forms.Label();
             this.ReplaySkipFPS_Text = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.GameFPS_Text = new System.Windows.Forms.TextBox();
@@ -676,8 +676,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.ReplaySlowFPS);
             this.groupBox3.Controls.Add(this.ReplaySlowFPS_Text);
+            this.groupBox3.Controls.Add(this.ReplaySlowFPS);
             this.groupBox3.Controls.Add(this.ReplaySkipFPS_Text);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.GameFPS_Text);
@@ -690,22 +690,22 @@
             this.groupBox3.Text = "FPS設定";
             this.toolTip1.SetToolTip(this.groupBox3, "ゲームのFPSの値を変更できます。\r\n\r\nただし、Vsyncの設定が リフレッシュレートに合わせる　以外\r\nの場合のみ有効になります。");
             // 
-            // ReplaySlowFPS
-            // 
-            this.ReplaySlowFPS.Location = new System.Drawing.Point(112, 92);
-            this.ReplaySlowFPS.Name = "ReplaySlowFPS";
-            this.ReplaySlowFPS.Size = new System.Drawing.Size(122, 19);
-            this.ReplaySlowFPS.TabIndex = 5;
-            this.ReplaySlowFPS.TextChanged += new System.EventHandler(this.ReplaySlowFPS_TextChanged);
-            // 
             // ReplaySlowFPS_Text
             // 
-            this.ReplaySlowFPS_Text.AutoSize = true;
-            this.ReplaySlowFPS_Text.Location = new System.Drawing.Point(11, 95);
+            this.ReplaySlowFPS_Text.Location = new System.Drawing.Point(112, 92);
             this.ReplaySlowFPS_Text.Name = "ReplaySlowFPS_Text";
-            this.ReplaySlowFPS_Text.Size = new System.Drawing.Size(85, 12);
-            this.ReplaySlowFPS_Text.TabIndex = 4;
-            this.ReplaySlowFPS_Text.Text = "ReplaySlowFPS";
+            this.ReplaySlowFPS_Text.Size = new System.Drawing.Size(122, 19);
+            this.ReplaySlowFPS_Text.TabIndex = 5;
+            this.ReplaySlowFPS_Text.TextChanged += new System.EventHandler(this.ReplaySlowFPS_TextChanged);
+            // 
+            // ReplaySlowFPS
+            // 
+            this.ReplaySlowFPS.AutoSize = true;
+            this.ReplaySlowFPS.Location = new System.Drawing.Point(11, 95);
+            this.ReplaySlowFPS.Name = "ReplaySlowFPS";
+            this.ReplaySlowFPS.Size = new System.Drawing.Size(85, 12);
+            this.ReplaySlowFPS.TabIndex = 4;
+            this.ReplaySlowFPS.Text = "ReplaySlowFPS";
             // 
             // ReplaySkipFPS_Text
             // 
@@ -1114,8 +1114,8 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox FPS値を独自方法で計算します;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox ReplaySlowFPS;
-        private System.Windows.Forms.Label ReplaySlowFPS_Text;
+        private System.Windows.Forms.TextBox ReplaySlowFPS_Text;
+        private System.Windows.Forms.Label ReplaySlowFPS;
         private System.Windows.Forms.CheckBox AlwaysBlt_CheckBox;
         private System.Windows.Forms.CheckBox BugFixTh12Shadow_Checkbox;
         private System.Windows.Forms.CheckBox BugFixTh10Power;
