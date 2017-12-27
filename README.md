@@ -81,6 +81,10 @@ VaptchのGUI化に関しては本人様の許可を頂いております。
 
 東方紺珠伝 ～ Legacy of Lunatic Kingdom.
 
+東方天空璋　～ Hidden Star in Four Seasons.
+
+東方憑依華　～ Antinomy of Common Flowers.　に関しては、2017/12/29以降対応
+
 黄昏酒場　～ Uwabami Breakers ～
 
 ##Adonis
@@ -100,6 +104,10 @@ ipアドレスやポート番号などを指定しておくと、CUIでの打ち
 今んとこ作り直してるんで
 
 再実装中の機能が多いです
+
+2017/12/28
+現行最新作まで対応。
+バグ修正
 
 ##License (MITLicense)
 
