@@ -84,6 +84,9 @@
             this.th15_P = new System.Windows.Forms.Panel();
             this.th15_L = new System.Windows.Forms.Label();
             this.th15_I = new System.Windows.Forms.PictureBox();
+            this.th16_P = new System.Windows.Forms.Panel();
+            this.th16_L = new System.Windows.Forms.Label();
+            this.th16_I = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.alcostg_P = new System.Windows.Forms.Panel();
@@ -159,6 +162,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.th143_I)).BeginInit();
             this.th15_P.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th15_I)).BeginInit();
+            this.th16_P.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.th16_I)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.alcostg_P.SuspendLayout();
@@ -209,41 +214,42 @@
             // 一括登録ToolStripMenuItem
             // 
             this.一括登録ToolStripMenuItem.Name = "一括登録ToolStripMenuItem";
-            this.一括登録ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.一括登録ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.一括登録ToolStripMenuItem.Text = "一括登録";
             this.一括登録ToolStripMenuItem.Click += new System.EventHandler(this.一括登録ToolStripMenuItem_Click);
             // 
             // 設定ファイルのインポートToolStripMenuItem
             // 
             this.設定ファイルのインポートToolStripMenuItem.Name = "設定ファイルのインポートToolStripMenuItem";
-            this.設定ファイルのインポートToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.設定ファイルのインポートToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.設定ファイルのインポートToolStripMenuItem.Text = "設定ファイルのインポート";
             // 
             // 設定ファイルのエクスポートToolStripMenuItem
             // 
             this.設定ファイルのエクスポートToolStripMenuItem.Name = "設定ファイルのエクスポートToolStripMenuItem";
-            this.設定ファイルのエクスポートToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.設定ファイルのエクスポートToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.設定ファイルのエクスポートToolStripMenuItem.Text = "設定ファイルのエクスポート";
             // 
             // vpatchファイルのToolStripMenuItem
             // 
             this.vpatchファイルのToolStripMenuItem.Name = "vpatchファイルのToolStripMenuItem";
-            this.vpatchファイルのToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.vpatchファイルのToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.vpatchファイルのToolStripMenuItem.Text = "Vpatchファイルの初期化";
             this.vpatchファイルのToolStripMenuItem.Click += new System.EventHandler(this.vpatchファイルのToolStripMenuItem_Click);
             // 
             // ファイルパスの設定の更新ToolStripMenuItem
             // 
             this.ファイルパスの設定の更新ToolStripMenuItem.Name = "ファイルパスの設定の更新ToolStripMenuItem";
-            this.ファイルパスの設定の更新ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.ファイルパスの設定の更新ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.ファイルパスの設定の更新ToolStripMenuItem.Text = "設定ファイルの引き継ぎ";
             this.ファイルパスの設定の更新ToolStripMenuItem.Click += new System.EventHandler(this.ファイルパスの設定の更新ToolStripMenuItem_Click);
             // 
             // タブを増やすToolStripMenuItem
             // 
+            this.タブを増やすToolStripMenuItem.Enabled = false;
             this.タブを増やすToolStripMenuItem.Name = "タブを増やすToolStripMenuItem";
-            this.タブを増やすToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.タブを増やすToolStripMenuItem.Text = "タブを増やす";
+            this.タブを増やすToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.タブを増やすToolStripMenuItem.Text = "タブを増やす（今後追加機能）";
             this.タブを増やすToolStripMenuItem.Click += new System.EventHandler(this.タブを増やすToolStripMenuItem_Click);
             // 
             // ヘルプToolStripMenuItem
@@ -303,10 +309,11 @@
             this.flowLayoutPanel1.Controls.Add(this.th14_P);
             this.flowLayoutPanel1.Controls.Add(this.th143_P);
             this.flowLayoutPanel1.Controls.Add(this.th15_P);
+            this.flowLayoutPanel1.Controls.Add(this.th16_P);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(-3, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(266, 1215);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(266, 1296);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // th06_P
@@ -675,6 +682,33 @@
             this.th15_I.Size = new System.Drawing.Size(64, 64);
             this.th15_I.TabIndex = 0;
             this.th15_I.TabStop = false;
+            // 
+            // th16_P
+            // 
+            this.th16_P.Controls.Add(this.th16_L);
+            this.th16_P.Controls.Add(this.th16_I);
+            this.th16_P.Location = new System.Drawing.Point(3, 1207);
+            this.th16_P.Name = "th16_P";
+            this.th16_P.Size = new System.Drawing.Size(260, 80);
+            this.th16_P.TabIndex = 10;
+            // 
+            // th16_L
+            // 
+            this.th16_L.AutoSize = true;
+            this.th16_L.Location = new System.Drawing.Point(74, 28);
+            this.th16_L.Name = "th16_L";
+            this.th16_L.Size = new System.Drawing.Size(170, 24);
+            this.th16_L.TabIndex = 2;
+            this.th16_L.Text = "東方天空璋\r\n～ Hidden Star in Four Seasons.";
+            this.th16_L.Click += new System.EventHandler(this.th16_L_Click);
+            // 
+            // th16_I
+            // 
+            this.th16_I.Location = new System.Drawing.Point(4, 7);
+            this.th16_I.Name = "th16_I";
+            this.th16_I.Size = new System.Drawing.Size(64, 64);
+            this.th16_I.TabIndex = 0;
+            this.th16_I.TabStop = false;
             // 
             // tabPage2
             // 
@@ -1135,6 +1169,9 @@
             this.th15_P.ResumeLayout(false);
             this.th15_P.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.th15_I)).EndInit();
+            this.th16_P.ResumeLayout(false);
+            this.th16_P.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.th16_I)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.alcostg_P.ResumeLayout(false);
@@ -1267,6 +1304,9 @@
         private System.Windows.Forms.ToolStripMenuItem ファイルパスの設定の更新ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem セーブデータ等の場所を開くth125以降ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem タブを増やすToolStripMenuItem;
+        private System.Windows.Forms.Panel th16_P;
+        private System.Windows.Forms.Label th16_L;
+        private System.Windows.Forms.PictureBox th16_I;
     }
 }
 

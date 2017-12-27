@@ -37,11 +37,11 @@ namespace NewTHL2
         //作品用enum（あくまで作品名を返す用）
         enum ThXXGames
         {
-            alcostg, th06, th07, th075, th08, th09, th095, th10, th105, th11, th12, th123, th125, th128, th13, th135, th14, th143, th145, th15
+            alcostg, th06, th07, th075, th08, th09, th095, th10, th105, th11, th12, th123, th125, th128, th13, th135, th14, th143, th145, th15, th16
         }
-        ThXXGames[] Thxx = new ThXXGames[20]
+        ThXXGames[] Thxx = new ThXXGames[21]
         {ThXXGames.alcostg,ThXXGames.th06,ThXXGames.th07,ThXXGames.th075,ThXXGames.th08,ThXXGames.th09,ThXXGames.th095,ThXXGames.th10,ThXXGames.th105,ThXXGames.th11,ThXXGames.th12,
-         ThXXGames.th123,ThXXGames.th125,ThXXGames.th128,ThXXGames.th13,ThXXGames.th135,ThXXGames.th14,ThXXGames.th143,ThXXGames.th145,ThXXGames.th15};
+         ThXXGames.th123,ThXXGames.th125,ThXXGames.th128,ThXXGames.th13,ThXXGames.th135,ThXXGames.th14,ThXXGames.th143,ThXXGames.th145,ThXXGames.th15,ThXXGames.th16};
 
         //作品名から選択番号を取りたい場合
         private Dictionary<string, int> thxxGamesNumbers = new Dictionary<string, int>();
@@ -57,7 +57,7 @@ namespace NewTHL2
         //R/W用のエンコード
         public static Encoding sjis = Encoding.GetEncoding("Shift-JIS");
         //ファイルパスが通ってるかどうかの記憶
-        private string[] FP_switch = new string[20];
+        private string[] FP_switch = new string[21];
         //今選択しているもの
         private int select = 999;
 
@@ -153,6 +153,7 @@ namespace NewTHL2
             th143_P.Click += gamePanel_Click;
             th145_P.Click += gamePanel_Click;
             th15_P.Click += gamePanel_Click;
+            th16_P.Click += gamePanel_Click;
             alcostg_P.Click += gamePanel_Click;
             #endregion
             #region ラベルクリックハンドラ
@@ -175,6 +176,7 @@ namespace NewTHL2
             th143_L.Click += gamePanel_Click;
             th145_L.Click += gamePanel_Click;
             th15_L.Click += gamePanel_Click;
+            th16_L.Click += gamePanel_Click;
             alcostg_L.Click += gamePanel_Click;
             #endregion
             #region イメージクリックハンドラ
@@ -197,6 +199,7 @@ namespace NewTHL2
             th143_I.Click += gamePanel_Click;
             th145_I.Click += gamePanel_Click;
             th15_I.Click += gamePanel_Click;
+            th16_I.Click += gamePanel_Click;
             alcostg_I.Click += gamePanel_Click;
             #endregion
             pictureBox1.MouseDown += pictureBox1_MouseDown;
@@ -475,6 +478,15 @@ namespace NewTHL2
                             }
                             break;
                         }
+                    case 20:
+                        {
+                            EXE = thxx_EXE(FP_switch[i].ToString(), i);
+                            if (File.Exists(EXE))
+                            {
+                                th16_I.Image = algo.GetIcon.returnPanelIcon(EXE, th16_I.Width, th16_I.Height);
+                            }
+                            break;
+                        }
                 }
             }
         }
@@ -483,7 +495,7 @@ namespace NewTHL2
         private void filePathInitialize()
         {
             StringBuilder FP = new StringBuilder(1024);
-            string[] FilePath = new string[20];
+            string[] FilePath = new string[21];
             for (int i = 0; i < Thxx.Length; i++)
             {
                 //設定ファイルから参照
@@ -748,6 +760,18 @@ namespace NewTHL2
                             else
                             {
                                 th15_P.BackColor = Color.LightGray;
+                            }
+                            break;
+                        }
+                    case 20:
+                        {
+                            if (Directory.Exists(FP_switch[i]))
+                            {
+                                th16_P.BackColor = Color.Transparent;
+                            }
+                            else
+                            {
+                                th16_P.BackColor = Color.LightGray;
                             }
                             break;
                         }
@@ -1033,6 +1057,18 @@ namespace NewTHL2
                     rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
                 }
             }
+            if (sender.Equals(th16_P) | sender.Equals(th16_L) | sender.Equals(th16_I))
+            {
+                titleName.Text = th16_L.Text;
+                th16_P.BackColor = Color.LightPink;
+                select = 20;
+                textBox1.Text = FP_switch[select].ToString();
+                EXE = thxx_EXE(FP_switch[select].ToString(), select);
+                if (File.Exists(EXE))
+                {
+                    rightPainIcon.Image = algo.GetIcon.returnRightPainIcon(EXE, rightPainIcon.Width, rightPainIcon.Height);
+                }
+            }
 
             //Vpatchのチェックボックスの設定
             if((Thxx[select].ToString() == "th06") || (Thxx[select].ToString() == "th07") || (Thxx[select].ToString() == "th08") || (Thxx[select].ToString() == "th09")
@@ -1262,7 +1298,7 @@ namespace NewTHL2
             }
             //Vpatchの設定
             if ((Thxx[select].ToString() == "th075") | (Thxx[select].ToString() == "th105")|(Thxx[select].ToString() == "th123") | (Thxx[select].ToString() == "th135")|
-                (Thxx[select].ToString() == "th14") | (Thxx[select].ToString() == "th143") | (Thxx[select].ToString() == "th145") |(Thxx[select].ToString() == "th15"))
+                (Thxx[select].ToString() == "th14") | (Thxx[select].ToString() == "th143") | (Thxx[select].ToString() == "th145") | (Thxx[select].ToString() == "th15") | (Thxx[select].ToString() == "th16"))
             {
                 vpatchの設定ToolStripMenuItem1.Visible = false;
                 vpatchの設定ToolStripMenuItem1.Enabled = false;
@@ -1308,7 +1344,7 @@ namespace NewTHL2
             }
             //セーブデータが特殊な場所のやつ
             if((Thxx[select].ToString() == "th125")||(Thxx[select].ToString() == "th128")||(Thxx[select].ToString() == "th13")||(Thxx[select].ToString() == "th14")
-                ||(Thxx[select].ToString() == "th143")||(Thxx[select].ToString() == "th15"))
+                || (Thxx[select].ToString() == "th143") || (Thxx[select].ToString() == "th15") || (Thxx[select].ToString() == "th16"))
             {
                 セーブデータ等の場所を開くth125以降ToolStripMenuItem.Visible = true;
                 セーブデータ等の場所を開くth125以降ToolStripMenuItem.Enabled = true;
@@ -1351,6 +1387,11 @@ namespace NewTHL2
         //Vpatchを使うかどうかのチェックボックス
         private void vpatch_Toggle_CheckedChanged(object sender, EventArgs e)
         {
+            if (textBox1.Text == "")
+            {
+                vpatch_Toggle.Checked = false;
+                return;
+            }
             Dictionary<string, string> runVpatch = new Dictionary<string, string>();
             if(vpatch_Toggle.Checked)
             {
@@ -1374,7 +1415,15 @@ namespace NewTHL2
             }
             else
             {
-                startEXE = thxx_EXE(textBox1.Text, select);
+                if (textBox1.Text == "")
+                {
+                    MessageBox.Show("何かゲームを選択してから押してください。", "お知らせ");
+                    return;
+                }
+                else
+                {
+                    startEXE = thxx_EXE(textBox1.Text, select);
+                }
             }
             
             //ゲームのバックアップ
@@ -1522,34 +1571,12 @@ namespace NewTHL2
                     }
                     else
                     {
-                        backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
                         if(backupFilePath != "")
                         {
+                            backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
                             //ファイルをバックアップ
                             File.Copy(sourcePath, backupFilePath);
-                        }
-                        #region 以前のコード
-                        /*
-                        DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
-                                "設定しているパス : " + backupFilePath + Environment.NewLine +
-                                "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
-                        if (DialogResult == DialogResult.Yes)
-                        {
-                            //フォルダの作成
-                            algo.FileManage.folderCreate(backupFilePath);
-                            MessageBox.Show("作成しました", "お知らせ");
-                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日") + "_" + DateTime.Now.TimeOfDay.ToString("HH時mm分ss秒") + "_" + 
-                                Path.GetFileName(sourcePath));
-                        }
-                        else
-                        {
-                            MessageBox.Show("フォルダを作成しませんでした。" + Environment.NewLine +
-                                "後ほど、ランチャーからバックアップフォルダパスを再設定してください", "お知らせ");
-                            //フォルダを作成しなかった為、バックアップフォルダを初期化させる
-                            backupFilePath = "";
-                        }
-                        */
-                        #endregion
+                        }                        
                     }
                 }
                 #endregion
@@ -1578,36 +1605,8 @@ namespace NewTHL2
                         //バックアップパスを代入
                         backupFilePath = settingIniValue[key];
                         //バックアップフォルダの確認
-                        backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
-
-                        #region 以前のコード
-                        if (Directory.Exists(backupFilePath))
-                        {
-                            //フォルダでは年月日のスタンプ
-                            backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日"));
-                        }
-                        else
-                        {
-                            /*
-                            DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
-                            "設定しているパス : " + backupFilePath + Environment.NewLine +
-                            "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
-                            if (DialogResult == DialogResult.Yes)
-                            {
-                                //フォルダの作成
-                                algo.FileManage.folderCreate(backupFilePath);
-                                MessageBox.Show("作成しました", "お知らせ");
-                            }
-                            else
-                            {
-                                MessageBox.Show("フォルダを作成しませんでした。" + Environment.NewLine +
-                                    "後ほど、ランチャーからバックアップフォルダパスを再設定してください", "お知らせ");
-                                //フォルダを作成しなかった為、バックアップフォルダを初期化させる
-                                backupFilePath = "";
-                            }
-                            */
-                        }
-                            #endregion
+                        if (backupFilePath != "") backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
+                        else return;
 
                         //ソースフォルダのファイル一覧を取得
                         string[] files = Directory.GetFiles(sourcePath, "*", SearchOption.AllDirectories);
@@ -1683,7 +1682,8 @@ namespace NewTHL2
                         //バックアップフォルダの取得
                         backupFilePath = settingIniValue[key];
                         //存在の確認
-                        backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
+                        if (backupFilePath != "") backupFilePath = algo.FileManage.backupFolderCheck(backupFilePath);
+                        else return;
 
                         //ソースフォルダのファイル一覧を取得
                         string[] files = Directory.GetFiles(sourcePath, "*", SearchOption.AllDirectories);
@@ -1844,49 +1844,8 @@ namespace NewTHL2
                     }
                     #endregion
                     //フォルダの存在や、バックアップパスの指定などをやってもらう
-                    algo.FileManage.backupManageandFolderCopy(sourcePath, settingIniValue[key]);
-                    #region 以前のやり方
-                    /*ここの仕組みを関数化
-
-                    //ソースパスが存在するか？
-                    if (Directory.Exists(sourcePath))
-                    {
-                        //バックアップパスを代入
-                        backupFilePath = settingIniValue[key];
-                    }
-
-                    //バックアップフォルダがあるかどうか
-                    if (Directory.Exists(backupFilePath))
-                    {
-                        backupFilePath = Path.Combine(backupFilePath, DateTime.Now.ToString("yyyy年MM月dd日"));
-                    }
-                    else if(backupFilePath != "")
-                    {
-                        DialogResult = MessageBox.Show("バックアップフォルダが存在しません" + Environment.NewLine +
-                            "設定しているパス : " + backupFilePath + Environment.NewLine +
-                            "フォルダを作成しますか？", "お知らせ", MessageBoxButtons.YesNo);
-                        if (DialogResult == DialogResult.Yes)
-                        {
-                            //フォルダの作成
-                            algo.FileManage.folderCreate(backupFilePath);
-                            MessageBox.Show("作成しました", "お知らせ");
-                        }
-                        else
-                        {
-                            MessageBox.Show("フォルダを作成しませんでした。" + Environment.NewLine +
-                                "後ほど、ランチャーからバックアップフォルダパスを再設定してください", "お知らせ");
-                            //フォルダを作成しなかった為、バックアップフォルダを初期化させる
-                            backupFilePath = "";
-                        }
-                    }
-                    
-                    //バックアップする
-                    if (backupFilePath != "")
-                    {
-                        algo.FileManage.folderCopy(backupFilePath, sourcePath);
-                    }
-                    */
-                    #endregion
+                    if (settingIniValue[key] != "") algo.FileManage.backupManageandFolderCopy(sourcePath, settingIniValue[key]);
+                    else return;
                 }
                 #endregion
             }
@@ -2235,6 +2194,11 @@ namespace NewTHL2
         private void タブを増やすToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void th16_L_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
