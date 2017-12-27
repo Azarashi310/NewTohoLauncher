@@ -57,9 +57,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(94, 98);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 12);
+            this.label1.Size = new System.Drawing.Size(98, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "NewTHL Ver 1.5.0";
+            this.label1.Text = "NewTHL Rev 3.0.4";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 

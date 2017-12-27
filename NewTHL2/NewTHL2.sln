@@ -5,11 +5,6 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewTHL2", "NewTHL2\NewTHL2.csproj", "{7B982E72-B01C-405D-9BB6-FE9E6EA4814C}"
 EndProject
-Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "thlPack", "thlPack\thlPack.isproj", "{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7B982E72-B01C-405D-9BB6-FE9E6EA4814C} = {7B982E72-B01C-405D-9BB6-FE9E6EA4814C}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -29,16 +24,6 @@ Global
 		{7B982E72-B01C-405D-9BB6-FE9E6EA4814C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B982E72-B01C-405D-9BB6-FE9E6EA4814C}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{7B982E72-B01C-405D-9BB6-FE9E6EA4814C}.SingleImage|Any CPU.Build.0 = Release|Any CPU
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.CD_ROM|Any CPU.Build.0 = CD_ROM
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.Debug|Any CPU.ActiveCfg = DVD-5
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.Debug|Any CPU.Build.0 = DVD-5
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.DVD-5|Any CPU.ActiveCfg = DVD-5
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.DVD-5|Any CPU.Build.0 = DVD-5
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.Release|Any CPU.ActiveCfg = SingleImage
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.Release|Any CPU.Build.0 = SingleImage
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.SingleImage|Any CPU.ActiveCfg = SingleImage
-		{E0D4B44E-DD2C-4F7C-BB5F-5606DD1D7702}.SingleImage|Any CPU.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
